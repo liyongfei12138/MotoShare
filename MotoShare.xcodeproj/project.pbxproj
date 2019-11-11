@@ -62,7 +62,7 @@
 		4BCAA0436859B5372895A100 /* Pods-FoodRecipe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodRecipe.debug.xcconfig"; path = "Target Support Files/Pods-FoodRecipe/Pods-FoodRecipe.debug.xcconfig"; sourceTree = "<group>"; };
 		58E610E719334776F82825DC /* Pods-MotoShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotoShare.debug.xcconfig"; path = "Target Support Files/Pods-MotoShare/Pods-MotoShare.debug.xcconfig"; sourceTree = "<group>"; };
 		84D0AFB163E213BB2C654492 /* Pods-FoodRecipe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodRecipe.release.xcconfig"; path = "Target Support Files/Pods-FoodRecipe/Pods-FoodRecipe.release.xcconfig"; sourceTree = "<group>"; };
-		D7AF4CE02367D84B009957D4 /* MotoShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotoShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7AF4CE02367D84B009957D4 /* 摩滴共享.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "摩滴共享.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7AF4CE32367D84B009957D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7AF4CEA2367D84B009957D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D7AF4CEC2367D84D009957D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 		D7AF4CE12367D84B009957D4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D7AF4CE02367D84B009957D4 /* MotoShare.app */,
+				D7AF4CE02367D84B009957D4 /* 摩滴共享.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -354,7 +354,7 @@
 			);
 			name = MotoShare;
 			productName = FoodRecipe;
-			productReference = D7AF4CE02367D84B009957D4 /* MotoShare.app */;
+			productReference = D7AF4CE02367D84B009957D4 /* 摩滴共享.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -639,8 +639,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bjd.product.MotoShare;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.motoshare.moto;
+				PRODUCT_NAME = "摩滴共享";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -661,8 +661,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bjd.product.MotoShare;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.motoshare.moto;
+				PRODUCT_NAME = "摩滴共享";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
