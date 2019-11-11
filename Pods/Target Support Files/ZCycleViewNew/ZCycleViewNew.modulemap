@@ -1,0 +1,6 @@
+framework module ZCycleViewNew {
+  umbrella header "ZCycleViewNew-umbrella.h"
+
+  export *
+  module * { export * }
+}
