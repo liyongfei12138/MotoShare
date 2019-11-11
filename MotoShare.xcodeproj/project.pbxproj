@@ -53,7 +53,6 @@
 		D7BFBCB1236C416D00220CC5 /* HomeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BFBCB0236C416D00220CC5 /* HomeListModel.swift */; };
 		D7BFBCB8236FDCB300220CC5 /* HomeMainListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BFBCB7236FDCB300220CC5 /* HomeMainListView.swift */; };
 		D7BFBCBA236FE9D600220CC5 /* FoundDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BFBCB9236FE9D600220CC5 /* FoundDetailViewController.swift */; };
-		D7BFBCBD23702DA500220CC5 /* HomeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BFBCBC23702DA500220CC5 /* HomeSearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,7 +108,6 @@
 		D7BFBCB0236C416D00220CC5 /* HomeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListModel.swift; sourceTree = "<group>"; };
 		D7BFBCB7236FDCB300220CC5 /* HomeMainListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainListView.swift; sourceTree = "<group>"; };
 		D7BFBCB9236FE9D600220CC5 /* FoundDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundDetailViewController.swift; sourceTree = "<group>"; };
-		D7BFBCBC23702DA500220CC5 /* HomeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,7 +317,6 @@
 		D7BFBCBB23702D7E00220CC5 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				D7BFBCBC23702DA500220CC5 /* HomeSearchViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -486,7 +483,6 @@
 				D7AF4D392367D9D7009957D4 /* UIViewHUDExtension.swift in Sources */,
 				D7AF4D622369A21A009957D4 /* HomeModel.swift in Sources */,
 				D7AF4D362367D9D7009957D4 /* ClassName.swift in Sources */,
-				D7BFBCBD23702DA500220CC5 /* HomeSearchViewController.swift in Sources */,
 				D7AF4D342367D9D7009957D4 /* GLAppInfo.swift in Sources */,
 				D7AF4D2F2367D9D7009957D4 /* BaseNavigationController.swift in Sources */,
 				D7AF4D302367D9D7009957D4 /* BaseView.swift in Sources */,
