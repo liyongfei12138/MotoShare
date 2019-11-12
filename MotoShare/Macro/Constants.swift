@@ -43,7 +43,7 @@ public let GL_iPhone_X: Bool       =   (SCREEN_WIDTH == 375 && SCREEN_HEIGHT == 
 public let GL_iPhone_X_Max: Bool   =   (SCREEN_WIDTH == 414 && SCREEN_HEIGHT == 896)   // iPhone XR,   iPhone XS Max
 
 // 颜色相关
-public let ColorTheme: UIColor          =   ColorLightRed // 主题颜色
+public let ColorTheme: UIColor          =   #colorLiteral(red: 0.01573721319, green: 0.5547131896, blue: 0.974116981, alpha: 1) // 主题颜色
 public let ColorTabBar: UIColor         =   #colorLiteral(red: 0.1215686275, green: 0.1215686275, blue: 0.1215686275, alpha: 1)   // 0x393B42 控制器背景色
 public let ColorBlack: UIColor          =   #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)   // 0x000000 tabbar背景颜色
 public let ColorAlertBG: UIColor        =   #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.4)   // 0x000000 alpha: 0.4 弹框背景色

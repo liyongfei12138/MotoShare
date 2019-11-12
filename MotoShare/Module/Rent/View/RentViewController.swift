@@ -35,37 +35,7 @@ class RentViewController: BaseViewController {
         super.viewDidLoad()
 
         self.view.backgroundColor = ColorWhite
-        
-        configPageView()
     }
     
-    func configPageView() {
 
-        let titles = [" 出租", "驾照查询"]
-
-        let y = Status_H + 10
-        let h = SCREEN_HEIGHT - y - TabBarHeight
-        let frame = CGRect(x: 0, y: y, width: SCREEN_WIDTH, height: h)
-        
-        configPageView(index: titles.count,frame:frame)
-        
-        let pageView = PageView(frame: frame, style: self.style, titles: titles, childViewControllers: children)
-        
-        
-        view.addSubview(pageView)
-    }
-    
-    func configPageView(index:Int = 0,frame:CGRect) {
-        
-        
-        
-        for idx in 0...index {
-            
-            if idx == 0 {
-                addChild(FoundDetailViewController())
-            }else{
-                addChild(UIViewController())
-            }
-        }
-    }
 }

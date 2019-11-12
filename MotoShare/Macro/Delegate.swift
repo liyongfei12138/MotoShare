@@ -8,14 +8,15 @@
 
 import Foundation
 
-@objc enum rf_clickViewType: Int  {
-    case homeMessage
-    case homeSearchView
+@objc enum Home_ClickType: Int  {
+    case Message
+    case homeSearch
+    case homePerson
 }
 
 @objc protocol FR_ClickDelegate {
     
     @objc optional func fr_clickViewDelegte()
-    @objc optional func fr_clickViewWithTypeDelegte(type:rf_clickViewType)
+    @objc optional func fr_clickViewWithTypeDelegte(type:Home_ClickType)
     @objc optional func fr_clickViewWithInfoDelegte(info:Dictionary<String, Any>)
 }
