@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		947506F1842C6E97CF08E5F3 /* Pods_MotoShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A3051476B1329CCA0ED583C /* Pods_MotoShare.framework */; };
+		CB2C72BD237B111B00FEC788 /* MSQueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C72BC237B111B00FEC788 /* MSQueryViewController.swift */; };
 		D7AF4CE42367D84B009957D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF4CE32367D84B009957D4 /* AppDelegate.swift */; };
 		D7AF4CED2367D84D009957D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7AF4CEC2367D84D009957D4 /* Assets.xcassets */; };
 		D7AF4D012367D91B009957D4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF4D002367D91B009957D4 /* HomeViewController.swift */; };
@@ -53,6 +54,7 @@
 		4BCAA0436859B5372895A100 /* Pods-FoodRecipe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodRecipe.debug.xcconfig"; path = "Target Support Files/Pods-FoodRecipe/Pods-FoodRecipe.debug.xcconfig"; sourceTree = "<group>"; };
 		58E610E719334776F82825DC /* Pods-MotoShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotoShare.debug.xcconfig"; path = "Target Support Files/Pods-MotoShare/Pods-MotoShare.debug.xcconfig"; sourceTree = "<group>"; };
 		84D0AFB163E213BB2C654492 /* Pods-FoodRecipe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodRecipe.release.xcconfig"; path = "Target Support Files/Pods-FoodRecipe/Pods-FoodRecipe.release.xcconfig"; sourceTree = "<group>"; };
+		CB2C72BC237B111B00FEC788 /* MSQueryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSQueryViewController.swift; sourceTree = "<group>"; };
 		D7AF4CE02367D84B009957D4 /* 摩滴共享.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "摩滴共享.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7AF4CE32367D84B009957D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7AF4CEC2367D84D009957D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,6 +114,14 @@
 				1A3051476B1329CCA0ED583C /* Pods_MotoShare.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB2C72BB237B110300FEC788 /* Query */ = {
+			isa = PBXGroup;
+			children = (
+				CB2C72BC237B111B00FEC788 /* MSQueryViewController.swift */,
+			);
+			path = Query;
 			sourceTree = "<group>";
 		};
 		D7AF4CD72367D84B009957D4 = {
@@ -210,6 +220,7 @@
 		D7AF4D0A2367D96B009957D4 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				CB2C72BB237B110300FEC788 /* Query */,
 				D7B43B52237A4A5D0035755F /* Login */,
 				D7AF4CFD2367D8E3009957D4 /* Me */,
 				D7AF4CFC2367D8DA009957D4 /* Travel */,
@@ -436,6 +447,7 @@
 				D7AF4CE42367D84B009957D4 /* AppDelegate.swift in Sources */,
 				D7AF4D4A23684429009957D4 /* Delegate.swift in Sources */,
 				D7B43B57237A9F490035755F /* HomeNavView.swift in Sources */,
+				CB2C72BD237B111B00FEC788 /* MSQueryViewController.swift in Sources */,
 				D7B43B54237A4A7B0035755F /* LoginViewController.swift in Sources */,
 				D7AF4D012367D91B009957D4 /* HomeViewController.swift in Sources */,
 				D7AF4D2E2367D9D7009957D4 /* BaseTableView.swift in Sources */,

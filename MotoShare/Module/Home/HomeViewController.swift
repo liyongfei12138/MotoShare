@@ -34,12 +34,40 @@ class HomeViewController: BaseViewController{
         let titleArr =  ["实时共享","出租","需求","摩旅","证件查询"]
 //        var vcArray = Array<UIViewController>()
         
-        for _ in 0 ... 4{
+        for index in 0 ... 4{
             
-            let vc = TViewController()
-            vc.view.backgroundColor = .randomColor
-//            vcArray.append(vc)
-            self.addChild(vc)
+            if index == 0 {
+                
+                let vc = TViewController()
+                vc.view.backgroundColor = .randomColor
+                self.addChild(vc)
+
+            }else if index == 1 {
+                
+                let vc = RentViewController()
+                vc.view.backgroundColor = .randomColor
+                self.addChild(vc)
+
+            }else if index == 2 {
+                
+                let vc = AddViewController()
+                vc.view.backgroundColor = .randomColor
+                self.addChild(vc)
+
+            }else if index == 3 {
+                
+                let vc = TravelViewController()
+                vc.view.backgroundColor = .randomColor
+                self.addChild(vc)
+
+            }else if index == 4 {
+                
+                let vc = MSQueryViewController()
+                vc.view.backgroundColor = .randomColor
+                self.addChild(vc)
+
+            }
+            
         }
         
         let navMaxY = self.navView.frame.maxY

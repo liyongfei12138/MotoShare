@@ -1,6 +1,8 @@
 # Uncomment the next line to define a global platform for your project
  platform :ios, '10.0'
 
+source 'https://github.com/CocoaPods/Specs.git'
+
 target 'MotoShare' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
@@ -16,7 +18,7 @@ target 'MotoShare' do
   pod 'SwifterSwift'  # 扩展类集合
   pod 'SnapKit'	# 自动布局
   pod 'ESPullToRefresh' # 下拉刷新
-  pod 'ZCycleViewNew'  # 轮播图
+  #pod 'ZCycleViewNew'  # 轮播图
   pod 'EmptyDataSet-Swift'  # 无数据占位图
   pod 'DeviceKit' # 设备相关
   pod 'GuidePageView' # 引导页

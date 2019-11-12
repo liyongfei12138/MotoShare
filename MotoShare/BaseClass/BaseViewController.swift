@@ -22,6 +22,8 @@ open class BaseViewController: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = ColorWhite
+
         gl_customInitialize()
     }
     

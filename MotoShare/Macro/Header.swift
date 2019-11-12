@@ -15,7 +15,6 @@ import ESPullToRefresh
 import HandyJSON
 import BetterSegmentedControl
 import EmptyDataSet_Swift
-import Pastel
 import Kingfisher
 import URLNavigator
 

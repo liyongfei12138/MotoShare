@@ -8,12 +8,11 @@
 
 import UIKit
 
-class MeViewController: UIViewController {
+class MeViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = ColorWhite
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
