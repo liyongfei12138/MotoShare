@@ -57,12 +57,6 @@ public let ColorWhite:UIColor           =   #colorLiteral(red: 1.0, green: 1.0, 
 public let ColorGreen:UIColor           =   #colorLiteral(red: 0.01568627451, green: 0.8, blue: 0.1803921569, alpha: 1)   // 0x04CC2E 绿色
 public let ColorDeepGray:UIColor        =   #colorLiteral(red: 0.3882352941, green: 0.4, blue: 0.431372549, alpha: 1)   // 0x63666E 深灰
 public let ColorInputBG: UIColor        =   #colorLiteral(red: 0.1529411765, green: 0.1607843137, blue: 0.1843137255, alpha: 1)   // 0x27292f 浅黑
-public let ColorLine: UIColor           =   #colorLiteral(red: 0.1529411765, green: 0.1607843137, blue: 0.1843137255, alpha: 1)   // 0x27292F
-
-
-//圆角大小
-public let CornerRadiusBig:CGFloat          =   5                       //大角
-public let CornerRadiusSmall:CGFloat        =   3                       //小角
 
 // 字体样式
 public let FontNameDIN = "DIN Alternate"      // DIN Alternate
