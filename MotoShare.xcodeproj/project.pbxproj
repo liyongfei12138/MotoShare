@@ -39,6 +39,7 @@
 		D7AF4D4A23684429009957D4 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF4D4923684429009957D4 /* Delegate.swift */; };
 		D7AF4D5F23699B39009957D4 /* UiButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF4D5E23699B39009957D4 /* UiButtonExtension.swift */; };
 		D7AF4D68236BD857009957D4 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF4D67236BD857009957D4 /* UIViewExtension.swift */; };
+		D7B43B54237A4A7B0035755F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B43B53237A4A7B0035755F /* LoginViewController.swift */; };
 		D7BFBCBA236FE9D600220CC5 /* FoundDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BFBCB9236FE9D600220CC5 /* FoundDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		D7AF4D4923684429009957D4 /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		D7AF4D5E23699B39009957D4 /* UiButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiButtonExtension.swift; sourceTree = "<group>"; };
 		D7AF4D67236BD857009957D4 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		D7B43B53237A4A7B0035755F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D7BFBCB9236FE9D600220CC5 /* FoundDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,9 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				D7AF4D002367D91B009957D4 /* HomeViewController.swift */,
-				D7BFBCBB23702D7E00220CC5 /* ViewController */,
-				D7AF4D602369A200009957D4 /* Model */,
-				D7AF4D4223681C97009957D4 /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -202,6 +201,7 @@
 		D7AF4D0A2367D96B009957D4 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				D7B43B52237A4A5D0035755F /* Login */,
 				D7AF4CFD2367D8E3009957D4 /* Me */,
 				D7AF4CFC2367D8DA009957D4 /* Travel */,
 				D7AF4CFB2367D8D4009957D4 /* Add */,
@@ -253,18 +253,12 @@
 			path = Macro;
 			sourceTree = "<group>";
 		};
-		D7AF4D4223681C97009957D4 /* View */ = {
+		D7B43B52237A4A5D0035755F /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				D7B43B53237A4A7B0035755F /* LoginViewController.swift */,
 			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		D7AF4D602369A200009957D4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
+			name = Login;
 			sourceTree = "<group>";
 		};
 		D7BFBCB2236FD0D700220CC5 /* View */ = {
@@ -273,13 +267,6 @@
 				D7BFBCB9236FE9D600220CC5 /* FoundDetailViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		D7BFBCBB23702D7E00220CC5 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		F4F28101DE451A85297BFD3E /* Pods */ = {
@@ -426,6 +413,7 @@
 				D7AF4D3A2367D9D7009957D4 /* Constants.swift in Sources */,
 				D7AF4CE42367D84B009957D4 /* AppDelegate.swift in Sources */,
 				D7AF4D4A23684429009957D4 /* Delegate.swift in Sources */,
+				D7B43B54237A4A7B0035755F /* LoginViewController.swift in Sources */,
 				D7AF4D012367D91B009957D4 /* HomeViewController.swift in Sources */,
 				D7AF4D2E2367D9D7009957D4 /* BaseTableView.swift in Sources */,
 				D7AF4D312367D9D7009957D4 /* UrlExtention.swift in Sources */,
