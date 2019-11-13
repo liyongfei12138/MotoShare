@@ -94,7 +94,9 @@ extension HomeViewController:FR_ClickDelegate{
             self.menuContainerViewController.toggleLeftSideMenu()
         break
         case .homeSearch:
+            
         break
+        
         default:
         break
             

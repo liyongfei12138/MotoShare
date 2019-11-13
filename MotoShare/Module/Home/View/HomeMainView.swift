@@ -35,7 +35,14 @@ class HomeMainView: UIView,UIScrollViewDelegate {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .red
         scrollView.delegate = self
-//        scrollView.isScrollEnabled = true
+        scrollView.isPagingEnabled = true
+        scrollView.isScrollEnabled = false
+        if #available(iOS 11.0, *) {
+            scrollView.contentInsetAdjustmentBehavior = .never
+        } else {
+            // Fallback on earlier versions
+        }
+  
         return scrollView
     }()
     
@@ -47,10 +54,11 @@ class HomeMainView: UIView,UIScrollViewDelegate {
         addSubview(self.scrollView)
     }
     
-    func configView() {
+    private func configView() {
         self.bannarView.configTitleData(titleArray: self.titleArray)
-        self.scrollView.frame = CGRect(x: 0, y: BannerHeight, width: SCREEN_WIDTH * CGFloat(self.titleArray.count), height: self.frame.height - self.bannarView.height)
         
+        self.scrollView.frame = CGRect(x: 0, y: BannerHeight, width: SCREEN_WIDTH , height: self.frame.height - self.bannarView.height)
+        self.scrollView.contentSize = CGSize(width: SCREEN_WIDTH * CGFloat(self.titleArray.count), height:  self.scrollView.frame.height)
         for index in 0 ... self.vcArray.count - 1{
             
             let vc = self.vcArray[index]
