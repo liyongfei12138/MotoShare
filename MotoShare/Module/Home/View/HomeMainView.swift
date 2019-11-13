@@ -49,7 +49,6 @@ class HomeMainView: UIView,UIScrollViewDelegate {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-
         addSubview(self.bannarView)
         addSubview(self.scrollView)
     }
