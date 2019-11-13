@@ -6,6 +6,8 @@
 //  Copyright © 2019 Bingo. All rights reserved.
 //
 
+// 实时共享
+
 import UIKit
 
 class ShareViewController: UIViewController {

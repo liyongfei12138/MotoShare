@@ -10,7 +10,7 @@
 import UIKit
 import NVActivityIndicatorView
 
-open class BaseViewController: UIViewController {
+open class BaseViewController: UIViewController,HBSViewEventDelegate {
     
     /// 自定义返回按钮
     lazy var customBackBtn: UIBarButtonItem = {

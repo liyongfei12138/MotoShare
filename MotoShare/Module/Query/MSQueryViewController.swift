@@ -6,6 +6,8 @@
 //  Copyright © 2019 Bingo. All rights reserved.
 //
 
+// 证件查询
+
 import UIKit
 
 class MSQueryViewController: BaseViewController {
