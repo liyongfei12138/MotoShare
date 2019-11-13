@@ -36,6 +36,25 @@ class MeViewController: BaseViewController {
         return headImgView
     }()
     
+    lazy var nameLabel: UILabel = {
+        let nameLabel = UILabel()
+        nameLabel.text = "摩滴共享"
+        nameLabel.font = UIFont.systemFont(ofSize: 16)
+        nameLabel.textColor = UIColor.gl_hex(hex: 0x101010)
+        nameLabel.textAlignment = .center
+        return nameLabel
+    }()
+    
+    lazy var certButton: UIButton = {
+        let certButton = UIButton(type: .custom)
+        certButton.setImage(UIImage(named: "me_cert"), for: .normal)
+        certButton.setTitle("前往认证", for: .normal)
+        certButton.layoutButton(style: .Left, imageTitleSpace: 5)
+        certButton.setTitleColor(UIColor.gl_hex(hex: 0x999999), for: .normal)
+        certButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        return certButton
+    }()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -51,6 +70,8 @@ class MeViewController: BaseViewController {
         self.view.addSubview(self.bgView)
         self.bgView.addSubview(self.termsLabel)
         self.bgView.addSubview(self.headImgView)
+        self.bgView.addSubview(self.nameLabel)
+        self.bgView.addSubview(self.certButton)
         configLayout()
     }
     
@@ -71,8 +92,18 @@ class MeViewController: BaseViewController {
             make.top.equalToSuperview().offset(SCREEN_HEIGHT * 0.1)
         }
         
+        self.nameLabel.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().offset(16)
+            make.right.equalToSuperview().offset(-16)
+            make.top.equalTo(self.headImgView.snp.bottom).offset(14)
+        }
+        
+        self.certButton.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(self.nameLabel.snp.bottom).offset(10)
+        }
     }
-    
+//    35  215 161
 
 }
 
