@@ -25,6 +25,12 @@ class HomeViewController: BaseViewController{
        
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        pt_hiddenNav(hide: false, animated: animated)
+
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -27,6 +27,9 @@ class RentViewController: BaseViewController {
         tableView.delegate = self
         self.view.addSubview(tableView)
         
+        tableView.hbs_addDownPullToRefresh()
+        tableView.hbs_addUpPullToRefresh()
+        
         return tableView
     }()
     
@@ -48,6 +51,15 @@ class RentViewController: BaseViewController {
     
     func hbs_viewEvent(_ view: UIView, hbs_eventObject: HBSViewEventObject) {
         
+        if hbs_eventObject.hbs_eventType == HBS_C_PULL_DOWN {
+            
+        }else if hbs_eventObject.hbs_eventType == HBS_C_PULL_UP {
+            
+        }else if hbs_eventObject.hbs_eventType == "跳转租车详情" {
+            
+            let rentVC = MSRentDetailViewController.init()
+            self.navigationController?.pushViewController(rentVC)
+        
+        }
     }
-    
 }

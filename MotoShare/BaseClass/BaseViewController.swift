@@ -42,9 +42,9 @@ open class BaseViewController: UIViewController,HBSViewEventDelegate {
     open func gl_customInitialize() {
         self.view.backgroundColor = ColorWhite
         self.navigationItem.backBarButtonItem = self.customBackBtn
-        self.navigationController?.navigationBar.tintColor = ColorWhite
+        self.navigationController?.navigationBar.tintColor = .black
         // 配置标题颜色
-        self.titleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorWhite]
+        self.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         
         if self.titleTextAttributes != nil {
             self.navigationController?.navigationBar.titleTextAttributes = self.titleTextAttributes

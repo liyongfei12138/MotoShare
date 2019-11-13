@@ -42,6 +42,8 @@
 		041C397B237BACC9007FA74A /* MSRentListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C397A237BACC9007FA74A /* MSRentListCell.swift */; };
 		041C397D237BACDC007FA74A /* MSRentListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C397C237BACDC007FA74A /* MSRentListModel.swift */; };
 		041C397F237BD8A7007FA74A /* MSRentListOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C397E237BD8A7007FA74A /* MSRentListOptionView.swift */; };
+		041C3983237BE64C007FA74A /* MSRentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C3982237BE64C007FA74A /* MSRentDetailViewController.swift */; };
+		041C3985237BE658007FA74A /* MSChoiceCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C3984237BE658007FA74A /* MSChoiceCityViewController.swift */; };
 		947506F1842C6E97CF08E5F3 /* Pods_MotoShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A3051476B1329CCA0ED583C /* Pods_MotoShare.framework */; };
 		CB2C72BD237B111B00FEC788 /* MSQueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C72BC237B111B00FEC788 /* MSQueryViewController.swift */; };
 		D7AF4CE42367D84B009957D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF4CE32367D84B009957D4 /* AppDelegate.swift */; };
@@ -120,6 +122,8 @@
 		041C397A237BACC9007FA74A /* MSRentListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSRentListCell.swift; sourceTree = "<group>"; };
 		041C397C237BACDC007FA74A /* MSRentListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSRentListModel.swift; sourceTree = "<group>"; };
 		041C397E237BD8A7007FA74A /* MSRentListOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSRentListOptionView.swift; sourceTree = "<group>"; };
+		041C3982237BE64C007FA74A /* MSRentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSRentDetailViewController.swift; sourceTree = "<group>"; };
+		041C3984237BE658007FA74A /* MSChoiceCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSChoiceCityViewController.swift; sourceTree = "<group>"; };
 		1A3051476B1329CCA0ED583C /* Pods_MotoShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MotoShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		215459550287FA041196F067 /* Pods-MotoShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotoShare.release.xcconfig"; path = "Target Support Files/Pods-MotoShare/Pods-MotoShare.release.xcconfig"; sourceTree = "<group>"; };
 		4BCAA0436859B5372895A100 /* Pods-FoodRecipe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodRecipe.debug.xcconfig"; path = "Target Support Files/Pods-FoodRecipe/Pods-FoodRecipe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -349,6 +353,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		041C3980237BE638007FA74A /* ChoiceCity */ = {
+			isa = PBXGroup;
+			children = (
+				041C3984237BE658007FA74A /* MSChoiceCityViewController.swift */,
+			);
+			path = ChoiceCity;
+			sourceTree = "<group>";
+		};
+		041C3981237BE638007FA74A /* RentDetail */ = {
+			isa = PBXGroup;
+			children = (
+				041C3982237BE64C007FA74A /* MSRentDetailViewController.swift */,
+			);
+			path = RentDetail;
+			sourceTree = "<group>";
+		};
 		1C89E1F2B0D5CE86D7A36225 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -428,6 +448,8 @@
 		D7AF4CFA2367D8C0009957D4 /* Rent */ = {
 			isa = PBXGroup;
 			children = (
+				041C3980237BE638007FA74A /* ChoiceCity */,
+				041C3981237BE638007FA74A /* RentDetail */,
 				041C3973237BAC8A007FA74A /* rent */,
 			);
 			path = Rent;
@@ -750,6 +772,7 @@
 				D7AF4D052367D934009957D4 /* AddViewController.swift in Sources */,
 				041C3953237BAB53007FA74A /* HBSMethodHeader.swift in Sources */,
 				D7B43B66237B9D750035755F /* ShareViewController.swift in Sources */,
+				041C3985237BE658007FA74A /* MSChoiceCityViewController.swift in Sources */,
 				041C3975237BAC8A007FA74A /* RentViewController.swift in Sources */,
 				D7AF4D3B2367D9D7009957D4 /* ConfigMacro.swift in Sources */,
 				D7AF4D372367D9D7009957D4 /* StringExtension.swift in Sources */,
@@ -760,6 +783,7 @@
 				041C395E237BAB53007FA74A /* HBSNetworkManager.swift in Sources */,
 				041C397F237BD8A7007FA74A /* MSRentListOptionView.swift in Sources */,
 				041C3967237BAB53007FA74A /* HBSBaseCollectionView.swift in Sources */,
+				041C3983237BE64C007FA74A /* MSRentDetailViewController.swift in Sources */,
 				D7B43B59237AB4120035755F /* HomeBannerView.swift in Sources */,
 				041C3971237BAB53007FA74A /* HBSBaseTipsView.swift in Sources */,
 				D7AF4D3C2367D9D7009957D4 /* Header.swift in Sources */,

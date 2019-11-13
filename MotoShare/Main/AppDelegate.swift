@@ -27,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.backgroundColor = ColorWhite
 //        self.window?.rootViewController = MainViewController()
         
-        let centerVc = UINavigationController.init(rootViewController: HomeViewController())
-        let leftVC = UINavigationController.init(rootViewController: MeViewController())
+        let centerVc = BaseNavigationController.init(rootViewController: HomeViewController())
+        let leftVC = BaseNavigationController.init(rootViewController: MeViewController())
         let rootVC = FWSideMenuContainerViewController.container(centerViewController: centerVc, leftMenuViewController: leftVC, rightMenuViewController: nil)
         rootVC.leftMenuWidth = kMenuWidth
         rootVC.sideMenuPanMode = .centerViewController
