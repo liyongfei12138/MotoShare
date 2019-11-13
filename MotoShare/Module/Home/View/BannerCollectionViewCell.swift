@@ -10,12 +10,12 @@ import UIKit
 
 class BannerCollectionViewCell: UICollectionViewCell {
     
-    private let TitleDefaultColor = UIColor.gl_hex(hex: 0x333333)
+    private let TitleDefaultColor = UIColor.gl_hex(hex: 0x666666)
     private let TitleSelectColor   = ColorTheme
     
     lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
-        titleLabel.font = UIFont.systemFont(ofSize: 13)
+        titleLabel.font = UIFont.systemFont(ofSize: 12)
         titleLabel.textColor = TitleDefaultColor
         titleLabel.textAlignment = .center
         return titleLabel
@@ -35,8 +35,10 @@ class BannerCollectionViewCell: UICollectionViewCell {
     func configIsSelect(isSelect:Bool) {
         if isSelect {
             self.titleLabel.textColor = TitleSelectColor
+            self.titleLabel.font = UIFont.systemFont(ofSize: 14)
         }else{
             self.titleLabel.textColor = TitleDefaultColor
+            self.titleLabel.font = UIFont.systemFont(ofSize: 12)
         }
     }
 }
