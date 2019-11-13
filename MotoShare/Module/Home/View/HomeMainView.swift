@@ -24,6 +24,7 @@ class HomeMainView: UIView,UIScrollViewDelegate {
     
     lazy var bannarView: HomeBannerView = {
         let bannarView = HomeBannerView()
+        bannarView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: BannerHeight)
         bannarView.delegate = self
         return bannarView
         

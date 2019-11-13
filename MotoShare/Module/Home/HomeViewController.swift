@@ -34,11 +34,11 @@ class HomeViewController: BaseViewController{
         let titleArr =  ["实时共享","出租","需求","摩旅","证件查询"]
 //        var vcArray = Array<UIViewController>()
         
-        for index in 0 ... 4{
+        for index in 0 ... titleArr.count - 1{
             
             if index == 0 {
                 
-                let vc = TViewController()
+                let vc = ShareViewController()
                 vc.view.backgroundColor = .randomColor
                 self.addChild(vc)
 
@@ -70,18 +70,10 @@ class HomeViewController: BaseViewController{
             
         }
         
-        let navMaxY = self.navView.frame.maxY
-        let rect = CGRect(x: 0, y: navMaxY, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - navMaxY)
-        
+        let rect = CGRect(x: 0, y: Nav_topH, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - Nav_topH)
         
         let mainView = HomeMainView(frame:rect,titleArray: titleArr, vcArray: children)
-        
         self.view.addSubview(mainView)
-        
-        mainView.snp.makeConstraints { (make) in
-            make.left.right.bottom.equalToSuperview()
-            make.top.equalTo(self.navView.snp.bottom)
-        }
 
     }
 

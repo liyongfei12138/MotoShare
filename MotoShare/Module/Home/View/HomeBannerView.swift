@@ -48,7 +48,7 @@ class HomeBannerView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: ViewHeight)
+        
         self.collectionView.frame = self.bounds
         self.addSubview(self.collectionView)
     }

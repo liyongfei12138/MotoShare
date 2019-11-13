@@ -45,7 +45,7 @@
 		D7B43B59237AB4120035755F /* HomeBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B43B58237AB4120035755F /* HomeBannerView.swift */; };
 		D7B43B5B237AB4380035755F /* HomeMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B43B5A237AB4380035755F /* HomeMainView.swift */; };
 		D7B43B5D237AB7B80035755F /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B43B5C237AB7B80035755F /* BannerCollectionViewCell.swift */; };
-		D7B43B5F237ADA630035755F /* TViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B43B5E237ADA630035755F /* TViewController.swift */; };
+		D7B43B66237B9D750035755F /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B43B65237B9D750035755F /* ShareViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,7 +93,7 @@
 		D7B43B58237AB4120035755F /* HomeBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBannerView.swift; sourceTree = "<group>"; };
 		D7B43B5A237AB4380035755F /* HomeMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainView.swift; sourceTree = "<group>"; };
 		D7B43B5C237AB7B80035755F /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
-		D7B43B5E237ADA630035755F /* TViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TViewController.swift; sourceTree = "<group>"; };
+		D7B43B65237B9D750035755F /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				D7AF4D002367D91B009957D4 /* HomeViewController.swift */,
-				D7B43B5E237ADA630035755F /* TViewController.swift */,
 				D7B43B55237A9F330035755F /* View */,
 			);
 			path = Home;
@@ -220,6 +219,7 @@
 		D7AF4D0A2367D96B009957D4 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				D7B43B64237B9D5E0035755F /* Share */,
 				CB2C72BB237B110300FEC788 /* Query */,
 				D7B43B52237A4A5D0035755F /* Login */,
 				D7AF4CFD2367D8E3009957D4 /* Me */,
@@ -290,6 +290,14 @@
 				D7B43B5C237AB7B80035755F /* BannerCollectionViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D7B43B64237B9D5E0035755F /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				D7B43B65237B9D750035755F /* ShareViewController.swift */,
+			);
+			path = Share;
 			sourceTree = "<group>";
 		};
 		D7BFBCB2236FD0D700220CC5 /* View */ = {
@@ -433,6 +441,7 @@
 				D7AF4D092367D94A009957D4 /* MeViewController.swift in Sources */,
 				D7AF4D68236BD857009957D4 /* UIViewExtension.swift in Sources */,
 				D7AF4D052367D934009957D4 /* AddViewController.swift in Sources */,
+				D7B43B66237B9D750035755F /* ShareViewController.swift in Sources */,
 				D7AF4D3B2367D9D7009957D4 /* ConfigMacro.swift in Sources */,
 				D7AF4D372367D9D7009957D4 /* StringExtension.swift in Sources */,
 				D7AF4D352367D9D7009957D4 /* UIViewControllerExtension.swift in Sources */,
@@ -440,7 +449,6 @@
 				D7B43B59237AB4120035755F /* HomeBannerView.swift in Sources */,
 				D7AF4D3C2367D9D7009957D4 /* Header.swift in Sources */,
 				D7AF4D382367D9D7009957D4 /* TabbarBadge.swift in Sources */,
-				D7B43B5F237ADA630035755F /* TViewController.swift in Sources */,
 				D7AF4D2D2367D9D7009957D4 /* BaseViewController.swift in Sources */,
 				D7B43B5D237AB7B80035755F /* BannerCollectionViewCell.swift in Sources */,
 				D7AF4D3A2367D9D7009957D4 /* Constants.swift in Sources */,
