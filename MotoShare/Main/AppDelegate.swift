@@ -9,7 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 
-let kMenuWidth = UIScreen.main.bounds.width * 0.8
+let kMenuWidth = UIScreen.main.bounds.width * 0.7
 
 
 @UIApplicationMain

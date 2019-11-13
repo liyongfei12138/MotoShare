@@ -68,7 +68,6 @@ class RentViewController: BaseViewController {
             
         }else if hbs_eventObject.hbs_eventType == "城市查找" {
             self.present(BaseNavigationController.init(rootViewController: MSChoiceCityViewController()), animated: true, completion: nil)
-            
         }
     }
 }
