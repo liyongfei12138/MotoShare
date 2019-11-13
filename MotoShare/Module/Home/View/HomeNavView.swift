@@ -10,6 +10,8 @@ import UIKit
 
 class HomeNavView: UIView {
 
+    weak var delegate:FR_ClickDelegate?
+    
     lazy var titleView: UIImageView = {
         let titleView = UIImageView()
         titleView.image = UIImage(named: "home_title")
@@ -19,6 +21,8 @@ class HomeNavView: UIView {
     lazy var personBtn: UIButton = {
         let personBtn = UIButton()
         personBtn.setImage(UIImage(named: "home_me"), for: .normal)
+        personBtn.tag = ClickType.homePerson.rawValue
+        personBtn.addTarget(self, action: #selector(clickButton(btn:)), for: .touchUpInside)
         return personBtn
     }()
     
@@ -32,6 +36,8 @@ class HomeNavView: UIView {
     lazy var searchBtn: UIButton = {
         let searchBtn = UIButton()
         searchBtn.setImage(UIImage(named: "home_search"), for: .normal)
+        searchBtn.tag = ClickType.homeSearch.rawValue
+        searchBtn.addTarget(self, action: #selector(clickButton(btn:)), for: .touchUpInside)
         return searchBtn
     }()
     
@@ -46,7 +52,11 @@ class HomeNavView: UIView {
         addSubview(self.searchBtn)
         configLayout()
     }
-    
+    @objc func clickButton(btn:UIButton){
+        
+        self.delegate?.fr_clickViewWithTypeDelegte?(type: ClickType(rawValue: btn.tag)!)
+        
+    }
     func configLayout() {
         
         let titleW = CGFloat(SCREEN_WIDTH * 0.2)
