@@ -12,7 +12,7 @@ class MSRentListTableView: HBSBaseTableView {
 
     override func hbs_initView() {
         
-        self.tableView?.rowHeight = 100
+        self.tableView?.rowHeight = 150
         self.tableView?.register(cellWithClass: MSRentListCell.self)
     }
     
@@ -24,6 +24,7 @@ class MSRentListTableView: HBSBaseTableView {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withClass: MSRentListCell.self)
+        cell.hbs_updateTableViewCell(nil)
         return cell
     }
 

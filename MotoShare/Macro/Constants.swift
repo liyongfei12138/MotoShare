@@ -58,12 +58,17 @@ public let ColorGreen:UIColor           =   #colorLiteral(red: 0.01568627451, gr
 public let ColorDeepGray:UIColor        =   #colorLiteral(red: 0.3882352941, green: 0.4, blue: 0.431372549, alpha: 1)   // 0x63666E 深灰
 public let ColorInputBG: UIColor        =   #colorLiteral(red: 0.1529411765, green: 0.1607843137, blue: 0.1843137255, alpha: 1)   // 0x27292f 浅黑
 
+public let TextColorLevel1 = UIColor.gl_hex(hex: 0x222222)
+public let TextColorLevel2 = UIColor.gl_hex(hex: 0x666666)
+public let TextColorLevel3 = UIColor.gl_hex(hex: 0x999999)
+
 // 字体样式
 public let FontNameDIN = "DIN Alternate"      // DIN Alternate
 public let FontNamePF_Regular = "PingFangSC-Regular"      // 苹方-常规体
 public let FontNamePF_Semibold = "PingFangSC-Semibold"      // 苹方-中粗体
 
-// 按比例适配宽度
+/// 按比例适配宽度
+/// - Parameter width: 6尺寸上的宽度
 public func SCALEWIDTH(width: CGFloat) -> CGFloat {
     
     return SCREEN_WIDTH / 375.0 * width 

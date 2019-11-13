@@ -13,6 +13,7 @@ class HomeViewController: BaseViewController{
     
     lazy var navView: HomeNavView = {
         let navView = HomeNavView()
+        navView.delegate = self
         return navView
     }()
 
@@ -21,12 +22,13 @@ class HomeViewController: BaseViewController{
         super.viewWillAppear(animated)
         
         pt_hiddenNav(hide: true, animated: animated)
+       
     }
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        self.menuContainerViewController.sideMenuPanMode = .none
         self.view.backgroundColor = ColorWhite
   
         self.view.addSubview(self.navView)
@@ -79,28 +81,20 @@ class HomeViewController: BaseViewController{
 
 }
 
-//extension HomeViewController:HomeMainViewDataSource{
-//    func mainBannerViewControllerArray() -> Array<UIViewController> {
-//
-//        var array = Array<UIViewController>()
-//
-//
-//        for _ in 0 ... 5{
-//
-//            let vc = UIViewController()
-//            vc.view.backgroundColor = .randomColor
-//            array.append(vc)
-//        }
-//
-//        return array
-//    }
-//
-//
-//    func mainBannerViewTitleArray() -> Array<String> {
-//
-//        return ["实时共享","出租","需求","摩旅","证件查询"]
-//    }
-//
-//
-//
+extension HomeViewController:FR_ClickDelegate{
+    func fr_clickViewWithTypeDelegte(type: ClickType) {
+        switch type {
+        case .homePerson:
+            self.menuContainerViewController.toggleLeftSideMenu()
+        break
+        case .homeSearch:
+        break
+        default:
+        break
+            
+        }
+    }
+}
+
+
 //}

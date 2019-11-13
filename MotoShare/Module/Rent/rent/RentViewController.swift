@@ -12,6 +12,15 @@ import UIKit
 
 class RentViewController: BaseViewController {
     
+    lazy var optionView: MSRentListOptionView = {
+        
+        let optionView = MSRentListOptionView.view()
+        optionView.delegate = self
+        self.view.addSubview(optionView)
+        
+        return optionView
+    }()
+    
     lazy var rentListTableView: MSRentListTableView = {
         
         let tableView = MSRentListTableView.view()
@@ -24,11 +33,16 @@ class RentViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .randomColor
-
+        self.optionView.snp.makeConstraints { (make) in
+            
+            make.left.top.right.equalToSuperview()
+            make.height.equalTo(45)
+        }
+        
         self.rentListTableView.snp.makeConstraints { (make) in
             
-            make.edges.equalToSuperview()
+            make.top.equalTo(self.optionView.snp.bottom)
+            make.left.right.bottom.equalToSuperview()
         }
     }
     

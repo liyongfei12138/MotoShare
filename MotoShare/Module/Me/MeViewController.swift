@@ -10,17 +10,22 @@ import UIKit
 
 class MeViewController: BaseViewController {
 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        pt_hiddenNav(hide: true, animated: animated)
+       
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
 
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        let loginVc = LoginViewController()
-        navigationController?.pushViewController(loginVc)
-        
-    }
+     
     
 
 }
