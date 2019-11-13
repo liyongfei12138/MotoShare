@@ -63,7 +63,7 @@ class HomeMainView: UIView,UIScrollViewDelegate {
     
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset.x)
+//        print(scrollView.contentOffset.x)
     }
     
     

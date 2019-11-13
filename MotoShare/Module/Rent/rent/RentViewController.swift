@@ -60,6 +60,15 @@ class RentViewController: BaseViewController {
             let rentVC = MSRentDetailViewController.init()
             self.navigationController?.pushViewController(rentVC)
         
+        }else if hbs_eventObject.hbs_eventType == "综合" {
+            
+        }else if hbs_eventObject.hbs_eventType == "最新发布" {
+            
+        }else if hbs_eventObject.hbs_eventType == "距离最近" {
+            
+        }else if hbs_eventObject.hbs_eventType == "城市查找" {
+            self.present(BaseNavigationController.init(rootViewController: MSChoiceCityViewController()), animated: true, completion: nil)
+            
         }
     }
 }

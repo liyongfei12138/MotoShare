@@ -105,6 +105,8 @@ class MSRentListOptionView: HBSBaseView {
         self.comprehensiveButton.tintColor = ColorTheme
         self.latestReleaseButton.tintColor = TextColorLevel2
         self.distanceNearestButton.tintColor = TextColorLevel2
+        
+        self.hbs_sendViewEventDelegate(hbs_eventObject: HBSViewEventObject.hbs_viewEvent(hbs_eventType: "综合"))
     }
     
     /// 最新发布按钮点击事件
@@ -113,6 +115,8 @@ class MSRentListOptionView: HBSBaseView {
         self.latestReleaseButton.tintColor = ColorTheme
         self.comprehensiveButton.tintColor = TextColorLevel2
         self.distanceNearestButton.tintColor = TextColorLevel2
+
+        self.hbs_sendViewEventDelegate(hbs_eventObject: HBSViewEventObject.hbs_viewEvent(hbs_eventType: "最新发布"))
 
     }
     
@@ -123,10 +127,13 @@ class MSRentListOptionView: HBSBaseView {
         self.latestReleaseButton.tintColor = TextColorLevel2
         self.comprehensiveButton.tintColor = TextColorLevel2
 
+        self.hbs_sendViewEventDelegate(hbs_eventObject: HBSViewEventObject.hbs_viewEvent(hbs_eventType: "距离最近"))
+
     }
     
     @objc func cityFindButtonAction() {
         
+        self.hbs_sendViewEventDelegate(hbs_eventObject: HBSViewEventObject.hbs_viewEvent(hbs_eventType: "城市查找"))
         
     }
 }

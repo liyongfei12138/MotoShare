@@ -53,12 +53,11 @@ class HomeViewController: BaseViewController{
             }else if index == 1 {
                 
                 let vc = RentViewController()
-                vc.view.backgroundColor = .randomColor
                 self.addChild(vc)
 
             }else if index == 2 {
                 
-                let vc = AddViewController()
+                let vc = MSDemandViewController()
                 vc.view.backgroundColor = .randomColor
                 self.addChild(vc)
 

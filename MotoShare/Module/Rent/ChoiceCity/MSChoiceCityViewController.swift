@@ -13,7 +13,7 @@ class MSChoiceCityViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.title = "城市查找"
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
