@@ -104,6 +104,10 @@
 		D7B43B6C237BA2810035755F /* FWSideMenuContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B43B69237BA2810035755F /* FWSideMenuContainerViewController.swift */; };
 		D7B43B6D237BA2810035755F /* FWSideMenuShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B43B6A237BA2810035755F /* FWSideMenuShadow.swift */; };
 		D7B43B6E237BA2810035755F /* UIViewController+FWSideMenuExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B43B6B237BA2810035755F /* UIViewController+FWSideMenuExtension.swift */; };
+		D7B43B71237CECEA0035755F /* MeMainListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B43B70237CECEA0035755F /* MeMainListView.swift */; };
+		D7B43B74237CF0390035755F /* MeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B43B73237CF0390035755F /* MeModel.swift */; };
+		D7B43B77237CFA4F0035755F /* MeListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B43B76237CFA4F0035755F /* MeListTableViewCell.swift */; };
+		D7B43B7A237D26290035755F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B43B79237D26290035755F /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -210,6 +214,10 @@
 		D7B43B69237BA2810035755F /* FWSideMenuContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FWSideMenuContainerViewController.swift; sourceTree = "<group>"; };
 		D7B43B6A237BA2810035755F /* FWSideMenuShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FWSideMenuShadow.swift; sourceTree = "<group>"; };
 		D7B43B6B237BA2810035755F /* UIViewController+FWSideMenuExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+FWSideMenuExtension.swift"; sourceTree = "<group>"; };
+		D7B43B70237CECEA0035755F /* MeMainListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeMainListView.swift; sourceTree = "<group>"; };
+		D7B43B73237CF0390035755F /* MeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeModel.swift; sourceTree = "<group>"; };
+		D7B43B76237CFA4F0035755F /* MeListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeListTableViewCell.swift; sourceTree = "<group>"; };
+		D7B43B79237D26290035755F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -607,6 +615,9 @@
 			isa = PBXGroup;
 			children = (
 				D7AF4D082367D94A009957D4 /* MeViewController.swift */,
+				D7B43B78237D260C0035755F /* ViewController */,
+				D7B43B72237CF0270035755F /* Model */,
+				D7B43B6F237CEC940035755F /* View */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -712,6 +723,31 @@
 				D7B43B6B237BA2810035755F /* UIViewController+FWSideMenuExtension.swift */,
 			);
 			path = FWSide;
+			sourceTree = "<group>";
+		};
+		D7B43B6F237CEC940035755F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D7B43B70237CECEA0035755F /* MeMainListView.swift */,
+				D7B43B76237CFA4F0035755F /* MeListTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D7B43B72237CF0270035755F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D7B43B73237CF0390035755F /* MeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D7B43B78237D260C0035755F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D7B43B79237D26290035755F /* SettingViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		F4F28101DE451A85297BFD3E /* Pods */ = {
@@ -930,6 +966,7 @@
 				041C3983237BE64C007FA74A /* MSRentDetailViewController.swift in Sources */,
 				D7B43B59237AB4120035755F /* HomeBannerView.swift in Sources */,
 				041C3971237BAB53007FA74A /* HBSBaseTipsView.swift in Sources */,
+				D7B43B74237CF0390035755F /* MeModel.swift in Sources */,
 				D7AF4D3C2367D9D7009957D4 /* Header.swift in Sources */,
 				041C3960237BAB53007FA74A /* HBSBaseModel.swift in Sources */,
 				D7AF4D382367D9D7009957D4 /* TabbarBadge.swift in Sources */,
@@ -939,10 +976,12 @@
 				041C3959237BAB53007FA74A /* HBSTableViewExtension.swift in Sources */,
 				049034DD237D318100D1DF65 /* MSPublishTravelTextFieldCell.swift in Sources */,
 				041C396E237BAB53007FA74A /* HBSBaseTableView.swift in Sources */,
+				D7B43B7A237D26290035755F /* SettingViewController.swift in Sources */,
 				041C3990237BF28A007FA74A /* MSDemandListCell.swift in Sources */,
 				041C3955237BAB53007FA74A /* HBSProgressHUD.swift in Sources */,
 				D7B43B5D237AB7B80035755F /* BannerCollectionViewCell.swift in Sources */,
 				D7AF4D3A2367D9D7009957D4 /* Constants.swift in Sources */,
+				D7B43B77237CFA4F0035755F /* MeListTableViewCell.swift in Sources */,
 				041C3962237BAB53007FA74A /* HBSViewEventObject.swift in Sources */,
 				D7AF4CE42367D84B009957D4 /* AppDelegate.swift in Sources */,
 				041C3951237BAB53007FA74A /* HBSBaseConstHeader.swift in Sources */,
@@ -965,6 +1004,7 @@
 				D7AF4D312367D9D7009957D4 /* UrlExtention.swift in Sources */,
 				D7B43B6E237BA2810035755F /* UIViewController+FWSideMenuExtension.swift in Sources */,
 				041C398E237BF27A007FA74A /* MSDemandListTableView.swift in Sources */,
+				D7B43B71237CECEA0035755F /* MeMainListView.swift in Sources */,
 				D7AF4D392367D9D7009957D4 /* UIViewHUDExtension.swift in Sources */,
 				D7AF4D362367D9D7009957D4 /* ClassName.swift in Sources */,
 				D7AF4D342367D9D7009957D4 /* GLAppInfo.swift in Sources */,

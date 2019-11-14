@@ -15,7 +15,7 @@ open class BaseViewController: UIViewController,HBSViewEventDelegate {
     /// 自定义返回按钮
     lazy var customBackBtn: UIBarButtonItem = {
         let backBtn = UIBarButtonItem.init()
-        backBtn.title = "back_black"
+        backBtn.title = ""
         return backBtn
     }()
     
