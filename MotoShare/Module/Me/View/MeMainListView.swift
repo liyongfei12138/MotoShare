@@ -7,15 +7,19 @@
 //
 
 import UIKit
-public protocol MeViewDataSource: class {
+
+
+public protocol MeViewDelegate: class {
     // MARK: - Required
 
     func meListViewTitleArray() -> Array<String>
     func meListViewIconArray() -> Array<String>
+    func meListViewDidType(type:MeDidRowType)
 }
+
 class MeMainListView: UITableView {
     
-    open weak var meDataSourse : MeViewDataSource?
+    open weak var meDataSourse : MeViewDelegate?
 }
  
 extension MeMainListView{
@@ -44,6 +48,13 @@ extension MeMainListView:UITableViewDelegate,UITableViewDataSource{
         return cell
         
         
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let type :MeDidRowType = MeDidRowType(rawValue: 500 + indexPath.row) ?? MeDidRowType.other
+        
+        
+        self.meDataSourse?.meListViewDidType(type:type )
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         

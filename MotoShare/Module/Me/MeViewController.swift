@@ -132,7 +132,24 @@ class MeViewController: BaseViewController {
 
 }
 
-extension MeViewController:MeViewDataSource{
+extension MeViewController:MeViewDelegate{
+    func meListViewDidType(type: MeDidRowType) {
+//        print(type)
+         var navigationController: UINavigationController?
+         navigationController = self.menuContainerViewController.centerViewController as? UINavigationController
+        
+        switch type {
+        case .setting:
+            let setVC = SettingViewController()
+            navigationController!.pushViewController(setVC, animated: true)
+            self.menuContainerViewController.setSideMenuState(state: .closed, completeBlock: nil)
+        break
+        default:
+        break
+        }
+        
+    }
+    
     func meListViewTitleArray() -> Array<String> {
         return MeModel.getMeListTitleArray()
     }

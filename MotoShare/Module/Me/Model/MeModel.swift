@@ -8,6 +8,16 @@
 
 import UIKit
 
+public  enum MeDidRowType: Int  {
+    case order = 500
+    case money = 501
+    case relese = 502
+    case like = 503
+    case help = 504
+    case setting = 505
+    case other = 506
+}
+
 struct MeModel {
 
     static func getMeListTitleArray() -> Array<String> {
@@ -17,4 +27,5 @@ struct MeModel {
     static func getMeListIconArray() -> Array<String> {
         return ["me_order","me_money","me_public","me_like","me_help","me_setting"]
     }
+    
 }
