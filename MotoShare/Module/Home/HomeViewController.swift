@@ -58,13 +58,11 @@ class HomeViewController: BaseViewController{
             }else if index == 2 {
                 
                 let vc = MSDemandViewController()
-                vc.view.backgroundColor = .randomColor
                 self.addChild(vc)
 
             }else if index == 3 {
                 
-                let vc = TravelViewController()
-                vc.view.backgroundColor = .randomColor
+                let vc = MSTravelViewController()
                 self.addChild(vc)
 
             }else if index == 4 {
@@ -94,6 +92,7 @@ extension HomeViewController:FR_ClickDelegate{
         break
         case .homeSearch:
             
+            self.navigationController?.pushViewController(MSPublishTravelViewController())
         break
         
         default:

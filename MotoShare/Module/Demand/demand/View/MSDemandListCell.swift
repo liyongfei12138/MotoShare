@@ -96,7 +96,7 @@ class MSDemandListCell: HBSBaseTableViewCell {
         button.layer.cornerRadius = 15
         button.layer.masksToBounds = true
         button.titleLabel?.font = UIFont.hbs_font(.medium, size: 13)
-        button.addTarget(self, action: #selector(self.publishButtonAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(self.contactButtonAction), for: .touchUpInside)
         self.contactBacView.addSubview(button)
         
         return button
@@ -174,7 +174,8 @@ class MSDemandListCell: HBSBaseTableViewCell {
         
     }
     
-    @objc func publishButtonAction() {
+    /// 联系他们点击事件
+    @objc func contactButtonAction() {
         
         
     }
