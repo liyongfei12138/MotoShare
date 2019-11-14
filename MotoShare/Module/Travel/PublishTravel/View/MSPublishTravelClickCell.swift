@@ -12,7 +12,7 @@ class MSPublishTravelClickCell: MSPublishTravelBaseCell {
 
     lazy var arrowImageView: UIImageView = {
         
-        let imageView = UIImageView.init()
+        let imageView = UIImageView.init(image: UIImage(named: "ms_arrow_right"))
         self.contentView.addSubview(imageView)
         
         return imageView

@@ -32,6 +32,23 @@ class MSPublishTravelViewController: BaseViewController {
         self.publishTableView.hbs_updateTableView(datas: self.getPublishTravelModels())
     }
     
+    func hbs_viewEvent(_ view: UIView, hbs_eventObject: HBSViewEventObject) {
+        
+        if hbs_eventObject.hbs_eventType == "出发时间" {
+            
+            let choiceDateVC = MSChoiceDateViewController.init()
+            choiceDateVC.show(self)
+            
+        }else if hbs_eventObject.hbs_eventType == "出发地" {
+            
+        }else if hbs_eventObject.hbs_eventType == "目的地" {
+            
+        }else if hbs_eventObject.hbs_eventType == "添加新图片/视频" {
+            
+            self.navigationController?.pushViewController(MSResourceManagerViewController())
+        }
+    }
+    
     /// 获取数据源
     func getPublishTravelModels() -> [MSPublishTravelBaseModel] {
         
@@ -55,7 +72,7 @@ class MSPublishTravelViewController: BaseViewController {
         model5.title = "目的地"
         model5.tips = "点击选择目的地"
 
-        let model6 = MSPublishTravelClickModel.init()
+        let model6 = MSPublishTravelFilesModel.init()
         model6.title = "上传照片"
         model6.tips = "照片/视频"
 

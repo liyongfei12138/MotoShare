@@ -1,25 +1,37 @@
 //
-//  HBSPageView.swift
-//  HBS
+//  HLPageView.swift
+//  HL
 //
 //  Created by mac on 2019/10/22.
 //  Copyright © 2019 hhl. All rights reserved.
 //
 
 import UIKit
+import SnapKit
 
-@objc protocol HBSPageViewDelegate: NSObjectProtocol {
+@objc protocol HLPageViewDelegate: NSObjectProtocol {
     
     /// 点击按钮回调
     /// - Parameter pageView: 当前pageView
     /// - Parameter index: 点击的索引
-    @objc optional func hbs_pageView(_ pageView: HBSPageView, didSelectIndexAt index: Int)
+    @objc optional func pageView(_ pageView: HLPageView, didSelectIndexAt index: Int)
 }
 
-class HBSPageView: UIView {
+enum HLPageViewStyle {
+    case average    // 按照PageView宽度平均分配按钮宽度
+    case adaptive   // 按照按钮文本内容自动分配宽度
+}
+
+class HLPageView: UIView {
     
     /// 代理
-    weak var delegate: HBSPageViewDelegate?
+    weak var delegate: HLPageViewDelegate?
+    
+    /// 按钮布局方式
+    var style: HLPageViewStyle = .adaptive
+    
+    /// 如果有值，底部线的宽度将固定。否则和当前选中按钮宽度一样
+    var lineViewWidth: CGFloat?
     
     /// 未点击状态按钮颜色
     var normalColor: UIColor = .black
@@ -33,8 +45,13 @@ class HBSPageView: UIView {
     /// 选中状态按钮大小
     var selectedFont: UIFont = UIFont.systemFont(ofSize: 15)
     
+    /// 按钮之间间隔距离(样式为adaptive生效)
+    var spacing: CGFloat = 20
+    
     /// 记录上一次选中的button
     var lastButton: UIButton?
+    
+    private var titles: Array<String> = []
     
     /// button的父view
     lazy var scrollView: UIScrollView = {
@@ -89,15 +106,17 @@ class HBSPageView: UIView {
     /// 更新当前显示的选中状态按钮
     /// - Parameter index: 当前选中状态的下标
     /// - Parameter animated: 是否执行动画
-    func hbs_setCurrentPage(_ index: Int, animated: Bool = false) {
+    func setCurrentPage(_ index: Int, animated: Bool = false) {
         
-        self.hbs_updateButtonLine(selectedIndex: index, animated: animated)
+        self.updateButtonLine(selectedIndex: index, animated: animated)
     }
     
     /// 更新pageView
     /// - Parameter titles: 标题数据源
     /// - Parameter currentIndex: 当前选中的索引
-    func hbs_update(_ titles: [String], currentIndex: Int = 0) {
+    func update(_ titles: [String], currentIndex: Int = 0) {
+        
+        self.titles = titles
         
         for (index, item) in titles.enumerated() {
             
@@ -117,15 +136,25 @@ class HBSPageView: UIView {
                 self.lastButton = button
                 button.isSelected = true
             }
+  
+            self.updateButtonFrame(index: index, button: button)
+        }
+        
+        self.updateLineViewFrame(self.lastButton!.tag - 100)
+    }
+    
+    /// 更新按钮frame
+    /// - Parameter index: 按钮下标
+    /// - Parameter button: 按钮
+    func updateButtonFrame(index: Int, button: UIButton) {
+        
+        if self.style == .adaptive {
             
-//            pageView的宽度
-//            let pageViewWidth = HBS_C_SCREEN_WIDTH
-                        
             if index == 0 {
                 
                 button.snp.makeConstraints { (make) in
                     
-                    make.left.equalTo(20)
+                    make.left.equalTo(self.spacing)
                     make.top.bottom.equalToSuperview()
                 }
                 
@@ -135,18 +164,37 @@ class HBSPageView: UIView {
                 
                 button.snp.makeConstraints { (make) in
                     
-                    make.left.equalTo(lsButton!.snp.right).offset(20)
+                    make.left.equalTo(lsButton!.snp.right).offset(self.spacing)
                     make.top.bottom.equalToSuperview()
                     
-                    if index == titles.count - 1 {
+                    if index == self.titles.count - 1 {
                         
-                        make.right.equalTo(-20)
+                        make.right.equalTo(-self.spacing)
                     }
                 }
             }
-        }
         
-        self.updateLineViewFrame(self.lastButton!.tag - 100)
+        }else if self.style == .average {
+                        
+            if self.frame.size.width == 0 {
+                
+                return
+            }
+            
+            let buttonWidth = self.frame.size.width / CGFloat(self.titles.count)
+
+            button.snp.makeConstraints { (make) in
+                
+                make.left.equalTo(CGFloat(index) * buttonWidth)
+                make.top.bottom.equalTo(0)
+                make.width.equalTo(buttonWidth)
+                
+                if index == self.titles.count - 1 {
+                    
+                    make.right.equalTo(0)
+                }
+            }
+        }
     }
     
     /// 更新标记线view的位置
@@ -155,16 +203,29 @@ class HBSPageView: UIView {
         
         self.lineView.snp.remakeConstraints { (make) in
             
-            make.width.equalTo(self.lastButton!)
+            if self.lineViewWidth != nil {
+               
+                make.width.equalTo(self.lineViewWidth!)
+
+            }else {
+                
+                make.width.equalTo(self.lastButton!)
+
+            }
+            
             make.height.equalTo(3)
             make.bottom.equalToSuperview()
             make.centerX.equalTo(self.lastButton!)
         }
         
-        let pointX = max(0, self.lastButton!.center.x - self.scrollView.frame.size.width / 2)
-        let pointX1 = min(pointX, self.scrollView.contentSize.width - self.scrollView.frame.size.width)
-        self.scrollView.setContentOffset(CGPoint(x: pointX1, y: 0), animated: true)
-        
+        if self.scrollView.contentSize.width > self.scrollView.frame.size.width {
+            
+            let pointX = max(0, self.lastButton!.center.x - self.scrollView.frame.size.width / 2)
+            let pointX1 = min(pointX, self.scrollView.contentSize.width - self.scrollView.frame.size.width)
+            self.scrollView.setContentOffset(CGPoint(x: pointX1, y: 0), animated: true)
+
+        }
+                
         if animated == true {
             
             UIView.animate(withDuration: 0.5) {
@@ -183,18 +244,18 @@ class HBSPageView: UIView {
     /// - Parameter button: 点击的按钮
     @objc func buttonClick(button: UIButton) {
         
-        self.hbs_updateButtonLine(selectedIndex: button.tag - 100, animated: true)
+        self.updateButtonLine(selectedIndex: button.tag - 100, animated: true)
         
         if self.delegate != nil {
             
-            self.delegate?.hbs_pageView?(self, didSelectIndexAt: button.tag - 100)
+            self.delegate?.pageView?(self, didSelectIndexAt: button.tag - 100)
         }
     }
     
     /// 更新按钮的状态和标记线的位置
     /// - Parameter selectedIndex: 当前选中状态的索引
     /// - Parameter animated: 是否执行动画
-    func hbs_updateButtonLine(selectedIndex: Int, animated: Bool = false) {
+    func updateButtonLine(selectedIndex: Int, animated: Bool = false) {
         
         let button = self.containerView.viewWithTag(100 + selectedIndex) as! UIButton
         
@@ -209,4 +270,15 @@ class HBSPageView: UIView {
 
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if self.style == .average {
+            
+            for (index, _) in self.titles.enumerated() {
+            
+                self.updateButtonFrame(index: index, button: self.containerView.viewWithTag(100 + index) as! UIButton)
+            }
+        }
+    }
 }

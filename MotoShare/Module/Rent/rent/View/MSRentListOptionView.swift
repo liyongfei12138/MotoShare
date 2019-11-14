@@ -55,7 +55,7 @@ class MSRentListOptionView: HBSBaseView {
         let button = UIButton.init(type: .system)
         button.tintColor = TextColorLevel2
         button.setTitle("城市查找", for: .normal)
-        button.setImage(UIImage(named: "ms_bottom_arrow"), for: .normal)
+        button.setImage(UIImage(named: "ms_arrow_bottom"), for: .normal)
         button.titleLabel?.font = UIFont.hbs_font(.medium, size: 15)
         button.addTarget(self, action: #selector(self.cityFindButtonAction), for: .touchUpInside)
         self.addSubview(button)

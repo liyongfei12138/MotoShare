@@ -61,6 +61,7 @@ class MSPublisthTravelTableView: HBSBaseTableView {
             let cell = tableView.dequeueReusableCell(withClass: MSPublishTravelFilesCell.self)
             cell.updatePublishTravelCell(model: model as! MSPublishTravelFilesModel)
             cell.selectionStyle = .none
+            cell.delegate = self.delegate
             return cell
         
         }
@@ -68,4 +69,15 @@ class MSPublisthTravelTableView: HBSBaseTableView {
         return tableView.dequeueReusableCell(withClass: MSPublishTravelBaseCell.self)
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let model = self.datas[indexPath.row]
+
+        if model is MSPublishTravelClickModel {
+            
+            let clickModel = model as! MSPublishTravelClickModel
+            self.hbs_sendViewEventDelegate(hbs_eventObject: HBSViewEventObject.hbs_viewEvent(hbs_eventType: clickModel.title!))
+        }
+    }
+    
 }

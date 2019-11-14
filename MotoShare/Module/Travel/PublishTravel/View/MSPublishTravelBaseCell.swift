@@ -27,6 +27,7 @@ class MSPublishTravelBaseCell: HBSBaseTableViewCell {
         
             make.left.equalTo(15)
             make.top.equalTo(15)
+            make.width.equalTo(70)
         }
     }
 

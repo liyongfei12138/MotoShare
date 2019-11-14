@@ -1,6 +1,6 @@
 //
-//  HBSPageResultView.swift
-//  HBS
+//  HLPageResultView.swift
+//  HL
 //
 //  Created by mac on 2019/10/23.
 //  Copyright © 2019 hhl. All rights reserved.
@@ -8,23 +8,24 @@
 
 import UIKit
 
-@objc protocol HBSPageResultViewDelegate: NSObjectProtocol {
-    
+@objc protocol HLPageResultViewDelegate: NSObjectProtocol {
+
     /// 获取当前页需要展示的View
     /// - Parameter pageView: 当前pageView
+    /// - Parameter isPresenceItemView: 当前页面是否已经添加了子view
     /// - Parameter page: 当前页码
-    @objc func hbs_pageResultView(_ pageView: HBSPageResultView, viewForPageAt page: Int) -> UIView?
+    @objc func pageResultView(_ pageView: HLPageResultView, isPresenceItemView: Bool, viewForPageAt page: Int) -> UIView?
     
     /// 滑动结束代理
     /// - Parameter pageView: 当前pageView
     /// - Parameter page: 当前页码
-    @objc optional func hbs_pageResultView(_ pageView: HBSPageResultView, didEndScrolling page: Int)
+    @objc optional func pageResultView(_ pageView: HLPageResultView, didEndScrolling page: Int)
     
 }
 
-class HBSPageResultView: UIView,UIScrollViewDelegate {
+class HLPageResultView: UIView,UIScrollViewDelegate {
 
-    weak var delegate: HBSPageResultViewDelegate?
+    weak var delegate: HLPageResultViewDelegate?
     
     /// 当前页码
     var currentPage: Int = 0
@@ -53,56 +54,63 @@ class HBSPageResultView: UIView,UIScrollViewDelegate {
     /// 初始化方法
     /// - Parameter totalCount: 页面的总数
     /// - Parameter currentPage: 当前页码
-    class func pageResultView(_ totalCount: Int) -> HBSPageResultView {
+    class func pageResultView(_ totalCount: Int) -> HLPageResultView {
         
-        let view = HBSPageResultView.init()
+        let view = HLPageResultView.init()
         view.totalCount = totalCount
-        view.hbs_initView()
+        view.initView()
         return view
     }
     
     /// 初始化
-    func hbs_initView() {
+    func initView() {
                 
     }
     
     /// 更新当前显示页面
     /// - Parameter currentPage: 当前要显示页面的页码
     /// - Parameter animated: 是否执行动画
-    func hbs_setCurrentPage(_ currentPage: Int, animated: Bool = false) {
+    func setCurrentPage(_ currentPage: Int, animated: Bool = false) {
 
         self.currentPage = currentPage
         
         self.scrollView.setContentOffset(CGPoint(x: self.frame.size.width * CGFloat(currentPage), y: 0), animated: animated)
         
-        self.hbs_addToScrollView(currentPage)
+        self.addToScrollView(currentPage)
     }
     
     /// 添加view到scrollView上
     /// - Parameter page: 当前页码
-    func hbs_addToScrollView(_ page: Int) {
+    func addToScrollView(_ page: Int) {
         
         if self.delegate == nil {
             return
         }
         
-        if let view = self.delegate?.hbs_pageResultView(self, viewForPageAt: page) {
-            
+        var isPresenceItemView = false
+        
+        if self.scrollView.viewWithTag(100 + page) != nil {
+           
+            isPresenceItemView = true
+        }
+        
+        if let view = self.delegate?.pageResultView(self, isPresenceItemView: isPresenceItemView, viewForPageAt: page) {
 //            如果返回的View已经有父view（已经添加到scrollView上），直接return
             if view.superview != nil {
                 return
             }
             
+//            如果当前页已经存在子view，删除原来的字view
+            if self.scrollView.viewWithTag(100 + page) != nil {
+            
+                self.scrollView.viewWithTag(100 + page)?.removeFromSuperview()
+            }
+            
             self.scrollView.addSubview(view)
             
+            view.tag = 100 + page
             view.frame = CGRect(x: self.frame.size.width * CGFloat(page), y: 0, width: self.frame.size.width, height: self.frame.size.height)
-            
-//            view.snp.makeConstraints { (make) in
-//
-//                make.left.equalTo(self.frame.size.width * CGFloat(page))
-//                make.top.bottom.equalTo(0)
-//                make.width.equalTo(self.frame.size.width)
-//            }
+
         }
     }
     
@@ -115,13 +123,13 @@ class HBSPageResultView: UIView,UIScrollViewDelegate {
         
         if self.delegate != nil {
             
-            if self.delegate!.responds(to: Selector(("hbs_pageResultView:didEndScrolling:"))) == true {
+            if self.delegate!.responds(to: Selector(("pageResultView:didEndScrolling:"))) == true {
                 
-                self.delegate?.hbs_pageResultView?(self, didEndScrolling: page)
+                self.delegate?.pageResultView?(self, didEndScrolling: page)
             }
         }
         
-        self.hbs_addToScrollView(page)
+        self.addToScrollView(page)
     }
     
     override func layoutSubviews() {

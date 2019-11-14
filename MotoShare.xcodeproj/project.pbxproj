@@ -22,8 +22,6 @@
 		041C3961237BAB53007FA74A /* HBSArchiveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C3937237BAB53007FA74A /* HBSArchiveManager.swift */; };
 		041C3962237BAB53007FA74A /* HBSViewEventObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C393A237BAB53007FA74A /* HBSViewEventObject.swift */; };
 		041C3963237BAB53007FA74A /* HBSBaseBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C393C237BAB53007FA74A /* HBSBaseBannerView.swift */; };
-		041C3964237BAB53007FA74A /* HBSPageResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C393E237BAB53007FA74A /* HBSPageResultView.swift */; };
-		041C3965237BAB53007FA74A /* HBSPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C393F237BAB53007FA74A /* HBSPageView.swift */; };
 		041C3966237BAB53007FA74A /* HBSBaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C3941237BAB53007FA74A /* HBSBaseCollectionViewCell.swift */; };
 		041C3967237BAB53007FA74A /* HBSBaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C3942237BAB53007FA74A /* HBSBaseCollectionView.swift */; };
 		041C3968237BAB53007FA74A /* error_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 041C3944237BAB53007FA74A /* error_icon@3x.png */; };
@@ -66,6 +64,14 @@
 		049034DB237D316B00D1DF65 /* MSPublishTravelTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034DA237D316B00D1DF65 /* MSPublishTravelTextViewCell.swift */; };
 		049034DD237D318100D1DF65 /* MSPublishTravelTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034DC237D318100D1DF65 /* MSPublishTravelTextFieldCell.swift */; };
 		049034DF237D319000D1DF65 /* MSPublishTravelFilesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034DE237D319000D1DF65 /* MSPublishTravelFilesCell.swift */; };
+		049034E1237D4DC300D1DF65 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034E0237D4DC300D1DF65 /* UITextFieldExtension.swift */; };
+		049034E4237D56BE00D1DF65 /* MSChoiceDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034E3237D56BE00D1DF65 /* MSChoiceDateViewController.swift */; };
+		049034E6237D586300D1DF65 /* MSChoiceDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034E5237D586300D1DF65 /* MSChoiceDateView.swift */; };
+		049034E9237D6FDC00D1DF65 /* MSResourceManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034E8237D6FDC00D1DF65 /* MSResourceManagerViewController.swift */; };
+		049034EB237D701800D1DF65 /* MSAlbumManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034EA237D701800D1DF65 /* MSAlbumManagerViewController.swift */; };
+		049034F2237D702D00D1DF65 /* MSPhotoManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034F1237D702D00D1DF65 /* MSPhotoManagerViewController.swift */; };
+		049034F6237D759D00D1DF65 /* HLPageResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034F4237D759D00D1DF65 /* HLPageResultView.swift */; };
+		049034F7237D759D00D1DF65 /* HLPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034F5237D759D00D1DF65 /* HLPageView.swift */; };
 		947506F1842C6E97CF08E5F3 /* Pods_MotoShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A3051476B1329CCA0ED583C /* Pods_MotoShare.framework */; };
 		CB2C72BD237B111B00FEC788 /* MSQueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C72BC237B111B00FEC788 /* MSQueryViewController.swift */; };
 		D7AF4CE42367D84B009957D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF4CE32367D84B009957D4 /* AppDelegate.swift */; };
@@ -126,8 +132,6 @@
 		041C3937237BAB53007FA74A /* HBSArchiveManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBSArchiveManager.swift; sourceTree = "<group>"; };
 		041C393A237BAB53007FA74A /* HBSViewEventObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBSViewEventObject.swift; sourceTree = "<group>"; };
 		041C393C237BAB53007FA74A /* HBSBaseBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBSBaseBannerView.swift; sourceTree = "<group>"; };
-		041C393E237BAB53007FA74A /* HBSPageResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBSPageResultView.swift; sourceTree = "<group>"; };
-		041C393F237BAB53007FA74A /* HBSPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBSPageView.swift; sourceTree = "<group>"; };
 		041C3941237BAB53007FA74A /* HBSBaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBSBaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		041C3942237BAB53007FA74A /* HBSBaseCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBSBaseCollectionView.swift; sourceTree = "<group>"; };
 		041C3944237BAB53007FA74A /* error_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "error_icon@3x.png"; sourceTree = "<group>"; };
@@ -170,6 +174,14 @@
 		049034DA237D316B00D1DF65 /* MSPublishTravelTextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSPublishTravelTextViewCell.swift; sourceTree = "<group>"; };
 		049034DC237D318100D1DF65 /* MSPublishTravelTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSPublishTravelTextFieldCell.swift; sourceTree = "<group>"; };
 		049034DE237D319000D1DF65 /* MSPublishTravelFilesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSPublishTravelFilesCell.swift; sourceTree = "<group>"; };
+		049034E0237D4DC300D1DF65 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		049034E3237D56BE00D1DF65 /* MSChoiceDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSChoiceDateViewController.swift; sourceTree = "<group>"; };
+		049034E5237D586300D1DF65 /* MSChoiceDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSChoiceDateView.swift; sourceTree = "<group>"; };
+		049034E8237D6FDC00D1DF65 /* MSResourceManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSResourceManagerViewController.swift; sourceTree = "<group>"; };
+		049034EA237D701800D1DF65 /* MSAlbumManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSAlbumManagerViewController.swift; sourceTree = "<group>"; };
+		049034F1237D702D00D1DF65 /* MSPhotoManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSPhotoManagerViewController.swift; sourceTree = "<group>"; };
+		049034F4237D759D00D1DF65 /* HLPageResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLPageResultView.swift; sourceTree = "<group>"; };
+		049034F5237D759D00D1DF65 /* HLPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLPageView.swift; sourceTree = "<group>"; };
 		1A3051476B1329CCA0ED583C /* Pods_MotoShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MotoShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		215459550287FA041196F067 /* Pods-MotoShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotoShare.release.xcconfig"; path = "Target Support Files/Pods-MotoShare/Pods-MotoShare.release.xcconfig"; sourceTree = "<group>"; };
 		4BCAA0436859B5372895A100 /* Pods-FoodRecipe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodRecipe.debug.xcconfig"; path = "Target Support Files/Pods-FoodRecipe/Pods-FoodRecipe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -298,7 +310,6 @@
 			children = (
 				041C3939237BAB53007FA74A /* H_viewObject */,
 				041C393B237BAB53007FA74A /* H_bannerView */,
-				041C393D237BAB53007FA74A /* H_pageView */,
 				041C3940237BAB53007FA74A /* H_collectionView */,
 				041C3943237BAB53007FA74A /* H_Images */,
 				041C394A237BAB53007FA74A /* H_tableView */,
@@ -321,15 +332,6 @@
 				041C393C237BAB53007FA74A /* HBSBaseBannerView.swift */,
 			);
 			path = H_bannerView;
-			sourceTree = "<group>";
-		};
-		041C393D237BAB53007FA74A /* H_pageView */ = {
-			isa = PBXGroup;
-			children = (
-				041C393E237BAB53007FA74A /* HBSPageResultView.swift */,
-				041C393F237BAB53007FA74A /* HBSPageView.swift */,
-			);
-			path = H_pageView;
 			sourceTree = "<group>";
 		};
 		041C3940237BAB53007FA74A /* H_collectionView */ = {
@@ -508,6 +510,35 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		049034E2237D56A700D1DF65 /* ChoiceDate */ = {
+			isa = PBXGroup;
+			children = (
+				049034E3237D56BE00D1DF65 /* MSChoiceDateViewController.swift */,
+				049034E5237D586300D1DF65 /* MSChoiceDateView.swift */,
+			);
+			path = ChoiceDate;
+			sourceTree = "<group>";
+		};
+		049034E7237D6F3E00D1DF65 /* ResourceManager */ = {
+			isa = PBXGroup;
+			children = (
+				049034F3237D759D00D1DF65 /* PageView */,
+				049034E8237D6FDC00D1DF65 /* MSResourceManagerViewController.swift */,
+				049034EA237D701800D1DF65 /* MSAlbumManagerViewController.swift */,
+				049034F1237D702D00D1DF65 /* MSPhotoManagerViewController.swift */,
+			);
+			path = ResourceManager;
+			sourceTree = "<group>";
+		};
+		049034F3237D759D00D1DF65 /* PageView */ = {
+			isa = PBXGroup;
+			children = (
+				049034F4237D759D00D1DF65 /* HLPageResultView.swift */,
+				049034F5237D759D00D1DF65 /* HLPageView.swift */,
+			);
+			path = PageView;
+			sourceTree = "<group>";
+		};
 		1C89E1F2B0D5CE86D7A36225 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -605,6 +636,8 @@
 		D7AF4CFC2367D8DA009957D4 /* Travel */ = {
 			isa = PBXGroup;
 			children = (
+				049034E7237D6F3E00D1DF65 /* ResourceManager */,
+				049034E2237D56A700D1DF65 /* ChoiceDate */,
 				049034C5237D078700D1DF65 /* PublishTravel */,
 				049034B8237CEF5800D1DF65 /* travel */,
 			);
@@ -653,6 +686,7 @@
 		D7AF4D192367D9D7009957D4 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				049034E0237D4DC300D1DF65 /* UITextFieldExtension.swift */,
 				D7AF4D1A2367D9D7009957D4 /* UrlExtention.swift */,
 				D7AF4D1B2367D9D7009957D4 /* UIViewIndicatorView.swift */,
 				D7AF4D1C2367D9D7009957D4 /* UIColorDarkMode.swift */,
@@ -955,9 +989,10 @@
 				D7AF4D3B2367D9D7009957D4 /* ConfigMacro.swift in Sources */,
 				049034D1237D2EF300D1DF65 /* MSPublishTravelTextFieldModel.swift in Sources */,
 				D7AF4D372367D9D7009957D4 /* StringExtension.swift in Sources */,
+				049034F7237D759D00D1DF65 /* HLPageView.swift in Sources */,
 				D7AF4D352367D9D7009957D4 /* UIViewControllerExtension.swift in Sources */,
-				041C3965237BAB53007FA74A /* HBSPageView.swift in Sources */,
 				041C3954237BAB53007FA74A /* HBSHeadFileHeader.swift in Sources */,
+				049034F2237D702D00D1DF65 /* MSPhotoManagerViewController.swift in Sources */,
 				041C397B237BACC9007FA74A /* MSRentListCell.swift in Sources */,
 				041C395E237BAB53007FA74A /* HBSNetworkManager.swift in Sources */,
 				041C397F237BD8A7007FA74A /* MSRentListOptionView.swift in Sources */,
@@ -968,6 +1003,7 @@
 				041C3971237BAB53007FA74A /* HBSBaseTipsView.swift in Sources */,
 				D7B43B74237CF0390035755F /* MeModel.swift in Sources */,
 				D7AF4D3C2367D9D7009957D4 /* Header.swift in Sources */,
+				049034EB237D701800D1DF65 /* MSAlbumManagerViewController.swift in Sources */,
 				041C3960237BAB53007FA74A /* HBSBaseModel.swift in Sources */,
 				D7AF4D382367D9D7009957D4 /* TabbarBadge.swift in Sources */,
 				D7AF4D2D2367D9D7009957D4 /* BaseViewController.swift in Sources */,
@@ -976,14 +1012,18 @@
 				041C3959237BAB53007FA74A /* HBSTableViewExtension.swift in Sources */,
 				049034DD237D318100D1DF65 /* MSPublishTravelTextFieldCell.swift in Sources */,
 				041C396E237BAB53007FA74A /* HBSBaseTableView.swift in Sources */,
+				049034E9237D6FDC00D1DF65 /* MSResourceManagerViewController.swift in Sources */,
 				D7B43B7A237D26290035755F /* SettingViewController.swift in Sources */,
+				049034E6237D586300D1DF65 /* MSChoiceDateView.swift in Sources */,
 				041C3990237BF28A007FA74A /* MSDemandListCell.swift in Sources */,
 				041C3955237BAB53007FA74A /* HBSProgressHUD.swift in Sources */,
 				D7B43B5D237AB7B80035755F /* BannerCollectionViewCell.swift in Sources */,
 				D7AF4D3A2367D9D7009957D4 /* Constants.swift in Sources */,
 				D7B43B77237CFA4F0035755F /* MeListTableViewCell.swift in Sources */,
 				041C3962237BAB53007FA74A /* HBSViewEventObject.swift in Sources */,
+				049034E4237D56BE00D1DF65 /* MSChoiceDateViewController.swift in Sources */,
 				D7AF4CE42367D84B009957D4 /* AppDelegate.swift in Sources */,
+				049034F6237D759D00D1DF65 /* HLPageResultView.swift in Sources */,
 				041C3951237BAB53007FA74A /* HBSBaseConstHeader.swift in Sources */,
 				D7AF4D4A23684429009957D4 /* Delegate.swift in Sources */,
 				041C3966237BAB53007FA74A /* HBSBaseCollectionViewCell.swift in Sources */,
@@ -1001,6 +1041,7 @@
 				049034CB237D2E5D00D1DF65 /* MSPublishTravelBaseModel.swift in Sources */,
 				D7AF4D012367D91B009957D4 /* HomeViewController.swift in Sources */,
 				D7AF4D2E2367D9D7009957D4 /* BaseTableView.swift in Sources */,
+				049034E1237D4DC300D1DF65 /* UITextFieldExtension.swift in Sources */,
 				D7AF4D312367D9D7009957D4 /* UrlExtention.swift in Sources */,
 				D7B43B6E237BA2810035755F /* UIViewController+FWSideMenuExtension.swift in Sources */,
 				041C398E237BF27A007FA74A /* MSDemandListTableView.swift in Sources */,
@@ -1014,7 +1055,6 @@
 				D7AF4D2F2367D9D7009957D4 /* BaseNavigationController.swift in Sources */,
 				041C3952237BAB53007FA74A /* HBSDevice.swift in Sources */,
 				D7AF4D302367D9D7009957D4 /* BaseView.swift in Sources */,
-				041C3964237BAB53007FA74A /* HBSPageResultView.swift in Sources */,
 				041C396F237BAB53007FA74A /* HBSBaseTableViewCell.swift in Sources */,
 				D7AF4D4823683641009957D4 /* TableViewCellReusable.swift in Sources */,
 				D7AF4D5F23699B39009957D4 /* UiButtonExtension.swift in Sources */,
