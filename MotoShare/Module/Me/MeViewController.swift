@@ -55,6 +55,17 @@ class MeViewController: BaseViewController {
         return certButton
     }()
     
+    lazy var lineView: UIView = {
+        let lineView = UIView()
+        lineView.backgroundColor = ColorLineBG
+        return lineView
+    }()
+    
+    lazy var listView: MeMainListView = {
+        let listView = MeMainListView()
+        listView.meDataSourse = self
+        return listView
+    }()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -72,6 +83,8 @@ class MeViewController: BaseViewController {
         self.bgView.addSubview(self.headImgView)
         self.bgView.addSubview(self.nameLabel)
         self.bgView.addSubview(self.certButton)
+        self.bgView.addSubview(self.lineView)
+        self.bgView.addSubview(self.listView)
         configLayout()
     }
     
@@ -102,8 +115,31 @@ class MeViewController: BaseViewController {
             make.centerX.equalToSuperview()
             make.top.equalTo(self.nameLabel.snp.bottom).offset(10)
         }
+        
+        self.lineView.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(self.certButton.snp.bottom).offset(16)
+            make.size.equalTo(CGSize(width: kViewWidth * 0.6, height: 1))
+        }
+        
+        self.listView.snp.makeConstraints { (make) in
+            make.left.right.equalTo(self.lineView)
+            make.top.equalTo(self.lineView.snp.bottom).offset(16)
+            make.bottom.equalTo(self.termsLabel.snp.top).offset(-50)
+           
+        }
     }
-//    35  215 161
 
 }
 
+extension MeViewController:MeViewDataSource{
+    func meListViewTitleArray() -> Array<String> {
+        return MeModel.getMeListTitleArray()
+    }
+    
+    func meListViewIconArray() -> Array<String> {
+        return MeModel.getMeListIconArray()
+    }
+    
+    
+}
