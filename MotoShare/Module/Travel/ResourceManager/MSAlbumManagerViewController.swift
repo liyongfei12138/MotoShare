@@ -11,16 +11,28 @@ import Photos
 
 class MSAlbumManagerViewController: BaseViewController {
 
+    lazy var albumCollectionView: MSAlbumCollectionView = {
+        
+        let collectionView = MSAlbumCollectionView.view()
+        collectionView.delegate = self
+        self.view.addSubview(collectionView)
+        
+        return collectionView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.view.backgroundColor = .red
+        
+        self.albumCollectionView.snp.makeConstraints { (make) in
+            
+            make.edges.equalToSuperview()
+        }
         
         PHPhotoLibrary.requestAuthorization { (status) in
             
             if status == .authorized {
 //                已授权访问
-                self.getPhFetchResult()
+                self.reloadCollectionView()
                 
             }else if status == .notDetermined {
 //                尚未授权
@@ -31,32 +43,15 @@ class MSAlbumManagerViewController: BaseViewController {
         
     }
 
-    func getPhFetchResult() {
+    func reloadCollectionView() {
         
-        let smartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .albumRegular, options: nil)
-        smartAlbums.enumerateObjects { (assetCollection, index, _) in
+        let datas = MSAlbumDataManager.getSmartAlbumAssetCollection()
+        
+        if datas.count > 0 {
             
-            if assetCollection.estimatedAssetCount > 0 {
-                
-                let fetchResult = PHAsset.fetchAssets(in: assetCollection, options: nil)
-                
-                fetchResult.enumerateObjects { (asset, index, _) in
-                    
-                    if asset.mediaType == .image {
-                        print("图片")
-                    }else if asset.mediaType == .video {
-                        print("视频")
-                    }else if asset.mediaType == .audio {
-                        print("音频")
-                    }else {
-                        print("未知")
-                    }
-                }
-            }
-            
-            print(assetCollection.localizedLocationNames)
+           let albumDatas = MSAlbumDataManager.getAlbumAssetItem(assetCollection: datas[0])
+            self.albumCollectionView.updateAlbumCollectionView(datas: albumDatas)
         }
-
     }
     
 }
