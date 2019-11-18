@@ -17,12 +17,20 @@ class ContactTableViewCell: UITableViewCell {
     
     lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
-        titleLabel.font = UIFont.systemFont(ofSize: 14)
+        titleLabel.font = UIFont.systemFont(ofSize: 12)
         titleLabel.textColor = UIColor.gl_hex(hex: 0x2E2E2E)
         titleLabel.text = ""
         return titleLabel
        }()
-       
+    
+    lazy var nameLabel: UILabel = {
+     let nameLabel = UILabel()
+     nameLabel.font = UIFont.systemFont(ofSize: 12)
+     nameLabel.textColor = UIColor.gl_hex(hex: 0x2E2E2E)
+     nameLabel.text = ""
+     return nameLabel
+    }()
+    
     lazy var lineView: UIView = {
         let lineView = UIView()
         lineView.backgroundColor = ColorLineBG
@@ -48,9 +56,10 @@ class ContactTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
         addSubview(self.titleLabel)
+        addSubview(self.editBtn)
         addSubview(self.lineView)
         addSubview(self.phoneImgView)
-        addSubview(self.editBtn)
+        addSubview(self.nameLabel)
        }
        
        required init?(coder: NSCoder) {
@@ -62,8 +71,9 @@ class ContactTableViewCell: UITableViewCell {
            
            configLayout()
        }
-       func configData(title:String)  {
+    func configData(title:String, name:String)  {
            self.titleLabel.text = title
+        self.nameLabel.text = name
        }
        private func configLayout()  {
 
@@ -77,6 +87,10 @@ class ContactTableViewCell: UITableViewCell {
             make.left.equalTo(self.phoneImgView.snp.right).offset(6)
             make.centerY.equalTo(self.phoneImgView)
        }
+        self.nameLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(self.titleLabel.snp.right).offset(15)
+            make.centerY.equalTo(self.titleLabel)
+        }
         
         self.lineView.snp.makeConstraints { (make) in
             make.left.equalTo(self.phoneImgView)

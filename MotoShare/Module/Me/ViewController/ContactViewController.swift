@@ -90,7 +90,7 @@ extension ContactViewController:UITableViewDelegate,UITableViewDataSource{
             return cell
         }else{
             let cell:ContactTableViewCell = ContactTableViewCell.reusableCell(tableView: tableView) as! ContactTableViewCell
-            cell.configData(title:"15776627777")
+            cell.configData(title:"15776627777",name: "爸比")
             cell.clickEditBlock = { (info) in
                 let editVC = ContactManageViewController.init(type:.edit,info:info)
                 self.navigationController?.pushViewController(editVC)

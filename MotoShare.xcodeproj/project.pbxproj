@@ -81,6 +81,9 @@
 		04B85C9B23824E87008E8BF9 /* MSMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B85C9A23824E87008E8BF9 /* MSMapView.swift */; };
 		947506F1842C6E97CF08E5F3 /* Pods_MotoShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A3051476B1329CCA0ED583C /* Pods_MotoShare.framework */; };
 		CB2C72BD237B111B00FEC788 /* MSQueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C72BC237B111B00FEC788 /* MSQueryViewController.swift */; };
+		D72711862382AA0600051A1B /* ManagerPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72711842382AA0500051A1B /* ManagerPhone.swift */; };
+		D72711872382AA0600051A1B /* ManagerNunberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72711852382AA0600051A1B /* ManagerNunberTableViewCell.swift */; };
+		D72711892382AB8400051A1B /* MoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72711882382AB8400051A1B /* MoneyViewController.swift */; };
 		D7AF4CE42367D84B009957D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF4CE32367D84B009957D4 /* AppDelegate.swift */; };
 		D7AF4CED2367D84D009957D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7AF4CEC2367D84D009957D4 /* Assets.xcassets */; };
 		D7AF4D012367D91B009957D4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF4D002367D91B009957D4 /* HomeViewController.swift */; };
@@ -211,6 +214,9 @@
 		58E610E719334776F82825DC /* Pods-MotoShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotoShare.debug.xcconfig"; path = "Target Support Files/Pods-MotoShare/Pods-MotoShare.debug.xcconfig"; sourceTree = "<group>"; };
 		84D0AFB163E213BB2C654492 /* Pods-FoodRecipe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodRecipe.release.xcconfig"; path = "Target Support Files/Pods-FoodRecipe/Pods-FoodRecipe.release.xcconfig"; sourceTree = "<group>"; };
 		CB2C72BC237B111B00FEC788 /* MSQueryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSQueryViewController.swift; sourceTree = "<group>"; };
+		D72711842382AA0500051A1B /* ManagerPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerPhone.swift; sourceTree = "<group>"; };
+		D72711852382AA0600051A1B /* ManagerNunberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerNunberTableViewCell.swift; sourceTree = "<group>"; };
+		D72711882382AB8400051A1B /* MoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewController.swift; sourceTree = "<group>"; };
 		D7AF4CE02367D84B009957D4 /* 摩滴共享.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "摩滴共享.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7AF4CE32367D84B009957D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7AF4CEC2367D84D009957D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -856,6 +862,8 @@
 				D7C31907237E640F0029BCB8 /* SettingDetailTableViewCell.swift */,
 				D7C3190D237E9C020029BCB8 /* ContactTableViewCell.swift */,
 				D7C3190F237E9F9C0029BCB8 /* ContactAddTableViewCell.swift */,
+				D72711852382AA0600051A1B /* ManagerNunberTableViewCell.swift */,
+				D72711842382AA0500051A1B /* ManagerPhone.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -875,6 +883,7 @@
 				D7C31909237E7C5F0029BCB8 /* AboutViewController.swift */,
 				D7C3190B237E8D3E0029BCB8 /* ContactViewController.swift */,
 				D7C31911237EABDF0029BCB8 /* ContactManageViewController.swift */,
+				D72711882382AB8400051A1B /* MoneyViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1053,6 +1062,7 @@
 				D7AF4D68236BD857009957D4 /* UIViewExtension.swift in Sources */,
 				049034D9237D315D00D1DF65 /* MSPublishTravelBaseCell.swift in Sources */,
 				041C3953237BAB53007FA74A /* HBSMethodHeader.swift in Sources */,
+				D72711872382AA0600051A1B /* ManagerNunberTableViewCell.swift in Sources */,
 				049034D5237D312200D1DF65 /* MSPublisthTravelTableView.swift in Sources */,
 				041C398C237BF265007FA74A /* MSDemandListModel.swift in Sources */,
 				041C3985237BE658007FA74A /* MSChoiceCityViewController.swift in Sources */,
@@ -1090,6 +1100,7 @@
 				D7C31910237E9F9C0029BCB8 /* ContactAddTableViewCell.swift in Sources */,
 				D7B43B7A237D26290035755F /* SettingViewController.swift in Sources */,
 				049034E6237D586300D1DF65 /* MSChoiceDateView.swift in Sources */,
+				D72711862382AA0600051A1B /* ManagerPhone.swift in Sources */,
 				041C3990237BF28A007FA74A /* MSDemandListCell.swift in Sources */,
 				041C3955237BAB53007FA74A /* HBSProgressHUD.swift in Sources */,
 				D7B43B5D237AB7B80035755F /* BannerCollectionViewCell.swift in Sources */,
@@ -1127,6 +1138,7 @@
 				041C398E237BF27A007FA74A /* MSDemandListTableView.swift in Sources */,
 				D7B43B71237CECEA0035755F /* MeMainListView.swift in Sources */,
 				D7AF4D392367D9D7009957D4 /* UIViewHUDExtension.swift in Sources */,
+				D72711892382AB8400051A1B /* MoneyViewController.swift in Sources */,
 				D7AF4D362367D9D7009957D4 /* ClassName.swift in Sources */,
 				D7AF4D342367D9D7009957D4 /* GLAppInfo.swift in Sources */,
 				040F8DD323823BA700834F41 /* MSAlbumFolderTableViewCell.swift in Sources */,
