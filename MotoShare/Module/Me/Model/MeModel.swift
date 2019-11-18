@@ -73,6 +73,18 @@ struct MeModel {
         return detail
     }
     
+    static func getMoneyListData()->[[MoneyBaseModel]]{
+    
+        let info = [
+                    MoneyBaseModel(title: "提现", type: MoneyRowType.getMoney),
+                    MoneyBaseModel(title: "提现记录", type: MoneyRowType.record)
+                    ]
+        let info2 = [
+                    MoneyBaseModel(title: "身份证认证", type: MoneyRowType.idCard),
+                    MoneyBaseModel(title: "驾驶证认证", type: MoneyRowType.driver)
+                    ]
+        return [info,info2]
+    }
     
     
 }
@@ -96,6 +108,20 @@ public struct SetBaseModel {
         self.title = title
         self.type = type
     }
+}
+public  enum MoneyRowType: Int  {
+    case getMoney
+    case record
+    case idCard
+    case driver
     
+}
+public struct MoneyBaseModel {
+    var title : String?
+    var type : MoneyRowType?
     
+    init( title: String, type: MoneyRowType) {
+        self.title = title
+        self.type = type
+    }
 }
