@@ -28,4 +28,74 @@ struct MeModel {
         return ["me_order","me_money","me_public","me_like","me_help","me_setting"]
     }
     
+    static func getSettingTitleArray()->Array<Array<SetBaseModel>>{
+        
+        
+        let info1 = [
+                    SetBaseModel(title: "实名认证", type: SettingRowType.realName),
+                    SetBaseModel(title: "修改密码", type: SettingRowType.passWord),
+                    SetBaseModel(title: "紧急联系人", type: SettingRowType.contact)
+                    ]
+        let info2 = [
+                    SetBaseModel(title: "清除缓存", type: SettingRowType.cache),
+                    SetBaseModel(title: "给个好评", type: SettingRowType.praise)
+                    ]
+        let info3 = [
+                    SetBaseModel(title: "法律条款与平台规则", type: SettingRowType.rules),
+                    SetBaseModel(title: "用户指南", type: SettingRowType.guide),
+                    SetBaseModel(title: "关于共享摩滴", type: SettingRowType.about)
+                    ]
+        let info4 = [SetBaseModel(title: "退出登录", type: SettingRowType.logout)]
+        
+        
+        
+        return [info1,info2,info3,info4]
+    }
+    static func getSettingDetail(type:SettingRowType) -> String {
+    
+        var detail = String()
+        
+        switch type {
+        case SettingRowType.realName:
+            detail = "未认证"
+            break
+        case SettingRowType.passWord:
+            detail = "去修改"
+            break
+        case SettingRowType.cache:
+        detail = "8M"
+        break
+            
+        default:
+            detail = ""
+            break
+        }
+        return detail
+    }
+    
+    
+    
+}
+public  enum SettingRowType: Int  {
+    case realName = 10000
+    case passWord = 10001
+    case contact = 10002
+    case cache = 10003
+    case praise = 10004
+    case rules = 10005
+    case guide = 10006
+    case about = 10007
+    case logout = 10008
+    case other = 100010
+}
+public struct SetBaseModel {
+    var title : String?
+    var type : SettingRowType?
+    
+    init( title: String, type: SettingRowType) {
+        self.title = title
+        self.type = type
+    }
+    
+    
 }
