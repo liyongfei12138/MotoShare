@@ -7,14 +7,51 @@
 //
 
 import UIKit
+import Photos
 
-class MSResourceManagerViewController: BaseViewController,HLPageViewDelegate,HLPageResultViewDelegate {
+@objc protocol MSResourceManagerViewControllerDelegate: NSObjectProtocol {
+    
+    /// 选择视频后
+    /// - Parameter asset: 视频资源
+    @objc optional func videoChoiceFinish(asset: MSPHAsset)
+    
+    /// 选择图片后
+    /// - Parameter assets: 图片资源组
+    @objc optional func imageChoiceFinish(assets: [MSPHAsset])
 
+}
+
+class MSResourceManagerViewController: BaseViewController,HLPageViewDelegate {
+    
+    var delegate: MSResourceManagerViewControllerDelegate?
+    
+    /// 当前相册目录
+    var assetCollection: PHAssetCollection?
+    
+    /// 右侧完成按钮
+    var doneBarButton: UIBarButtonItem!
+    
+    /// 相册目录列表
+    lazy var albumFolderView: MSAlbumFolderView = {
+        
+        let view = MSAlbumFolderView.folderView()
+        view.folderTableView.delegate = self
+        self.view.addSubview(view)
+        
+        view.snp.makeConstraints { (make) in
+            
+            make.edges.equalToSuperview()
+        }
+        
+        return view
+    }()
+    
+    /// 底部PageView
     lazy var pageView: HLPageView = {
         
         let pageView = HLPageView.pageView()
         pageView.style = .average
-        pageView.lineViewWidth = 34
+        pageView.lineViewWidth = 30
         pageView.delegate = self
         pageView.backgroundColor = .white
         pageView.lineColor = ColorTheme
@@ -26,34 +63,43 @@ class MSResourceManagerViewController: BaseViewController,HLPageViewDelegate,HLP
         
         return pageView
     }()
-
-    lazy var pageResultView: HLPageResultView = {
+    
+    /// 相片/视频列表
+    lazy var albumCollectionView: MSAlbumCollectionView = {
         
-        let resultView = HLPageResultView.pageResultView(2)
-        resultView.delegate = self
-        self.view.addSubview(resultView)
+        let collectionView = MSAlbumCollectionView.view()
+        collectionView.delegate = self
+        self.view.addSubview(collectionView)
+        
+        return collectionView
+    }()
+    
+    /// 当前目录名称
+    lazy var titleViewButton: UIButton = {
                 
-        return resultView
+        let button = UIButton.init(type: .system)
+        button.tintColor = .clear
+        button.setTitleColor(ColorTheme, for: .normal)
+        button.setTitleColor(ColorTheme, for: .selected)
+        button.titleLabel?.font = UIFont.hbs_font(.medium, size: 14)
+        button.addTarget(self, action: #selector(self.titleViewButtonAction), for: .touchUpInside)
+        
+        return button
     }()
-    
-    lazy var albumManagerVC: MSAlbumManagerViewController = {
         
-        let vc = MSAlbumManagerViewController.init()
-        self.addChild(vc)
-        
-        return vc
-    }()
-
-    lazy var photoManagerVC: MSPhotoManagerViewController = {
-        
-        let vc = MSPhotoManagerViewController.init()
-        self.addChild(vc)
-        
-        return vc
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let datas = MSAlbumDataManager.getSmartAlbumAssetCollection()
+
+        if datas.count > 0 {
+            
+            self.assetCollection = datas[0]
+        }
+        
+        self.titleViewButton.setTitle(String(format: "%@ ▼", self.assetCollection?.localizedTitle ?? ""), for: .normal)
+        self.titleViewButton.setTitle(String(format: "%@ ▲", self.assetCollection?.localizedTitle ?? ""), for: .selected)
+        self.navigationItem.titleView = self.titleViewButton
 
         self.pageView.snp.makeConstraints { (make) in
             
@@ -62,43 +108,122 @@ class MSResourceManagerViewController: BaseViewController,HLPageViewDelegate,HLP
             make.height.equalTo(45)
         }
 
-        self.pageResultView.snp.makeConstraints { (make) in
+        self.pageView.update(["相册","拍照","拍视频"])
+        
+        self.albumCollectionView.snp.makeConstraints { (make) in
             
-            make.left.right.top.equalTo(0)
+            make.left.right.top.equalToSuperview()
             make.bottom.equalTo(self.pageView.snp.top)
         }
         
-        self.pageView.update(["相册","拍照","拍视频"])
-        self.pageResultView.setCurrentPage(0)
+        self.updateDoneBarButtonItem(datas: self.albumCollectionView.selectedAssetDatas)
+
+        PHPhotoLibrary.requestAuthorization { (status) in
+            
+            if status == .authorized {
+//                已授权访问
+                self.reloadCollectionView()
+                
+            }else if status == .notDetermined {
+//                尚未授权
+                print("尚未授权")
+                
+            }else {
+//                无权限
+                print("无权限")
+            }
+        }
     }
     
+    func hbs_viewEvent(_ view: UIView, hbs_eventObject: HBSViewEventObject) {
+        
+        if hbs_eventObject.hbs_eventType == "更新相片列表" {
+            
+            self.assetCollection = hbs_eventObject.hbs_params as? PHAssetCollection
+            self.reloadCollectionView()
+            
+            self.albumFolderView.hide(false)
+            self.titleViewButton.isSelected = false
+            self.titleViewButton.setTitle(String(format: "%@ ▼", self.assetCollection?.localizedTitle ?? ""), for: .normal)
+       
+        }else if hbs_eventObject.hbs_eventType == "选择视频" {
+            
+            let msAsset = hbs_eventObject.hbs_params as? MSPHAsset
+            
+            if self.delegate != nil {
+                
+                self.delegate?.videoChoiceFinish?(asset: msAsset!)
+            }
+            
+            self.dismiss()
+            
+        }else if hbs_eventObject.hbs_eventType == "选择图片数量发生变化" {
+            
+            self.updateDoneBarButtonItem(datas: self.albumCollectionView.selectedAssetDatas)
+        }
+    }
+    
+    /// 切换目录点击事件
+    @objc func titleViewButtonAction() {
+
+        self.titleViewButton.isSelected = !self.titleViewButton.isSelected
+        
+        if self.titleViewButton.isSelected == true {
+            
+            self.albumFolderView.show()
+
+        }else {
+            
+            self.albumFolderView.hide()
+
+        }
+    }
+    
+    func updateDoneBarButtonItem(datas: Array<MSPHAsset>) {
+        
+        if datas.count > 0 {
+            
+            self.doneBarButton = UIBarButtonItem.init(title: "完成(\(datas.count))", style: .done, target: self, action: #selector(self.doneBarButtonAction))
+            self.doneBarButton.isEnabled = true
+
+        }else {
+            
+            self.doneBarButton = UIBarButtonItem.init(title: "完成", style: .done, target: self, action: #selector(self.doneBarButtonAction))
+            self.doneBarButton.isEnabled = false
+
+        }
+        
+        self.navigationItem.rightBarButtonItem = self.doneBarButton
+    }
+    
+    @objc func doneBarButtonAction() {
+    
+        if self.delegate != nil {
+            
+            self.delegate?.imageChoiceFinish?(assets: self.albumCollectionView.selectedAssetDatas)
+        }
+        
+        self.dismiss()
+    }
+    
+    /// 更新图片列表
+    func reloadCollectionView() {
+                
+        if let collection = self.assetCollection {
+         
+            let albumDatas = MSAlbumDataManager.getAlbumAssetItem(assetCollection: collection)
+             self.albumCollectionView.updateAlbumCollectionView(datas: albumDatas)
+
+        }
+    }
+    
+    func dismiss() {
+        
+        self.navigationController?.popViewController()
+    }
+
 //    HLPageViewDelegate
-    
     func pageView(_ pageView: HLPageView, didSelectIndexAt index: Int) {
-        
-        self.pageResultView.setCurrentPage(index, animated: true)
-    }
-    
-//    HLPageResultViewDelegate
-    func pageResultView(_ pageView: HLPageResultView, didEndScrolling page: Int) {
-        
-        if page == 0 {
-            
-            self.pageView.setCurrentPage(0, animated: true)
-            
-        }
-        
-        self.pageView.setCurrentPage(1, animated: true)
-
-    }
-    func pageResultView(_ pageView: HLPageResultView, isPresenceItemView: Bool, viewForPageAt page: Int) -> UIView? {
-        
-        if page == 0 {
-            
-            return self.albumManagerVC.view
-        }
-        
-        return self.photoManagerVC.view
-
+ 
     }
 }

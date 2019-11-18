@@ -18,7 +18,6 @@ target 'MotoShare' do
   pod 'SwifterSwift'  # 扩展类集合
   pod 'SnapKit'	# 自动布局
   pod 'ESPullToRefresh' # 下拉刷新
-  #pod 'ZCycleViewNew'  # 轮播图
   pod 'EmptyDataSet-Swift'  # 无数据占位图
   pod 'DeviceKit' # 设备相关
   pod 'GuidePageView' # 引导页
@@ -27,4 +26,5 @@ target 'MotoShare' do
   pod 'URLNavigator'  # 路由
   pod 'DNSPageView' #分页pageview
   pod 'SwiftyFitsize' #适配文字大小 界面大小
+  pod 'AMap3DMap-NO-IDFA' # 高德地图
 end

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MSPublishTravelViewController: BaseViewController {
+class MSPublishTravelViewController: BaseViewController,MSResourceManagerViewControllerDelegate {
 
     lazy var publishTableView: MSPublisthTravelTableView = {
         
@@ -45,7 +45,9 @@ class MSPublishTravelViewController: BaseViewController {
             
         }else if hbs_eventObject.hbs_eventType == "添加新图片/视频" {
             
-            self.navigationController?.pushViewController(MSResourceManagerViewController())
+            let resourceManagerVC = MSResourceManagerViewController.init()
+            resourceManagerVC.delegate = self
+            self.navigationController?.pushViewController(resourceManagerVC)
         }
     }
     
@@ -78,4 +80,16 @@ class MSPublishTravelViewController: BaseViewController {
 
         return [model1,model2,model3,model4,model5,model6]
     }
+    
+//    MSResourceManagerViewControllerDelegate
+    func videoChoiceFinish(asset: MSPHAsset) {
+        
+        print(asset)
+    }
+    
+    func imageChoiceFinish(assets: [MSPHAsset]) {
+        
+        print(assets)
+    }
+    
 }
