@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        IQKeyboardManager.shared.enable = true
+        customConfig()
+        
         self.window = UIWindow.init(frame: UIScreen.main.bounds)
         self.window?.backgroundColor = ColorWhite
 //        self.window?.rootViewController = MainViewController()
@@ -40,6 +41,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
-
+    func customConfig() {
+        
+        IQKeyboardManager.shared.enable = true
+        
+        AMapServices.shared()?.enableHTTPS = true
+        AMapServices.shared()?.apiKey = ThirdyApiKey.Amap
+    }
+    
 }
 

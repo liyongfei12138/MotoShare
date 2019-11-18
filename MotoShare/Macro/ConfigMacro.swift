@@ -25,4 +25,9 @@ struct LocalStore {
     }
 }
 
+// 三方apiKey
+struct ThirdyApiKey {
+    static let Amap = "1f4b94e12188afbdfcdb98c8a38b1d61"
+}
+
 
