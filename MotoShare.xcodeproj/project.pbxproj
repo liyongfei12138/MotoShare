@@ -120,6 +120,15 @@
 		D7B43B74237CF0390035755F /* MeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B43B73237CF0390035755F /* MeModel.swift */; };
 		D7B43B77237CFA4F0035755F /* MeListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B43B76237CFA4F0035755F /* MeListTableViewCell.swift */; };
 		D7B43B7A237D26290035755F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B43B79237D26290035755F /* SettingViewController.swift */; };
+		D7C31902237E55C50029BCB8 /* MeSettingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C31901237E55C50029BCB8 /* MeSettingTableView.swift */; };
+		D7C31904237E59630029BCB8 /* SettingMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C31903237E59630029BCB8 /* SettingMainTableViewCell.swift */; };
+		D7C31906237E5DEB0029BCB8 /* SetLogoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C31905237E5DEB0029BCB8 /* SetLogoutTableViewCell.swift */; };
+		D7C31908237E640F0029BCB8 /* SettingDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C31907237E640F0029BCB8 /* SettingDetailTableViewCell.swift */; };
+		D7C3190A237E7C5F0029BCB8 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C31909237E7C5F0029BCB8 /* AboutViewController.swift */; };
+		D7C3190C237E8D3E0029BCB8 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C3190B237E8D3E0029BCB8 /* ContactViewController.swift */; };
+		D7C3190E237E9C020029BCB8 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C3190D237E9C020029BCB8 /* ContactTableViewCell.swift */; };
+		D7C31910237E9F9C0029BCB8 /* ContactAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C3190F237E9F9C0029BCB8 /* ContactAddTableViewCell.swift */; };
+		D7C31912237EABDF0029BCB8 /* ContactManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C31911237EABDF0029BCB8 /* ContactManageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -243,6 +252,15 @@
 		D7B43B73237CF0390035755F /* MeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeModel.swift; sourceTree = "<group>"; };
 		D7B43B76237CFA4F0035755F /* MeListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeListTableViewCell.swift; sourceTree = "<group>"; };
 		D7B43B79237D26290035755F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		D7C31901237E55C50029BCB8 /* MeSettingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSettingTableView.swift; sourceTree = "<group>"; };
+		D7C31903237E59630029BCB8 /* SettingMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingMainTableViewCell.swift; sourceTree = "<group>"; };
+		D7C31905237E5DEB0029BCB8 /* SetLogoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLogoutTableViewCell.swift; sourceTree = "<group>"; };
+		D7C31907237E640F0029BCB8 /* SettingDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDetailTableViewCell.swift; sourceTree = "<group>"; };
+		D7C31909237E7C5F0029BCB8 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		D7C3190B237E8D3E0029BCB8 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		D7C3190D237E9C020029BCB8 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		D7C3190F237E9F9C0029BCB8 /* ContactAddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAddTableViewCell.swift; sourceTree = "<group>"; };
+		D7C31911237EABDF0029BCB8 /* ContactManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactManageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -832,6 +850,12 @@
 			children = (
 				D7B43B70237CECEA0035755F /* MeMainListView.swift */,
 				D7B43B76237CFA4F0035755F /* MeListTableViewCell.swift */,
+				D7C31901237E55C50029BCB8 /* MeSettingTableView.swift */,
+				D7C31903237E59630029BCB8 /* SettingMainTableViewCell.swift */,
+				D7C31905237E5DEB0029BCB8 /* SetLogoutTableViewCell.swift */,
+				D7C31907237E640F0029BCB8 /* SettingDetailTableViewCell.swift */,
+				D7C3190D237E9C020029BCB8 /* ContactTableViewCell.swift */,
+				D7C3190F237E9F9C0029BCB8 /* ContactAddTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -848,6 +872,9 @@
 			isa = PBXGroup;
 			children = (
 				D7B43B79237D26290035755F /* SettingViewController.swift */,
+				D7C31909237E7C5F0029BCB8 /* AboutViewController.swift */,
+				D7C3190B237E8D3E0029BCB8 /* ContactViewController.swift */,
+				D7C31911237EABDF0029BCB8 /* ContactManageViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1004,6 +1031,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7C31908237E640F0029BCB8 /* SettingDetailTableViewCell.swift in Sources */,
+				D7C31906237E5DEB0029BCB8 /* SetLogoutTableViewCell.swift in Sources */,
 				049034C2237CEFB900D1DF65 /* MSTranvelOptionView.swift in Sources */,
 				D7AF4D332367D9D7009957D4 /* UIColorDarkMode.swift in Sources */,
 				041C3970237BAB53007FA74A /* HBSBaseViewExtension.swift in Sources */,
@@ -1013,6 +1042,7 @@
 				049034CF237D2EDD00D1DF65 /* MSPublishTravelTextViewModel.swift in Sources */,
 				049034C7237D079D00D1DF65 /* MSPublishTravelViewController.swift in Sources */,
 				049034D3237D2F1C00D1DF65 /* MSPublishTravelFilesModel.swift in Sources */,
+				D7C31904237E59630029BCB8 /* SettingMainTableViewCell.swift in Sources */,
 				D7AF4D2C2367D9D7009957D4 /* BaseTabBarController.swift in Sources */,
 				D7AF4D322367D9D7009957D4 /* UIViewIndicatorView.swift in Sources */,
 				041C397D237BACDC007FA74A /* MSRentListModel.swift in Sources */,
@@ -1030,6 +1060,7 @@
 				D7AF4D3B2367D9D7009957D4 /* ConfigMacro.swift in Sources */,
 				049034D1237D2EF300D1DF65 /* MSPublishTravelTextFieldModel.swift in Sources */,
 				D7AF4D372367D9D7009957D4 /* StringExtension.swift in Sources */,
+				D7C3190C237E8D3E0029BCB8 /* ContactViewController.swift in Sources */,
 				049034F7237D759D00D1DF65 /* HLPageView.swift in Sources */,
 				D7AF4D352367D9D7009957D4 /* UIViewControllerExtension.swift in Sources */,
 				041C3954237BAB53007FA74A /* HBSHeadFileHeader.swift in Sources */,
@@ -1050,17 +1081,20 @@
 				049034BC237CEF5800D1DF65 /* TravelViewController.swift in Sources */,
 				041C3972237BAB53007FA74A /* HBSBaseView.swift in Sources */,
 				041C3959237BAB53007FA74A /* HBSTableViewExtension.swift in Sources */,
+				D7C3190E237E9C020029BCB8 /* ContactTableViewCell.swift in Sources */,
 				049034DD237D318100D1DF65 /* MSPublishTravelTextFieldCell.swift in Sources */,
 				04B85C9B23824E87008E8BF9 /* MSMapView.swift in Sources */,
 				041C396E237BAB53007FA74A /* HBSBaseTableView.swift in Sources */,
 				049034E9237D6FDC00D1DF65 /* MSResourceManagerViewController.swift in Sources */,
 				04903504237EB10400D1DF65 /* MSAlbumFolderView.swift in Sources */,
+				D7C31910237E9F9C0029BCB8 /* ContactAddTableViewCell.swift in Sources */,
 				D7B43B7A237D26290035755F /* SettingViewController.swift in Sources */,
 				049034E6237D586300D1DF65 /* MSChoiceDateView.swift in Sources */,
 				041C3990237BF28A007FA74A /* MSDemandListCell.swift in Sources */,
 				041C3955237BAB53007FA74A /* HBSProgressHUD.swift in Sources */,
 				D7B43B5D237AB7B80035755F /* BannerCollectionViewCell.swift in Sources */,
 				D7AF4D3A2367D9D7009957D4 /* Constants.swift in Sources */,
+				D7C3190A237E7C5F0029BCB8 /* AboutViewController.swift in Sources */,
 				D7B43B77237CFA4F0035755F /* MeListTableViewCell.swift in Sources */,
 				041C3962237BAB53007FA74A /* HBSViewEventObject.swift in Sources */,
 				049034E4237D56BE00D1DF65 /* MSChoiceDateViewController.swift in Sources */,
@@ -1096,6 +1130,7 @@
 				D7AF4D362367D9D7009957D4 /* ClassName.swift in Sources */,
 				D7AF4D342367D9D7009957D4 /* GLAppInfo.swift in Sources */,
 				040F8DD323823BA700834F41 /* MSAlbumFolderTableViewCell.swift in Sources */,
+				D7C31912237EABDF0029BCB8 /* ContactManageViewController.swift in Sources */,
 				D7B43B5B237AB4380035755F /* HomeMainView.swift in Sources */,
 				049034DF237D319000D1DF65 /* MSPublishTravelFilesCell.swift in Sources */,
 				049034C0237CEFA300D1DF65 /* MSTravelListCell.swift in Sources */,
@@ -1103,6 +1138,7 @@
 				041C3952237BAB53007FA74A /* HBSDevice.swift in Sources */,
 				D7AF4D302367D9D7009957D4 /* BaseView.swift in Sources */,
 				041C396F237BAB53007FA74A /* HBSBaseTableViewCell.swift in Sources */,
+				D7C31902237E55C50029BCB8 /* MeSettingTableView.swift in Sources */,
 				D7AF4D4823683641009957D4 /* TableViewCellReusable.swift in Sources */,
 				049034FF237E49C300D1DF65 /* MSAlbumDataManager.swift in Sources */,
 				D7AF4D5F23699B39009957D4 /* UiButtonExtension.swift in Sources */,
@@ -1233,10 +1269,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 63897U7WZL;
+				DEVELOPMENT_TEAM = VC2APXSZ8B;
 				INFOPLIST_FILE = "$(SRCROOT)/MotoShare/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1246,7 +1282,7 @@
 				MARKETING_VERSION = 1;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.love.cutt;
 				PRODUCT_NAME = "摩滴共享";
-				PROVISIONING_PROFILE_SPECIFIER = 52videoClip_DEV_20191112_001;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MotoShare/Main/MotoShare-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1260,10 +1296,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 63897U7WZL;
+				DEVELOPMENT_TEAM = VC2APXSZ8B;
 				INFOPLIST_FILE = "$(SRCROOT)/MotoShare/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1273,7 +1309,7 @@
 				MARKETING_VERSION = 1;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.love.cutt;
 				PRODUCT_NAME = "摩滴共享";
-				PROVISIONING_PROFILE_SPECIFIER = 52videoClip_DEV_20191112_001;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MotoShare/Main/MotoShare-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

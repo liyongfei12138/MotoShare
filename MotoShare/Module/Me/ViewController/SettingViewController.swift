@@ -10,12 +10,54 @@ import UIKit
 
 class SettingViewController: BaseViewController {
 
+    
+    lazy var listView: MeSettingTableView = {
+           let listView = MeSettingTableView()
+           listView.settingDataSourse = self
+           return listView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "设置"
+        
+        self.view.addSubview(self.listView)
+        configLayout()
+    }
+    func configLayout()  {
+        self.listView.snp.makeConstraints { (make) in
+            make.left.top.right.bottom.equalToSuperview()
+        }
+    }
+
+
+}
+
+
+extension SettingViewController:MeSettingViewDelegate{
+    func meSettingListViewDidType(type: SettingRowType) {
+        switch type {
+        case .about:
+            let aboutVC = AboutViewController()
+            self.navigationController?.pushViewController(aboutVC)
+            
+            break
+        case .contact:
+            let contactVc = ContactViewController()
+            self.navigationController?.pushViewController(contactVc)
+        
+        break
+            
+        default:
+            break
+        }
     }
     
-
+    func meSettingListViewTitleArray() -> Array<Array<SetBaseModel>> {
+        return MeModel.getSettingTitleArray()
+        
+    }
+    
 
 }
