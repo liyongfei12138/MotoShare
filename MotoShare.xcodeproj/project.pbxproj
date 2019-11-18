@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040F8DD123823B9700834F41 /* MSAlbumFolderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F8DD023823B9700834F41 /* MSAlbumFolderTableView.swift */; };
+		040F8DD323823BA700834F41 /* MSAlbumFolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F8DD223823BA700834F41 /* MSAlbumFolderTableViewCell.swift */; };
 		041C3951237BAB53007FA74A /* HBSBaseConstHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C3922237BAB53007FA74A /* HBSBaseConstHeader.swift */; };
 		041C3952237BAB53007FA74A /* HBSDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C3923237BAB53007FA74A /* HBSDevice.swift */; };
 		041C3953237BAB53007FA74A /* HBSMethodHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C3924237BAB53007FA74A /* HBSMethodHeader.swift */; };
@@ -68,8 +70,6 @@
 		049034E4237D56BE00D1DF65 /* MSChoiceDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034E3237D56BE00D1DF65 /* MSChoiceDateViewController.swift */; };
 		049034E6237D586300D1DF65 /* MSChoiceDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034E5237D586300D1DF65 /* MSChoiceDateView.swift */; };
 		049034E9237D6FDC00D1DF65 /* MSResourceManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034E8237D6FDC00D1DF65 /* MSResourceManagerViewController.swift */; };
-		049034EB237D701800D1DF65 /* MSAlbumManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034EA237D701800D1DF65 /* MSAlbumManagerViewController.swift */; };
-		049034F2237D702D00D1DF65 /* MSPhotoManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034F1237D702D00D1DF65 /* MSPhotoManagerViewController.swift */; };
 		049034F6237D759D00D1DF65 /* HLPageResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034F4237D759D00D1DF65 /* HLPageResultView.swift */; };
 		049034F7237D759D00D1DF65 /* HLPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034F5237D759D00D1DF65 /* HLPageView.swift */; };
 		049034FA237E474A00D1DF65 /* MSAlbumCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034F9237E474A00D1DF65 /* MSAlbumCollectionView.swift */; };
@@ -122,6 +122,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040F8DD023823B9700834F41 /* MSAlbumFolderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSAlbumFolderTableView.swift; sourceTree = "<group>"; };
+		040F8DD223823BA700834F41 /* MSAlbumFolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSAlbumFolderTableViewCell.swift; sourceTree = "<group>"; };
 		041C3922237BAB53007FA74A /* HBSBaseConstHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBSBaseConstHeader.swift; sourceTree = "<group>"; };
 		041C3923237BAB53007FA74A /* HBSDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBSDevice.swift; sourceTree = "<group>"; };
 		041C3924237BAB53007FA74A /* HBSMethodHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBSMethodHeader.swift; sourceTree = "<group>"; };
@@ -183,8 +185,6 @@
 		049034E3237D56BE00D1DF65 /* MSChoiceDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSChoiceDateViewController.swift; sourceTree = "<group>"; };
 		049034E5237D586300D1DF65 /* MSChoiceDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSChoiceDateView.swift; sourceTree = "<group>"; };
 		049034E8237D6FDC00D1DF65 /* MSResourceManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSResourceManagerViewController.swift; sourceTree = "<group>"; };
-		049034EA237D701800D1DF65 /* MSAlbumManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSAlbumManagerViewController.swift; sourceTree = "<group>"; };
-		049034F1237D702D00D1DF65 /* MSPhotoManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSPhotoManagerViewController.swift; sourceTree = "<group>"; };
 		049034F4237D759D00D1DF65 /* HLPageResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLPageResultView.swift; sourceTree = "<group>"; };
 		049034F5237D759D00D1DF65 /* HLPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLPageView.swift; sourceTree = "<group>"; };
 		049034F9237E474A00D1DF65 /* MSAlbumCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSAlbumCollectionView.swift; sourceTree = "<group>"; };
@@ -254,6 +254,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040F8DCF23823B7D00834F41 /* AlbumFolderTableView */ = {
+			isa = PBXGroup;
+			children = (
+				040F8DD023823B9700834F41 /* MSAlbumFolderTableView.swift */,
+				040F8DD223823BA700834F41 /* MSAlbumFolderTableViewCell.swift */,
+			);
+			path = AlbumFolderTableView;
+			sourceTree = "<group>";
+		};
 		041C3920237BAB53007FA74A /* H_Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -537,8 +546,6 @@
 				049034F8237E472E00D1DF65 /* View */,
 				049034F3237D759D00D1DF65 /* PageView */,
 				049034E8237D6FDC00D1DF65 /* MSResourceManagerViewController.swift */,
-				049034EA237D701800D1DF65 /* MSAlbumManagerViewController.swift */,
-				049034F1237D702D00D1DF65 /* MSPhotoManagerViewController.swift */,
 			);
 			path = ResourceManager;
 			sourceTree = "<group>";
@@ -555,6 +562,7 @@
 		049034F8237E472E00D1DF65 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				040F8DCF23823B7D00834F41 /* AlbumFolderTableView */,
 				049034F9237E474A00D1DF65 /* MSAlbumCollectionView.swift */,
 				049034FB237E475500D1DF65 /* MSAlbumCollectionViewCell.swift */,
 				04903503237EB10400D1DF65 /* MSAlbumFolderView.swift */,
@@ -1031,7 +1039,6 @@
 				049034F7237D759D00D1DF65 /* HLPageView.swift in Sources */,
 				D7AF4D352367D9D7009957D4 /* UIViewControllerExtension.swift in Sources */,
 				041C3954237BAB53007FA74A /* HBSHeadFileHeader.swift in Sources */,
-				049034F2237D702D00D1DF65 /* MSPhotoManagerViewController.swift in Sources */,
 				041C397B237BACC9007FA74A /* MSRentListCell.swift in Sources */,
 				04903502237E89F900D1DF65 /* MSPHAsset.swift in Sources */,
 				041C395E237BAB53007FA74A /* HBSNetworkManager.swift in Sources */,
@@ -1043,7 +1050,6 @@
 				041C3971237BAB53007FA74A /* HBSBaseTipsView.swift in Sources */,
 				D7B43B74237CF0390035755F /* MeModel.swift in Sources */,
 				D7AF4D3C2367D9D7009957D4 /* Header.swift in Sources */,
-				049034EB237D701800D1DF65 /* MSAlbumManagerViewController.swift in Sources */,
 				041C3960237BAB53007FA74A /* HBSBaseModel.swift in Sources */,
 				D7AF4D382367D9D7009957D4 /* TabbarBadge.swift in Sources */,
 				D7AF4D2D2367D9D7009957D4 /* BaseViewController.swift in Sources */,
@@ -1079,6 +1085,7 @@
 				041C3961237BAB53007FA74A /* HBSArchiveManager.swift in Sources */,
 				041C395D237BAB53007FA74A /* HBSNetworkError.swift in Sources */,
 				041C3979237BACBB007FA74A /* MSRentListTableView.swift in Sources */,
+				040F8DD123823B9700834F41 /* MSAlbumFolderTableView.swift in Sources */,
 				D7B43B6D237BA2810035755F /* FWSideMenuShadow.swift in Sources */,
 				049034CB237D2E5D00D1DF65 /* MSPublishTravelBaseModel.swift in Sources */,
 				D7AF4D012367D91B009957D4 /* HomeViewController.swift in Sources */,
@@ -1092,6 +1099,7 @@
 				D7AF4D392367D9D7009957D4 /* UIViewHUDExtension.swift in Sources */,
 				D7AF4D362367D9D7009957D4 /* ClassName.swift in Sources */,
 				D7AF4D342367D9D7009957D4 /* GLAppInfo.swift in Sources */,
+				040F8DD323823BA700834F41 /* MSAlbumFolderTableViewCell.swift in Sources */,
 				D7B43B5B237AB4380035755F /* HomeMainView.swift in Sources */,
 				049034DF237D319000D1DF65 /* MSPublishTravelFilesCell.swift in Sources */,
 				049034C0237CEFA300D1DF65 /* MSTravelListCell.swift in Sources */,
