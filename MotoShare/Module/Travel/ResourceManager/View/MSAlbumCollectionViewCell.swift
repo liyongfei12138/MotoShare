@@ -45,9 +45,10 @@ class MSAlbumCollectionViewCell: HBSBaseCollectionViewCell {
     lazy var selectedNoLabel: UILabel = {
         
         let label = UILabel.init()
-        label.backgroundColor = .clear
+        label.layer.cornerRadius = 12
+        label.layer.masksToBounds = true
         label.textColor = .white
-        label.font = UIFont.hbs_font(.medium, size: 15)
+        label.font = UIFont.hbs_font(.medium, size: 12)
         label.textAlignment = .center
         self.choiceImageView.addSubview(label)
         
@@ -93,6 +94,7 @@ class MSAlbumCollectionViewCell: HBSBaseCollectionViewCell {
             
             make.top.equalTo(5)
             make.right.equalTo(-5)
+            make.size.equalTo(CGSize(width: 24, height: 24))
         }
         
         self.selectedNoLabel.snp.makeConstraints { (make) in
@@ -138,11 +140,13 @@ class MSAlbumCollectionViewCell: HBSBaseCollectionViewCell {
             
             if msAsset.isSelected == true {
                 
-                self.selectedNoLabel.backgroundColor = .red
+                self.selectedNoLabel.backgroundColor = ColorTheme
+                self.selectedNoLabel.text = String(format: "%d", msAsset.selectedNo!)
             
             }else {
                 
                 self.selectedNoLabel.backgroundColor = .clear
+                self.selectedNoLabel.text = ""
             }
             
         }else if msAsset.asset.mediaType == .video {

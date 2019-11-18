@@ -67,7 +67,7 @@ class MSAlbumCollectionView: HBSBaseCollectionView {
 
         if msAsset.asset.mediaType == .video {
             
-            print("选择了视频")
+            self.hbs_sendViewEventDelegate(hbs_eventObject: HBSViewEventObject.hbs_viewEvent(hbs_eventType: "选择视频", hbs_params: msAsset))
             return
         
         }else if msAsset.asset.mediaType == .image {
@@ -82,12 +82,14 @@ class MSAlbumCollectionView: HBSBaseCollectionView {
                     self.resetNotSelectedAssetOptionalStatus(isOptional: true)
                 }
                 
+                self.resetSelectedNo()
                 self.resetVideoAssetOptionlStatus()
                 
             }else {
 //                选择
                 msAsset.isSelected = true
                 self.selectedAssetDatas.append(msAsset)
+                msAsset.selectedNo = self.selectedAssetDatas.count
                 
                 if self.selectedAssetDatas.count == self.maxSelectedNo {
 //                    选择到了最大数量限制，重置其他图片的可选状态
@@ -98,12 +100,14 @@ class MSAlbumCollectionView: HBSBaseCollectionView {
                 self.resetVideoAssetOptionlStatus()
 
             }
+            
+            self.hbs_sendViewEventDelegate(hbs_eventObject: HBSViewEventObject.hbs_viewEvent(hbs_eventType: "选择图片数量发生变化"))
         }
         
         self.hbs_reloadData()
     }
     
-    /// 重置其他未选择自选的是否可选状态
+    /// 重置其他未选择的是否可选状态
     /// - Parameter isOptional: 是否可选
     func resetNotSelectedAssetOptionalStatus(isOptional: Bool) {
         
@@ -117,6 +121,15 @@ class MSAlbumCollectionView: HBSBaseCollectionView {
 
                 }
             }
+        }
+    }
+    
+    /// 重置选中的顺序号
+    func resetSelectedNo() {
+        
+        for (index, item) in self.selectedAssetDatas.enumerated() {
+            
+            item.selectedNo = index + 1
         }
     }
     

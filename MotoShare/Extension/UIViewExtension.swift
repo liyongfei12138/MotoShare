@@ -32,5 +32,18 @@ extension UIView{
         
     }
     
+    /// 添加毛玻璃效果
+    /// - Parameter style: 样式
+    func addVisualEffectView(style: UIBlurEffect.Style = .light) {
+        
+        let blurEffect = UIBlurEffect(style: style)
+        let blurEffectView = UIVisualEffectView.init(effect: blurEffect)
+        self.addSubview(blurEffectView)
+        
+        blurEffectView.snp.makeConstraints { (make) in
+            
+            make.edges.equalTo(self)
+        }
+    }
 
 }
