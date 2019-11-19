@@ -90,17 +90,6 @@ class MSResourceManagerViewController: BaseViewController,HLPageViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let datas = MSAlbumDataManager.getSmartAlbumAssetCollection()
-
-        if datas.count > 0 {
-            
-            self.assetCollection = datas[0]
-        }
-        
-        self.titleViewButton.setTitle(String(format: "%@ ▼", self.assetCollection?.localizedTitle ?? ""), for: .normal)
-        self.titleViewButton.setTitle(String(format: "%@ ▲", self.assetCollection?.localizedTitle ?? ""), for: .selected)
-        self.navigationItem.titleView = self.titleViewButton
-
         self.pageView.snp.makeConstraints { (make) in
             
             make.left.right.equalTo(0)
@@ -121,6 +110,23 @@ class MSResourceManagerViewController: BaseViewController,HLPageViewDelegate {
         PHPhotoLibrary.requestAuthorization { (status) in
             
             if status == .authorized {
+                
+                let datas = MSAlbumDataManager.getSmartAlbumAssetCollection()
+
+                if datas.count > 0 {
+                    
+                    self.assetCollection = datas[0]
+                }
+                
+                self.titleViewButton.setTitle(String(format: "%@ ▼", self.assetCollection?.localizedTitle ?? ""), for: .normal)
+                self.titleViewButton.setTitle(String(format: "%@ ▲", self.assetCollection?.localizedTitle ?? ""), for: .selected)
+                
+                        
+                DispatchQueue.main.async {
+                    
+                    self.navigationItem.titleView = self.titleViewButton
+                }
+
 //                已授权访问
                 self.reloadCollectionView()
                 

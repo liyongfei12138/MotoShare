@@ -13,18 +13,11 @@ class MSPublishTravelTextFieldCell: MSPublishTravelBaseCell {
     lazy var textField: UITextField = {
         
         let textField = UITextField.init()
-        textField.layer.cornerRadius = 6
-        textField.layer.borderColor = UIColor.init(hex: 0xdddddd)?.cgColor
-        textField.layer.borderWidth = 1
-        textField.layer.masksToBounds = true
         textField.textColor = TextColorLevel1
         textField.font = UIFont.hbs_font(size: 15)
         textField.textAlignment = .right
         self.contentView.addSubview(textField)
-        
-        textField.leftSpacing(15)
-        textField.rightSpacing(15)
-        
+                
         return textField
     }()
     
@@ -33,12 +26,13 @@ class MSPublishTravelTextFieldCell: MSPublishTravelBaseCell {
         
         self.textField.snp.makeConstraints { (make) in
             
-            make.left.equalTo(self.titleLabel.snp.right).offset(15)
-            make.right.equalTo(-15)
-            make.top.equalTo(15)
-            make.bottom.equalTo(-15)
-            make.height.equalTo(40)
+            make.left.equalTo(70)
+            make.right.equalTo(-20)
+            make.top.bottom.equalToSuperview()
+            make.height.equalTo(50)
         }
+        
+        self.bottomLineView.isHidden = false
     }
     
     override func updatePublishTravelCell(model: MSPublishTravelBaseModel) {

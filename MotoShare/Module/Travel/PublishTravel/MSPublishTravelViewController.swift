@@ -9,7 +9,10 @@
 import UIKit
 
 class MSPublishTravelViewController: BaseViewController,MSResourceManagerViewControllerDelegate {
-
+    
+    /// 发布摩旅数据源
+    var publishModels: Array<MSPublishTravelBaseModel> = []
+    
     lazy var publishTableView: MSPublisthTravelTableView = {
         
         let tableView = MSPublisthTravelTableView.view()
@@ -29,7 +32,9 @@ class MSPublishTravelViewController: BaseViewController,MSResourceManagerViewCon
             make.edges.equalToSuperview()
         }
         
-        self.publishTableView.hbs_updateTableView(datas: self.getPublishTravelModels())
+        self.publishModels = self.getPublishTravelModels()
+        
+        self.publishTableView.hbs_updateTableView(datas: self.publishModels)
     }
     
     func hbs_viewEvent(_ view: UIView, hbs_eventObject: HBSViewEventObject) {
@@ -38,6 +43,14 @@ class MSPublishTravelViewController: BaseViewController,MSResourceManagerViewCon
             
             let choiceDateVC = MSChoiceDateViewController.init()
             choiceDateVC.show(self)
+            
+            choiceDateVC.choiceComple = {dateString in
+                
+                let timeModel = self.publishModels[3]
+                timeModel.result = dateString
+
+                self.publishTableView.hbs_reloadData()
+            }
             
         }else if hbs_eventObject.hbs_eventType == "出发地" {
             
@@ -78,18 +91,27 @@ class MSPublishTravelViewController: BaseViewController,MSResourceManagerViewCon
         model6.title = "上传照片"
         model6.tips = "照片/视频"
 
-        return [model1,model2,model3,model4,model5,model6]
+        return [model2,model6,model3,model1,model4,model5]
     }
     
 //    MSResourceManagerViewControllerDelegate
     func videoChoiceFinish(asset: MSPHAsset) {
         
-        print(asset)
+        let filesModel = self.publishModels[1] as? MSPublishTravelFilesModel
+        
+        filesModel?.msAssets.removeAll()
+        filesModel?.msAssets.append(asset)
+        
+        self.publishTableView.hbs_reloadData()
     }
     
     func imageChoiceFinish(assets: [MSPHAsset]) {
         
-        print(assets)
+        let filesModel = self.publishModels[1] as? MSPublishTravelFilesModel
+        filesModel?.msAssets = filesModel!.msAssets + assets
+        
+        self.publishTableView.hbs_reloadData()
+
     }
     
 }

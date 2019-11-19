@@ -8,20 +8,27 @@
 
 import UIKit
 
-class MSPublishTravelTextViewCell: MSPublishTravelBaseCell {
+class MSPublishTravelTextViewCell: MSPublishTravelBaseCell,UITextViewDelegate {
 
+    lazy var placeholderLabel: UILabel = {
+        
+        let label = UILabel.init()
+        label.textColor = TextColorLevel3
+        label.font = UIFont.hbs_font(size: 15)
+        self.contentView.addSubview(label)
+        
+        return label
+    }()
+    
     lazy var textView: UITextView = {
         
         let textView = UITextView.init()
-        textView.layer.cornerRadius = 6
-        textView.layer.borderColor = UIColor.init(hex: 0xdddddd)?.cgColor
-        textView.layer.borderWidth = 1
-        textView.layer.masksToBounds = true
+        textView.delegate = self
         textView.textColor = TextColorLevel1
         textView.font = UIFont.hbs_font(size: 15)
         self.contentView.addSubview(textView)
         
-        textView.textContainerInset = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
+//        textView.textContainerInset = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
         
         return textView
     }()
@@ -31,17 +38,28 @@ class MSPublishTravelTextViewCell: MSPublishTravelBaseCell {
                 
         self.textView.snp.makeConstraints { (make) in
             
-            make.left.equalTo(self.titleLabel.snp.right).offset(15)
+            make.left.equalTo(15)
             make.right.equalTo(-15)
             make.top.equalTo(15)
             make.bottom.equalTo(-15)
             make.height.equalTo(100)
         }
+        
+        self.placeholderLabel.snp.makeConstraints { (make) in
+            
+            make.left.equalTo(self.textView).offset(5)
+            make.top.equalTo(self.textView).offset(8)
+        }
     }
     
     override func updatePublishTravelCell(model: MSPublishTravelBaseModel) {
-        super.updatePublishTravelCell(model: model)
 
+        self.placeholderLabel.text = model.tips
     }
-
+    
+//    UITextViewDelegate
+    func textViewDidChange(_ textView: UITextView) {
+        
+        self.placeholderLabel.isHidden = textView.text.count > 0
+    }
 }

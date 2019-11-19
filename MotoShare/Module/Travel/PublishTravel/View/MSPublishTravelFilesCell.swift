@@ -10,38 +10,36 @@ import UIKit
 
 class MSPublishTravelFilesCell: MSPublishTravelBaseCell {
 
-    lazy var tipsImageView: UIImageView = {
+    let itemWidth = (SCREEN_WIDTH - 61) / 3
+    
+    lazy var fileCollectionView: MSPublishFileCollectionView = {
         
-        let imageView = UIImageView.init()
-        imageView.isUserInteractionEnabled = true
-        self.contentView.addSubview(imageView)
-        
-        let imageViewTap = UITapGestureRecognizer.init(target: self, action: #selector(self.addNewResourceAction))
-        imageView.addGestureRecognizer(imageViewTap)
-        
-        return imageView
+        let collectionView = MSPublishFileCollectionView.view()
+        self.contentView.addSubview(collectionView)
+                
+        return collectionView
     }()
     
     override func hbs_initView() {
         super.hbs_initView()
-
-        self.tipsImageView.snp.makeConstraints { (make) in
+        
+        self.fileCollectionView.snp.makeConstraints { (make) in
             
-            make.left.equalTo(self.titleLabel.snp.right).offset(15)
-            make.top.equalTo(15)
-            make.bottom.equalTo(-15)
-            make.size.equalTo(CGSize(width: 80, height: 80))
+            make.edges.equalToSuperview()
+            make.height.equalTo(self.itemWidth + 31)
         }
     }
     
     override func updatePublishTravelCell(model: MSPublishTravelBaseModel) {
-        super.updatePublishTravelCell(model: model)
         
-        self.tipsImageView.backgroundColor = .green
+        let filesModel = model as? MSPublishTravelFilesModel
+        
+        self.fileCollectionView.updateFileCollectionView(datas: filesModel!.msAssets)
+        
     }
-    
-    @objc func addNewResourceAction() {
+
+    override func hbs_didFinishDelegate() {
         
-        self.hbs_sendViewEventDelegate(hbs_eventObject: HBSViewEventObject.hbs_viewEvent(hbs_eventType: "添加新图片/视频"))
+        self.fileCollectionView.delegate = self.delegate
     }
 }
