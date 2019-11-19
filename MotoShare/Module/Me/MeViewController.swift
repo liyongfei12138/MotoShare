@@ -144,6 +144,12 @@ extension MeViewController:MeViewDelegate{
             navigationController!.pushViewController(setVC, animated: true)
             self.menuContainerViewController.setSideMenuState(state: .closed, completeBlock: nil)
         break
+        case .money:
+            let moneyVc = MoneyViewController()
+            navigationController!.pushViewController(moneyVc, animated: true)
+            self.menuContainerViewController.setSideMenuState(state: .closed, completeBlock: nil)
+            
+        break
         default:
         break
         }

@@ -60,10 +60,10 @@ class MSMapView: BaseView, MAMapViewDelegate {
 
 extension MSMapView {
     
-    convenience override init(frame: CGRect, type: MAMapType) {
-        self.init(frame: frame)
-        
-        
-    }
+//    convenience override init(frame: CGRect, type: MAMapType) {
+//        self.init(frame: frame)
+//        
+//        
+//    }
     
 }
