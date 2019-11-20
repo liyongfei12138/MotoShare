@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import JXPhotoBrowser
+import AVKit
 
 class MSPublishFileCollectionView: HBSBaseCollectionView {
 
@@ -47,7 +49,7 @@ class MSPublishFileCollectionView: HBSBaseCollectionView {
         
         let msAsset = self.msAssets[0]
         
-        if msAsset.asset.mediaType == .video {
+        if msAsset.mediaType == .video {
             
             return 1
         }
@@ -67,7 +69,7 @@ class MSPublishFileCollectionView: HBSBaseCollectionView {
         
         let msAsset = self.msAssets[0]
         
-        if self.msAssets.count < 9 && indexPath.item == collectionView.numberOfItems(inSection: 0) - 1 && msAsset.asset.mediaType == .image {
+        if self.msAssets.count < 9 && indexPath.item == collectionView.numberOfItems(inSection: 0) - 1 && msAsset.mediaType == .image {
             
             let cell = collectionView.dequeueReusableCell(withClass: MSPublishAddFileCollectionViewCell.self, for: indexPath)
             return cell
@@ -75,6 +77,7 @@ class MSPublishFileCollectionView: HBSBaseCollectionView {
         }
         
         let cell = collectionView.dequeueReusableCell(withClass: MSPublishFileCollectionViewCell.self, for: indexPath)
+        cell.updateFileCollectionViewCell(msAsset: self.msAssets[indexPath.item])
         return cell
     }
     
@@ -86,8 +89,49 @@ class MSPublishFileCollectionView: HBSBaseCollectionView {
             
             self.hbs_sendViewEventDelegate(hbs_eventObject: HBSViewEventObject.hbs_viewEvent(hbs_eventType: "添加新图片/视频"))
 
+        }else if cell is MSPublishFileCollectionViewCell {
+            
+            let msAsset = self.msAssets[0]
+            
+            if msAsset.mediaType == .video {
+                
+                if msAsset.videoPath != nil {
+                 
+                    let avPlayer = AVPlayer.init(url: msAsset.videoPath!)
+                    let playerVC = AVPlayerViewController.init()
+                    playerVC.player = avPlayer
+                    UIApplication.shared.keyWindow?.rootViewController?.present(playerVC, animated: true, completion: nil)
+
+                }
+                
+            }else if msAsset.mediaType == .image {
+                
+                let dataSource = JXLocalDataSource(numberOfItems: { () -> Int in
+                    
+                    return self.msAssets.count
+                    
+                }) { (index) -> UIImage? in
+                    
+                    return self.getAllImage()[index]
+                }
+                
+                JXPhotoBrowser(dataSource: dataSource).show(pageIndex: indexPath.item)
+
+            }
+        }
+    }
+    
+//    获取所有image
+    func getAllImage() -> [UIImage] {
+        
+        var allImages: Array<UIImage> = []
+        
+        for item in self.msAssets {
+            
+            allImages.append(item.originalImage ?? UIImage())
         }
         
+        return allImages
     }
     
 }

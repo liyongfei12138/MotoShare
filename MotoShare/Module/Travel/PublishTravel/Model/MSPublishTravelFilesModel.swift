@@ -11,7 +11,7 @@
 import UIKit
 
 class MSPublishTravelFilesModel: MSPublishTravelBaseModel {
-    
+        
     var msAssets: Array<MSPHAsset> = []
 
 }
