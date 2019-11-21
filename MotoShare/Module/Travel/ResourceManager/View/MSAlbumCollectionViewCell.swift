@@ -8,8 +8,12 @@
 
 import UIKit
 import Photos
+import JXPhotoBrowser
+import AVKit
 
 class MSAlbumCollectionViewCell: HBSBaseCollectionViewCell {
+    
+    var msAsset: MSPHAsset!
     
     /// 缩略图（图片/视频）
     lazy var assetImageView: UIImageView = {
@@ -17,7 +21,12 @@ class MSAlbumCollectionViewCell: HBSBaseCollectionViewCell {
         let imageView = UIImageView.init()
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
+        imageView.isUserInteractionEnabled = true
         self.contentView.addSubview(imageView)
+        
+        let imageViewLongPress = UILongPressGestureRecognizer.init(target: self, action: #selector(self.assetImageViewLongPress(longPress:)))
+        imageViewLongPress.minimumPressDuration = 0.8
+        imageView.addGestureRecognizer(imageViewLongPress)
         
         return imageView
     }()
@@ -77,7 +86,7 @@ class MSAlbumCollectionViewCell: HBSBaseCollectionViewCell {
     
     override func hbs_initView() {
         super.hbs_initView()
-        
+
         self.contentView.backgroundColor = .random
         
         self.assetImageView.snp.makeConstraints { (make) in
@@ -117,21 +126,16 @@ class MSAlbumCollectionViewCell: HBSBaseCollectionViewCell {
     
     func updateAlbumCell(msAsset: MSPHAsset) {
         
-//        设置图片大小
-        let size = CGSize(width: 200, height: 200)
+        self.msAsset = msAsset
         
-//        获取图片/视频的缩略图
-        let imageRequestOptions = PHImageRequestOptions.init()
-        imageRequestOptions.isNetworkAccessAllowed = true
-        imageRequestOptions.resizeMode = .exact
-        PHImageManager.default().requestImage(for: msAsset.asset, targetSize: size, contentMode: .default, options: imageRequestOptions) { (image, info) in
+        MSAlbumDataManager.getImageInfo(msAsset: msAsset) { (image) in
             
             if image != nil {
                 
                 self.assetImageView.image = image
             }
         }
-        
+   
         if msAsset.asset.mediaType == .image {
             
             self.choiceImageView.isHidden = false
@@ -189,5 +193,40 @@ extension MSAlbumCollectionViewCell {
         }
                     
         return String(format: "%d秒",secondInt)
+    }
+    
+    @objc func assetImageViewLongPress(longPress: UILongPressGestureRecognizer) {
+                        
+        if longPress.state == .began {
+                      
+            if self.msAsset.asset.mediaType == .image {
+             
+                MSAlbumDataManager.getImageInfo(msAsset: self.msAsset, isOriginalImage: true) { (image) in
+                                     
+                    let dataSource = JXLocalDataSource(numberOfItems: { () -> Int in
+                        
+                        return 1
+                        
+                    }) { (index) -> UIImage? in
+                        
+                        return image
+                    }
+                    
+                    JXPhotoBrowser(dataSource: dataSource).show(pageIndex: 0)
+
+                }
+            
+            }else if self.msAsset.asset.mediaType == .video {
+                
+                MSAlbumDataManager.getPlayerItem(asset: self.msAsset.asset) { (playerItem, info) in
+
+                    let avPlayer = AVPlayer.init(playerItem: playerItem)
+                    
+                    let playerVC = AVPlayerViewController.init()
+                    playerVC.player = avPlayer
+                    UIApplication.shared.keyWindow?.rootViewController?.present(playerVC, animated: true, completion: nil)
+                }
+            }
+        }
     }
 }

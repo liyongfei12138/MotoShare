@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -49,6 +49,9 @@
 		041C3990237BF28A007FA74A /* MSDemandListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C398F237BF28A007FA74A /* MSDemandListCell.swift */; };
 		041C3992237BF2CF007FA74A /* MSDemandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C3991237BF2CF007FA74A /* MSDemandViewController.swift */; };
 		041C3994237BF2F6007FA74A /* MSDemandListOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C3993237BF2F6007FA74A /* MSDemandListOptionView.swift */; };
+		04642C792383FC6C005131D7 /* MSPublishFileCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04642C782383FC6C005131D7 /* MSPublishFileCollectionView.swift */; };
+		04642C7B2383FC81005131D7 /* MSPublishFileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04642C7A2383FC80005131D7 /* MSPublishFileCollectionViewCell.swift */; };
+		04642C7D2383FC94005131D7 /* MSPublishAddFileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04642C7C2383FC94005131D7 /* MSPublishAddFileCollectionViewCell.swift */; };
 		049034BC237CEF5800D1DF65 /* TravelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034BB237CEF5800D1DF65 /* TravelViewController.swift */; };
 		049034BE237CEF9400D1DF65 /* MSTravelListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034BD237CEF9400D1DF65 /* MSTravelListTableView.swift */; };
 		049034C0237CEFA300D1DF65 /* MSTravelListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034BF237CEFA300D1DF65 /* MSTravelListCell.swift */; };
@@ -183,6 +186,9 @@
 		041C398F237BF28A007FA74A /* MSDemandListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSDemandListCell.swift; sourceTree = "<group>"; };
 		041C3991237BF2CF007FA74A /* MSDemandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSDemandViewController.swift; sourceTree = "<group>"; };
 		041C3993237BF2F6007FA74A /* MSDemandListOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSDemandListOptionView.swift; sourceTree = "<group>"; };
+		04642C782383FC6C005131D7 /* MSPublishFileCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSPublishFileCollectionView.swift; sourceTree = "<group>"; };
+		04642C7A2383FC80005131D7 /* MSPublishFileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSPublishFileCollectionViewCell.swift; sourceTree = "<group>"; };
+		04642C7C2383FC94005131D7 /* MSPublishAddFileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSPublishAddFileCollectionViewCell.swift; sourceTree = "<group>"; };
 		049034BB237CEF5800D1DF65 /* TravelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelViewController.swift; sourceTree = "<group>"; };
 		049034BD237CEF9400D1DF65 /* MSTravelListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSTravelListTableView.swift; sourceTree = "<group>"; };
 		049034BF237CEFA300D1DF65 /* MSTravelListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSTravelListCell.swift; sourceTree = "<group>"; };
@@ -505,6 +511,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		04642C742383FC34005131D7 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				04642C782383FC6C005131D7 /* MSPublishFileCollectionView.swift */,
+				04642C7A2383FC80005131D7 /* MSPublishFileCollectionViewCell.swift */,
+				04642C7C2383FC94005131D7 /* MSPublishAddFileCollectionViewCell.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
 		049034B8237CEF5800D1DF65 /* travel */ = {
 			isa = PBXGroup;
 			children = (
@@ -546,6 +562,7 @@
 		049034C8237D2A3900D1DF65 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04642C742383FC34005131D7 /* CollectionView */,
 				049034D4237D312200D1DF65 /* MSPublisthTravelTableView.swift */,
 				049034D8237D315D00D1DF65 /* MSPublishTravelBaseCell.swift */,
 				049034D6237D313400D1DF65 /* MSPublishTravelClickCell.swift */,
@@ -972,6 +989,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = D7AF4CD72367D84B009957D4;
 			productRefGroup = D7AF4CE12367D84B009957D4 /* Products */;
@@ -1072,12 +1090,14 @@
 				D7AF4D332367D9D7009957D4 /* UIColorDarkMode.swift in Sources */,
 				041C3970237BAB53007FA74A /* HBSBaseViewExtension.swift in Sources */,
 				041C3994237BF2F6007FA74A /* MSDemandListOptionView.swift in Sources */,
+				04642C7B2383FC81005131D7 /* MSPublishFileCollectionViewCell.swift in Sources */,
 				D734655423866B0000798807 /* LoginCodeView.swift in Sources */,
 				049034BE237CEF9400D1DF65 /* MSTravelListTableView.swift in Sources */,
 				D73465512386644400798807 /* LoginPhoneView.swift in Sources */,
 				049034C4237CEFCB00D1DF65 /* MSTravelListModel.swift in Sources */,
 				049034CF237D2EDD00D1DF65 /* MSPublishTravelTextViewModel.swift in Sources */,
 				049034C7237D079D00D1DF65 /* MSPublishTravelViewController.swift in Sources */,
+				04642C7D2383FC94005131D7 /* MSPublishAddFileCollectionViewCell.swift in Sources */,
 				049034D3237D2F1C00D1DF65 /* MSPublishTravelFilesModel.swift in Sources */,
 				D7C31904237E59630029BCB8 /* SettingMainTableViewCell.swift in Sources */,
 				D7AF4D2C2367D9D7009957D4 /* BaseTabBarController.swift in Sources */,
@@ -1186,6 +1206,7 @@
 				D7AF4D4823683641009957D4 /* TableViewCellReusable.swift in Sources */,
 				049034FF237E49C300D1DF65 /* MSAlbumDataManager.swift in Sources */,
 				D7AF4D5F23699B39009957D4 /* UiButtonExtension.swift in Sources */,
+				04642C792383FC6C005131D7 /* MSPublishFileCollectionView.swift in Sources */,
 				D7B43B6C237BA2810035755F /* FWSideMenuContainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1313,10 +1334,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VC2APXSZ8B;
+				DEVELOPMENT_TEAM = PZ5LU67724;
 				INFOPLIST_FILE = "$(SRCROOT)/MotoShare/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1324,9 +1345,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1;
-				PRODUCT_BUNDLE_IDENTIFIER = cn.love.cutt;
+				PRODUCT_BUNDLE_IDENTIFIER = net.xuntong.xtt;
 				PRODUCT_NAME = "摩滴共享";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = xuntongDev;
 				SWIFT_OBJC_BRIDGING_HEADER = "MotoShare/Main/MotoShare-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1340,10 +1361,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VC2APXSZ8B;
+				DEVELOPMENT_TEAM = PZ5LU67724;
 				INFOPLIST_FILE = "$(SRCROOT)/MotoShare/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1351,9 +1372,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1;
-				PRODUCT_BUNDLE_IDENTIFIER = cn.love.cutt;
+				PRODUCT_BUNDLE_IDENTIFIER = net.xuntong.xtt;
 				PRODUCT_NAME = "摩滴共享";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = xuntongDev;
 				SWIFT_OBJC_BRIDGING_HEADER = "MotoShare/Main/MotoShare-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

@@ -40,14 +40,27 @@ class MSPublishTravelClickCell: MSPublishTravelBaseCell {
         self.tipsLabel.snp.makeConstraints { (make) in
             
             make.right.equalTo(self.arrowImageView.snp.left).offset(-10)
-            make.top.equalTo(15)
-            make.bottom.equalTo(-15)
+            make.top.bottom.equalTo(0)
+            make.height.equalTo(50)
         }
+        
+        self.bottomLineView.isHidden = false
+
     }
     override func updatePublishTravelCell(model: MSPublishTravelBaseModel) {
         super.updatePublishTravelCell(model: model)
 
-        self.tipsLabel.text = model.tips
+        if model.result == nil {
+            
+            self.tipsLabel.text = model.tips
+            self.tipsLabel.textColor = TextColorLevel3
+        
+        }else {
+            
+            self.tipsLabel.text = model.result
+            self.tipsLabel.textColor = TextColorLevel1
+
+        }
     }
     
 }

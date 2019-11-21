@@ -11,19 +11,22 @@ import Photos
 
 @objc protocol MSResourceManagerViewControllerDelegate: NSObjectProtocol {
     
-    /// 选择视频后
+    /// 选择视频完成后
     /// - Parameter asset: 视频资源
     @objc optional func videoChoiceFinish(asset: MSPHAsset)
     
-    /// 选择图片后
+    /// 选择图片完成后
     /// - Parameter assets: 图片资源组
     @objc optional func imageChoiceFinish(assets: [MSPHAsset])
 
 }
 
-class MSResourceManagerViewController: BaseViewController,HLPageViewDelegate {
+class MSResourceManagerViewController: BaseViewController,HLPageViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     var delegate: MSResourceManagerViewControllerDelegate?
+    
+    /// 最多选择数量
+    var maxNo: Int = 9
     
     /// 当前相册目录
     var assetCollection: PHAssetCollection?
@@ -69,6 +72,7 @@ class MSResourceManagerViewController: BaseViewController,HLPageViewDelegate {
         
         let collectionView = MSAlbumCollectionView.view()
         collectionView.delegate = self
+        collectionView.maxSelectedNo = self.maxNo
         self.view.addSubview(collectionView)
         
         return collectionView
@@ -90,17 +94,6 @@ class MSResourceManagerViewController: BaseViewController,HLPageViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let datas = MSAlbumDataManager.getSmartAlbumAssetCollection()
-
-        if datas.count > 0 {
-            
-            self.assetCollection = datas[0]
-        }
-        
-        self.titleViewButton.setTitle(String(format: "%@ ▼", self.assetCollection?.localizedTitle ?? ""), for: .normal)
-        self.titleViewButton.setTitle(String(format: "%@ ▲", self.assetCollection?.localizedTitle ?? ""), for: .selected)
-        self.navigationItem.titleView = self.titleViewButton
-
         self.pageView.snp.makeConstraints { (make) in
             
             make.left.right.equalTo(0)
@@ -121,6 +114,23 @@ class MSResourceManagerViewController: BaseViewController,HLPageViewDelegate {
         PHPhotoLibrary.requestAuthorization { (status) in
             
             if status == .authorized {
+                
+                let datas = MSAlbumDataManager.getSmartAlbumAssetCollection()
+
+                if datas.count > 0 {
+                    
+                    self.assetCollection = datas[0]
+                }
+                
+                self.titleViewButton.setTitle(String(format: "%@ ▼", self.assetCollection?.localizedTitle ?? ""), for: .normal)
+//                self.titleViewButton.setTitle(String(format: "%@ ▲", self.assetCollection?.localizedTitle ?? ""), for: .selected)
+                
+                        
+                DispatchQueue.main.async {
+                    
+                    self.navigationItem.titleView = self.titleViewButton
+                }
+
 //                已授权访问
                 self.reloadCollectionView()
                 
@@ -145,6 +155,8 @@ class MSResourceManagerViewController: BaseViewController,HLPageViewDelegate {
             self.albumFolderView.hide(false)
             self.titleViewButton.isSelected = false
             self.titleViewButton.setTitle(String(format: "%@ ▼", self.assetCollection?.localizedTitle ?? ""), for: .normal)
+//            self.titleViewButton.setTitle(String(format: "%@ ▲", self.assetCollection?.localizedTitle ?? ""), for: .selected)
+
        
         }else if hbs_eventObject.hbs_eventType == "选择视频" {
             
@@ -225,5 +237,55 @@ class MSResourceManagerViewController: BaseViewController,HLPageViewDelegate {
 //    HLPageViewDelegate
     func pageView(_ pageView: HLPageView, didSelectIndexAt index: Int) {
  
+        if index == 1 || index == 2 {
+            
+            self.pageView.setCurrentPage(0, animated: false)
+
+            let imagePickerController = UIImagePickerController.init()
+            imagePickerController.sourceType = .camera
+            imagePickerController.mediaTypes = UIImagePickerController.availableMediaTypes(for: .camera)!
+            imagePickerController.videoMaximumDuration = 30
+            imagePickerController.delegate = self
+            self.present(imagePickerController, animated: true, completion: nil)
+        }
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            
+            let msAsset = MSPHAsset.init()
+            msAsset.mediaType = .image
+            msAsset.originalImage = originalImage
+            
+            if self.delegate != nil {
+                
+                self.delegate?.imageChoiceFinish?(assets: [msAsset])
+            }
+        }
+        
+        if let mediaUrl = info[UIImagePickerController.InfoKey.mediaURL] as? URL {
+            
+            let msAsset = MSPHAsset.init()
+            msAsset.mediaType = .video
+            msAsset.videoPath = mediaUrl
+            
+            if self.delegate != nil {
+                
+                self.delegate?.videoChoiceFinish?(asset: msAsset)
+            }
+        }
+                
+        picker.dismiss(animated: true) {
+            
+            self.dismiss()
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+    }
+    
 }

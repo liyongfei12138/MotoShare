@@ -10,6 +10,8 @@ import UIKit
 
 class MSChoiceDateView: HBSBaseView {
 
+    var dateString: String!
+    
     lazy var cancelButton: UIButton = {
         
         let button = UIButton.init(type: .system)
@@ -28,7 +30,7 @@ class MSChoiceDateView: HBSBaseView {
         button.setTitle("确认", for: .normal)
         button.setTitleColor(ColorTheme, for: .normal)
         button.titleLabel?.font = UIFont.hbs_font(.medium, size: 15)
-        button.addTarget(self, action: #selector(self.cancelButtonAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(self.confirmButtonAction), for: .touchUpInside)
         self.addSubview(button)
         
         return button
@@ -49,6 +51,12 @@ class MSChoiceDateView: HBSBaseView {
     override func hbs_initView() {
         
         self.backgroundColor = .white
+        
+        let dateFormoter = DateFormatter.init()
+        dateFormoter.dateFormat = "YYYY-MM-dd"
+        let dateString = dateFormoter.string(from: Date())
+
+        self.dateString = dateString
 
         self.cancelButton.snp.makeConstraints { (make) in
             
@@ -72,10 +80,13 @@ class MSChoiceDateView: HBSBaseView {
     
     @objc func cancelButtonAction() {
         
+        self.hbs_sendViewEventDelegate(hbs_eventObject: HBSViewEventObject.hbs_viewEvent(hbs_eventType: "关闭"))
+        
     }
     
     @objc func confirmButtonAction() {
         
+        self.hbs_sendViewEventDelegate(hbs_eventObject: HBSViewEventObject.hbs_viewEvent(hbs_eventType: "选择时间", hbs_params: self.dateString))
     }
     
 //    选择时间事件
@@ -84,9 +95,7 @@ class MSChoiceDateView: HBSBaseView {
         let chooseDate = datePicker.date
         let dateFormoter = DateFormatter.init()
         dateFormoter.dateFormat = "YYYY-MM-dd"
-        let dateString = dateFormoter.string(from: chooseDate)
-        
-        print(dateString)
+        self.dateString = dateFormoter.string(from: chooseDate)
     }
     
 }
