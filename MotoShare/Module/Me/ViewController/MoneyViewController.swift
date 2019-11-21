@@ -31,6 +31,11 @@ class MoneyViewController: BaseViewController {
         listView.bounces = false
         return listView
     }()
+    private lazy var headView:BalanceView = {
+        let headView = BalanceView()
+        headView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT * 0.2)
+        return headView
+    }()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -41,6 +46,9 @@ class MoneyViewController: BaseViewController {
 
         self.title = "钱包"
         self.view.backgroundColor = ColorTableViewBG
+        
+        self.headView.configBalance(title: "98.9")
+        self.listView.tableHeaderView = self.headView
         self.view.addSubview(self.listView)
         configLayout()
     }
@@ -53,7 +61,6 @@ class MoneyViewController: BaseViewController {
         
         
     }
-
 }
 
 extension MoneyViewController:UITableViewDelegate,UITableViewDataSource{
@@ -69,15 +76,15 @@ extension MoneyViewController:UITableViewDelegate,UITableViewDataSource{
         
 
        let cell:MoneyMainTableViewCell = MoneyMainTableViewCell.reusableCell(tableView: tableView) as! MoneyMainTableViewCell
-//"
         
-        cell.configData(title: self.dataArr[indexPath.section][indexPath.row].title ?? "")
+        let array = self.dataArr[indexPath.section]
+        
+        cell.configData(title: array[indexPath.row].title ?? "",type: array[indexPath.row].type ?? .other)
         return cell
 
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -88,13 +95,10 @@ extension MoneyViewController:UITableViewDelegate,UITableViewDataSource{
         let footView = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 20))
         footView.backgroundColor = ColorTableViewBG
         
-        
         return footView
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        
         
         return  UIView()
     }
