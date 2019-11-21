@@ -27,4 +27,6 @@ target 'MotoShare' do
   pod 'DNSPageView' #分页pageview
   pod 'SwiftyFitsize' #适配文字大小 界面大小
   pod 'AMap3DMap-NO-IDFA' # 高德地图
+  pod 'JXPhotoBrowser' # 图片预览
+
 end

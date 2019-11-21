@@ -41,17 +41,17 @@ class MSMapView: BaseView, MAMapViewDelegate {
     // 显示点
     func showMSPoints(points:[MSMapPoint]?) {
         
-        self.currentMapPoints?.removeAll()
-        
-        if points != nil && points.count > 0 {
-         
-            for point: MSMapPoint in points {
-                let pointAnnotation = MAPointAnnotation.init()
-                pointAnnotation.coordinate = CLLocationCoordinate2D.init(latitude: point.latitude, longitude: point.longitude)
-                
-                self.currentMapPoints.append(pointAnnotation)
-            }
-        }
+//        self.currentMapPoints?.removeAll()
+//        
+//        if points != nil && points.count > 0 {
+//         
+//            for point: MSMapPoint in points {
+//                let pointAnnotation = MAPointAnnotation.init()
+//                pointAnnotation.coordinate = CLLocationCoordinate2D.init(latitude: point.latitude, longitude: point.longitude)
+//                
+//                self.currentMapPoints.append(pointAnnotation)
+//            }
+//        }
     }
     
     
@@ -79,30 +79,30 @@ class MSMapView: BaseView, MAMapViewDelegate {
 // 标注扩展
 extension MSMapView {
     
-    // 设置标注样式
-    func mapView(_ mapView: MAMapView!, viewFor annotation: MAAnnotation!) -> MAAnnotationView! {
-        
-        if annotation.isKind(of: MAPointAnnotation.self) {
-            let pointReuseIndetifier = "pointReuseIndetifier"
-            var annotationView: MAPinAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: pointReuseIndetifier) as! MAPinAnnotationView?
-            
-            if annotationView == nil {
-                annotationView = MAPinAnnotationView(annotation: annotation, reuseIdentifier: pointReuseIndetifier)
-            }
-            
-            annotationView!.canShowCallout = true
-            annotationView!.animatesDrop = true
-            annotationView!.isDraggable = true
-            annotationView!.rightCalloutAccessoryView = UIButton(type: UIButtonType.detailDisclosure)
-            
-            let idx = annotations.index(of: annotation as! MAPointAnnotation)
-            annotationView!.pinColor = MAPinAnnotationColor(rawValue: idx!%3)!
-            
-            return annotationView!
-        }
-        
-        return nil
-    }
+//    // 设置标注样式
+//    func mapView(_ mapView: MAMapView!, viewFor annotation: MAAnnotation!) -> MAAnnotationView! {
+//
+//        if annotation.isKind(of: MAPointAnnotation.self) {
+//            let pointReuseIndetifier = "pointReuseIndetifier"
+//            var annotationView: MAPinAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: pointReuseIndetifier) as! MAPinAnnotationView?
+//
+//            if annotationView == nil {
+//                annotationView = MAPinAnnotationView(annotation: annotation, reuseIdentifier: pointReuseIndetifier)
+//            }
+//
+//            annotationView!.canShowCallout = true
+//            annotationView!.animatesDrop = true
+//            annotationView!.isDraggable = true
+//            annotationView!.rightCalloutAccessoryView = UIButton(type: UIButtonType.detailDisclosure)
+//
+//            let idx = annotations.index(of: annotation as! MAPointAnnotation)
+//            annotationView!.pinColor = MAPinAnnotationColor(rawValue: idx!%3)!
+//
+//            return annotationView!
+//        }
+//
+//        return nil
+//    }
     
     
 }

@@ -14,10 +14,20 @@ class MSPublishTravelBaseCell: HBSBaseTableViewCell {
         
         let label = UILabel.init()
         label.textColor = TextColorLevel1
-        label.font = UIFont.hbs_font(size: 14)
+        label.font = UIFont.hbs_font(size: 16)
         self.contentView.addSubview(label)
         
         return label
+    }()
+    
+    lazy var bottomLineView: UIView = {
+        
+        let view = UIView.init()
+        view.isHidden = true
+        view.backgroundColor = HBS_C_DividingLineColor
+        self.contentView.addSubview(view)
+        
+        return view
     }()
     
     override func hbs_initView() {
@@ -26,8 +36,15 @@ class MSPublishTravelBaseCell: HBSBaseTableViewCell {
         self.titleLabel.snp.makeConstraints { (make) in
         
             make.left.equalTo(15)
-            make.top.equalTo(15)
-            make.width.equalTo(70)
+            make.centerY.equalToSuperview()
+        }
+        
+        self.bottomLineView.snp.makeConstraints { (make) in
+            
+            make.left.equalTo(15)
+            make.right.equalTo(-15)
+            make.bottom.equalToSuperview()
+            make.height.equalTo(0.5)
         }
     }
 

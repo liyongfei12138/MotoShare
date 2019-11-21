@@ -8,13 +8,18 @@
 
 import UIKit
 
+public typealias ChoiceCompleBlock = (String) -> Void
+
 class MSChoiceDateViewController: BaseViewController {
 
+    var choiceComple: ChoiceCompleBlock?
+    
     let choiceDateViewHeight: CGFloat = 260 + HBS_C_HOMEINDICATOR_HEIHGT
     
     lazy var choiceDateView: MSChoiceDateView = {
         
         let view = MSChoiceDateView.view()
+        view.delegate = self
         self.view.addSubview(view)
         
         return view
@@ -32,7 +37,6 @@ class MSChoiceDateViewController: BaseViewController {
             make.bottom.equalTo(choiceDateViewHeight)
             make.height.equalTo(choiceDateViewHeight)
         }
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -46,7 +50,23 @@ class MSChoiceDateViewController: BaseViewController {
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
+    }
+    
+    func hbs_viewEvent(_ view: UIView, hbs_eventObject: HBSViewEventObject) {
         
+        if hbs_eventObject.hbs_eventType == "关闭" {
+            
+            self.hide(true)
+            
+        }else if hbs_eventObject.hbs_eventType == "选择时间" {
+            
+            if self.choiceComple != nil {
+                
+                self.choiceComple!(hbs_eventObject.hbs_params as! String)
+            }
+            
+            self.hide(true)
+        }
     }
     
     @objc func bacViewTapClick() {
