@@ -15,8 +15,6 @@ class MSMapView: BaseView, MAMapViewDelegate {
         customRepresentation.showsAccuracyRing = false
         customRepresentation.showsHeadingIndicator = true
         customRepresentation.enablePulseAnnimation = true
-        
-        
         return customRepresentation
     }()
     
@@ -25,8 +23,12 @@ class MSMapView: BaseView, MAMapViewDelegate {
         mapView.delegate = self
         mapView.update(self.customRepresentation)
         mapView.showsUserLocation = true
+        mapView.zoomLevel = 10
         return mapView
     }()
+
+    // 当前显示的点
+    var currentMapPoints: [MSMapPoint] = [MSMapPoint]()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,6 +37,23 @@ class MSMapView: BaseView, MAMapViewDelegate {
         
         p_setUpUI()
     }
+    
+    // 显示点
+    func showMSPoints(points:[MSMapPoint]?) {
+        
+        self.currentMapPoints?.removeAll()
+        
+        if points != nil && points.count > 0 {
+         
+            for point: MSMapPoint in points {
+                let pointAnnotation = MAPointAnnotation.init()
+                pointAnnotation.coordinate = CLLocationCoordinate2D.init(latitude: point.latitude, longitude: point.longitude)
+                
+                self.currentMapPoints.append(pointAnnotation)
+            }
+        }
+    }
+    
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -57,13 +76,33 @@ class MSMapView: BaseView, MAMapViewDelegate {
     }
 }
 
-
+// 标注扩展
 extension MSMapView {
     
-//    convenience override init(frame: CGRect, type: MAMapType) {
-//        self.init(frame: frame)
-//        
-//        
-//    }
+    // 设置标注样式
+    func mapView(_ mapView: MAMapView!, viewFor annotation: MAAnnotation!) -> MAAnnotationView! {
+        
+        if annotation.isKind(of: MAPointAnnotation.self) {
+            let pointReuseIndetifier = "pointReuseIndetifier"
+            var annotationView: MAPinAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: pointReuseIndetifier) as! MAPinAnnotationView?
+            
+            if annotationView == nil {
+                annotationView = MAPinAnnotationView(annotation: annotation, reuseIdentifier: pointReuseIndetifier)
+            }
+            
+            annotationView!.canShowCallout = true
+            annotationView!.animatesDrop = true
+            annotationView!.isDraggable = true
+            annotationView!.rightCalloutAccessoryView = UIButton(type: UIButtonType.detailDisclosure)
+            
+            let idx = annotations.index(of: annotation as! MAPointAnnotation)
+            annotationView!.pinColor = MAPinAnnotationColor(rawValue: idx!%3)!
+            
+            return annotationView!
+        }
+        
+        return nil
+    }
+    
     
 }

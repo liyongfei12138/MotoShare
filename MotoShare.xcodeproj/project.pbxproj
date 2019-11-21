@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040820662384D8CF00141ABA /* MSMapPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040820652384D8CF00141ABA /* MSMapPoint.swift */; };
 		040F8DD123823B9700834F41 /* MSAlbumFolderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F8DD023823B9700834F41 /* MSAlbumFolderTableView.swift */; };
 		040F8DD323823BA700834F41 /* MSAlbumFolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F8DD223823BA700834F41 /* MSAlbumFolderTableViewCell.swift */; };
 		041C3951237BAB53007FA74A /* HBSBaseConstHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C3922237BAB53007FA74A /* HBSBaseConstHeader.swift */; };
@@ -136,6 +137,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040820652384D8CF00141ABA /* MSMapPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSMapPoint.swift; sourceTree = "<group>"; };
 		040F8DD023823B9700834F41 /* MSAlbumFolderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSAlbumFolderTableView.swift; sourceTree = "<group>"; };
 		040F8DD223823BA700834F41 /* MSAlbumFolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSAlbumFolderTableViewCell.swift; sourceTree = "<group>"; };
 		041C3922237BAB53007FA74A /* HBSBaseConstHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBSBaseConstHeader.swift; sourceTree = "<group>"; };
@@ -283,6 +285,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040820642384D8BF00141ABA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				040820652384D8CF00141ABA /* MSMapPoint.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		040F8DCF23823B7D00834F41 /* AlbumFolderTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -829,6 +839,7 @@
 		D7B43B64237B9D5E0035755F /* Share */ = {
 			isa = PBXGroup;
 			children = (
+				040820642384D8BF00141ABA /* Model */,
 				04B85C9723824E66008E8BF9 /* Controller */,
 				04B85C9623824E66008E8BF9 /* View */,
 			);
@@ -1086,6 +1097,7 @@
 				041C3983237BE64C007FA74A /* MSRentDetailViewController.swift in Sources */,
 				D7B43B59237AB4120035755F /* HomeBannerView.swift in Sources */,
 				041C3971237BAB53007FA74A /* HBSBaseTipsView.swift in Sources */,
+				040820662384D8CF00141ABA /* MSMapPoint.swift in Sources */,
 				D7B43B74237CF0390035755F /* MeModel.swift in Sources */,
 				D7AF4D3C2367D9D7009957D4 /* Header.swift in Sources */,
 				041C3960237BAB53007FA74A /* HBSBaseModel.swift in Sources */,
@@ -1285,10 +1297,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VC2APXSZ8B;
+				DEVELOPMENT_TEAM = 63897U7WZL;
 				INFOPLIST_FILE = "$(SRCROOT)/MotoShare/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1298,7 +1310,7 @@
 				MARKETING_VERSION = 1;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.love.cutt;
 				PRODUCT_NAME = "摩滴共享";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = 52videoClip_DEV_20191112_001;
 				SWIFT_OBJC_BRIDGING_HEADER = "MotoShare/Main/MotoShare-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1312,10 +1324,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VC2APXSZ8B;
+				DEVELOPMENT_TEAM = 63897U7WZL;
 				INFOPLIST_FILE = "$(SRCROOT)/MotoShare/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1325,7 +1337,7 @@
 				MARKETING_VERSION = 1;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.love.cutt;
 				PRODUCT_NAME = "摩滴共享";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = 52videoClip_DEV_20191112_001;
 				SWIFT_OBJC_BRIDGING_HEADER = "MotoShare/Main/MotoShare-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
