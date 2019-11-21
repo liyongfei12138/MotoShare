@@ -85,6 +85,11 @@
 		D72711872382AA0600051A1B /* ManagerNunberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72711852382AA0600051A1B /* ManagerNunberTableViewCell.swift */; };
 		D72711892382AB8400051A1B /* MoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72711882382AB8400051A1B /* MoneyViewController.swift */; };
 		D727118B2382B0E300051A1B /* MoneyMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D727118A2382B0E300051A1B /* MoneyMainTableViewCell.swift */; };
+		D727118D23838B0700051A1B /* BalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D727118C23838B0700051A1B /* BalanceView.swift */; };
+		D727118F2383A19700051A1B /* GetMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D727118E2383A19700051A1B /* GetMoneyViewController.swift */; };
+		D73465512386644400798807 /* LoginPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73465502386644400798807 /* LoginPhoneView.swift */; };
+		D734655423866B0000798807 /* LoginCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D734655323866B0000798807 /* LoginCodeView.swift */; };
+		D77854F4238628B700DEB6DE /* LoginViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77854F3238628B700DEB6DE /* LoginViewExtension.swift */; };
 		D7AF4CE42367D84B009957D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF4CE32367D84B009957D4 /* AppDelegate.swift */; };
 		D7AF4CED2367D84D009957D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7AF4CEC2367D84D009957D4 /* Assets.xcassets */; };
 		D7AF4D012367D91B009957D4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF4D002367D91B009957D4 /* HomeViewController.swift */; };
@@ -219,6 +224,11 @@
 		D72711852382AA0600051A1B /* ManagerNunberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerNunberTableViewCell.swift; sourceTree = "<group>"; };
 		D72711882382AB8400051A1B /* MoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewController.swift; sourceTree = "<group>"; };
 		D727118A2382B0E300051A1B /* MoneyMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyMainTableViewCell.swift; sourceTree = "<group>"; };
+		D727118C23838B0700051A1B /* BalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceView.swift; sourceTree = "<group>"; };
+		D727118E2383A19700051A1B /* GetMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoneyViewController.swift; sourceTree = "<group>"; };
+		D73465502386644400798807 /* LoginPhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPhoneView.swift; sourceTree = "<group>"; };
+		D734655323866B0000798807 /* LoginCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCodeView.swift; sourceTree = "<group>"; };
+		D77854F3238628B700DEB6DE /* LoginViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewExtension.swift; sourceTree = "<group>"; };
 		D7AF4CE02367D84B009957D4 /* 摩滴共享.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "摩滴共享.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7AF4CE32367D84B009957D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7AF4CEC2367D84D009957D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -647,6 +657,15 @@
 			path = Query;
 			sourceTree = "<group>";
 		};
+		D73465522386649100798807 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D73465502386644400798807 /* LoginPhoneView.swift */,
+				D734655323866B0000798807 /* LoginCodeView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		D7AF4CD72367D84B009957D4 = {
 			isa = PBXGroup;
 			children = (
@@ -792,6 +811,7 @@
 				D7AF4D222367D9D7009957D4 /* UIViewHUDExtension.swift */,
 				D7AF4D5E23699B39009957D4 /* UiButtonExtension.swift */,
 				D7AF4D67236BD857009957D4 /* UIViewExtension.swift */,
+				D77854F3238628B700DEB6DE /* LoginViewExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -811,6 +831,7 @@
 			isa = PBXGroup;
 			children = (
 				D7B43B53237A4A7B0035755F /* LoginViewController.swift */,
+				D73465522386649100798807 /* View */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -867,6 +888,7 @@
 				D72711852382AA0600051A1B /* ManagerNunberTableViewCell.swift */,
 				D72711842382AA0500051A1B /* ManagerPhone.swift */,
 				D727118A2382B0E300051A1B /* MoneyMainTableViewCell.swift */,
+				D727118C23838B0700051A1B /* BalanceView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -887,6 +909,7 @@
 				D7C3190B237E8D3E0029BCB8 /* ContactViewController.swift */,
 				D7C31911237EABDF0029BCB8 /* ContactManageViewController.swift */,
 				D72711882382AB8400051A1B /* MoneyViewController.swift */,
+				D727118E2383A19700051A1B /* GetMoneyViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1049,7 +1072,9 @@
 				D7AF4D332367D9D7009957D4 /* UIColorDarkMode.swift in Sources */,
 				041C3970237BAB53007FA74A /* HBSBaseViewExtension.swift in Sources */,
 				041C3994237BF2F6007FA74A /* MSDemandListOptionView.swift in Sources */,
+				D734655423866B0000798807 /* LoginCodeView.swift in Sources */,
 				049034BE237CEF9400D1DF65 /* MSTravelListTableView.swift in Sources */,
+				D73465512386644400798807 /* LoginPhoneView.swift in Sources */,
 				049034C4237CEFCB00D1DF65 /* MSTravelListModel.swift in Sources */,
 				049034CF237D2EDD00D1DF65 /* MSPublishTravelTextViewModel.swift in Sources */,
 				049034C7237D079D00D1DF65 /* MSPublishTravelViewController.swift in Sources */,
@@ -1094,6 +1119,7 @@
 				049034BC237CEF5800D1DF65 /* TravelViewController.swift in Sources */,
 				041C3972237BAB53007FA74A /* HBSBaseView.swift in Sources */,
 				041C3959237BAB53007FA74A /* HBSTableViewExtension.swift in Sources */,
+				D727118D23838B0700051A1B /* BalanceView.swift in Sources */,
 				D7C3190E237E9C020029BCB8 /* ContactTableViewCell.swift in Sources */,
 				049034DD237D318100D1DF65 /* MSPublishTravelTextFieldCell.swift in Sources */,
 				04B85C9B23824E87008E8BF9 /* MSMapView.swift in Sources */,
@@ -1115,6 +1141,7 @@
 				049034E4237D56BE00D1DF65 /* MSChoiceDateViewController.swift in Sources */,
 				D7AF4CE42367D84B009957D4 /* AppDelegate.swift in Sources */,
 				049034F6237D759D00D1DF65 /* HLPageResultView.swift in Sources */,
+				D77854F4238628B700DEB6DE /* LoginViewExtension.swift in Sources */,
 				041C3951237BAB53007FA74A /* HBSBaseConstHeader.swift in Sources */,
 				D7AF4D4A23684429009957D4 /* Delegate.swift in Sources */,
 				041C3966237BAB53007FA74A /* HBSBaseCollectionViewCell.swift in Sources */,
@@ -1142,6 +1169,7 @@
 				041C398E237BF27A007FA74A /* MSDemandListTableView.swift in Sources */,
 				D7B43B71237CECEA0035755F /* MeMainListView.swift in Sources */,
 				D7AF4D392367D9D7009957D4 /* UIViewHUDExtension.swift in Sources */,
+				D727118F2383A19700051A1B /* GetMoneyViewController.swift in Sources */,
 				D72711892382AB8400051A1B /* MoneyViewController.swift in Sources */,
 				D7AF4D362367D9D7009957D4 /* ClassName.swift in Sources */,
 				D7AF4D342367D9D7009957D4 /* GLAppInfo.swift in Sources */,

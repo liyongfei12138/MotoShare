@@ -16,7 +16,7 @@ enum HomeClassButtonStyle {
 }
 
 extension UIButton {
-    
+   
     func layoutButton(style: HomeClassButtonStyle, imageTitleSpace: CGFloat) {
         //得到imageView和titleLabel的宽高
         let imageWidth = self.imageView?.frame.size.width
