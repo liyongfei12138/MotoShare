@@ -30,9 +30,22 @@ class MoneyMainTableViewCell: UITableViewCell {
             return arrowImgView
         }()
     
+        private lazy var detailLabel: UILabel = {
+            let detailLabel = UILabel()
+            detailLabel.font = UIFont.systemFont(ofSize: 12)
+            detailLabel.textColor = UIColor.gl_hex(hex: 0x999999)
+            detailLabel.text = "需认证后提现"
+            return detailLabel
+        }()
     
-        func configData(title:String)  {
+    func configData(title:String,type:MoneyRowType)  {
             self.titleLabel.text = title
+        
+        if type == .idCard || type == .driver {
+            self.detailLabel.isHidden = false
+        }else{
+            self.detailLabel.isHidden = true
+        }
              
         }
     
@@ -42,8 +55,8 @@ class MoneyMainTableViewCell: UITableViewCell {
             addSubview(self.titleLabel)
             addSubview(self.lineView)
             addSubview(self.arrowImgView)
-            
-           }
+            addSubview(self.detailLabel)
+        }
            
            required init?(coder: NSCoder) {
                fatalError("init(coder:) has not been implemented")
@@ -67,9 +80,15 @@ class MoneyMainTableViewCell: UITableViewCell {
                 make.centerY.equalTo(self.arrowImgView)
            }
             
+            self.detailLabel.snp.makeConstraints { (make) in
+                make.right.equalTo(self.arrowImgView.snp.left).offset(-8)
+                 make.centerY.equalTo(self.arrowImgView)
+            }
+            
+            
             self.lineView.snp.makeConstraints { (make) in
-                make.left.equalTo(self.arrowImgView)
-                make.top.right.equalToSuperview()
+                make.left.right.equalToSuperview()
+                make.bottom.equalToSuperview()
                 make.height.equalTo(1)
             }
             
