@@ -24,6 +24,7 @@ class MSRentListTableView: HBSBaseTableView {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withClass: MSRentListCell.self)
+        cell.delegate = self.delegate
         cell.hbs_updateTableViewCell(nil)
         return cell
     }

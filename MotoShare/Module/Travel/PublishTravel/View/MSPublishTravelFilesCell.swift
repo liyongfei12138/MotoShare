@@ -36,6 +36,37 @@ class MSPublishTravelFilesCell: MSPublishTravelBaseCell {
         
         self.fileCollectionView.updateFileCollectionView(datas: filesModel!.msAssets)
         
+        var collectionViewHeight = CGFloat(0)
+        
+        if filesModel?.msAssets.count == 0 {
+            
+            collectionViewHeight = self.itemWidth + 31
+            
+        }else {
+            
+            var rowNo = 0
+            
+            if filesModel!.msAssets.count == 9 {
+                
+                rowNo = 3
+            
+            }else if (filesModel!.msAssets.count + 1) % 3 == 0 {
+                
+                rowNo = (filesModel!.msAssets.count + 1) / 3
+
+            }else {
+                
+                rowNo = (filesModel!.msAssets.count + 1) / 3 + 1
+            }
+            
+            collectionViewHeight = self.itemWidth * CGFloat(rowNo) + CGFloat(15 * (rowNo + 1)) + CGFloat(1)
+
+        }
+        
+        self.fileCollectionView.snp.updateConstraints { (make) in
+            
+            make.height.equalTo(collectionViewHeight)
+        }
     }
 
     override func hbs_didFinishDelegate() {

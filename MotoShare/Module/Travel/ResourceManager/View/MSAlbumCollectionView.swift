@@ -12,7 +12,7 @@ import Photos
 class MSAlbumCollectionView: HBSBaseCollectionView {
     
     /// 最大选择数
-    let maxSelectedNo = 9
+    var maxSelectedNo = 9
     
     /// 总数据源
     var assetDatas: Array<MSPHAsset> = []

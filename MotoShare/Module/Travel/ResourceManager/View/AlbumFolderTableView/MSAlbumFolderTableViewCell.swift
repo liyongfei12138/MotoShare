@@ -88,40 +88,36 @@ class MSAlbumFolderTableViewCell: HBSBaseTableViewCell {
         let albumDatas = MSAlbumDataManager.getAlbumAssetItem(assetCollection: assetCollection)
 
         self.nameLabel.text = assetCollection.localizedTitle
-        
+        self.imageView1.image = nil;
+        self.imageView2.image = nil;
+        self.imageView3.image = nil;
+
         for (index, item) in albumDatas.enumerated() {
             
             if index == 2 {
                 
-                self.setIconImage(imageView: self.imageView1, asset: item.asset)
+                self.setIconImage(imageView: self.imageView1, msAsset: item)
            
             }else if index == 1 {
                 
-                self.setIconImage(imageView: self.imageView2, asset: item.asset)
+                self.setIconImage(imageView: self.imageView2, msAsset: item)
            
             }else if index == 0 {
                 
-                self.setIconImage(imageView: self.imageView3, asset: item.asset)
+                self.setIconImage(imageView: self.imageView3, msAsset: item)
             }
         }
     }
     
-    func setIconImage(imageView: UIImageView, asset: PHAsset) {
+    func setIconImage(imageView: UIImageView, msAsset: MSPHAsset) {
         
-//        设置图片大小
-        let size = CGSize(width: 200, height: 200)
-        
-//        获取图片/视频的缩略图
-        let imageRequestOptions = PHImageRequestOptions.init()
-        imageRequestOptions.isNetworkAccessAllowed = true
-        imageRequestOptions.resizeMode = .exact
-        PHImageManager.default().requestImage(for: asset, targetSize: size, contentMode: .default, options: imageRequestOptions) { (image, info) in
+        MSAlbumDataManager.getImageInfo(msAsset: msAsset) { (image) in
             
             if image != nil {
                 
                 imageView.image = image
+
             }
         }
     }
-    
 }

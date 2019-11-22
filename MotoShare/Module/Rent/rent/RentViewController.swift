@@ -57,8 +57,11 @@ class RentViewController: BaseViewController {
             
         }else if hbs_eventObject.hbs_eventType == "跳转租车详情" {
             
-            let rentVC = MSRentDetailViewController.init()
-            self.navigationController?.pushViewController(rentVC)
+//            let rentVC = MSRentDetailViewController.init()
+//            self.navigationController?.pushViewController(rentVC)
+            
+            let publishRentVC = MSPublishRentDemandViewController.init()
+            self.navigationController?.pushViewController(publishRentVC)
         
         }else if hbs_eventObject.hbs_eventType == "综合" {
             

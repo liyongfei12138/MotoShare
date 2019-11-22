@@ -60,6 +60,7 @@ class MSPublishTravelViewController: BaseViewController,MSResourceManagerViewCon
             
             let resourceManagerVC = MSResourceManagerViewController.init()
             resourceManagerVC.delegate = self
+            resourceManagerVC.maxNo = 9 - self.getFilesModel().msAssets.count
             self.navigationController?.pushViewController(resourceManagerVC)
         }
     }
@@ -107,11 +108,17 @@ class MSPublishTravelViewController: BaseViewController,MSResourceManagerViewCon
     
     func imageChoiceFinish(assets: [MSPHAsset]) {
         
-        let filesModel = self.publishModels[1] as? MSPublishTravelFilesModel
-        filesModel?.msAssets = filesModel!.msAssets + assets
+        let filesModel = self.getFilesModel()
+        filesModel.msAssets = filesModel.msAssets + assets
         
         self.publishTableView.hbs_reloadData()
 
     }
     
+    /// 获取选择图片视频model
+    func getFilesModel() -> MSPublishTravelFilesModel {
+        
+        return (self.publishModels[1] as? MSPublishTravelFilesModel)!
+
+    }
 }
