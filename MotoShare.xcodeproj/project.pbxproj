@@ -52,6 +52,7 @@
 		04642C792383FC6C005131D7 /* MSPublishFileCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04642C782383FC6C005131D7 /* MSPublishFileCollectionView.swift */; };
 		04642C7B2383FC81005131D7 /* MSPublishFileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04642C7A2383FC80005131D7 /* MSPublishFileCollectionViewCell.swift */; };
 		04642C7D2383FC94005131D7 /* MSPublishAddFileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04642C7C2383FC94005131D7 /* MSPublishAddFileCollectionViewCell.swift */; };
+		04642C8023862F09005131D7 /* MSPublishRentDemandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04642C7F23862F09005131D7 /* MSPublishRentDemandViewController.swift */; };
 		049034BC237CEF5800D1DF65 /* TravelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034BB237CEF5800D1DF65 /* TravelViewController.swift */; };
 		049034BE237CEF9400D1DF65 /* MSTravelListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034BD237CEF9400D1DF65 /* MSTravelListTableView.swift */; };
 		049034C0237CEFA300D1DF65 /* MSTravelListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034BF237CEFA300D1DF65 /* MSTravelListCell.swift */; };
@@ -184,6 +185,7 @@
 		04642C782383FC6C005131D7 /* MSPublishFileCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSPublishFileCollectionView.swift; sourceTree = "<group>"; };
 		04642C7A2383FC80005131D7 /* MSPublishFileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSPublishFileCollectionViewCell.swift; sourceTree = "<group>"; };
 		04642C7C2383FC94005131D7 /* MSPublishAddFileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSPublishAddFileCollectionViewCell.swift; sourceTree = "<group>"; };
+		04642C7F23862F09005131D7 /* MSPublishRentDemandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSPublishRentDemandViewController.swift; sourceTree = "<group>"; };
 		049034BB237CEF5800D1DF65 /* TravelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelViewController.swift; sourceTree = "<group>"; };
 		049034BD237CEF9400D1DF65 /* MSTravelListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSTravelListTableView.swift; sourceTree = "<group>"; };
 		049034BF237CEFA300D1DF65 /* MSTravelListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSTravelListCell.swift; sourceTree = "<group>"; };
@@ -511,6 +513,14 @@
 			path = CollectionView;
 			sourceTree = "<group>";
 		};
+		04642C7E23862EFA005131D7 /* PublishRentDemand */ = {
+			isa = PBXGroup;
+			children = (
+				04642C7F23862F09005131D7 /* MSPublishRentDemandViewController.swift */,
+			);
+			path = PublishRentDemand;
+			sourceTree = "<group>";
+		};
 		049034B8237CEF5800D1DF65 /* travel */ = {
 			isa = PBXGroup;
 			children = (
@@ -728,6 +738,7 @@
 		D7AF4CFA2367D8C0009957D4 /* Rent */ = {
 			isa = PBXGroup;
 			children = (
+				04642C7E23862EFA005131D7 /* PublishRentDemand */,
 				041C3980237BE638007FA74A /* ChoiceCity */,
 				041C3981237BE638007FA74A /* RentDetail */,
 				041C3973237BAC8A007FA74A /* rent */,
@@ -1187,6 +1198,7 @@
 				049034E4237D56BE00D1DF65 /* MSChoiceDateViewController.swift in Sources */,
 				D7AF4CE42367D84B009957D4 /* AppDelegate.swift in Sources */,
 				049034F6237D759D00D1DF65 /* HLPageResultView.swift in Sources */,
+				04642C8023862F09005131D7 /* MSPublishRentDemandViewController.swift in Sources */,
 				041C3951237BAB53007FA74A /* HBSBaseConstHeader.swift in Sources */,
 				D7AF4D4A23684429009957D4 /* Delegate.swift in Sources */,
 				041C3966237BAB53007FA74A /* HBSBaseCollectionViewCell.swift in Sources */,
