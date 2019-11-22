@@ -13,7 +13,7 @@ let kMenuWidth = UIScreen.main.bounds.width * 0.7
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {                           
 
 
      var window: UIWindow?
