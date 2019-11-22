@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -133,6 +133,7 @@
 		D7B43B74237CF0390035755F /* MeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B43B73237CF0390035755F /* MeModel.swift */; };
 		D7B43B77237CFA4F0035755F /* MeListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B43B76237CFA4F0035755F /* MeListTableViewCell.swift */; };
 		D7B43B7A237D26290035755F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B43B79237D26290035755F /* SettingViewController.swift */; };
+		D7B7CAC22386809C003C3607 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B7CAC12386809C003C3607 /* LoginButton.swift */; };
 		D7C31902237E55C50029BCB8 /* MeSettingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C31901237E55C50029BCB8 /* MeSettingTableView.swift */; };
 		D7C31904237E59630029BCB8 /* SettingMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C31903237E59630029BCB8 /* SettingMainTableViewCell.swift */; };
 		D7C31906237E5DEB0029BCB8 /* SetLogoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C31905237E5DEB0029BCB8 /* SetLogoutTableViewCell.swift */; };
@@ -278,6 +279,7 @@
 		D7B43B73237CF0390035755F /* MeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeModel.swift; sourceTree = "<group>"; };
 		D7B43B76237CFA4F0035755F /* MeListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeListTableViewCell.swift; sourceTree = "<group>"; };
 		D7B43B79237D26290035755F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		D7B7CAC12386809C003C3607 /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		D7C31901237E55C50029BCB8 /* MeSettingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSettingTableView.swift; sourceTree = "<group>"; };
 		D7C31903237E59630029BCB8 /* SettingMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingMainTableViewCell.swift; sourceTree = "<group>"; };
 		D7C31905237E5DEB0029BCB8 /* SetLogoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLogoutTableViewCell.swift; sourceTree = "<group>"; };
@@ -687,10 +689,19 @@
 		D73465522386649100798807 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D7A034E52386950C00AF26A4 /* New Group */,
 				D73465502386644400798807 /* LoginPhoneView.swift */,
 				D734655323866B0000798807 /* LoginCodeView.swift */,
+				D7B7CAC12386809C003C3607 /* LoginButton.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		D7A034E52386950C00AF26A4 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 		D7AF4CD72367D84B009957D4 = {
@@ -1096,6 +1107,7 @@
 				049034C2237CEFB900D1DF65 /* MSTranvelOptionView.swift in Sources */,
 				D7AF4D332367D9D7009957D4 /* UIColorDarkMode.swift in Sources */,
 				041C3970237BAB53007FA74A /* HBSBaseViewExtension.swift in Sources */,
+				D7B7CAC22386809C003C3607 /* LoginButton.swift in Sources */,
 				041C3994237BF2F6007FA74A /* MSDemandListOptionView.swift in Sources */,
 				04642C7B2383FC81005131D7 /* MSPublishFileCollectionViewCell.swift in Sources */,
 				D734655423866B0000798807 /* LoginCodeView.swift in Sources */,

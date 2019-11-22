@@ -25,6 +25,8 @@ class LoginPhoneView: UIView {
     private lazy var fieldView: UITextField = {
         let fieldView = UITextField()
         fieldView.placeholder = "请输入手机号码"
+        fieldView.delegate = self
+        fieldView.keyboardType = .numberPad
         fieldView.textColor = UIColor.gl_hex(hex: 0x333333)
         fieldView.font = UIFont.systemFont(ofSize: 14)
         return fieldView
@@ -52,6 +54,18 @@ class LoginPhoneView: UIView {
             make.left.equalTo(self.iconImgView.snp.right).offset(12)
             make.centerY.equalToSuperview()
             make.right.equalToSuperview().offset(-20)
+        }
+    }
+}
+
+extension LoginPhoneView: UITextFieldDelegate{
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        if string == "" || textField.text?.count ?? 0 < 11 {
+            return true
+        }else{
+            return false
         }
     }
 }

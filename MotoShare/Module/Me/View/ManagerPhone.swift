@@ -25,7 +25,7 @@ extension ManagerPhone: UITextFieldDelegate{
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
-        if string == "" || textField.text?.count ?? 0 < 11 {
+        if string == "" || textField.text?.count ?? 0 < kMaxLength {
             return true
         }else{
             return false
