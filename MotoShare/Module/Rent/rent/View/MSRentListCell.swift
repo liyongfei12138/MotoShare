@@ -104,6 +104,6 @@ class MSRentListCell: HBSBaseTableViewCell {
     
     @objc func buyButtonClick() {
         
-        
+        self.hbs_sendViewEventDelegate(hbs_eventObject: HBSViewEventObject.hbs_viewEvent(hbs_eventType: "跳转租车详情"))
     }
 }

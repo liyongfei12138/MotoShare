@@ -46,7 +46,7 @@ class MSMapView: BaseView, MAMapViewDelegate {
         if points != nil && points!.count > 0 {
          
             for point: MSMapPoint in points! {
-                let pointAnnotation = MAPointAnnotation.init()
+                glet pointAnnotation = MAPointAnnotation.init()
                 pointAnnotation.coordinate = CLLocationCoordinate2D.init(latitude: point.latitude, longitude: point.longitude)
                 
                 self.currentMapPoints.append(pointAnnotation)

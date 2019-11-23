@@ -10,7 +10,8 @@ import UIKit
 
 class LoginViewController: BaseViewController {
 
-    lazy var backButton: UIButton = {
+    private let loginSize = CGSize(width: SCREEN_WIDTH * 0.8, height: 50)
+    private lazy var backButton: UIButton = {
         let backButton = UIButton(type: .custom)
 //        backButton.setTitle("退出", for: .normal)
         backButton.setImage(UIImage(named: "login_back"), for: .normal)
@@ -20,7 +21,7 @@ class LoginViewController: BaseViewController {
         return backButton
     }()
     
-    lazy var titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.font = UIFont.boldSystemFont(ofSize: 22)
         titleLabel.textColor = UIColor.gl_hex(hex: 0x333333)
@@ -28,7 +29,7 @@ class LoginViewController: BaseViewController {
         return titleLabel
     }()
     
-    lazy var contentLabel: UILabel = {
+    private lazy var contentLabel: UILabel = {
         let contentLabel = UILabel()
         contentLabel.font = UIFont.systemFont(ofSize: 12)
         contentLabel.textColor = UIColor.gl_hex(hex: 0x666666)
@@ -52,13 +53,39 @@ class LoginViewController: BaseViewController {
         return codeView
     }()
     
+    private lazy var loginButton: LoginButton = {
+        let loginButton = LoginButton(title: "登录",size:loginSize)
+        loginButton.cornerRadius = loginSize.height * 0.5
+        return loginButton
+    }()
+    
+    private lazy var agreementLabel: UILabel = {
+        let agreementLabel = UILabel()
+        agreementLabel.font = UIFont.boldSystemFont(ofSize: 12)
+        agreementLabel.textColor = UIColor.gl_hex(hex: 0x999999)
+        agreementLabel.text = "我已阅读并同意"
+        return agreementLabel
+    }()
+    private lazy var userAgreementLabel: UILabel = {
+        let userAgreementLabel = UILabel()
+        userAgreementLabel.font = UIFont.boldSystemFont(ofSize: 12)
+        userAgreementLabel.textColor = ColorTheme
+        userAgreementLabel.text = "用户协议"
+        return userAgreementLabel
+    }()
+    private lazy var agreedBtn: UIButton = {
+        let agreedBtn = UIButton(type: .custom)
+        agreedBtn.setImage(UIImage(named: "login_noselect"), for: .normal)
+       agreedBtn.setImage(UIImage(named: "login_select"), for: .selected)
+        agreedBtn.addTarget(self, action: #selector(clickAgreedBtn(btn:)), for: .touchUpInside)
+        return agreedBtn
+    }()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.backButton)
         self.navigationController?.navigationBar.shadowImage = UIImage.init(color: ColorWhite, size: CGSize(width: 2, height: 2))
         self.navigationController?.navigationBar.setBackgroundImage( UIImage.init(color: ColorWhite, size: CGSize(width: 2, height: 2)), for: .default)
-        
     }
     
     override func viewDidLoad() {
@@ -68,6 +95,10 @@ class LoginViewController: BaseViewController {
         self.view.addSubview(self.contentLabel)
         self.view.addSubview(self.phoneView)
         self.view.addSubview(self.codeView)
+        self.view.addSubview(self.loginButton)
+        self.view.addSubview(self.agreementLabel)
+        self.view.addSubview(self.userAgreementLabel)
+        self.view.addSubview(self.agreedBtn)
         configLayout()
     }
 
@@ -91,13 +122,35 @@ class LoginViewController: BaseViewController {
             make.top.equalTo(self.phoneView.snp.bottom).offset(20)
             make.left.right.height.equalTo(self.phoneView)
         }
+        self.loginButton.snp.makeConstraints { (make) in
+            make.top.equalTo(self.codeView.snp.bottom).offset(30)
+            make.centerX.equalToSuperview()
+            make.size.equalTo(loginSize)
+        }
+        self.userAgreementLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(self.loginButton.snp.bottom).offset(15)
+            make.right.equalTo(self.loginButton.snp.right)
+        }
+        self.agreementLabel.snp.makeConstraints { (make) in
+            make.centerY.equalTo(self.userAgreementLabel)
+            make.right.equalTo(self.userAgreementLabel.snp.left)
+        }
+        self.agreedBtn.snp.makeConstraints { (make) in
+            make.centerY.equalTo(self.agreementLabel)
+            make.right.equalTo(self.agreementLabel.snp.left).offset(-3)
+            make.size.equalTo(CGSize(width: 14, height: 14))
+            
+        }
+
     }
     
     @objc private func clickBack(){
         self.dismiss(animated: true, completion: nil)
     }
 
-
+    @objc private func clickAgreedBtn(btn:UIButton){
+        btn.isSelected = !btn.isSelected
+    }
 
 }
   

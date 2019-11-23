@@ -88,7 +88,10 @@ class MSAlbumFolderTableViewCell: HBSBaseTableViewCell {
         let albumDatas = MSAlbumDataManager.getAlbumAssetItem(assetCollection: assetCollection)
 
         self.nameLabel.text = assetCollection.localizedTitle
-        
+        self.imageView1.image = nil;
+        self.imageView2.image = nil;
+        self.imageView3.image = nil;
+
         for (index, item) in albumDatas.enumerated() {
             
             if index == 2 {
