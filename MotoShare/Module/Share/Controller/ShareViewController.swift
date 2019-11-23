@@ -24,7 +24,9 @@ class ShareViewController: UIViewController {
         
         p_setUpUI()
         
-        p_showAnnotaion()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.p_showAnnotaion()
+        }
     }
     
     func p_initialize() {
@@ -49,9 +51,10 @@ class ShareViewController: UIViewController {
         var porints = [MSMapPoint]()
         
         for index in  0...10 {
-            
-            let model = MSMapPoint.init(latitude: 39.98 + Double(((arc4random() % 10) / 10)) , longitude: 116.48 + Double(((arc4random() % 10) / 10)))
-            
+            let randX = Double(arc4random() % 10) / 10.0
+            let model = MSMapPoint.init(latitude: 39.98 + randX , longitude: 116.48 + randX)
+            print("latitude: \(model.latitude) longitude: \(model.longitude), randX: \(randX)")
+
             porints.append(model)
         }
         
