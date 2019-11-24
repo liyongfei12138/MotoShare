@@ -10,13 +10,22 @@ import UIKit
 
 class MSRentDetailViewController: BaseViewController {
 
+    var detailTableView: MSRentDetailTableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "租车详情"
+    
+        self.detailTableView = MSRentDetailTableView.view()
+        self.detailTableView.delegate = self
+        self.view.addSubview(self.detailTableView)
+        
+        self.detailTableView.snp.makeConstraints { (make) in
+            
+            make.edges.equalToSuperview()
+        }
+        
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.dismiss(animated: true, completion: nil)
-        self.navigationController?.popViewController()
-    }
+    
 }

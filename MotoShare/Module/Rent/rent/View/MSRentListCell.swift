@@ -92,7 +92,7 @@ class MSRentListCell: HBSBaseTableViewCell {
     
     override func hbs_updateTableViewCell(_ datas: Any?) {
         
-        self.iconImageView.backgroundColor = .random
+        self.iconImageView.image = UIImage(named: "ms_test_moto")
         self.titleLabel.text = "摩托车标题摩托车标题摩托车标题摩托车标题摩托车标题摩托车标题摩托车标题摩托车标题摩托车标题摩托车标题"
         
         let priceAttrStr = NSMutableAttributedString.init(string: "80.00元/天")
@@ -104,6 +104,6 @@ class MSRentListCell: HBSBaseTableViewCell {
     
     @objc func buyButtonClick() {
         
-        self.hbs_sendViewEventDelegate(hbs_eventObject: HBSViewEventObject.hbs_viewEvent(hbs_eventType: "跳转租车详情"))
+        self.hbs_sendViewEventDelegate(hbs_eventObject: HBSViewEventObject.hbs_viewEvent(hbs_eventType: "跳转租赁摩托"))
     }
 }
