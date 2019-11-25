@@ -98,6 +98,7 @@
 		D727118F2383A19700051A1B /* GetMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D727118E2383A19700051A1B /* GetMoneyViewController.swift */; };
 		D74D659A238BB678003AA497 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D6599238BB678003AA497 /* LoginModel.swift */; };
 		D74D659C238BBF39003AA497 /* HUDBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D659B238BBF39003AA497 /* HUDBase.swift */; };
+		D74D65A0238BCE6C003AA497 /* TestJson.json in Resources */ = {isa = PBXBuildFile; fileRef = D74D659F238BCE6C003AA497 /* TestJson.json */; };
 		D77854F4238628B700DEB6DE /* LoginViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77854F3238628B700DEB6DE /* LoginViewExtension.swift */; };
 		D7A034F6238B7DF900AF26A4 /* LoginPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A034F2238B7DF900AF26A4 /* LoginPhoneView.swift */; };
 		D7A034F7238B7DFA00AF26A4 /* LoginCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A034F3238B7DF900AF26A4 /* LoginCodeView.swift */; };
@@ -249,7 +250,7 @@
 		D727118E2383A19700051A1B /* GetMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoneyViewController.swift; sourceTree = "<group>"; };
 		D74D6599238BB678003AA497 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		D74D659B238BBF39003AA497 /* HUDBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDBase.swift; sourceTree = "<group>"; };
-		D74D659E238BC245003AA497 /* TestJson.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestJson.geojson; sourceTree = "<group>"; };
+		D74D659F238BCE6C003AA497 /* TestJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestJson.json; sourceTree = "<group>"; };
 		D77854F3238628B700DEB6DE /* LoginViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewExtension.swift; sourceTree = "<group>"; };
 		D7A034F2238B7DF900AF26A4 /* LoginPhoneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPhoneView.swift; sourceTree = "<group>"; };
 		D7A034F3238B7DF900AF26A4 /* LoginCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCodeView.swift; sourceTree = "<group>"; };
@@ -725,7 +726,7 @@
 		D74D659D238BC232003AA497 /* Json */ = {
 			isa = PBXGroup;
 			children = (
-				D74D659E238BC245003AA497 /* TestJson.geojson */,
+				D74D659F238BCE6C003AA497 /* TestJson.json */,
 			);
 			path = Json;
 			sourceTree = "<group>";
@@ -1068,6 +1069,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7AF4D3E2367DA3B009957D4 /* Picture.xcassets in Resources */,
+				D74D65A0238BCE6C003AA497 /* TestJson.json in Resources */,
 				041C396D237BAB53007FA74A /* noData_icon@2x.png in Resources */,
 				041C396C237BAB53007FA74A /* noNetwork_icon@2x.png in Resources */,
 				041C396B237BAB53007FA74A /* noNetwork_icon@3x.png in Resources */,
