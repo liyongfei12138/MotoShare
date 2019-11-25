@@ -1,6 +1,10 @@
 {
-    "type": "MultiPolygon",
-    "coordinates": [
-        
-    ]
+    "code": 200,
+    "message": "成功",
+    "data": {
+        "uid": 1,
+        "nickname": "lyc",
+        "iscert": 1,
+        "balance": "100"
+    }
 }
