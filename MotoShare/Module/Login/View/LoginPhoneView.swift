@@ -7,9 +7,14 @@
 //
 
 import UIKit
-
+protocol PhoneDelegate {
+    func phoneEndEditingSting(string:String)
+}
 class LoginPhoneView: UIView {
 
+    var delegate : PhoneDelegate!
+    
+    
     private lazy var lineView: UIView = {
         let lineView = UIView()
         lineView.backgroundColor = ColorLineBG
@@ -61,11 +66,16 @@ class LoginPhoneView: UIView {
 extension LoginPhoneView: UITextFieldDelegate{
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
+        
         if string == "" || textField.text?.count ?? 0 < 11 {
             return true
         }else{
             return false
         }
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.delegate?.phoneEndEditingSting(string: textField.text ?? "")
+    }
+
 }

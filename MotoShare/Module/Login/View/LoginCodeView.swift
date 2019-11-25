@@ -7,9 +7,18 @@
 //
 
 import UIKit
-
+protocol CodeDelegate {
+    func codeEndEditingSting(string:String)
+}
 class LoginCodeView: UIView {
 
+    var soureDelegate : CodeDelegate!
+    var delegate :FR_ClickDelegate!
+    
+    private var DOWNTIME : Int = 0
+    
+    private var timer : Timer!
+    
     private lazy var lineView: UIView = {
         let lineView = UIView()
         lineView.backgroundColor = ColorLineBG
@@ -37,6 +46,7 @@ class LoginCodeView: UIView {
         codeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 13)
         codeBtn.setTitle("发送验证码", for: .normal)
         codeBtn.setTitleColor(ColorTheme, for: .normal)
+        codeBtn.addTarget(self, action: #selector(clickCodeBtn), for: .touchUpInside)
         return codeBtn
     }()
     
@@ -72,16 +82,53 @@ class LoginCodeView: UIView {
             make.right.equalTo(self.codeBtn.snp.left).offset(-20)
         }
     }
+    func beginTiming() {
+     
+        DOWNTIME = 60
+        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(start),userInfo: nil,repeats: true)
+        self.timer.fire()
+    }
+    
+    @objc private func start(){
+        
+        let code = DOWNTIME - 1
+
+        if code == 0 {
+            end()
+        }else{
+            let string = code.string
+            self.codeBtn.setTitle(string, for: .normal)
+            self.codeBtn.isUserInteractionEnabled = false
+            DOWNTIME = code
+        }
+        
+        
+        
+    }
+    private func end(){
+        self.timer.invalidate()
+        self.codeBtn.isUserInteractionEnabled = true
+        self.codeBtn.setTitle("发送验证码", for: .normal)
+    }
+    
+    @objc private func clickCodeBtn(){
+        
+        self.delegate.fr_clickViewDelegte?()
+    }
 
 }
 extension LoginCodeView: UITextFieldDelegate{
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
+        
         if string == "" || textField.text?.count ?? 0 < 4 {
             return true
         }else{
             return false
         }
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.soureDelegate.codeEndEditingSting(string: textField.text ?? "")
     }
 }
