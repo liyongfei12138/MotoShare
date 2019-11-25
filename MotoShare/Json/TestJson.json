@@ -2,10 +2,10 @@
     "code": 200,
     "message": "成功",
     "userData": {
-        "uid": 1,
+        "uid": "2",
         "nickname": "lyc",
-        "idCardCert": 1,
+        "idCardCert": "1",
         "balance": "100",
-        "driverCert":1
+        "driverCert":"1"
     }
 }
