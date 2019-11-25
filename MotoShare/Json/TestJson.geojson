@@ -4,7 +4,8 @@
     "data": {
         "uid": 1,
         "nickname": "lyc",
-        "iscert": 1,
-        "balance": "100"
+        "idCardCert": 1,
+        "balance": "100",
+        "driverCert":1
     }
 }
