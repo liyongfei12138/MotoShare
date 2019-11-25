@@ -27,9 +27,7 @@ class MSPublishTravelTextViewCell: MSPublishTravelBaseCell,UITextViewDelegate {
         textView.textColor = TextColorLevel1
         textView.font = UIFont.hbs_font(size: 15)
         self.contentView.addSubview(textView)
-        
-//        textView.textContainerInset = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
-        
+                
         return textView
     }()
     
