@@ -8,6 +8,7 @@
 
 import UIKit
 import PKHUD
+
 typealias  LogionBlock = (_ isLogin: Bool) -> ()
 
 struct LoginModel {
@@ -25,7 +26,15 @@ struct LoginModel {
             block!(false)
         }
         else{
-            block!(true)
+            
+            TestRequest.getTestData(key:TestRequest.key.Login, { (data) in
+                block!(true)
+            }) {
+                HUDBase.showTitle(title:"请检查网络")
+                block!(false)
+            }
+            
+            
         }
         
     }
