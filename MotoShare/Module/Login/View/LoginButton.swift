@@ -10,7 +10,18 @@ import UIKit
 import Pastel
 class LoginButton: UIButton {
 
-
+    func beginLogin() {
+        
+        self.hbs_showIndicator(type: .ballRotateChase, color: ColorWhite,  padding: 40)
+        self.isUserInteractionEnabled = false
+        self.setTitle("", for: .normal)
+//        self.hbs_showIndicator()
+    }
+    func endLogin() {
+        self.hbs_hideIndicator()
+        self.isUserInteractionEnabled = true
+        self.setTitle("登录", for: .normal)
+    }
 }
 
 extension LoginButton{
@@ -35,5 +46,8 @@ extension LoginButton{
 
         pastelView.startAnimation()
         self.insertSubview(pastelView, at: 0)
+        
+        
+        
     }
 }

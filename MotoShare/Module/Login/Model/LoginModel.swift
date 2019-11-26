@@ -9,33 +9,40 @@
 import UIKit
 import PKHUD
 
-typealias  LogionBlock = (_ isLogin: Bool) -> ()
-
+typealias  LogionInfoBlock = (_ data: Dictionary<String,Any>) -> ()
+typealias  LogionFailedBlock = () -> ()
 struct LoginModel {
 
     
-    static func LoginWithInfo(phone:String, code:String, block:LogionBlock!){
+    static func LoginWithInfo(phone:String, code:String, isRead:Bool, block:LogionInfoBlock!, failedBlock:LogionFailedBlock!){
         
-        if phone.count == 0 {
+        if !isRead{
+            HUDBase.showTitle(title:"请先阅读并同意用户协议")
+            failedBlock!()
+        }
+        else if phone.count == 0 {
             HUDBase.showTitle(title:"请输入手机号")
+            failedBlock!()
             
-            block!(false)
+      
         }
         else if code.count == 0 && phone.count != 0{
             HUDBase.showTitle(title:"请输入验证码")
-            block!(false)
+            failedBlock!()
+        
         }
         else{
             
             TestRequest.getTestData(key:TestRequest.key.Login, { (data) in
-                block!(true)
+                block!(data)
             }) {
+                failedBlock!()
                 HUDBase.showTitle(title:"请检查网络")
-                block!(false)
+                
+             
             }
-            
-            
         }
-        
     }
+    
+    
 }

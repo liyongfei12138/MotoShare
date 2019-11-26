@@ -99,6 +99,7 @@
 		D74D659A238BB678003AA497 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D6599238BB678003AA497 /* LoginModel.swift */; };
 		D74D659C238BBF39003AA497 /* HUDBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D659B238BBF39003AA497 /* HUDBase.swift */; };
 		D74D65A0238BCE6C003AA497 /* TestJson.json in Resources */ = {isa = PBXBuildFile; fileRef = D74D659F238BCE6C003AA497 /* TestJson.json */; };
+		D74D65A4238BEE34003AA497 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D65A3238BEE34003AA497 /* UserModel.swift */; };
 		D77854F4238628B700DEB6DE /* LoginViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77854F3238628B700DEB6DE /* LoginViewExtension.swift */; };
 		D7A034F6238B7DF900AF26A4 /* LoginPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A034F2238B7DF900AF26A4 /* LoginPhoneView.swift */; };
 		D7A034F7238B7DFA00AF26A4 /* LoginCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A034F3238B7DF900AF26A4 /* LoginCodeView.swift */; };
@@ -251,6 +252,7 @@
 		D74D6599238BB678003AA497 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		D74D659B238BBF39003AA497 /* HUDBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDBase.swift; sourceTree = "<group>"; };
 		D74D659F238BCE6C003AA497 /* TestJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestJson.json; sourceTree = "<group>"; };
+		D74D65A3238BEE34003AA497 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		D77854F3238628B700DEB6DE /* LoginViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewExtension.swift; sourceTree = "<group>"; };
 		D7A034F2238B7DF900AF26A4 /* LoginPhoneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPhoneView.swift; sourceTree = "<group>"; };
 		D7A034F3238B7DF900AF26A4 /* LoginCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCodeView.swift; sourceTree = "<group>"; };
@@ -719,6 +721,7 @@
 			isa = PBXGroup;
 			children = (
 				D74D6599238BB678003AA497 /* LoginModel.swift */,
+				D74D65A3238BEE34003AA497 /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1169,6 +1172,7 @@
 				041C395C237BAB53007FA74A /* HBSColorExtension.swift in Sources */,
 				D7AF4D092367D94A009957D4 /* MeViewController.swift in Sources */,
 				D7AF4D68236BD857009957D4 /* UIViewExtension.swift in Sources */,
+				D74D65A4238BEE34003AA497 /* UserModel.swift in Sources */,
 				049034D9237D315D00D1DF65 /* MSPublishTravelBaseCell.swift in Sources */,
 				041C3953237BAB53007FA74A /* HBSMethodHeader.swift in Sources */,
 				D72711872382AA0600051A1B /* ManagerNunberTableViewCell.swift in Sources */,
