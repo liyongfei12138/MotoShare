@@ -7,6 +7,10 @@
         "idCardCert": "1",
         "balance": "100",
         "driverCert":"1",
+        "position":"辽宁省盘锦市",
+        "introduce":"是非窝里，人用口，我用耳；热闹场中，人向前，我落后。",
+        "sex":"1",
+        "picture":["https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574766754168&di=5791f1013d5b9aa06abf2bd8dc8015a8&imgtype=0&src=http%3A%2F%2Fimage.qihuiwang.com%2FCC310310%2F2%2F283%2FCCA2D291B5B97BE36BFDCA5D17E2A51A.jpeg,https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574766754167&di=79c36a3c72b72ff2b950c99a05543919&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F011818575f51e20000012e7eda9995.jpg%401280w_1l_2o_100sh.png],
         "icon":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574758835289&di=a95ef2906d8bc98da77f37e6213f950e&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201504%2F21%2F20150421H3822_yMFzx.jpeg"
     }
 }
