@@ -47,7 +47,7 @@ struct TestRequest {
         HBSNetworkManager.hbs_request(url, success: { (data) in
             
             let dataInfo = data as! Dictionary<String,Any>
-            block!(dataInfo[key] as! Dictionary<String, Any>)
+            block!(dataInfo[key] as! Dictionary<String, Any>)  
             
         }) { (errorData) in
            
