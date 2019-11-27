@@ -10,11 +10,9 @@ import UIKit
 import SafariServices
 import PKHUD
 
-typealias CompleteBlock = ()->()
-
 class LoginViewController: BaseViewController {
 
-    var loginBlock : CompleteBlock!
+//    var loginBlock : CompleteBlock!
     
     
     private let loginSize = CGSize(width: SCREEN_WIDTH * 0.8, height: 50)
@@ -181,7 +179,7 @@ class LoginViewController: BaseViewController {
             
             UserManager.saveAllInfo(info: data)
         
-            self.loginBlock!()
+            UserManager.changeInfo()
            
             self.back()
               self.loginButton.endLogin()

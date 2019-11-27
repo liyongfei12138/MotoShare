@@ -10,7 +10,6 @@ import UIKit
 
 class SettingViewController: BaseViewController {
 
-    var logoutBlock : CompleteBlock!
     
     
     lazy var listView: MeSettingTableView = {
@@ -52,7 +51,7 @@ extension SettingViewController:MeSettingViewDelegate{
         break
         case .logout:
             UserManager.logout()
-            self.logoutBlock!()
+            UserManager.changeInfo()
             self.navigationController?.popViewController()
             
         break

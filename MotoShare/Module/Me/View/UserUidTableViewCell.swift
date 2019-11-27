@@ -1,22 +1,32 @@
 //
-//  SettingMainTableViewCell.swift
+//  UserUidTableViewCell.swift
 //  MotoShare
 //
-//  Created by Bingo on 2019/11/15.
+//  Created by Bingo on 2019/11/27.
 //  Copyright © 2019 Bingo. All rights reserved.
 //
 
 import UIKit
 
-class SettingMainTableViewCell: UITableViewCell {
+class UserUidTableViewCell: UITableViewCell {
 
-       lazy var titleLabel: UILabel = {
-           let titleLabel = UILabel()
-           titleLabel.font = UIFont.systemFont(ofSize: 14)
-           titleLabel.textColor = UIColor.gl_hex(hex: 0x2E2E2E)
-           titleLabel.text = ""
-           return titleLabel
-       }()
+    
+    lazy var titleLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.font = UIFont.systemFont(ofSize: 14)
+        titleLabel.textColor = UIColor.gl_hex(hex: 0x2E2E2E)
+        titleLabel.text = ""
+        return titleLabel
+    }()
+    
+    lazy var detailLabel: UILabel = {
+        let detailLabel = UILabel()
+        detailLabel.font = UIFont.systemFont(ofSize: 12)
+        detailLabel.textColor = UIColor.gl_hex(hex: 0x6E6E6E)
+        detailLabel.text = ""
+        return detailLabel
+    }()
+    
        
     lazy var lineView: UIView = {
         let lineView = UIView()
@@ -24,18 +34,20 @@ class SettingMainTableViewCell: UITableViewCell {
         return lineView
     }()
     
-       lazy var arrowImgView: UIImageView = {
-           let arrowImgView = UIImageView()
+    lazy var arrowImgView: UIImageView = {
+        let arrowImgView = UIImageView()
         arrowImgView.image = UIImage(named: "set_arrow")
-           return arrowImgView
-       }()
+        arrowImgView.isHidden = true
+        return arrowImgView
+    }()
     
        override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
            super.init(style: style, reuseIdentifier: reuseIdentifier)
            self.selectionStyle = .none
            addSubview(self.titleLabel)
-          addSubview(self.lineView)
-          addSubview(self.arrowImgView)
+        addSubview(self.lineView)
+        addSubview(self.arrowImgView)
+        addSubview(self.detailLabel)
        }
        
        required init?(coder: NSCoder) {
@@ -47,8 +59,15 @@ class SettingMainTableViewCell: UITableViewCell {
            
            configLayout()
        }
-       func configData(title:String)  {
+    func configData(title:String,detail:String,type:UserInfoRowType)  {
            self.titleLabel.text = title
+        self.detailLabel.text = detail
+        
+        if type == .uid {
+            self.arrowImgView.isHidden = true
+        }else{
+            self.arrowImgView.isHidden = false
+        }
        }
        private func configLayout()  {
 
@@ -68,5 +87,11 @@ class SettingMainTableViewCell: UITableViewCell {
              make.centerY.equalTo(self.titleLabel)
             make.size.equalTo(CGSize(width: 15, height: 15))
         }
+        
+        self.detailLabel.snp.makeConstraints { (make) in
+            make.right.equalTo(self.arrowImgView.snp.left).offset(-5)
+             make.centerY.equalTo(self.arrowImgView)
+        }
     }
+
 }

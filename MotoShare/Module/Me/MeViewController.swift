@@ -100,6 +100,7 @@ class MeViewController: BaseViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = ColorWhite
+        UserManager.delegete = self
         
         self.view.addSubview(self.bgView)
         self.bgView.addSubview(self.termsLabel)
@@ -127,9 +128,6 @@ class MeViewController: BaseViewController {
     private func gotoLogin(){
         
         let loginVc = LoginViewController()
-        loginVc.loginBlock = {
-            self.configUi()
-        }
         self.present(UINavigationController(rootViewController: loginVc), animated: true, completion: nil)
         
     }
@@ -197,9 +195,6 @@ extension MeViewController:MeViewDelegate{
         switch type {
         case .setting:
             let setVC = SettingViewController()
-            setVC.logoutBlock = {
-                self.configUi()
-            }
            navigationController(pushToVC: setVC)
         break
         case .money:
@@ -221,5 +216,11 @@ extension MeViewController:MeViewDelegate{
         return MeModel.getMeListIconArray()
     }
     
+    
+}
+extension MeViewController:UserInfoChangeDelegate{
+    func userDidInfoChange() {
+        self.configUi()
+    }
     
 }

@@ -154,6 +154,12 @@
 		D7C3190E237E9C020029BCB8 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C3190D237E9C020029BCB8 /* ContactTableViewCell.swift */; };
 		D7C31910237E9F9C0029BCB8 /* ContactAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C3190F237E9F9C0029BCB8 /* ContactAddTableViewCell.swift */; };
 		D7C31912237EABDF0029BCB8 /* ContactManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C31911237EABDF0029BCB8 /* ContactManageViewController.swift */; };
+		D7DFEE91238E5263004B4F28 /* UpLoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEE90238E5263004B4F28 /* UpLoadImage.swift */; };
+		D7DFEE93238E5DB7004B4F28 /* StringMd5.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEE92238E5DB7004B4F28 /* StringMd5.swift */; };
+		D7DFEE95238E5E95004B4F28 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEE94238E5E95004B4F28 /* DateExtension.swift */; };
+		D7DFEE9E238E6E58004B4F28 /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEE9D238E6E58004B4F28 /* ChangeNameViewController.swift */; };
+		D7DFEEA0238E7FF8004B4F28 /* UserUidTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEE9F238E7FF8004B4F28 /* UserUidTableViewCell.swift */; };
+		D7DFEEA2238E8188004B4F28 /* ChangeOtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEEA1238E8188004B4F28 /* ChangeOtherViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -311,6 +317,12 @@
 		D7C3190D237E9C020029BCB8 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		D7C3190F237E9F9C0029BCB8 /* ContactAddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAddTableViewCell.swift; sourceTree = "<group>"; };
 		D7C31911237EABDF0029BCB8 /* ContactManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactManageViewController.swift; sourceTree = "<group>"; };
+		D7DFEE90238E5263004B4F28 /* UpLoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpLoadImage.swift; sourceTree = "<group>"; };
+		D7DFEE92238E5DB7004B4F28 /* StringMd5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringMd5.swift; sourceTree = "<group>"; };
+		D7DFEE94238E5E95004B4F28 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		D7DFEE9D238E6E58004B4F28 /* ChangeNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
+		D7DFEE9F238E7FF8004B4F28 /* UserUidTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUidTableViewCell.swift; sourceTree = "<group>"; };
+		D7DFEEA1238E8188004B4F28 /* ChangeOtherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeOtherViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -856,6 +868,7 @@
 				D7AF4D082367D94A009957D4 /* MeViewController.swift */,
 				D733A809238CE163006B11A1 /* UserInfoViewController.swift */,
 				D7B43B78237D260C0035755F /* ViewController */,
+				D7DFEE98238E6DFF004B4F28 /* Change */,
 				D7B43B72237CF0270035755F /* Model */,
 				D7B43B6F237CEC940035755F /* View */,
 			);
@@ -907,6 +920,8 @@
 				D7AF4D5E23699B39009957D4 /* UiButtonExtension.swift */,
 				D7AF4D67236BD857009957D4 /* UIViewExtension.swift */,
 				D77854F3238628B700DEB6DE /* LoginViewExtension.swift */,
+				D7DFEE92238E5DB7004B4F28 /* StringMd5.swift */,
+				D7DFEE94238E5E95004B4F28 /* DateExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -919,6 +934,7 @@
 				D7AF4D252367D9D7009957D4 /* ConfigMacro.swift */,
 				D7AF4D262367D9D7009957D4 /* Header.swift */,
 				D74D659B238BBF39003AA497 /* HUDBase.swift */,
+				D7DFEE90238E5263004B4F28 /* UpLoadImage.swift */,
 			);
 			path = Macro;
 			sourceTree = "<group>";
@@ -977,6 +993,7 @@
 				D727118A2382B0E300051A1B /* MoneyMainTableViewCell.swift */,
 				D727118C23838B0700051A1B /* BalanceView.swift */,
 				D733A80B238D321A006B11A1 /* UserInfoIconTableViewCell.swift */,
+				D7DFEE9F238E7FF8004B4F28 /* UserUidTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1000,6 +1017,15 @@
 				D727118E2383A19700051A1B /* GetMoneyViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D7DFEE98238E6DFF004B4F28 /* Change */ = {
+			isa = PBXGroup;
+			children = (
+				D7DFEE9D238E6E58004B4F28 /* ChangeNameViewController.swift */,
+				D7DFEEA1238E8188004B4F28 /* ChangeOtherViewController.swift */,
+			);
+			path = Change;
 			sourceTree = "<group>";
 		};
 		F4F28101DE451A85297BFD3E /* Pods */ = {
@@ -1099,9 +1125,11 @@
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MotoShare/Pods-MotoShare-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MotoShare/Pods-MotoShare-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1114,9 +1142,11 @@
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MotoShare/Pods-MotoShare-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MotoShare/Pods-MotoShare-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1181,6 +1211,7 @@
 				D72711872382AA0600051A1B /* ManagerNunberTableViewCell.swift in Sources */,
 				D74D659A238BB678003AA497 /* LoginModel.swift in Sources */,
 				D7A034F8238B7DFA00AF26A4 /* LoginButton.swift in Sources */,
+				D7DFEEA0238E7FF8004B4F28 /* UserUidTableViewCell.swift in Sources */,
 				049034D5237D312200D1DF65 /* MSPublisthTravelTableView.swift in Sources */,
 				041C398C237BF265007FA74A /* MSDemandListModel.swift in Sources */,
 				041C3985237BE658007FA74A /* MSChoiceCityViewController.swift in Sources */,
@@ -1193,6 +1224,7 @@
 				D7AF4D352367D9D7009957D4 /* UIViewControllerExtension.swift in Sources */,
 				041C3954237BAB53007FA74A /* HBSHeadFileHeader.swift in Sources */,
 				041C397B237BACC9007FA74A /* MSRentListCell.swift in Sources */,
+				D7DFEE93238E5DB7004B4F28 /* StringMd5.swift in Sources */,
 				04903502237E89F900D1DF65 /* MSPHAsset.swift in Sources */,
 				041C395E237BAB53007FA74A /* HBSNetworkManager.swift in Sources */,
 				041C397F237BD8A7007FA74A /* MSRentListOptionView.swift in Sources */,
@@ -1207,6 +1239,7 @@
 				D7AF4D382367D9D7009957D4 /* TabbarBadge.swift in Sources */,
 				D7AF4D2D2367D9D7009957D4 /* BaseViewController.swift in Sources */,
 				049034BC237CEF5800D1DF65 /* TravelViewController.swift in Sources */,
+				D7DFEE95238E5E95004B4F28 /* DateExtension.swift in Sources */,
 				041C3972237BAB53007FA74A /* HBSBaseView.swift in Sources */,
 				041C3959237BAB53007FA74A /* HBSTableViewExtension.swift in Sources */,
 				D727118D23838B0700051A1B /* BalanceView.swift in Sources */,
@@ -1242,6 +1275,7 @@
 				041C3951237BAB53007FA74A /* HBSBaseConstHeader.swift in Sources */,
 				D7AF4D4A23684429009957D4 /* Delegate.swift in Sources */,
 				041C3966237BAB53007FA74A /* HBSBaseCollectionViewCell.swift in Sources */,
+				D7DFEEA2238E8188004B4F28 /* ChangeOtherViewController.swift in Sources */,
 				041C395B237BAB53007FA74A /* HBSViewExtension.swift in Sources */,
 				049034D7237D313400D1DF65 /* MSPublishTravelClickCell.swift in Sources */,
 				041C3963237BAB53007FA74A /* HBSBaseBannerView.swift in Sources */,
@@ -1252,8 +1286,10 @@
 				041C3961237BAB53007FA74A /* HBSArchiveManager.swift in Sources */,
 				041C395D237BAB53007FA74A /* HBSNetworkError.swift in Sources */,
 				CBA42E35238A804E001C8FD7 /* MSRentDetailAddressCell.swift in Sources */,
+				D7DFEE9E238E6E58004B4F28 /* ChangeNameViewController.swift in Sources */,
 				041C3979237BACBB007FA74A /* MSRentListTableView.swift in Sources */,
 				040F8DD123823B9700834F41 /* MSAlbumFolderTableView.swift in Sources */,
+				D7DFEE91238E5263004B4F28 /* UpLoadImage.swift in Sources */,
 				D7B43B6D237BA2810035755F /* FWSideMenuShadow.swift in Sources */,
 				049034CB237D2E5D00D1DF65 /* MSPublishTravelBaseModel.swift in Sources */,
 				D7AF4D012367D91B009957D4 /* HomeViewController.swift in Sources */,
@@ -1414,10 +1450,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PZ5LU67724;
+				DEVELOPMENT_TEAM = VC2APXSZ8B;
 				INFOPLIST_FILE = "$(SRCROOT)/MotoShare/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1425,9 +1461,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1;
-				PRODUCT_BUNDLE_IDENTIFIER = net.xuntong.xtt;
+				PRODUCT_BUNDLE_IDENTIFIER = net.xuntong.xtt11;
 				PRODUCT_NAME = "摩滴共享";
-				PROVISIONING_PROFILE_SPECIFIER = xuntongDev;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MotoShare/Main/MotoShare-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1441,10 +1477,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PZ5LU67724;
+				DEVELOPMENT_TEAM = VC2APXSZ8B;
 				INFOPLIST_FILE = "$(SRCROOT)/MotoShare/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1452,9 +1488,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1;
-				PRODUCT_BUNDLE_IDENTIFIER = net.xuntong.xtt;
+				PRODUCT_BUNDLE_IDENTIFIER = net.xuntong.xtt11;
 				PRODUCT_NAME = "摩滴共享";
-				PROVISIONING_PROFILE_SPECIFIER = xuntongDev;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MotoShare/Main/MotoShare-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

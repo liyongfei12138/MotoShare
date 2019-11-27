@@ -22,10 +22,10 @@ class UserInfoViewController: BaseViewController {
         return listView
     }()
 
-    lazy var dataArr: [[UserInfoBaseModel]] = {
-        let dataArr = MeModel.getUserInfoListData()
-        return dataArr
-    }()
+//    lazy var dataArr: [[UserInfoBaseModel]] = {
+//        let dataArr = MeModel.getUserInfoListData()
+//        return dataArr
+//    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +34,7 @@ class UserInfoViewController: BaseViewController {
         self.view.backgroundColor = ColorTableViewBG
         
         self.view.addSubview(self.listView)
+        UserManager.delegete = self
         configLayout()
     }
     func configLayout()  {
@@ -44,7 +45,12 @@ class UserInfoViewController: BaseViewController {
     
     private func selectHeadImage(){
         
-   
+        let selectVC = MSResourceManagerViewController()
+        selectVC.maxNo = 1
+        selectVC.choiceType = .image
+        selectVC.delegate = self
+        self.navigationController?.pushViewController(selectVC)
+
     }
 
 
@@ -53,18 +59,18 @@ class UserInfoViewController: BaseViewController {
 extension UserInfoViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-      
-        return self.dataArr[section].count
+      let dataArr = MeModel.getUserInfoListData()
+        return dataArr[section].count
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return self.dataArr.count
+        let dataArr = MeModel.getUserInfoListData()
+        return dataArr.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let model = self.dataArr[indexPath.section][indexPath.row]
+        let dataArr = MeModel.getUserInfoListData()
+        let model = dataArr[indexPath.section][indexPath.row]
         let title =  model.title ?? ""
-        let type =  model.type
+        let type =  model.type ?? .other
         let detail = model.detail ?? ""
         
         if type == .icon{
@@ -73,25 +79,40 @@ extension UserInfoViewController:UITableViewDelegate,UITableViewDataSource{
             return cell
         }
         else{
-            let cell:SettingDetailTableViewCell = SettingDetailTableViewCell.reusableCell(tableView: tableView) as! SettingDetailTableViewCell
-            cell.configData(title: title, detail: detail)
+            let cell:UserUidTableViewCell = UserUidTableViewCell.reusableCell(tableView: tableView) as! UserUidTableViewCell
+            cell.configData(title: title, detail: detail,type:type)
             return cell
         }
 
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = self.dataArr[indexPath.section][indexPath.row]
+        let dataArr = MeModel.getUserInfoListData()
+        let model = dataArr[indexPath.section][indexPath.row]
         let type =  model.type
         switch type {
         case .icon:
             self.selectHeadImage()
         break
+        case .name:
+            let changeNameVc = ChangeNameViewController()
+            self.present(BaseNavigationController(rootViewController: changeNameVc), animated: true, completion: nil)
+        break
+        case .position:
+            let changeVc = ChangeOtherViewController(type: .position)
+            self.present(BaseNavigationController(rootViewController: changeVc), animated: true, completion: nil)
+        break
+        case .introduce:
+            let changeVc = ChangeOtherViewController(type: .introduce)
+            self.present(BaseNavigationController(rootViewController: changeVc), animated: true, completion: nil)
+        break
+            
         default:
         break
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let model = self.dataArr[indexPath.section][indexPath.row]
+        let dataArr = MeModel.getUserInfoListData()
+        let model = dataArr[indexPath.section][indexPath.row]
         let type =  model.type
         
         if type == .icon{
@@ -121,4 +142,42 @@ extension UserInfoViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return CGFloat.leastNormalMagnitude
     }
+}
+
+extension UserInfoViewController: MSResourceManagerViewControllerDelegate{
+    
+    func imageChoiceFinish(assets: [MSPHAsset]) {
+        
+        let image = assets.first?.thumbnailImage ?? UIImage()
+        
+        UpLoadImage.upLoadImage(img: image, fileName: Date().milliStamp.md5, success: { (respond, info) in
+            
+            let imageUrl:String =  info?["url"] as! String
+            
+            
+            DispatchQueue.main.async {
+                User.stand.icon = "http://imageym.yunmolife.cn/" + imageUrl
+                UserManager.saveUserInfo()
+                HUDBase.showTitle(title: "上传图片成功")
+                self.listView.reloadData()
+            }
+            
+            
+            
+        }) {
+            DispatchQueue.main.async {
+                HUDBase.showTitle(title: "上传图片失败")
+            }
+            
+           
+        }
+    }
+}
+
+extension UserInfoViewController:UserInfoChangeDelegate{
+    func userDidInfoChange() {
+        self.listView.reloadData()
+        
+    }
+    
 }

@@ -9,7 +9,6 @@
 import UIKit
 
 
-
 class User: Codable {
 
     var uid: String = "0"
@@ -61,11 +60,30 @@ class User: Codable {
         return nil
     }
     
+    
+    
 }
+
+
+protocol UserInfoChangeDelegate {
+    func userDidInfoChange()
+}
+
+
 class UserManager {
+    
+    
+    static var delegete : UserInfoChangeDelegate?
+    
+    static func changeInfo()  {
+        UserManager.delegete?.userDidInfoChange()
+    }
+    
+    
     
     static func saveAllInfo(info:Dictionary<String,Any>) {
 
+        
         
         let keyArr = info.keys
         for string in keyArr {

@@ -28,5 +28,5 @@ target 'MotoShare' do
   pod 'SwiftyFitsize' #适配文字大小 界面大小
   pod 'AMap3DMap-NO-IDFA' # 高德地图
   pod 'JXPhotoBrowser' # 图片预览
-
+  pod 'UPYUN'
 end
