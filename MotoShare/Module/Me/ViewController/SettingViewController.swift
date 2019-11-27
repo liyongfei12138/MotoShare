@@ -10,6 +10,8 @@ import UIKit
 
 class SettingViewController: BaseViewController {
 
+    var logoutBlock : CompleteBlock!
+    
     
     lazy var listView: MeSettingTableView = {
            let listView = MeSettingTableView()
@@ -47,6 +49,12 @@ extension SettingViewController:MeSettingViewDelegate{
             let contactVc = ContactViewController()
             self.navigationController?.pushViewController(contactVc)
         
+        break
+        case .logout:
+            UserManager.logout()
+            self.logoutBlock!()
+            self.navigationController?.popViewController()
+            
         break
             
         default:

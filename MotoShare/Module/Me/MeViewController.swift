@@ -29,7 +29,7 @@ class MeViewController: BaseViewController {
     
     private lazy var headImgView: UIImageView = {
         let headImgView = UIImageView()
-        headImgView.image = UIImage(named: "me_bg")
+//        headImgView.image = UIImage(named: "me_bg")
         headImgView.cornerRadius = kIconWidth * 0.5
         headImgView.contentMode = .scaleAspectFill
         headImgView.addViewTapTarget(self, action: #selector(clickUserInfo))
@@ -38,7 +38,7 @@ class MeViewController: BaseViewController {
     
     private lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
-        nameLabel.text = "摩滴共享"
+//        nameLabel.text = "摩滴共享"
         nameLabel.font = UIFont.systemFont(ofSize: 16)
         nameLabel.textColor = UIColor.gl_hex(hex: 0x101010)
         nameLabel.textAlignment = .center
@@ -75,10 +75,25 @@ class MeViewController: BaseViewController {
         
         pt_hiddenNav(hide: true, animated: animated)
         
-        self.nameLabel.text = User.stand.nickname
-       
+        
+        
+
     }
     
+    
+    func configUi() {
+        self.nameLabel.text = User.stand.nickname
+        
+        if User.stand.idCardCert == "0" || User.stand.driverCert == "0"{
+            self.certButton.setTitle("前往认证", for: .normal)
+        }else{
+            self.certButton.setTitle("已认证", for: .normal)
+        }
+        
+        let imgUrl = URL.init(string: User.stand.icon)
+        self.headImgView.kf.setImage(with: imgUrl, placeholder: UIImage(named: "me_bg"))
+  
+    }
     
     
     override func viewDidLoad() {
@@ -93,13 +108,28 @@ class MeViewController: BaseViewController {
         self.bgView.addSubview(self.certButton)
         self.bgView.addSubview(self.lineView)
         self.bgView.addSubview(self.listView)
+        
         configLayout()
+        configUi()
     }
     
     @objc private func clickUserInfo(){
 
+        if !UserManager.isLogin() {
+            gotoLogin()
+            return
+        }
+        
+        let info = UserInfoViewController()
+        navigationController(pushToVC: info)
+    }
+    
+    private func gotoLogin(){
+        
         let loginVc = LoginViewController()
-//        navigationController(pushToVC: loginVc)
+        loginVc.loginBlock = {
+            self.configUi()
+        }
         self.present(UINavigationController(rootViewController: loginVc), animated: true, completion: nil)
         
     }
@@ -142,16 +172,14 @@ class MeViewController: BaseViewController {
             make.left.right.equalTo(self.lineView)
             make.top.equalTo(self.lineView.snp.bottom).offset(16)
             make.bottom.equalTo(self.termsLabel.snp.top).offset(-50)
-           
         }
     }
     
     func navigationController(pushToVC:UIViewController)  {
+        
         var navigationController: UINavigationController?
         navigationController = self.menuContainerViewController.centerViewController as? UINavigationController
-        
         navigationController?.pushViewController(pushToVC)
-        
         self.menuContainerViewController.setSideMenuState(state: .closed, completeBlock: nil)
 
     }
@@ -161,10 +189,17 @@ class MeViewController: BaseViewController {
 extension MeViewController:MeViewDelegate{
     func meListViewDidType(type: MeDidRowType) {
 
+        if !UserManager.isLogin() {
+            gotoLogin()
+            return
+        }
         
         switch type {
         case .setting:
             let setVC = SettingViewController()
+            setVC.logoutBlock = {
+                self.configUi()
+            }
            navigationController(pushToVC: setVC)
         break
         case .money:

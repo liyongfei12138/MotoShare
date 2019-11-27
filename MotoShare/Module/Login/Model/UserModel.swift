@@ -17,6 +17,26 @@ class User: Codable {
     var idCardCert: String = "0"
     var driverCert: String = "0"
     var balance: String  = "0.0"
+    var icon:String = "me_bg"
+    var position:String = ""
+    var introduce:String = ""
+    var sex:String = ""
+    var picture:[String] = []
+    
+    var userSex : String {
+        get {
+            if self.sex == "1"{
+                return "男"
+            }else if self.sex == "2"{
+                return "女"
+            }
+            else{
+                return ""
+            }
+        }
+    }
+    
+    
     
     static let stand: User = {
         var stand = p_initFromLocal() ?? User()
@@ -66,6 +86,21 @@ class UserManager {
             case"balance":
                 User.stand.balance = info[string] as! String
             break
+            case"icon":
+                User.stand.icon = info[string] as! String
+            break
+            case"position":
+                User.stand.position = info[string] as! String
+            break
+            case"introduce":
+                User.stand.introduce = info[string] as! String
+            break
+            case"sex":
+                User.stand.sex = info[string] as! String
+            break
+            case"picture":
+                User.stand.picture = info[string] as! Array<String>
+            break
             default:
               break
             }
@@ -74,8 +109,6 @@ class UserManager {
         UserManager.saveUserInfo()
         
     }
-    
-    
 
     static func saveUserInfo() {
         
@@ -89,8 +122,41 @@ class UserManager {
        
         }
     }
+    
     static func getUserInfo() -> String{
         
         return UserDefaults.standard.object(forKey: LocalStore.key.UserData) as? String ?? ""
     }
+    
+    static func isLogin() -> Bool{
+        if User.stand.uid == "0" {
+            return false
+        }else{
+            return true
+        }
+    }
+    static func logout() {
+        
+
+
+        
+        let info = [
+                    "uid":"0",
+                    "nickname":"共享摩滴",
+                    "idCardCert":"0",
+                    "driverCert":"0",
+                    "balance":"0.0",
+                    "position":"",
+                    "sex":"1", "introduce":"",
+                    "picture":Array<String>(),
+                    "icon":"me_bg"
+            ] as [String : Any]
+        
+        
+        
+        UserManager.saveAllInfo(info: info)
+      
+    }
+    
+    typealias CompleteBlock = ()->()
 }

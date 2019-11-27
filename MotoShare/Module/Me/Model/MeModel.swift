@@ -86,6 +86,27 @@ struct MeModel {
         return [info,info2]
     }
     
+    static func getUserInfoListData()->[[UserInfoBaseModel]]{
+    
+        let info = [
+                    UserInfoBaseModel(title: "头像", type: UserInfoRowType.icon),
+                    UserInfoBaseModel(title: "昵称", type: UserInfoRowType.name, detail: User.stand.nickname),
+                    UserInfoBaseModel(title: "用户ID", type: UserInfoRowType.uid, detail: User.stand.uid),
+                    UserInfoBaseModel(title: "性别", type: UserInfoRowType.sex, detail: User.stand.userSex)
+                    
+                    ]
+        
+        let info2 = [
+                    UserInfoBaseModel(title: "相册", type: UserInfoRowType.picture)
+                    ]
+        
+        let info3 = [
+                    UserInfoBaseModel(title: "常住地", type: UserInfoRowType.position, detail: ""),
+                    UserInfoBaseModel(title: "个人介绍", type: UserInfoRowType.introduce)
+                    ]
+        return [info,info2,info3]
+    }
+    
     
 }
 public  enum SettingRowType: Int  {
@@ -103,6 +124,7 @@ public  enum SettingRowType: Int  {
 public struct SetBaseModel {
     var title : String?
     var type : SettingRowType?
+    var detail :String?
     
     init( title: String, type: SettingRowType) {
         self.title = title
@@ -120,9 +142,32 @@ public  enum MoneyRowType: Int  {
 public struct MoneyBaseModel {
     var title : String?
     var type : MoneyRowType?
-    
-    init( title: String, type: MoneyRowType) {
+    var detail :String?
+    init( title: String, type: MoneyRowType, detail:String? = "") {
         self.title = title
         self.type = type
+        self.detail = detail
     }
 }
+
+public  enum UserInfoRowType: Int  {
+    case icon
+    case name
+    case uid
+    case sex
+    case picture
+    case introduce
+    case position
+    case other
+}
+public struct UserInfoBaseModel {
+    var title : String?
+    var type : UserInfoRowType?
+    var detail :String?
+    init( title: String, type: UserInfoRowType? = .other, detail:String? = "") {
+        self.title = title
+        self.type = type
+        self.detail = detail
+    }
+}
+
