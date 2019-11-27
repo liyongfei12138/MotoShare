@@ -74,8 +74,12 @@ class MeViewController: BaseViewController {
         super.viewWillAppear(animated)
         
         pt_hiddenNav(hide: true, animated: animated)
+        
+        self.nameLabel.text = User.stand.nickname
        
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

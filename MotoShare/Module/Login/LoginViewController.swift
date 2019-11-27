@@ -20,7 +20,7 @@ class LoginViewController: BaseViewController {
         backButton.setImage(UIImage(named: "login_back"), for: .normal)
         backButton.setTitleColor(UIColor.gl_hex(hex: 0x666666), for: .normal)
         backButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        backButton.addTarget(self, action: #selector(clickBack), for: .touchUpInside)
+        backButton.addTarget(self, action: #selector(back), for: .touchUpInside)
         return backButton
     }()
     
@@ -64,7 +64,7 @@ class LoginViewController: BaseViewController {
         loginButton.isUserInteractionEnabled = true
         loginButton.cornerRadius = loginSize.height * 0.5
         loginButton.addViewTapTarget(self, action: #selector(clickLoginBtn))
-//        loginButton.addTarget(self, action: #selector(clickLoginBtn), for: .touchUpInside)
+       
         return loginButton
     }()
     
@@ -154,7 +154,7 @@ class LoginViewController: BaseViewController {
 
     }
     
-    @objc private func clickBack(){
+    @objc private func back(){
         self.dismiss(animated: true, completion: nil)
     }
 
@@ -169,18 +169,20 @@ class LoginViewController: BaseViewController {
     }
     
     @objc private func clickLoginBtn(){
-        if self.agreedBtn.isSelected == true{
-            LoginModel.LoginWithInfo(phone: self.phoneString, code: self.codeString) { (isLogin) in
-                if isLogin {
-                     print("sdasdas")
-                }else{
-                    print("111")
-                }
-            }
-        }else{
-            HUDBase.showTitle(title:"请先阅读并同意用户协议")
+        
+        self.loginButton.beginLogin()
+        LoginModel.LoginWithInfo(phone: self.phoneString, code: self.codeString, isRead: self.agreedBtn.isSelected, block: { (data) in
             
+            UserManager.saveAllInfo(info: data)
+        
+            
+           
+            self.back()
+              self.loginButton.endLogin()
+        }) {
+             self.loginButton.endLogin()
         }
+        
     }
 
 }

@@ -18,7 +18,7 @@ struct LocalStore {
         static let DeviceToken = ""
         static let UserId = ""
         static let Token = ""
-        static let UserData = ""
+        static let UserData = "save_user_info_key"
     }
     
     struct path {
@@ -40,16 +40,17 @@ struct TestRequest {
     
     static func getTestData(key:String,_ block: DataBlock!, _ error:ErrorBlock!) {
         
-        HUD.show(HUDContentType.systemActivity)
         
-        let url = "https://raw.githubusercontent.com/liyongfei12138/MotoShare/master/MotoShare/Json/TestJson.geojson"
+        
+        let url = "https://raw.githubusercontent.com/liyongfei12138/MotoShare/master/MotoShare/Json/TestJson.json"
         
         HBSNetworkManager.hbs_request(url, success: { (data) in
-            HUD.hide()
-            print(data)
+            
+            let dataInfo = data as! Dictionary<String,Any>
+            block!(dataInfo[key] as! Dictionary<String, Any>)  
             
         }) { (errorData) in
-            HUD.hide()
+           
             error!()
         }
     }
