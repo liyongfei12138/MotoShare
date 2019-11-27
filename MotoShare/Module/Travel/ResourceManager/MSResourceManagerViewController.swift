@@ -9,6 +9,11 @@
 import UIKit
 import Photos
 
+enum ChoiceType {
+    case all    // 相册、拍照、视频
+    case image  // 相册、拍照
+}
+
 @objc protocol MSResourceManagerViewControllerDelegate: NSObjectProtocol {
     
     /// 选择视频完成后
@@ -18,7 +23,6 @@ import Photos
     /// 选择图片完成后
     /// - Parameter assets: 图片资源组
     @objc optional func imageChoiceFinish(assets: [MSPHAsset])
-
 }
 
 class MSResourceManagerViewController: BaseViewController,HLPageViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
@@ -27,6 +31,9 @@ class MSResourceManagerViewController: BaseViewController,HLPageViewDelegate,UII
     
     /// 最多选择数量
     var maxNo: Int = 9
+    
+    /// 选择支持的类型
+    var choiceType: ChoiceType = .all
     
     /// 当前相册目录
     var assetCollection: PHAssetCollection?
@@ -101,8 +108,15 @@ class MSResourceManagerViewController: BaseViewController,HLPageViewDelegate,UII
             make.height.equalTo(45)
         }
 
-        self.pageView.update(["相册","拍照","拍视频"])
-        
+        if self.choiceType == .all {
+            
+            self.pageView.update(["相册","拍照","拍视频"])
+
+        }else {
+            
+            self.pageView.update(["相册","拍照"])
+        }
+                
         self.albumCollectionView.snp.makeConstraints { (make) in
             
             make.left.right.top.equalToSuperview()
@@ -223,7 +237,7 @@ class MSResourceManagerViewController: BaseViewController,HLPageViewDelegate,UII
                 
         if let collection = self.assetCollection {
          
-            let albumDatas = MSAlbumDataManager.getAlbumAssetItem(assetCollection: collection)
+            let albumDatas = MSAlbumDataManager.getAlbumAssetItem(assetCollection: collection, choiceType: self.choiceType)
              self.albumCollectionView.updateAlbumCollectionView(datas: albumDatas)
 
         }

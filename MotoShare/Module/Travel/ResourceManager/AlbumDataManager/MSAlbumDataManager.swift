@@ -27,7 +27,7 @@ class MSAlbumDataManager: NSObject {
     
     /// 获取某个相册内的相片
     /// - Parameter assetCollection: 相册
-    class func getAlbumAssetItem(assetCollection: PHAssetCollection) -> [MSPHAsset] {
+    class func getAlbumAssetItem(assetCollection: PHAssetCollection, choiceType: ChoiceType = .all) -> [MSPHAsset] {
         
         let fetchResult = PHAsset.fetchAssets(in: assetCollection, options: nil)
         
@@ -35,10 +35,24 @@ class MSAlbumDataManager: NSObject {
         
         fetchResult.enumerateObjects { (asset, index, _) in
             
-            let msPHAsset = MSPHAsset.init()
-            msPHAsset.asset = asset
-            
-            msPHAssets.append(msPHAsset)
+            if choiceType == .image {
+                
+                if asset.mediaType == .image {
+                    
+                    let msPHAsset = MSPHAsset.init()
+                    msPHAsset.asset = asset
+                    
+                    msPHAssets.append(msPHAsset)
+                }
+
+            }else {
+                
+                let msPHAsset = MSPHAsset.init()
+                msPHAsset.asset = asset
+                
+                msPHAssets.append(msPHAsset)
+
+            }
         }
         
         return msPHAssets
