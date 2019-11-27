@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import JXPhotoBrowser
 class UserInfoViewController: BaseViewController {
 
     private lazy var listView: UITableView = {
@@ -41,6 +41,11 @@ class UserInfoViewController: BaseViewController {
             make.left.top.right.bottom.equalToSuperview()
         }
     }
+    
+    private func selectHeadImage(){
+        
+   
+    }
 
 
 }
@@ -59,23 +64,43 @@ extension UserInfoViewController:UITableViewDelegate,UITableViewDataSource{
         
         let model = self.dataArr[indexPath.section][indexPath.row]
         let title =  model.title ?? ""
-//        let type =  model.type
+        let type =  model.type
         let detail = model.detail ?? ""
-            
         
-
-       let cell:SettingDetailTableViewCell = SettingDetailTableViewCell.reusableCell(tableView: tableView) as! SettingDetailTableViewCell
-        cell.configData(title: title, detail: detail)
-     
-        return cell
+        if type == .icon{
+            let cell:UserInfoIconTableViewCell = UserInfoIconTableViewCell.reusableCell(tableView: tableView) as! UserInfoIconTableViewCell
+            cell.configData(title: title, detail: detail)
+            return cell
+        }
+        else{
+            let cell:SettingDetailTableViewCell = SettingDetailTableViewCell.reusableCell(tableView: tableView) as! SettingDetailTableViewCell
+            cell.configData(title: title, detail: detail)
+            return cell
+        }
 
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let model = self.dataArr[indexPath.section][indexPath.row]
+        let type =  model.type
+        switch type {
+        case .icon:
+            self.selectHeadImage()
+        break
+        default:
+        break
+        }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let model = self.dataArr[indexPath.section][indexPath.row]
+        let type =  model.type
         
-        return 50
+        if type == .icon{
+            return 70
+        }
+        else{
+            return 50
+        }
+        
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         
@@ -91,7 +116,7 @@ extension UserInfoViewController:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         
-        return 20
+        return 10
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return CGFloat.leastNormalMagnitude
