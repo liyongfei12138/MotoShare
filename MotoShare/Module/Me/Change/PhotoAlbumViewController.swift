@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import EmptyDataSet_Swift
 
 class PhotoAlbumViewController: BaseChangeViewController {
 
+    var isShowNoData :Bool = false
+    
+    
+    
     private let IDENTIFIER = "CELl_REUSE_ID"
     private lazy var photoBtn: UIButton = {
         let photoBtn = UIButton(type: .custom)
@@ -34,7 +39,10 @@ class PhotoAlbumViewController: BaseChangeViewController {
         view.register(PhotosCollectionViewCell.self, forCellWithReuseIdentifier: IDENTIFIER)
         view.delegate = self
         view.dataSource = self
+        view.emptyDataSetSource = self
+        view.emptyDataSetDelegate = self
         view.backgroundColor = ColorTableViewBG
+   
         return view
     }()
     override func viewWillAppear(_ animated: Bool) {
@@ -59,16 +67,34 @@ class PhotoAlbumViewController: BaseChangeViewController {
         }
     }
     func getData()  {
-        self.view.hbs_showIndicator(type: .ballRotateChase, color: ColorTheme, padding: 50)
+        beginLoad()
         TestRequest.getTestData(key: TestRequest.key.Photo, { (data) in
-            print(data)
             
             self.dataArr = data["photos"] as! [Dictionary<String, Any>]
-            self.view.hbs_hideIndicator()
-            self.collectionView.reloadData()
+            
+            if self.dataArr.count == 0{
+                self.isShowNoData = true
+                
+            }else{
+                self.isShowNoData = false
+            }
+            self.endLoad()
+            
         }) {
-            self.view.hbs_hideIndicator()
+            self.isShowNoData = true
+            self.endLoad()
         }
+    }
+    func beginLoad() {
+        self.isShowNoData = false
+        self.collectionView.reloadEmptyDataSet()
+        self.view.hbs_showIndicator(type: .ballRotateChase, color: ColorTheme, padding: 50)
+    }
+    func endLoad() {
+        self.view.hbs_hideIndicator()
+        self.collectionView.reloadData()
+        self.collectionView.reloadEmptyDataSet()
+        
     }
     
 }
@@ -102,4 +128,21 @@ extension PhotoAlbumViewController: WaterflowViewDelegate {
         return CGSize(width: width, height: CGFloat(height))
     }
     
+}
+extension PhotoAlbumViewController: EmptyDataSetSource, EmptyDataSetDelegate{
+    func customView(forEmptyDataSet scrollView: UIScrollView) -> UIView? {
+        
+     
+        let view = CommonNoDataView()
+        view.retryBlock = {
+            self.getData()
+         
+        }
+        
+        return view
+    }
+
+    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView) -> Bool {
+        return self.isShowNoData
+    }
 }
