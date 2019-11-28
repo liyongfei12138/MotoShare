@@ -13,7 +13,8 @@
         "picture":[],
         "icon":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574758835289&di=a95ef2906d8bc98da77f37e6213f950e&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201504%2F21%2F20150421H3822_yMFzx.jpeg"
     },
-    "userPhotos":[
+    "userPhotos":{
+         "photos":[
             {
                "photo":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3520245474,1698241570&fm=26&gp=0.jpg",
                "width":750,
@@ -60,4 +61,5 @@
                "height":690
              }
         ]
+    }
 }
