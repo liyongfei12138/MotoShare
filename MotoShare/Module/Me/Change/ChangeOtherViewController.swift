@@ -12,7 +12,7 @@ public  enum ChangeInfoType: Int  {
     case position
     case other
 }
-class ChangeOtherViewController: BaseViewController {
+class ChangeOtherViewController: BaseChangeViewController {
 
     var contentString : String = ""
     var type : ChangeInfoType = .other
@@ -27,57 +27,26 @@ class ChangeOtherViewController: BaseViewController {
     let totalNum = 60
     
     
-    private lazy var doneBtn: UIButton = {
-        let doneBtn = UIButton(type: .custom)
-        doneBtn.frame = CGRect(x: 0, y: 0, width: 40, height: 20)
-        doneBtn.isUserInteractionEnabled = false
-        doneBtn.alpha = 0.4
-        doneBtn.backgroundColor = ColorTheme
-        doneBtn.setTitle("完成", for: .normal)
-        doneBtn.setTitleColor(ColorWhite, for: .normal)
-        doneBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-        doneBtn.addTarget(self, action: #selector(done), for: .touchUpInside)
-        doneBtn.cornerRadius = 4
-        return doneBtn
+        
+        
+    lazy var bgView: UIView = {
+        let bgView = UIView()
+        bgView.backgroundColor = ColorWhite
+        return bgView
     }()
-        
-    private lazy var backBtn: UIButton = {
-            let backBtn = UIButton(type: .custom)
-            backBtn.setTitle("取消", for: .normal)
-            backBtn.setTitleColor(ColorInputBG, for: .normal)
-            backBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-            backBtn.addTarget(self, action: #selector(back), for: .touchUpInside)
-            return backBtn
-        }()
-        
-        
-        lazy var bgView: UIView = {
-            let bgView = UIView()
-            bgView.backgroundColor = ColorWhite
-            return bgView
-        }()
-        
-        lazy var putInTextView: UITextView = {
-            let putInTextView = UITextView()
-            putInTextView.text = self.contentString
-            putInTextView.font = UIFont.systemFont(ofSize: 14)
-            putInTextView.delegate = self
-            return putInTextView
-        }()
-        
-    override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-            
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: self.backBtn)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: self.doneBtn)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-    }
+    
+    lazy var putInTextView: UITextView = {
+        let putInTextView = UITextView()
+        putInTextView.text = self.contentString
+        putInTextView.font = UIFont.systemFont(ofSize: 14)
+        putInTextView.delegate = self
+        return putInTextView
+    }()
+
         
     override func viewDidLoad() {
             super.viewDidLoad()
 
-        self.view.backgroundColor = ColorTableViewBG
         self.view.addSubview(self.bgView)
         self.bgView.addSubview(self.putInTextView)
         self.view.addSubview(self.numLabel)
@@ -108,32 +77,30 @@ class ChangeOtherViewController: BaseViewController {
             make.top.equalTo(self.bgView.snp.bottom).offset(10)
         }
     }
-        @objc private func back(){
-            self.dismiss(animated: true, completion: nil)
-        }
-        @objc private func done(){
+
+    @objc internal override func done(){
             
-            self.view.hbs_showIndicator(type: .ballRotateChase, color: ColorTheme, padding: 50)
+        self.view.hbs_showIndicator(type: .ballRotateChase, color: ColorTheme, padding: 50)
             
-            TestRequest.getTestData(key: TestRequest.key.Login, { (info) in
+        TestRequest.getTestData(key: TestRequest.key.Login, { (info) in
                 
-                if self.type == .introduce {
-                    User.stand.introduce = self.putInTextView.text ?? ""
-                }else{
-                    User.stand.position = self.putInTextView.text ?? ""
-                }
+            if self.type == .introduce {
+                User.stand.introduce = self.putInTextView.text ?? ""
+            }else{
+                User.stand.position = self.putInTextView.text ?? ""
+            }
                 
 
-                UserManager.saveUserInfo()
-                UserManager.changeInfo()
-                self.view.hbs_hideIndicator()
-                self.dismiss(animated: true, completion: nil)
-            }) {
-                self.view.hbs_hideIndicator()
-                HUDBase.showTitle(title: "修改失败")
-            }
-            
+            UserManager.saveUserInfo()
+            UserManager.changeInfo()
+            self.view.hbs_hideIndicator()
+            self.dismiss(animated: true, completion: nil)
+        }) {
+            self.view.hbs_hideIndicator()
+            HUDBase.showTitle(title: "修改失败")
         }
+            
+    }
 
 }
 extension ChangeOtherViewController:UITextViewDelegate{
@@ -142,11 +109,9 @@ extension ChangeOtherViewController:UITextViewDelegate{
      func textViewDidChange(_ textView: UITextView) {
 
         if textView.text != self.contentString {
-            self.doneBtn.isUserInteractionEnabled = true
-            self.doneBtn.alpha = 1
+            self.doneBtnIsShow(isShow:true)
         }else{
-            self.doneBtn.isUserInteractionEnabled = false
-            self.doneBtn.alpha = 0.4
+            self.doneBtnIsShow(isShow:false)
         }
         
         

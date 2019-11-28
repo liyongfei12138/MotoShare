@@ -160,6 +160,13 @@
 		D7DFEE9E238E6E58004B4F28 /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEE9D238E6E58004B4F28 /* ChangeNameViewController.swift */; };
 		D7DFEEA0238E7FF8004B4F28 /* UserUidTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEE9F238E7FF8004B4F28 /* UserUidTableViewCell.swift */; };
 		D7DFEEA2238E8188004B4F28 /* ChangeOtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEEA1238E8188004B4F28 /* ChangeOtherViewController.swift */; };
+		D7DFEEA4238F62CA004B4F28 /* ChangeSexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEEA3238F62CA004B4F28 /* ChangeSexViewController.swift */; };
+		D7DFEEA6238F6502004B4F28 /* BaseChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEEA5238F6502004B4F28 /* BaseChangeViewController.swift */; };
+		D7DFEEA8238F67DC004B4F28 /* SexTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEEA7238F67DC004B4F28 /* SexTableViewCell.swift */; };
+		D7DFEEAA238F74F5004B4F28 /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEEA9238F74F5004B4F28 /* PhotoAlbumViewController.swift */; };
+		D7DFEEAC238F9CBA004B4F28 /* WaterflowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEEAB238F9CBA004B4F28 /* WaterflowLayout.swift */; };
+		D7DFEEAE238F9D62004B4F28 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEEAD238F9D62004B4F28 /* PhotosCollectionViewCell.swift */; };
+		D7DFEEB0238FBA47004B4F28 /* BaseUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEEAF238FBA47004B4F28 /* BaseUserInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -323,6 +330,13 @@
 		D7DFEE9D238E6E58004B4F28 /* ChangeNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
 		D7DFEE9F238E7FF8004B4F28 /* UserUidTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUidTableViewCell.swift; sourceTree = "<group>"; };
 		D7DFEEA1238E8188004B4F28 /* ChangeOtherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeOtherViewController.swift; sourceTree = "<group>"; };
+		D7DFEEA3238F62CA004B4F28 /* ChangeSexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeSexViewController.swift; sourceTree = "<group>"; };
+		D7DFEEA5238F6502004B4F28 /* BaseChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChangeViewController.swift; sourceTree = "<group>"; };
+		D7DFEEA7238F67DC004B4F28 /* SexTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexTableViewCell.swift; sourceTree = "<group>"; };
+		D7DFEEA9238F74F5004B4F28 /* PhotoAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewController.swift; sourceTree = "<group>"; };
+		D7DFEEAB238F9CBA004B4F28 /* WaterflowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterflowLayout.swift; sourceTree = "<group>"; };
+		D7DFEEAD238F9D62004B4F28 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		D7DFEEAF238FBA47004B4F28 /* BaseUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUserInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -896,6 +910,7 @@
 				041C3920237BAB53007FA74A /* H_Base */,
 				D7AF4D142367D9D7009957D4 /* BaseTabBarController.swift */,
 				D7AF4D152367D9D7009957D4 /* BaseViewController.swift */,
+				D7DFEEAF238FBA47004B4F28 /* BaseUserInfoViewController.swift */,
 				D7AF4D162367D9D7009957D4 /* BaseTableView.swift */,
 				D7AF4D172367D9D7009957D4 /* BaseNavigationController.swift */,
 				D7AF4D182367D9D7009957D4 /* BaseView.swift */,
@@ -935,6 +950,7 @@
 				D7AF4D262367D9D7009957D4 /* Header.swift */,
 				D74D659B238BBF39003AA497 /* HUDBase.swift */,
 				D7DFEE90238E5263004B4F28 /* UpLoadImage.swift */,
+				D7DFEEAB238F9CBA004B4F28 /* WaterflowLayout.swift */,
 			);
 			path = Macro;
 			sourceTree = "<group>";
@@ -980,6 +996,7 @@
 		D7B43B6F237CEC940035755F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D7DFEEA7238F67DC004B4F28 /* SexTableViewCell.swift */,
 				D7B43B70237CECEA0035755F /* MeMainListView.swift */,
 				D7B43B76237CFA4F0035755F /* MeListTableViewCell.swift */,
 				D7C31901237E55C50029BCB8 /* MeSettingTableView.swift */,
@@ -1024,6 +1041,10 @@
 			children = (
 				D7DFEE9D238E6E58004B4F28 /* ChangeNameViewController.swift */,
 				D7DFEEA1238E8188004B4F28 /* ChangeOtherViewController.swift */,
+				D7DFEEA3238F62CA004B4F28 /* ChangeSexViewController.swift */,
+				D7DFEEA9238F74F5004B4F28 /* PhotoAlbumViewController.swift */,
+				D7DFEEAD238F9D62004B4F28 /* PhotosCollectionViewCell.swift */,
+				D7DFEEA5238F6502004B4F28 /* BaseChangeViewController.swift */,
 			);
 			path = Change;
 			sourceTree = "<group>";
@@ -1208,6 +1229,7 @@
 				D74D65A4238BEE34003AA497 /* UserModel.swift in Sources */,
 				049034D9237D315D00D1DF65 /* MSPublishTravelBaseCell.swift in Sources */,
 				041C3953237BAB53007FA74A /* HBSMethodHeader.swift in Sources */,
+				D7DFEEAC238F9CBA004B4F28 /* WaterflowLayout.swift in Sources */,
 				D72711872382AA0600051A1B /* ManagerNunberTableViewCell.swift in Sources */,
 				D74D659A238BB678003AA497 /* LoginModel.swift in Sources */,
 				D7A034F8238B7DFA00AF26A4 /* LoginButton.swift in Sources */,
@@ -1244,8 +1266,10 @@
 				041C3959237BAB53007FA74A /* HBSTableViewExtension.swift in Sources */,
 				D727118D23838B0700051A1B /* BalanceView.swift in Sources */,
 				D7C3190E237E9C020029BCB8 /* ContactTableViewCell.swift in Sources */,
+				D7DFEEB0238FBA47004B4F28 /* BaseUserInfoViewController.swift in Sources */,
 				049034DD237D318100D1DF65 /* MSPublishTravelTextFieldCell.swift in Sources */,
 				04B85C9B23824E87008E8BF9 /* MSMapView.swift in Sources */,
+				D7DFEEAE238F9D62004B4F28 /* PhotosCollectionViewCell.swift in Sources */,
 				041C396E237BAB53007FA74A /* HBSBaseTableView.swift in Sources */,
 				049034E9237D6FDC00D1DF65 /* MSResourceManagerViewController.swift in Sources */,
 				04903504237EB10400D1DF65 /* MSAlbumFolderView.swift in Sources */,
@@ -1267,6 +1291,7 @@
 				041C3962237BAB53007FA74A /* HBSViewEventObject.swift in Sources */,
 				049034E4237D56BE00D1DF65 /* MSChoiceDateViewController.swift in Sources */,
 				D7AF4CE42367D84B009957D4 /* AppDelegate.swift in Sources */,
+				D7DFEEA4238F62CA004B4F28 /* ChangeSexViewController.swift in Sources */,
 				049034F6237D759D00D1DF65 /* HLPageResultView.swift in Sources */,
 				04642C8023862F09005131D7 /* MSPublishRentDemandViewController.swift in Sources */,
 				D733A80C238D321A006B11A1 /* UserInfoIconTableViewCell.swift in Sources */,
@@ -1286,6 +1311,7 @@
 				041C3961237BAB53007FA74A /* HBSArchiveManager.swift in Sources */,
 				041C395D237BAB53007FA74A /* HBSNetworkError.swift in Sources */,
 				CBA42E35238A804E001C8FD7 /* MSRentDetailAddressCell.swift in Sources */,
+				D7DFEEA6238F6502004B4F28 /* BaseChangeViewController.swift in Sources */,
 				D7DFEE9E238E6E58004B4F28 /* ChangeNameViewController.swift in Sources */,
 				041C3979237BACBB007FA74A /* MSRentListTableView.swift in Sources */,
 				040F8DD123823B9700834F41 /* MSAlbumFolderTableView.swift in Sources */,
@@ -1301,8 +1327,10 @@
 				D7B43B6E237BA2810035755F /* UIViewController+FWSideMenuExtension.swift in Sources */,
 				041C398E237BF27A007FA74A /* MSDemandListTableView.swift in Sources */,
 				D7B43B71237CECEA0035755F /* MeMainListView.swift in Sources */,
+				D7DFEEAA238F74F5004B4F28 /* PhotoAlbumViewController.swift in Sources */,
 				D7AF4D392367D9D7009957D4 /* UIViewHUDExtension.swift in Sources */,
 				D727118F2383A19700051A1B /* GetMoneyViewController.swift in Sources */,
+				D7DFEEA8238F67DC004B4F28 /* SexTableViewCell.swift in Sources */,
 				D72711892382AB8400051A1B /* MoneyViewController.swift in Sources */,
 				D7AF4D362367D9D7009957D4 /* ClassName.swift in Sources */,
 				D7AF4D342367D9D7009957D4 /* GLAppInfo.swift in Sources */,

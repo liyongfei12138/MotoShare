@@ -36,6 +36,7 @@ typealias  ErrorBlock = () -> ()
 struct TestRequest {
     struct key {
         static let Login = "userData"
+        static let Photo = "userPhotos"
     }
     
     static func getTestData(key:String,_ block: DataBlock!, _ error:ErrorBlock!) {
