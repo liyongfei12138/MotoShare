@@ -38,6 +38,7 @@ class MSResourceManagerViewController: BaseViewController,HLPageViewDelegate,HLP
     lazy var pageResultView: HLPageResultView = {
         
         let pageResultView = HLPageResultView.pageResultView(3);
+        pageResultView.scrollView.bounces = false
         pageResultView.delegate = self
         self.view.addSubview(pageResultView)
         

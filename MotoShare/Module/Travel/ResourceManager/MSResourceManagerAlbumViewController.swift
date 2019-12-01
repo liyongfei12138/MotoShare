@@ -31,7 +31,8 @@ class MSResourceManagerAlbumViewController: BaseViewController,UIImagePickerCont
         
         view.snp.makeConstraints { (make) in
             
-            make.edges.equalToSuperview()
+            make.left.right.bottom.equalToSuperview()
+            make.top.equalTo(self.albumNavigationBarView.snp.bottom)
         }
         
         return view

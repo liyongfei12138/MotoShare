@@ -90,6 +90,11 @@
 		CB361A1123925996005607FA /* MSResourceManagerVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB361A1023925996005607FA /* MSResourceManagerVideoViewController.swift */; };
 		CB361A1323925B7B005607FA /* MSResourceManagerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB361A1223925B7B005607FA /* MSResourceManagerHeader.swift */; };
 		CB361A1723925FCA005607FA /* MSAlbumNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB361A1623925FCA005607FA /* MSAlbumNavigationBarView.swift */; };
+		CB361A1923938E6F005607FA /* MSCameraBottolToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB361A1823938E6F005607FA /* MSCameraBottolToolBarView.swift */; };
+		CB361A1B239393B9005607FA /* MSCameraImageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB361A1A239393B9005607FA /* MSCameraImageListView.swift */; };
+		CB361A1D239393CE005607FA /* MSCameraNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB361A1C239393CE005607FA /* MSCameraNavigationBarView.swift */; };
+		CB361A1F2393960A005607FA /* MSCameraImageListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB361A1E2393960A005607FA /* MSCameraImageListViewCell.swift */; };
+		CB361A212393AC53005607FA /* MSUIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB361A202393AC53005607FA /* MSUIImageExtension.swift */; };
 		CBA42E2D238A426A001C8FD7 /* MSRentDetailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA42E2C238A426A001C8FD7 /* MSRentDetailTableView.swift */; };
 		CBA42E31238A8019001C8FD7 /* MSRentDetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA42E30238A8019001C8FD7 /* MSRentDetailInfoCell.swift */; };
 		CBA42E33238A803E001C8FD7 /* MSRentDetailDescribeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA42E32238A803E001C8FD7 /* MSRentDetailDescribeCell.swift */; };
@@ -264,6 +269,11 @@
 		CB361A1023925996005607FA /* MSResourceManagerVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSResourceManagerVideoViewController.swift; sourceTree = "<group>"; };
 		CB361A1223925B7B005607FA /* MSResourceManagerHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSResourceManagerHeader.swift; sourceTree = "<group>"; };
 		CB361A1623925FCA005607FA /* MSAlbumNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSAlbumNavigationBarView.swift; sourceTree = "<group>"; };
+		CB361A1823938E6F005607FA /* MSCameraBottolToolBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSCameraBottolToolBarView.swift; sourceTree = "<group>"; };
+		CB361A1A239393B9005607FA /* MSCameraImageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSCameraImageListView.swift; sourceTree = "<group>"; };
+		CB361A1C239393CE005607FA /* MSCameraNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSCameraNavigationBarView.swift; sourceTree = "<group>"; };
+		CB361A1E2393960A005607FA /* MSCameraImageListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSCameraImageListViewCell.swift; sourceTree = "<group>"; };
+		CB361A202393AC53005607FA /* MSUIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSUIImageExtension.swift; sourceTree = "<group>"; };
 		CBA42E2C238A426A001C8FD7 /* MSRentDetailTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSRentDetailTableView.swift; sourceTree = "<group>"; };
 		CBA42E30238A8019001C8FD7 /* MSRentDetailInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSRentDetailInfoCell.swift; sourceTree = "<group>"; };
 		CBA42E32238A803E001C8FD7 /* MSRentDetailDescribeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSRentDetailDescribeCell.swift; sourceTree = "<group>"; };
@@ -757,6 +767,10 @@
 		CB361A1423925F75005607FA /* CameraView */ = {
 			isa = PBXGroup;
 			children = (
+				CB361A1823938E6F005607FA /* MSCameraBottolToolBarView.swift */,
+				CB361A1C239393CE005607FA /* MSCameraNavigationBarView.swift */,
+				CB361A1A239393B9005607FA /* MSCameraImageListView.swift */,
+				CB361A1E2393960A005607FA /* MSCameraImageListViewCell.swift */,
 			);
 			path = CameraView;
 			sourceTree = "<group>";
@@ -970,6 +984,7 @@
 				D77854F3238628B700DEB6DE /* LoginViewExtension.swift */,
 				D7DFEE92238E5DB7004B4F28 /* StringMd5.swift */,
 				D7DFEE94238E5E95004B4F28 /* DateExtension.swift */,
+				CB361A202393AC53005607FA /* MSUIImageExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1278,6 +1293,7 @@
 				D7AF4D372367D9D7009957D4 /* StringExtension.swift in Sources */,
 				D7C3190C237E8D3E0029BCB8 /* ContactViewController.swift in Sources */,
 				049034F7237D759D00D1DF65 /* HLPageView.swift in Sources */,
+				CB361A1F2393960A005607FA /* MSCameraImageListViewCell.swift in Sources */,
 				D7AF4D352367D9D7009957D4 /* UIViewControllerExtension.swift in Sources */,
 				041C3954237BAB53007FA74A /* HBSHeadFileHeader.swift in Sources */,
 				041C397B237BACC9007FA74A /* MSRentListCell.swift in Sources */,
@@ -1285,6 +1301,7 @@
 				04903502237E89F900D1DF65 /* MSPHAsset.swift in Sources */,
 				041C395E237BAB53007FA74A /* HBSNetworkManager.swift in Sources */,
 				041C397F237BD8A7007FA74A /* MSRentListOptionView.swift in Sources */,
+				CB361A212393AC53005607FA /* MSUIImageExtension.swift in Sources */,
 				041C3967237BAB53007FA74A /* HBSBaseCollectionView.swift in Sources */,
 				CB361A0F23925834005607FA /* MSResourceManagerCameraViewController.swift in Sources */,
 				049034CD237D2EA700D1DF65 /* MSPublishTravelClickModel.swift in Sources */,
@@ -1334,6 +1351,7 @@
 				049034F6237D759D00D1DF65 /* HLPageResultView.swift in Sources */,
 				04642C8023862F09005131D7 /* MSPublishRentDemandViewController.swift in Sources */,
 				D733A80C238D321A006B11A1 /* UserInfoIconTableViewCell.swift in Sources */,
+				CB361A1923938E6F005607FA /* MSCameraBottolToolBarView.swift in Sources */,
 				D77854F4238628B700DEB6DE /* LoginViewExtension.swift in Sources */,
 				CBA42E37238A80B7001C8FD7 /* MSRentDetailBannerView.swift in Sources */,
 				041C3951237BAB53007FA74A /* HBSBaseConstHeader.swift in Sources */,
@@ -1361,6 +1379,7 @@
 				049034FA237E474A00D1DF65 /* MSAlbumCollectionView.swift in Sources */,
 				D7AF4D2E2367D9D7009957D4 /* BaseTableView.swift in Sources */,
 				049034E1237D4DC300D1DF65 /* UITextFieldExtension.swift in Sources */,
+				CB361A1B239393B9005607FA /* MSCameraImageListView.swift in Sources */,
 				D7AF4D312367D9D7009957D4 /* UrlExtention.swift in Sources */,
 				04B85C9923824E66008E8BF9 /* ShareViewController.swift in Sources */,
 				D7B43B6E237BA2810035755F /* UIViewController+FWSideMenuExtension.swift in Sources */,
@@ -1380,6 +1399,7 @@
 				D7B43B5B237AB4380035755F /* HomeMainView.swift in Sources */,
 				049034DF237D319000D1DF65 /* MSPublishTravelFilesCell.swift in Sources */,
 				049034C0237CEFA300D1DF65 /* MSTravelListCell.swift in Sources */,
+				CB361A1D239393CE005607FA /* MSCameraNavigationBarView.swift in Sources */,
 				D7AF4D2F2367D9D7009957D4 /* BaseNavigationController.swift in Sources */,
 				041C3952237BAB53007FA74A /* HBSDevice.swift in Sources */,
 				D7AF4D302367D9D7009957D4 /* BaseView.swift in Sources */,
