@@ -34,8 +34,8 @@ class SettingMainTableViewCell: UITableViewCell {
            super.init(style: style, reuseIdentifier: reuseIdentifier)
            self.selectionStyle = .none
            addSubview(self.titleLabel)
-        addSubview(self.lineView)
-        addSubview(self.arrowImgView)
+          addSubview(self.lineView)
+          addSubview(self.arrowImgView)
        }
        
        required init?(coder: NSCoder) {

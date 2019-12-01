@@ -7,17 +7,24 @@
 //
 
 import UIKit
+import SafariServices
+import PKHUD
 
 class LoginViewController: BaseViewController {
 
+//    var loginBlock : CompleteBlock!
+    
+    
     private let loginSize = CGSize(width: SCREEN_WIDTH * 0.8, height: 50)
+    private var phoneString : String = ""
+    private var codeString : String = ""
     private lazy var backButton: UIButton = {
         let backButton = UIButton(type: .custom)
 //        backButton.setTitle("退出", for: .normal)
         backButton.setImage(UIImage(named: "login_back"), for: .normal)
         backButton.setTitleColor(UIColor.gl_hex(hex: 0x666666), for: .normal)
         backButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        backButton.addTarget(self, action: #selector(clickBack), for: .touchUpInside)
+        backButton.addTarget(self, action: #selector(back), for: .touchUpInside)
         return backButton
     }()
     
@@ -45,17 +52,23 @@ class LoginViewController: BaseViewController {
     
     private lazy var phoneView: LoginPhoneView = {
         let phoneView = LoginPhoneView()
+        phoneView.delegate = self
         return phoneView
     }()
     
     private lazy var codeView: LoginCodeView = {
         let codeView = LoginCodeView()
+        codeView.delegate = self
+        codeView.soureDelegate = self
         return codeView
     }()
     
     private lazy var loginButton: LoginButton = {
         let loginButton = LoginButton(title: "登录",size:loginSize)
+        loginButton.isUserInteractionEnabled = true
         loginButton.cornerRadius = loginSize.height * 0.5
+        loginButton.addViewTapTarget(self, action: #selector(clickLoginBtn))
+       
         return loginButton
     }()
     
@@ -71,12 +84,13 @@ class LoginViewController: BaseViewController {
         userAgreementLabel.font = UIFont.boldSystemFont(ofSize: 12)
         userAgreementLabel.textColor = ColorTheme
         userAgreementLabel.text = "用户协议"
+        userAgreementLabel.addViewTapTarget(self, action: #selector(clickAgreedVC))
         return userAgreementLabel
     }()
     private lazy var agreedBtn: UIButton = {
         let agreedBtn = UIButton(type: .custom)
         agreedBtn.setImage(UIImage(named: "login_noselect"), for: .normal)
-       agreedBtn.setImage(UIImage(named: "login_select"), for: .selected)
+        agreedBtn.setImage(UIImage(named: "login_select"), for: .selected)
         agreedBtn.addTarget(self, action: #selector(clickAgreedBtn(btn:)), for: .touchUpInside)
         return agreedBtn
     }()
@@ -144,13 +158,55 @@ class LoginViewController: BaseViewController {
 
     }
     
-    @objc private func clickBack(){
+    @objc private func back(){
         self.dismiss(animated: true, completion: nil)
     }
 
     @objc private func clickAgreedBtn(btn:UIButton){
         btn.isSelected = !btn.isSelected
     }
+    @objc private func clickAgreedVC(){
+
+        let url = URL.init(string: "http://useragreement.afeikeji.com/")
+        let agreem = SFSafariViewController.init(url: url!)
+        self.present(agreem, animated: true, completion: nil)
+    }
+    
+    @objc private func clickLoginBtn(){
+        
+        self.loginButton.beginLogin()
+        LoginModel.LoginWithInfo(phone: self.phoneString, code: self.codeString, isRead: self.agreedBtn.isSelected, block: { (data) in
+            
+            UserManager.saveAllInfo(info: data)
+        
+            UserManager.changeInfo()
+           
+            self.back()
+              self.loginButton.endLogin()
+        }) {
+             self.loginButton.endLogin()
+        }
+        
+    }
 
 }
   
+extension LoginViewController:FR_ClickDelegate{
+    func fr_clickViewDelegte() {
+        self.codeView.beginTiming()
+    }
+}
+extension LoginViewController:PhoneDelegate{
+    
+    func phoneEndEditingSting(string:String) {
+        
+        self.phoneString = string
+    }
+}
+extension LoginViewController:CodeDelegate{
+    
+    func codeEndEditingSting(string:String) {
+        
+        self.codeString = string
+    }
+}

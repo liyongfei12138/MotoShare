@@ -11,6 +11,7 @@ import UIKit
 class SettingViewController: BaseViewController {
 
     
+    
     lazy var listView: MeSettingTableView = {
            let listView = MeSettingTableView()
            listView.settingDataSourse = self
@@ -47,6 +48,12 @@ extension SettingViewController:MeSettingViewDelegate{
             let contactVc = ContactViewController()
             self.navigationController?.pushViewController(contactVc)
         
+        break
+        case .logout:
+            UserManager.logout()
+            UserManager.changeInfo()
+            self.navigationController?.popViewController()
+            
         break
             
         default:
