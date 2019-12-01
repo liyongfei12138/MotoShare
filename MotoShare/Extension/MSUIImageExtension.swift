@@ -12,13 +12,11 @@ extension UIImage {
     
     func clipImage(rect: CGRect) -> UIImage {
         
-//        let sourceImageRef = self.ciImage!
-//        
-//        let newImageRef = sourceImageRef.cropped(to: UIScreen.main.bounds)
-//        let image = UIImage.init(ciImage: newImageRef)
-//        
-//        return image
+        let sourceImageRef = self.ciImage!
         
-        return self
+        let newImageRef = sourceImageRef.cropped(to: rect)
+        let image = UIImage.init(ciImage: newImageRef)
+        
+        return image
     }
 }

@@ -11,6 +11,11 @@ import AVFoundation
 
 class MSResourceManagerCameraViewController: BaseViewController,AVCaptureVideoDataOutputSampleBufferDelegate {
     
+    var delegate: MSResourceManagerViewControllerDelegate?
+    
+    /// 最多选择数量
+    var maxNo: Int = 9
+    
     /// 获取设备：如摄像头
     var device: AVCaptureDevice!
     
@@ -74,6 +79,7 @@ class MSResourceManagerCameraViewController: BaseViewController,AVCaptureVideoDa
         
         let view = MSCameraBottolToolBarView.view()
         view.delegate = self
+        view.maxNo = self.maxNo
         view.layer.zPosition = 1
         self.view.addSubview(view)
         
@@ -184,6 +190,8 @@ class MSResourceManagerCameraViewController: BaseViewController,AVCaptureVideoDa
             self.images.removeAll(hbs_eventObject.hbs_params as! UIImage)
             self.imageListView.updateCameraImageListView(datas: self.images)
         
+            self.bottomToolBarView.updateCurrentNo(no: self.images.count)
+
         }else if hbs_eventObject.hbs_eventType == "打开闪光灯" {
           
             self.switchLamp(torchModel: .on)
@@ -192,6 +200,25 @@ class MSResourceManagerCameraViewController: BaseViewController,AVCaptureVideoDa
           
             self.switchLamp(torchModel: .off)
 
+        }else if hbs_eventObject.hbs_eventType == "下一步" {
+            
+            if self.delegate != nil {
+                
+                var msAssets: [MSPHAsset] = []
+                
+                for image in self.images {
+                    
+                    let msAsset = MSPHAsset.init()
+                    msAsset.mediaType = .image
+                    msAsset.originalImage = image
+                    
+                    msAssets.append(msAsset)
+                }
+                
+                self.delegate?.imageChoiceFinish?(assets: msAssets)
+            }
+            
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -204,14 +231,21 @@ class MSResourceManagerCameraViewController: BaseViewController,AVCaptureVideoDa
             
             DispatchQueue.main.async {
                     
-                let image = self.imageConvert(sampleBuffer: sampleBuffer)
+                var image = self.imageConvert(sampleBuffer: sampleBuffer)
                 
                 /// 剪辑图片
 //                let clipImage = image?.clipImage(rect: self.previewLayer.bounds)
                 
                 if image != nil {
-                    self.images.append(image!)
+                    
+                    let newImage = image!.copy() as! UIImage
+                    
+                    image = nil
+                    
+                    self.images.append(newImage)
                     self.imageListView.updateCameraImageListView(datas: self.images)
+                    
+                    self.bottomToolBarView.updateCurrentNo(no: self.images.count)
                 }
             }
         }

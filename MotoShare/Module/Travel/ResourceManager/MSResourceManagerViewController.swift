@@ -38,7 +38,7 @@ class MSResourceManagerViewController: BaseViewController,HLPageViewDelegate,HLP
     lazy var pageResultView: HLPageResultView = {
         
         let pageResultView = HLPageResultView.pageResultView(3);
-        pageResultView.scrollView.bounces = false
+        pageResultView.scrollView.isScrollEnabled = false
         pageResultView.delegate = self
         self.view.addSubview(pageResultView)
         
@@ -59,6 +59,8 @@ class MSResourceManagerViewController: BaseViewController,HLPageViewDelegate,HLP
     lazy var cameraVC: MSResourceManagerCameraViewController = {
         
         let vc = MSResourceManagerCameraViewController.init()
+        vc.delegate = self.delegate
+        vc.maxNo = self.maxNo
         self.addChild(vc)
         
         return vc
