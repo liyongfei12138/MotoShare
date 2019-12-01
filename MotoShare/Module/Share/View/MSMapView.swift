@@ -27,6 +27,13 @@ class MSMapView: BaseView, MAMapViewDelegate {
         return mapView
     }()
 
+    lazy var goCenterBtn: UIButton = {
+        let goCenterBtn = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 24, height: 24))
+        goCenterBtn.addTarget(self, action: #selector(backToCurrentPoint), for: .touchUpInside)
+        goCenterBtn.setImage(UIImage.init(named: "icon_go_center"), for: UIControl.State.normal)
+        return goCenterBtn
+    }()
+    
     // 当前显示的点
     var currentMapPoints: [MAPointAnnotation] = [MAPointAnnotation]()
     
@@ -46,7 +53,7 @@ class MSMapView: BaseView, MAMapViewDelegate {
         if points != nil && points!.count > 0 {
          
             for point: MSMapPoint in points! {
-                glet pointAnnotation = MAPointAnnotation.init()
+                let pointAnnotation = MAPointAnnotation.init()
                 pointAnnotation.coordinate = CLLocationCoordinate2D.init(latitude: point.latitude, longitude: point.longitude)
                 
                 self.currentMapPoints.append(pointAnnotation)
@@ -54,7 +61,7 @@ class MSMapView: BaseView, MAMapViewDelegate {
             }
         }
         
-//        self.mapView.addAnnotations(self.currentMapPoints)
+        self.mapView.addAnnotations(self.currentMapPoints)
     }
     
     
@@ -68,13 +75,29 @@ class MSMapView: BaseView, MAMapViewDelegate {
     
     func p_setUpUI() {
         self.addSubview(self.mapView)
-        
+        self.mapView.addSubview(self.goCenterBtn)
         p_layout()
     }
     
     func p_layout() {
         self.mapView.snp.makeConstraints { (make) in
             make.left.right.top.bottom.equalToSuperview()
+        }
+        
+        self.goCenterBtn.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().offset(20)
+            make.bottom.equalToSuperview().offset(-40)
+            make.size.equalTo(CGSize.init(width: 24, height: 24))
+        }
+    }
+
+    // 回到当前位置
+    @objc func backToCurrentPoint() {
+        
+        let location = self.mapView.userLocation;
+        
+        if location != nil {
+            self.mapView.centerCoordinate = location!.coordinate
         }
     }
 }
@@ -85,7 +108,7 @@ extension MSMapView {
     // 设置标注样式
     func mapView(_ mapView: MAMapView!, viewFor annotation: MAAnnotation!) -> MAAnnotationView! {
 
-        if annotation.isKind(of: MAPointAnnotation.self) {
+        if annotation is MAPointAnnotation && !(annotation is MAUserLocation) {
             let pointReuseIndetifier = "pointReuseIndetifier"
             var annotationView: MAPinAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: pointReuseIndetifier) as! MAPinAnnotationView?
 

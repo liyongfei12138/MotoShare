@@ -50,7 +50,7 @@ class ShareViewController: UIViewController {
         
         var porints = [MSMapPoint]()
         
-        for index in  0...10 {
+        for index in  0...3 {
             let randX = Double(arc4random() % 10) / 10.0
             let model = MSMapPoint.init(latitude: 39.98 + randX , longitude: 116.48 + randX)
             print("latitude: \(model.latitude) longitude: \(model.longitude), randX: \(randX)")
