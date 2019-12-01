@@ -59,9 +59,10 @@ class MSPublishTravelViewController: BaseViewController,MSResourceManagerViewCon
         }else if hbs_eventObject.hbs_eventType == "添加新图片/视频" {
             
             let resourceManagerVC = MSResourceManagerViewController.init()
+            resourceManagerVC.modalPresentationStyle = .overFullScreen
             resourceManagerVC.delegate = self
             resourceManagerVC.maxNo = 9 - self.getFilesModel().msAssets.count
-            self.navigationController?.pushViewController(resourceManagerVC)
+            self.present(resourceManagerVC, animated: true, completion: nil)
         }
     }
     

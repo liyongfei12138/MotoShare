@@ -25,7 +25,7 @@ class MSAlbumCollectionViewCell: HBSBaseCollectionViewCell {
         self.contentView.addSubview(imageView)
         
         let imageViewLongPress = UILongPressGestureRecognizer.init(target: self, action: #selector(self.assetImageViewLongPress(longPress:)))
-        imageViewLongPress.minimumPressDuration = 0.8
+        imageViewLongPress.minimumPressDuration = 0.5
         imageView.addGestureRecognizer(imageViewLongPress)
         
         return imageView
@@ -127,15 +127,26 @@ class MSAlbumCollectionViewCell: HBSBaseCollectionViewCell {
     func updateAlbumCell(msAsset: MSPHAsset) {
         
         self.msAsset = msAsset
-        
-        MSAlbumDataManager.getImageInfo(msAsset: msAsset) { (image) in
+      
+        if self.msAsset.originalImage != nil {
             
-            if image != nil {
+            self.assetImageView.image = self.msAsset.originalImage
+
+        }else if self.msAsset.thumbnailImage != nil {
+            
+            self.assetImageView.image = self.msAsset.thumbnailImage
+
+        }else {
+            
+            MSAlbumDataManager.getImageInfo(msAsset: msAsset) { (image) in
                 
-                self.assetImageView.image = image
+                if image != nil {
+                    
+                    self.assetImageView.image = image
+                }
             }
         }
-   
+           
         if msAsset.asset.mediaType == .image {
             
             self.choiceImageView.isHidden = false

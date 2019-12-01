@@ -48,7 +48,7 @@ class UserInfoViewController: BaseUserInfoViewController {
     
     private func selectHeadImage(){
         
-        let selectVC = MSResourceManagerViewController()
+        let selectVC = MSResourceManagerAlbumViewController()
         selectVC.maxNo = 1
         selectVC.choiceType = .image
         selectVC.delegate = self

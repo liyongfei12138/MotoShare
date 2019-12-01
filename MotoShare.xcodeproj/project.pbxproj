@@ -73,7 +73,7 @@
 		049034E1237D4DC300D1DF65 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034E0237D4DC300D1DF65 /* UITextFieldExtension.swift */; };
 		049034E4237D56BE00D1DF65 /* MSChoiceDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034E3237D56BE00D1DF65 /* MSChoiceDateViewController.swift */; };
 		049034E6237D586300D1DF65 /* MSChoiceDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034E5237D586300D1DF65 /* MSChoiceDateView.swift */; };
-		049034E9237D6FDC00D1DF65 /* MSResourceManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034E8237D6FDC00D1DF65 /* MSResourceManagerViewController.swift */; };
+		049034E9237D6FDC00D1DF65 /* MSResourceManagerAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034E8237D6FDC00D1DF65 /* MSResourceManagerAlbumViewController.swift */; };
 		049034F6237D759D00D1DF65 /* HLPageResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034F4237D759D00D1DF65 /* HLPageResultView.swift */; };
 		049034F7237D759D00D1DF65 /* HLPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034F5237D759D00D1DF65 /* HLPageView.swift */; };
 		049034FA237E474A00D1DF65 /* MSAlbumCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034F9237E474A00D1DF65 /* MSAlbumCollectionView.swift */; };
@@ -85,6 +85,11 @@
 		04B85C9B23824E87008E8BF9 /* MSMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B85C9A23824E87008E8BF9 /* MSMapView.swift */; };
 		947506F1842C6E97CF08E5F3 /* Pods_MotoShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A3051476B1329CCA0ED583C /* Pods_MotoShare.framework */; };
 		CB2C72BD237B111B00FEC788 /* MSQueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C72BC237B111B00FEC788 /* MSQueryViewController.swift */; };
+		CB361A0D23925623005607FA /* MSResourceManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB361A0C23925623005607FA /* MSResourceManagerViewController.swift */; };
+		CB361A0F23925834005607FA /* MSResourceManagerCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB361A0E23925834005607FA /* MSResourceManagerCameraViewController.swift */; };
+		CB361A1123925996005607FA /* MSResourceManagerVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB361A1023925996005607FA /* MSResourceManagerVideoViewController.swift */; };
+		CB361A1323925B7B005607FA /* MSResourceManagerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB361A1223925B7B005607FA /* MSResourceManagerHeader.swift */; };
+		CB361A1723925FCA005607FA /* MSAlbumNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB361A1623925FCA005607FA /* MSAlbumNavigationBarView.swift */; };
 		CBA42E2D238A426A001C8FD7 /* MSRentDetailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA42E2C238A426A001C8FD7 /* MSRentDetailTableView.swift */; };
 		CBA42E31238A8019001C8FD7 /* MSRentDetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA42E30238A8019001C8FD7 /* MSRentDetailInfoCell.swift */; };
 		CBA42E33238A803E001C8FD7 /* MSRentDetailDescribeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA42E32238A803E001C8FD7 /* MSRentDetailDescribeCell.swift */; };
@@ -237,7 +242,7 @@
 		049034E0237D4DC300D1DF65 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		049034E3237D56BE00D1DF65 /* MSChoiceDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSChoiceDateViewController.swift; sourceTree = "<group>"; };
 		049034E5237D586300D1DF65 /* MSChoiceDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSChoiceDateView.swift; sourceTree = "<group>"; };
-		049034E8237D6FDC00D1DF65 /* MSResourceManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSResourceManagerViewController.swift; sourceTree = "<group>"; };
+		049034E8237D6FDC00D1DF65 /* MSResourceManagerAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSResourceManagerAlbumViewController.swift; sourceTree = "<group>"; };
 		049034F4237D759D00D1DF65 /* HLPageResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLPageResultView.swift; sourceTree = "<group>"; };
 		049034F5237D759D00D1DF65 /* HLPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLPageView.swift; sourceTree = "<group>"; };
 		049034F9237E474A00D1DF65 /* MSAlbumCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSAlbumCollectionView.swift; sourceTree = "<group>"; };
@@ -254,6 +259,11 @@
 		58E610E719334776F82825DC /* Pods-MotoShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotoShare.debug.xcconfig"; path = "Target Support Files/Pods-MotoShare/Pods-MotoShare.debug.xcconfig"; sourceTree = "<group>"; };
 		84D0AFB163E213BB2C654492 /* Pods-FoodRecipe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodRecipe.release.xcconfig"; path = "Target Support Files/Pods-FoodRecipe/Pods-FoodRecipe.release.xcconfig"; sourceTree = "<group>"; };
 		CB2C72BC237B111B00FEC788 /* MSQueryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSQueryViewController.swift; sourceTree = "<group>"; };
+		CB361A0C23925623005607FA /* MSResourceManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSResourceManagerViewController.swift; sourceTree = "<group>"; };
+		CB361A0E23925834005607FA /* MSResourceManagerCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSResourceManagerCameraViewController.swift; sourceTree = "<group>"; };
+		CB361A1023925996005607FA /* MSResourceManagerVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSResourceManagerVideoViewController.swift; sourceTree = "<group>"; };
+		CB361A1223925B7B005607FA /* MSResourceManagerHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSResourceManagerHeader.swift; sourceTree = "<group>"; };
+		CB361A1623925FCA005607FA /* MSAlbumNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSAlbumNavigationBarView.swift; sourceTree = "<group>"; };
 		CBA42E2C238A426A001C8FD7 /* MSRentDetailTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSRentDetailTableView.swift; sourceTree = "<group>"; };
 		CBA42E30238A8019001C8FD7 /* MSRentDetailInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSRentDetailInfoCell.swift; sourceTree = "<group>"; };
 		CBA42E32238A803E001C8FD7 /* MSRentDetailDescribeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSRentDetailDescribeCell.swift; sourceTree = "<group>"; };
@@ -660,11 +670,16 @@
 		049034E7237D6F3E00D1DF65 /* ResourceManager */ = {
 			isa = PBXGroup;
 			children = (
+				CB361A1423925F75005607FA /* CameraView */,
+				CB361A1523925F75005607FA /* VideoView */,
 				04903500237E89E800D1DF65 /* PHAsset */,
 				049034FD237E49BB00D1DF65 /* AlbumDataManager */,
-				049034F8237E472E00D1DF65 /* View */,
+				049034F8237E472E00D1DF65 /* AlbumView */,
 				049034F3237D759D00D1DF65 /* PageView */,
-				049034E8237D6FDC00D1DF65 /* MSResourceManagerViewController.swift */,
+				CB361A0C23925623005607FA /* MSResourceManagerViewController.swift */,
+				049034E8237D6FDC00D1DF65 /* MSResourceManagerAlbumViewController.swift */,
+				CB361A0E23925834005607FA /* MSResourceManagerCameraViewController.swift */,
+				CB361A1023925996005607FA /* MSResourceManagerVideoViewController.swift */,
 			);
 			path = ResourceManager;
 			sourceTree = "<group>";
@@ -678,21 +693,23 @@
 			path = PageView;
 			sourceTree = "<group>";
 		};
-		049034F8237E472E00D1DF65 /* View */ = {
+		049034F8237E472E00D1DF65 /* AlbumView */ = {
 			isa = PBXGroup;
 			children = (
 				040F8DCF23823B7D00834F41 /* AlbumFolderTableView */,
 				049034F9237E474A00D1DF65 /* MSAlbumCollectionView.swift */,
 				049034FB237E475500D1DF65 /* MSAlbumCollectionViewCell.swift */,
 				04903503237EB10400D1DF65 /* MSAlbumFolderView.swift */,
+				CB361A1623925FCA005607FA /* MSAlbumNavigationBarView.swift */,
 			);
-			path = View;
+			path = AlbumView;
 			sourceTree = "<group>";
 		};
 		049034FD237E49BB00D1DF65 /* AlbumDataManager */ = {
 			isa = PBXGroup;
 			children = (
 				049034FE237E49C300D1DF65 /* MSAlbumDataManager.swift */,
+				CB361A1223925B7B005607FA /* MSResourceManagerHeader.swift */,
 			);
 			path = AlbumDataManager;
 			sourceTree = "<group>";
@@ -735,6 +752,20 @@
 				CB2C72BC237B111B00FEC788 /* MSQueryViewController.swift */,
 			);
 			path = Query;
+			sourceTree = "<group>";
+		};
+		CB361A1423925F75005607FA /* CameraView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CameraView;
+			sourceTree = "<group>";
+		};
+		CB361A1523925F75005607FA /* VideoView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VideoView;
 			sourceTree = "<group>";
 		};
 		CBA42E2B238A4249001C8FD7 /* View */ = {
@@ -1238,6 +1269,7 @@
 				D7A034F8238B7DFA00AF26A4 /* LoginButton.swift in Sources */,
 				D7DFEEA0238E7FF8004B4F28 /* UserUidTableViewCell.swift in Sources */,
 				049034D5237D312200D1DF65 /* MSPublisthTravelTableView.swift in Sources */,
+				CB361A0D23925623005607FA /* MSResourceManagerViewController.swift in Sources */,
 				041C398C237BF265007FA74A /* MSDemandListModel.swift in Sources */,
 				041C3985237BE658007FA74A /* MSChoiceCityViewController.swift in Sources */,
 				041C3975237BAC8A007FA74A /* RentViewController.swift in Sources */,
@@ -1254,14 +1286,17 @@
 				041C395E237BAB53007FA74A /* HBSNetworkManager.swift in Sources */,
 				041C397F237BD8A7007FA74A /* MSRentListOptionView.swift in Sources */,
 				041C3967237BAB53007FA74A /* HBSBaseCollectionView.swift in Sources */,
+				CB361A0F23925834005607FA /* MSResourceManagerCameraViewController.swift in Sources */,
 				049034CD237D2EA700D1DF65 /* MSPublishTravelClickModel.swift in Sources */,
 				041C3983237BE64C007FA74A /* MSRentDetailViewController.swift in Sources */,
 				D7B43B59237AB4120035755F /* HomeBannerView.swift in Sources */,
+				CB361A1723925FCA005607FA /* MSAlbumNavigationBarView.swift in Sources */,
 				041C3971237BAB53007FA74A /* HBSBaseTipsView.swift in Sources */,
 				D7B43B74237CF0390035755F /* MeModel.swift in Sources */,
 				D7AF4D3C2367D9D7009957D4 /* Header.swift in Sources */,
 				041C3960237BAB53007FA74A /* HBSBaseModel.swift in Sources */,
 				D7AF4D382367D9D7009957D4 /* TabbarBadge.swift in Sources */,
+				CB361A1323925B7B005607FA /* MSResourceManagerHeader.swift in Sources */,
 				D7AF4D2D2367D9D7009957D4 /* BaseViewController.swift in Sources */,
 				049034BC237CEF5800D1DF65 /* TravelViewController.swift in Sources */,
 				D7DFEE95238E5E95004B4F28 /* DateExtension.swift in Sources */,
@@ -1274,7 +1309,7 @@
 				04B85C9B23824E87008E8BF9 /* MSMapView.swift in Sources */,
 				D7DFEEAE238F9D62004B4F28 /* PhotosCollectionViewCell.swift in Sources */,
 				041C396E237BAB53007FA74A /* HBSBaseTableView.swift in Sources */,
-				049034E9237D6FDC00D1DF65 /* MSResourceManagerViewController.swift in Sources */,
+				049034E9237D6FDC00D1DF65 /* MSResourceManagerAlbumViewController.swift in Sources */,
 				04903504237EB10400D1DF65 /* MSAlbumFolderView.swift in Sources */,
 				D7C31910237E9F9C0029BCB8 /* ContactAddTableViewCell.swift in Sources */,
 				CBA42E33238A803E001C8FD7 /* MSRentDetailDescribeCell.swift in Sources */,
@@ -1354,6 +1389,7 @@
 				049034FF237E49C300D1DF65 /* MSAlbumDataManager.swift in Sources */,
 				D7AF4D5F23699B39009957D4 /* UiButtonExtension.swift in Sources */,
 				D7A034F6238B7DF900AF26A4 /* LoginPhoneView.swift in Sources */,
+				CB361A1123925996005607FA /* MSResourceManagerVideoViewController.swift in Sources */,
 				04642C792383FC6C005131D7 /* MSPublishFileCollectionView.swift in Sources */,
 				D7B43B6C237BA2810035755F /* FWSideMenuContainerViewController.swift in Sources */,
 			);
