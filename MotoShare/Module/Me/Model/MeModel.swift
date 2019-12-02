@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import HandyJSON
 public  enum MeDidRowType: Int  {
     case order = 500
     case money = 501
@@ -170,4 +170,12 @@ public struct UserInfoBaseModel {
         self.detail = detail
     }
 }
+
+
+struct PhotosBaseModel: HandyJSON {
+    var photo : String! = ""
+    var width : Int! = 0
+    var height :Int! = 0
+}
+
 

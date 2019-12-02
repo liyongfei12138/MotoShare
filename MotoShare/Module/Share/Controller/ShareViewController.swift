@@ -23,6 +23,10 @@ class ShareViewController: UIViewController {
         p_initialize()
         
         p_setUpUI()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.p_showAnnotaion()
+        }
     }
     
     func p_initialize() {
@@ -40,5 +44,20 @@ class ShareViewController: UIViewController {
         self.indexMapView.snp.makeConstraints { (make) in
             make.left.right.top.bottom.equalToSuperview()
         }
+    }
+    
+    func p_showAnnotaion() {
+        
+        var porints = [MSMapPoint]()
+        
+        for index in  0...3 {
+            let randX = Double(arc4random() % 10) / 10.0
+            let model = MSMapPoint.init(latitude: 39.98 + randX , longitude: 116.48 + randX)
+            print("latitude: \(model.latitude) longitude: \(model.longitude), randX: \(randX)")
+
+            porints.append(model)
+        }
+        
+        self.indexMapView.showMSPoints(points: porints)
     }
 }

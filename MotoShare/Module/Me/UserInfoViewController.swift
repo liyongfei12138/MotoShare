@@ -8,7 +8,7 @@
 
 import UIKit
 import JXPhotoBrowser
-class UserInfoViewController: BaseViewController {
+class UserInfoViewController: BaseUserInfoViewController {
 
     private lazy var listView: UITableView = {
         let listView = UITableView (frame: .zero, style: .grouped)
@@ -34,8 +34,11 @@ class UserInfoViewController: BaseViewController {
         self.view.backgroundColor = ColorTableViewBG
         
         self.view.addSubview(self.listView)
-        UserManager.delegete = self
+
         configLayout()
+    }
+    override func obbserverUserInfoChange(){
+         self.listView.reloadData()
     }
     func configLayout()  {
         self.listView.snp.makeConstraints { (make) in
@@ -45,7 +48,7 @@ class UserInfoViewController: BaseViewController {
     
     private func selectHeadImage(){
         
-        let selectVC = MSResourceManagerViewController()
+        let selectVC = MSResourceManagerAlbumViewController()
         selectVC.maxNo = 1
         selectVC.choiceType = .image
         selectVC.delegate = self
@@ -104,6 +107,14 @@ extension UserInfoViewController:UITableViewDelegate,UITableViewDataSource{
         case .introduce:
             let changeVc = ChangeOtherViewController(type: .introduce)
             self.present(BaseNavigationController(rootViewController: changeVc), animated: true, completion: nil)
+        break
+        case .sex:
+            let changeSex = ChangeSexViewController()
+            self.present(BaseNavigationController(rootViewController: changeSex), animated: true, completion: nil)
+        break
+        case .picture:
+            let pictureVC = PhotoAlbumViewController()
+            self.present(BaseNavigationController(rootViewController: pictureVC), animated: true, completion: nil)
         break
             
         default:
@@ -174,10 +185,10 @@ extension UserInfoViewController: MSResourceManagerViewControllerDelegate{
     }
 }
 
-extension UserInfoViewController:UserInfoChangeDelegate{
-    func userDidInfoChange() {
-        self.listView.reloadData()
-        
-    }
-    
-}
+//extension UserInfoViewController:UserInfoChangeDelegate{
+//    func userDidInfoChange() {
+//        self.listView.reloadData()
+//
+//    }
+//
+//}

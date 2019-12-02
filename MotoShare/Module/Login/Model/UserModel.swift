@@ -65,20 +65,16 @@ class User: Codable {
 }
 
 
-protocol UserInfoChangeDelegate {
-    func userDidInfoChange()
-}
 
-
+typealias ChangeInfoBlock = () -> ()
 class UserManager {
-    
-    
-    static var delegete : UserInfoChangeDelegate?
-    
+
+     static let ChangeInfo = "ChangeInfo_Key"
+  
+
     static func changeInfo()  {
-        UserManager.delegete?.userDidInfoChange()
+        NotificationCenter.default.post(name: Notification.Name(UserManager.ChangeInfo), object: self, userInfo: nil)
     }
-    
     
     
     static func saveAllInfo(info:Dictionary<String,Any>) {
@@ -173,8 +169,8 @@ class UserManager {
         
         
         UserManager.saveAllInfo(info: info)
-      
+        UserManager.changeInfo()
     }
     
-    typealias CompleteBlock = ()->()
+ 
 }

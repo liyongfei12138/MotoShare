@@ -56,7 +56,10 @@ class MSPHAsset: NSObject {
         
         didSet {
             
-            self.originalImage = MSAlbumDataManager.getVideoPreViewImage(url: self.videoPath!)
+            if self.videoPath != nil {
+                
+                self.originalImage = MSAlbumDataManager.getVideoPreViewImage(url: self.videoPath!)
+            }
         }
     }
 

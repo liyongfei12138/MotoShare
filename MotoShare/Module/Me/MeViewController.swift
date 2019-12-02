@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MeViewController: BaseViewController {
+class MeViewController: BaseUserInfoViewController {
     
     private let kViewWidth = UIScreen.main.bounds.width * 0.7
     private let kIconWidth = UIScreen.main.bounds.width * 0.7 * 0.25
@@ -74,8 +74,7 @@ class MeViewController: BaseViewController {
         super.viewWillAppear(animated)
         
         pt_hiddenNav(hide: true, animated: animated)
-        
-        
+
         
 
     }
@@ -100,7 +99,8 @@ class MeViewController: BaseViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = ColorWhite
-        UserManager.delegete = self
+        
+    
         
         self.view.addSubview(self.bgView)
         self.bgView.addSubview(self.termsLabel)
@@ -112,8 +112,12 @@ class MeViewController: BaseViewController {
         
         configLayout()
         configUi()
+
+        
     }
-    
+    override func obbserverUserInfoChange(){
+            self.configUi()
+    }
     @objc private func clickUserInfo(){
 
         if !UserManager.isLogin() {
@@ -218,9 +222,9 @@ extension MeViewController:MeViewDelegate{
     
     
 }
-extension MeViewController:UserInfoChangeDelegate{
-    func userDidInfoChange() {
-        self.configUi()
-    }
-    
-}
+//extension MeViewController:UserInfoChangeDelegate{
+//    func userDidInfoChange() {
+//        self.configUi()
+//    }
+//
+//}
