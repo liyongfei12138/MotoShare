@@ -170,6 +170,7 @@ extension UserInfoViewController: MSResourceManagerViewControllerDelegate{
                 User.stand.icon = "http://imageym.yunmolife.cn/" + imageUrl
                 UserManager.saveUserInfo()
                 HUDBase.showTitle(title: "上传图片成功")
+                UserManager.changeInfo()
                 self.listView.reloadData()
             }
             

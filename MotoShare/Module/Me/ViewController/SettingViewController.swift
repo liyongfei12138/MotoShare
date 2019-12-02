@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CDAlertView
 class SettingViewController: BaseViewController {
 
     
@@ -50,15 +50,33 @@ extension SettingViewController:MeSettingViewDelegate{
         
         break
         case .logout:
-            UserManager.logout()
-            UserManager.changeInfo()
-            self.navigationController?.popViewController()
+            
+            logout()
+            
+            
             
         break
             
         default:
             break
         }
+    }
+    
+    func logout()  {
+        let alert = CDAlertView(title: "退出登录", message: "点击确定退出登录", type: .warning)
+        let doneAction = CDAlertViewAction(title:  "确定", textColor: UIColor.gl_hex(hex: 0x999999)) { (action) -> Bool in
+            UserManager.logout()
+            UserManager.changeInfo()
+            self.navigationController?.popViewController()
+            
+            return true
+        }
+        
+        alert.add(action: doneAction)
+        
+        let nevermindAction = CDAlertViewAction(title: "取消", textColor: ColorTheme)
+        alert.add(action: nevermindAction)
+        alert.show()
     }
     
     func meSettingListViewTitleArray() -> Array<Array<SetBaseModel>> {

@@ -54,6 +54,7 @@ class MeViewController: BaseUserInfoViewController {
         certButton.layoutButton(style: .Left, imageTitleSpace: 5)
         certButton.setTitleColor(UIColor.gl_hex(hex: 0x999999), for: .normal)
         certButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        certButton.addTarget(self, action: #selector(gotoCert), for: .touchUpInside)
         return certButton
     }()
 
@@ -74,12 +75,12 @@ class MeViewController: BaseUserInfoViewController {
         super.viewWillAppear(animated)
         
         pt_hiddenNav(hide: true, animated: animated)
-
-        
-
     }
     
-    
+    @objc private func gotoCert(){
+        let cert = CertificationViewController()
+        navigationController(pushToVC: cert)
+    }
     func configUi() {
         self.nameLabel.text = User.stand.nickname
         
@@ -205,6 +206,10 @@ extension MeViewController:MeViewDelegate{
             let moneyVc = MoneyViewController()
             navigationController(pushToVC: moneyVc)
             
+        break
+        case .relese:
+            let publicVc = PublicViewController()
+            navigationController(pushToVC: publicVc)
         break
         default:
         break

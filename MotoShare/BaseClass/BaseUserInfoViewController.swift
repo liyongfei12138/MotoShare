@@ -23,7 +23,7 @@ open class BaseUserInfoViewController: UIViewController,HBSViewEventDelegate {
         self.view.backgroundColor = ColorWhite
 
         gl_customInitialize()
-        NotificationCenter.default.addObserver(self, selector:#selector(obbserverUserInfoChange), name: Notification.Name(UserManager.ChangeInfo), object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(obbserverUserInfoChange), name: Notification.Name(UserManager.ChangeInfoKey), object: nil)
     }
     @objc func obbserverUserInfoChange(){
        

@@ -35,7 +35,55 @@ class User: Codable {
         }
     }
     
+    var idCardIsBind : Bool {
+        get {
+            if self.idCardCert == "0"{
+                return false
+            }else if self.idCardCert == "1"{
+                return true
+            }
+            else{
+                return false
+            }
+        }
+    }
+    var driverIsBind : Bool {
+        get {
+            if self.driverCert == "0"{
+                return false
+            }else if self.idCardCert == "1"{
+                return true
+            }
+            else{
+                return false
+            }
+        }
+    }
     
+    var idCardString : String {
+        get {
+            if self.idCardCert == "0"{
+                return "未认证"
+            }else if self.idCardCert == "1"{
+                return "已认证"
+            }
+            else{
+                return ""
+            }
+        }
+    }
+    var driverivString : String {
+        get {
+            if self.driverCert == "0"{
+                return "未认证"
+            }else if self.idCardCert == "1"{
+                return "已认证"
+            }
+            else{
+                return ""
+            }
+        }
+    }
     
     static let stand: User = {
         var stand = p_initFromLocal() ?? User()
@@ -69,11 +117,11 @@ class User: Codable {
 typealias ChangeInfoBlock = () -> ()
 class UserManager {
 
-     static let ChangeInfo = "ChangeInfo_Key"
+     static let ChangeInfoKey = "ChangeInfo_Key"
   
 
     static func changeInfo()  {
-        NotificationCenter.default.post(name: Notification.Name(UserManager.ChangeInfo), object: self, userInfo: nil)
+        NotificationCenter.default.post(name: Notification.Name(UserManager.ChangeInfoKey), object: self, userInfo: nil)
     }
     
     

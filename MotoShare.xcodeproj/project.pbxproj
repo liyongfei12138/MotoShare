@@ -179,6 +179,11 @@
 		D7DFEEAE238F9D62004B4F28 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEEAD238F9D62004B4F28 /* PhotosCollectionViewCell.swift */; };
 		D7DFEEB0238FBA47004B4F28 /* BaseUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEEAF238FBA47004B4F28 /* BaseUserInfoViewController.swift */; };
 		D7DFEEB2238FD089004B4F28 /* CommonNoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEEB1238FD089004B4F28 /* CommonNoDataView.swift */; };
+		D7DFEEB52390B67C004B4F28 /* PublicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEEB42390B67C004B4F28 /* PublicViewController.swift */; };
+		D7DFEEB82390BCA3004B4F28 /* CertificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEEB72390BCA3004B4F28 /* CertificationViewController.swift */; };
+		D7DFEEBB2390C4F5004B4F28 /* IDCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEEBA2390C4F5004B4F28 /* IDCardViewController.swift */; };
+		D7DFEEBD2390FAA2004B4F28 /* DriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEEBC2390FAA2004B4F28 /* DriverViewController.swift */; };
+		D7DFEEC02394A5DE004B4F28 /* CertiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFEEBF2394A5DE004B4F28 /* CertiTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -361,6 +366,11 @@
 		D7DFEEAD238F9D62004B4F28 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		D7DFEEAF238FBA47004B4F28 /* BaseUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUserInfoViewController.swift; sourceTree = "<group>"; };
 		D7DFEEB1238FD089004B4F28 /* CommonNoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonNoDataView.swift; sourceTree = "<group>"; };
+		D7DFEEB42390B67C004B4F28 /* PublicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicViewController.swift; sourceTree = "<group>"; };
+		D7DFEEB72390BCA3004B4F28 /* CertificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationViewController.swift; sourceTree = "<group>"; };
+		D7DFEEBA2390C4F5004B4F28 /* IDCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardViewController.swift; sourceTree = "<group>"; };
+		D7DFEEBC2390FAA2004B4F28 /* DriverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverViewController.swift; sourceTree = "<group>"; };
+		D7DFEEBF2394A5DE004B4F28 /* CertiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertiTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -949,6 +959,8 @@
 		D7AF4D0A2367D96B009957D4 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				D7DFEEB62390BC62004B4F28 /* Certification */,
+				D7DFEEB32390B63D004B4F28 /* Public */,
 				D7A034F0238B7DF900AF26A4 /* Login */,
 				D7B43B64237B9D5E0035755F /* Share */,
 				CB2C72BB237B110300FEC788 /* Query */,
@@ -1107,6 +1119,33 @@
 				D7DFEEA5238F6502004B4F28 /* BaseChangeViewController.swift */,
 			);
 			path = Change;
+			sourceTree = "<group>";
+		};
+		D7DFEEB32390B63D004B4F28 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				D7DFEEB42390B67C004B4F28 /* PublicViewController.swift */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		D7DFEEB62390BC62004B4F28 /* Certification */ = {
+			isa = PBXGroup;
+			children = (
+				D7DFEEB72390BCA3004B4F28 /* CertificationViewController.swift */,
+				D7DFEEBA2390C4F5004B4F28 /* IDCardViewController.swift */,
+				D7DFEEBC2390FAA2004B4F28 /* DriverViewController.swift */,
+				D7DFEEBE2394A55B004B4F28 /* View */,
+			);
+			path = Certification;
+			sourceTree = "<group>";
+		};
+		D7DFEEBE2394A55B004B4F28 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D7DFEEBF2394A5DE004B4F28 /* CertiTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		F4F28101DE451A85297BFD3E /* Pods */ = {
@@ -1326,6 +1365,7 @@
 				04642C7B2383FC81005131D7 /* MSPublishFileCollectionViewCell.swift in Sources */,
 				049034BE237CEF9400D1DF65 /* MSTravelListTableView.swift in Sources */,
 				049034C4237CEFCB00D1DF65 /* MSTravelListModel.swift in Sources */,
+				D7DFEEC02394A5DE004B4F28 /* CertiTableViewCell.swift in Sources */,
 				049034CF237D2EDD00D1DF65 /* MSPublishTravelTextViewModel.swift in Sources */,
 				049034C7237D079D00D1DF65 /* MSPublishTravelViewController.swift in Sources */,
 				04642C7D2383FC94005131D7 /* MSPublishAddFileCollectionViewCell.swift in Sources */,
@@ -1342,6 +1382,7 @@
 				D733A80A238CE163006B11A1 /* UserInfoViewController.swift in Sources */,
 				D74D65A4238BEE34003AA497 /* UserModel.swift in Sources */,
 				049034D9237D315D00D1DF65 /* MSPublishTravelBaseCell.swift in Sources */,
+				D7DFEEB52390B67C004B4F28 /* PublicViewController.swift in Sources */,
 				041C3953237BAB53007FA74A /* HBSMethodHeader.swift in Sources */,
 				D7DFEEAC238F9CBA004B4F28 /* WaterflowLayout.swift in Sources */,
 				D72711872382AA0600051A1B /* ManagerNunberTableViewCell.swift in Sources */,
@@ -1391,6 +1432,7 @@
 				049034DD237D318100D1DF65 /* MSPublishTravelTextFieldCell.swift in Sources */,
 				04B85C9B23824E87008E8BF9 /* MSMapView.swift in Sources */,
 				D7DFEEAE238F9D62004B4F28 /* PhotosCollectionViewCell.swift in Sources */,
+				D7DFEEBB2390C4F5004B4F28 /* IDCardViewController.swift in Sources */,
 				041C396E237BAB53007FA74A /* HBSBaseTableView.swift in Sources */,
 				049034E9237D6FDC00D1DF65 /* MSResourceManagerAlbumViewController.swift in Sources */,
 				04903504237EB10400D1DF65 /* MSAlbumFolderView.swift in Sources */,
@@ -1425,6 +1467,7 @@
 				041C3966237BAB53007FA74A /* HBSBaseCollectionViewCell.swift in Sources */,
 				D7DFEEA2238E8188004B4F28 /* ChangeOtherViewController.swift in Sources */,
 				041C395B237BAB53007FA74A /* HBSViewExtension.swift in Sources */,
+				D7DFEEB82390BCA3004B4F28 /* CertificationViewController.swift in Sources */,
 				049034D7237D313400D1DF65 /* MSPublishTravelClickCell.swift in Sources */,
 				041C3963237BAB53007FA74A /* HBSBaseBannerView.swift in Sources */,
 				D7B43B57237A9F490035755F /* HomeNavView.swift in Sources */,
@@ -1461,6 +1504,7 @@
 				040F8DD323823BA700834F41 /* MSAlbumFolderTableViewCell.swift in Sources */,
 				D7C31912237EABDF0029BCB8 /* ContactManageViewController.swift in Sources */,
 				D7A034F9238B7DFA00AF26A4 /* LoginViewController.swift in Sources */,
+				D7DFEEBD2390FAA2004B4F28 /* DriverViewController.swift in Sources */,
 				CBA42E2D238A426A001C8FD7 /* MSRentDetailTableView.swift in Sources */,
 				D7B43B5B237AB4380035755F /* HomeMainView.swift in Sources */,
 				049034DF237D319000D1DF65 /* MSPublishTravelFilesCell.swift in Sources */,
