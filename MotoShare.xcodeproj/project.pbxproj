@@ -84,6 +84,7 @@
 		04903504237EB10400D1DF65 /* MSAlbumFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04903503237EB10400D1DF65 /* MSAlbumFolderView.swift */; };
 		04B85C9923824E66008E8BF9 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B85C9823824E66008E8BF9 /* ShareViewController.swift */; };
 		04B85C9B23824E87008E8BF9 /* MSMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B85C9A23824E87008E8BF9 /* MSMapView.swift */; };
+		04F00C512394AB1C0041640A /* MSDepositViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F00C502394AB1C0041640A /* MSDepositViewController.swift */; };
 		947506F1842C6E97CF08E5F3 /* Pods_MotoShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A3051476B1329CCA0ED583C /* Pods_MotoShare.framework */; };
 		CB2C72BD237B111B00FEC788 /* MSQueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C72BC237B111B00FEC788 /* MSQueryViewController.swift */; };
 		CB361A0D23925623005607FA /* MSResourceManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB361A0C23925623005607FA /* MSResourceManagerViewController.swift */; };
@@ -260,6 +261,7 @@
 		04B85C9223824649008E8BF9 /* MotoShare-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MotoShare-Bridging-Header.h"; sourceTree = "<group>"; };
 		04B85C9823824E66008E8BF9 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		04B85C9A23824E87008E8BF9 /* MSMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSMapView.swift; sourceTree = "<group>"; };
+		04F00C502394AB1C0041640A /* MSDepositViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSDepositViewController.swift; sourceTree = "<group>"; };
 		1A3051476B1329CCA0ED583C /* Pods_MotoShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MotoShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		215459550287FA041196F067 /* Pods-MotoShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotoShare.release.xcconfig"; path = "Target Support Files/Pods-MotoShare/Pods-MotoShare.release.xcconfig"; sourceTree = "<group>"; };
 		4BCAA0436859B5372895A100 /* Pods-FoodRecipe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodRecipe.debug.xcconfig"; path = "Target Support Files/Pods-FoodRecipe/Pods-FoodRecipe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1092,6 +1094,7 @@
 				D7C31911237EABDF0029BCB8 /* ContactManageViewController.swift */,
 				D72711882382AB8400051A1B /* MoneyViewController.swift */,
 				D727118E2383A19700051A1B /* GetMoneyViewController.swift */,
+				04F00C502394AB1C0041640A /* MSDepositViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1417,6 +1420,7 @@
 				D7AF4D302367D9D7009957D4 /* BaseView.swift in Sources */,
 				041C396F237BAB53007FA74A /* HBSBaseTableViewCell.swift in Sources */,
 				D7C31902237E55C50029BCB8 /* MeSettingTableView.swift in Sources */,
+				04F00C512394AB1C0041640A /* MSDepositViewController.swift in Sources */,
 				D7AF4D4823683641009957D4 /* TableViewCellReusable.swift in Sources */,
 				049034FF237E49C300D1DF65 /* MSAlbumDataManager.swift in Sources */,
 				D7AF4D5F23699B39009957D4 /* UiButtonExtension.swift in Sources */,

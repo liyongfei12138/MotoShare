@@ -85,7 +85,28 @@ extension MoneyViewController:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let array = self.dataArr[indexPath.section]
+
+        let model = array[indexPath.row]
+        
+        switch model.type {
+        case .getMoney:
+            
+            p_toDeposit()
+        case .record:
+            return
+        case .idCard:
+            return
+        case .driver:
+            return
+        case .other:
+            return
+        case .none:
+            return
+        }
     }
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 50
@@ -110,3 +131,16 @@ extension MoneyViewController:UITableViewDelegate,UITableViewDataSource{
         return CGFloat.leastNormalMagnitude
     }
 }
+
+
+extension MoneyViewController {
+    
+    func p_toDeposit() {
+        
+        let depositVC = MSDepositViewController.init()
+        
+        self.navigationController?.pushViewController(depositVC, animated: true)
+    }
+    
+}
+ 
