@@ -107,6 +107,7 @@
 		D727118B2382B0E300051A1B /* MoneyMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D727118A2382B0E300051A1B /* MoneyMainTableViewCell.swift */; };
 		D727118D23838B0700051A1B /* BalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D727118C23838B0700051A1B /* BalanceView.swift */; };
 		D727118F2383A19700051A1B /* GetMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D727118E2383A19700051A1B /* GetMoneyViewController.swift */; };
+		D72A45352395FB6700C294F9 /* CertBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A45342395FB6700C294F9 /* CertBaseViewController.swift */; };
 		D733A80A238CE163006B11A1 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D733A809238CE163006B11A1 /* UserInfoViewController.swift */; };
 		D733A80C238D321A006B11A1 /* UserInfoIconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D733A80B238D321A006B11A1 /* UserInfoIconTableViewCell.swift */; };
 		D74D659A238BB678003AA497 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D6599238BB678003AA497 /* LoginModel.swift */; };
@@ -118,6 +119,7 @@
 		D7A034F7238B7DFA00AF26A4 /* LoginCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A034F3238B7DF900AF26A4 /* LoginCodeView.swift */; };
 		D7A034F8238B7DFA00AF26A4 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A034F4238B7DF900AF26A4 /* LoginButton.swift */; };
 		D7A034F9238B7DFA00AF26A4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A034F5238B7DF900AF26A4 /* LoginViewController.swift */; };
+		D7AE37882394FC520082C4AE /* CertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AE37872394FC520082C4AE /* CertModel.swift */; };
 		D7AF4CE42367D84B009957D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF4CE32367D84B009957D4 /* AppDelegate.swift */; };
 		D7AF4CED2367D84D009957D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7AF4CEC2367D84D009957D4 /* Assets.xcassets */; };
 		D7AF4D012367D91B009957D4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF4D002367D91B009957D4 /* HomeViewController.swift */; };
@@ -292,6 +294,7 @@
 		D727118A2382B0E300051A1B /* MoneyMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyMainTableViewCell.swift; sourceTree = "<group>"; };
 		D727118C23838B0700051A1B /* BalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceView.swift; sourceTree = "<group>"; };
 		D727118E2383A19700051A1B /* GetMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoneyViewController.swift; sourceTree = "<group>"; };
+		D72A45342395FB6700C294F9 /* CertBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertBaseViewController.swift; sourceTree = "<group>"; };
 		D733A809238CE163006B11A1 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		D733A80B238D321A006B11A1 /* UserInfoIconTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoIconTableViewCell.swift; sourceTree = "<group>"; };
 		D74D6599238BB678003AA497 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -303,6 +306,7 @@
 		D7A034F3238B7DF900AF26A4 /* LoginCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCodeView.swift; sourceTree = "<group>"; };
 		D7A034F4238B7DF900AF26A4 /* LoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		D7A034F5238B7DF900AF26A4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D7AE37872394FC520082C4AE /* CertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertModel.swift; sourceTree = "<group>"; };
 		D7AF4CE02367D84B009957D4 /* 摩滴共享.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "摩滴共享.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7AF4CE32367D84B009957D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7AF4CEC2367D84D009957D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -851,6 +855,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		D7AE37862394FC1B0082C4AE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D7AE37872394FC520082C4AE /* CertModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D7AF4CD72367D84B009957D4 = {
 			isa = PBXGroup;
 			children = (
@@ -1133,8 +1145,10 @@
 			isa = PBXGroup;
 			children = (
 				D7DFEEB72390BCA3004B4F28 /* CertificationViewController.swift */,
+				D72A45342395FB6700C294F9 /* CertBaseViewController.swift */,
 				D7DFEEBA2390C4F5004B4F28 /* IDCardViewController.swift */,
 				D7DFEEBC2390FAA2004B4F28 /* DriverViewController.swift */,
+				D7AE37862394FC1B0082C4AE /* Model */,
 				D7DFEEBE2394A55B004B4F28 /* View */,
 			);
 			path = Certification;
@@ -1431,6 +1445,7 @@
 				D7DFEEB0238FBA47004B4F28 /* BaseUserInfoViewController.swift in Sources */,
 				049034DD237D318100D1DF65 /* MSPublishTravelTextFieldCell.swift in Sources */,
 				04B85C9B23824E87008E8BF9 /* MSMapView.swift in Sources */,
+				D7AE37882394FC520082C4AE /* CertModel.swift in Sources */,
 				D7DFEEAE238F9D62004B4F28 /* PhotosCollectionViewCell.swift in Sources */,
 				D7DFEEBB2390C4F5004B4F28 /* IDCardViewController.swift in Sources */,
 				041C396E237BAB53007FA74A /* HBSBaseTableView.swift in Sources */,
@@ -1474,6 +1489,7 @@
 				041C3992237BF2CF007FA74A /* MSDemandViewController.swift in Sources */,
 				CB2C72BD237B111B00FEC788 /* MSQueryViewController.swift in Sources */,
 				049034FC237E475500D1DF65 /* MSAlbumCollectionViewCell.swift in Sources */,
+				D72A45352395FB6700C294F9 /* CertBaseViewController.swift in Sources */,
 				041C3961237BAB53007FA74A /* HBSArchiveManager.swift in Sources */,
 				041C395D237BAB53007FA74A /* HBSNetworkError.swift in Sources */,
 				CBA42E35238A804E001C8FD7 /* MSRentDetailAddressCell.swift in Sources */,

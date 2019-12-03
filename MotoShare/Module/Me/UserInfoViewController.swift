@@ -52,7 +52,8 @@ class UserInfoViewController: BaseUserInfoViewController {
         selectVC.maxNo = 1
         selectVC.choiceType = .image
         selectVC.delegate = self
-        self.navigationController?.pushViewController(selectVC)
+        selectVC.modalPresentationStyle = .currentContext
+        self.present(selectVC, animated: true, completion: nil)
 
     }
 
