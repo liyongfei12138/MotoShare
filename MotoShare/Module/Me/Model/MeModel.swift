@@ -19,7 +19,7 @@ public  enum MeDidRowType: Int  {
 }
 
 struct MeModel {
-
+    
     static func getMeListTitleArray() -> Array<String> {
         return ["订单","钱包","发布信息","我的收藏","帮助","设置"]
     }
@@ -32,19 +32,19 @@ struct MeModel {
         
         
         let info1 = [
-                    SetBaseModel(title: "实名认证", type: SettingRowType.realName),
-//                    SetBaseModel(title: "修改密码", type: SettingRowType.passWord),
-                    SetBaseModel(title: "紧急联系人", type: SettingRowType.contact)
-                    ]
+            SetBaseModel(title: "实名认证", type: SettingRowType.realName),
+            //                    SetBaseModel(title: "修改密码", type: SettingRowType.passWord),
+            SetBaseModel(title: "紧急联系人", type: SettingRowType.contact)
+        ]
         let info2 = [
-                    SetBaseModel(title: "清除缓存", type: SettingRowType.cache),
-                    SetBaseModel(title: "给个好评", type: SettingRowType.praise)
-                    ]
+            SetBaseModel(title: "清除缓存", type: SettingRowType.cache),
+            SetBaseModel(title: "给个好评", type: SettingRowType.praise)
+        ]
         let info3 = [
-                    SetBaseModel(title: "法律条款与平台规则", type: SettingRowType.rules),
-                    SetBaseModel(title: "用户指南", type: SettingRowType.guide),
-                    SetBaseModel(title: "关于共享摩滴", type: SettingRowType.about)
-                    ]
+            SetBaseModel(title: "法律条款与平台规则", type: SettingRowType.rules),
+            SetBaseModel(title: "用户指南", type: SettingRowType.guide),
+            SetBaseModel(title: "关于共享摩滴", type: SettingRowType.about)
+        ]
         let info4 = [SetBaseModel(title: "退出登录", type: SettingRowType.logout)]
         
         
@@ -52,7 +52,7 @@ struct MeModel {
         return [info1,info2,info3,info4]
     }
     static func getSettingDetail(type:SettingRowType) -> String {
-    
+        
         var detail = String()
         
         switch type {
@@ -63,8 +63,8 @@ struct MeModel {
             detail = "去修改"
             break
         case SettingRowType.cache:
-        detail = "8M"
-        break
+            detail = "8M"
+            break
             
         default:
             detail = ""
@@ -74,36 +74,36 @@ struct MeModel {
     }
     
     static func getMoneyListData()->[[MoneyBaseModel]]{
-    
+        
         let info = [
-                    MoneyBaseModel(title: "提现", type: MoneyRowType.getMoney),
-                    MoneyBaseModel(title: "提现记录", type: MoneyRowType.record)
-                    ]
+            MoneyBaseModel(title: "提现", type: MoneyRowType.getMoney),
+            MoneyBaseModel(title: "提现记录", type: MoneyRowType.record)
+        ]
         let info2 = [
-                    MoneyBaseModel(title: "身份证认证", type: MoneyRowType.idCard),
-                    MoneyBaseModel(title: "驾驶证认证", type: MoneyRowType.driver)
-                    ]
+            MoneyBaseModel(title: "身份证认证", type: MoneyRowType.idCard),
+            MoneyBaseModel(title: "驾驶证认证", type: MoneyRowType.driver)
+        ]
         return [info,info2]
     }
     
     static func getUserInfoListData()->[[UserInfoBaseModel]]{
-    
+        
         let info = [
-                    UserInfoBaseModel(title: "头像", type: UserInfoRowType.icon, detail: User.stand.icon),
-                    UserInfoBaseModel(title: "昵称", type: UserInfoRowType.name, detail: User.stand.nickname),
-                    UserInfoBaseModel(title: "用户ID", type: UserInfoRowType.uid, detail: User.stand.uid),
-                    UserInfoBaseModel(title: "性别", type: UserInfoRowType.sex, detail: User.stand.userSex)
-                    
-                    ]
+            UserInfoBaseModel(title: "头像", type: UserInfoRowType.icon, detail: User.stand.icon),
+            UserInfoBaseModel(title: "昵称", type: UserInfoRowType.name, detail: User.stand.nickname),
+            UserInfoBaseModel(title: "用户ID", type: UserInfoRowType.uid, detail: User.stand.uid),
+            UserInfoBaseModel(title: "性别", type: UserInfoRowType.sex, detail: User.stand.userSex)
+            
+        ]
         
         let info2 = [
-                    UserInfoBaseModel(title: "相册", type: UserInfoRowType.picture)
-                    ]
+            UserInfoBaseModel(title: "相册", type: UserInfoRowType.picture)
+        ]
         
         let info3 = [
-                    UserInfoBaseModel(title: "常住地", type: UserInfoRowType.position, detail: ""),
-                    UserInfoBaseModel(title: "个人介绍", type: UserInfoRowType.introduce)
-                    ]
+            UserInfoBaseModel(title: "常住地", type: UserInfoRowType.position, detail: ""),
+            UserInfoBaseModel(title: "个人介绍", type: UserInfoRowType.introduce)
+        ]
         return [info,info2,info3]
     }
     
@@ -179,3 +179,33 @@ struct PhotosBaseModel: HandyJSON {
 }
 
 
+/// 提现界面类型
+ public enum DepositRowType {
+    case accountType
+    case depositCapital
+    case availableCapital
+    case other
+
+}
+
+struct DepositListModel {
+    
+    var title: String = ""
+    var placeHolder: String = ""
+    var detailText: String = ""
+    var rowType: DepositRowType = .other
+    
+    init(title: String, placeHolder: String? = "", detailText: String? = "", rowType: DepositRowType) {
+        self.title = title
+        self.placeHolder = placeHolder ?? ""
+        self.detailText = detailText ?? ""
+        self.rowType = rowType
+    }
+    
+    static func getDepositListModels() -> [DepositListModel] {
+        
+        let listModels = [[DepositListModel.init(title: "", rowType: .accountType)],[DepositListModel.init(title: "提现金额", rowType: .depositCapital), DepositListModel.init(title: "可用余额", rowType: .availableCapital)]]
+        return listModels
+    }
+
+}
