@@ -52,11 +52,11 @@ extension SettingViewController:MeSettingViewDelegate{
         case .logout:
             
             logout()
-            
-            
-            
         break
-            
+        case .realName:
+            let cert = CertificationViewController()
+            self.navigationController?.pushViewController(cert)
+        break
         default:
             break
         }

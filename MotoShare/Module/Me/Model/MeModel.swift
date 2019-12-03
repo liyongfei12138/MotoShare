@@ -57,7 +57,12 @@ struct MeModel {
         
         switch type {
         case SettingRowType.realName:
-            detail = "未认证"
+            
+            if User.stand.allIsBind  {
+                detail = "已认证"
+            }else{
+                detail = "未认证"
+            }
             break
         case SettingRowType.passWord:
             detail = "去修改"

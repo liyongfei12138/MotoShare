@@ -60,6 +60,17 @@ class User: Codable {
         }
     }
     
+    var allIsBind : Bool {
+        get {
+            if self.driverIsBind || self.idCardIsBind{
+                return true
+            }
+            else{
+                return false
+            }
+        }
+    }
+    
     var idCardString : String {
         get {
             if self.idCardCert == "0"{
