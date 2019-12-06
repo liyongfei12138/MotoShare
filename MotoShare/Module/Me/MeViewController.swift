@@ -78,6 +78,11 @@ class MeViewController: BaseUserInfoViewController {
     }
     
     @objc private func gotoCert(){
+        
+        if !UserManager.isLogin() {
+            gotoLogin()
+            return
+        }
         let cert = CertificationViewController()
         navigationController(pushToVC: cert)
     }
@@ -210,6 +215,10 @@ extension MeViewController:MeViewDelegate{
         case .relese:
             let publicVc = PublicViewController()
             navigationController(pushToVC: publicVc)
+        break
+        case .order:
+            let orderVc = OrderViewController()
+            navigationController(pushToVC: orderVc)
         break
         default:
         break

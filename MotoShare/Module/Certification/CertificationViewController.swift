@@ -95,15 +95,15 @@ class CertificationViewController: BaseViewController {
         }
     }
     
-    
     func gotoCertifitionAlert(type:CertifiType) {
-        if type == .idCard{
-            
-        }else{
-            
+        let alert = CDAlertView(title: "已完成认证", message: "您已完成认证，如要修改请联系客服23", type: .warning)
+        let doneAction = CDAlertViewAction(title:  "确定", textColor: ColorTheme) { (action) -> Bool in
+  
+            return true 
         }
+        alert.add(action: doneAction)
+        alert.show()
     }
-    
     
     func gotoIdCard() {
         let idVc = IDCardViewController()

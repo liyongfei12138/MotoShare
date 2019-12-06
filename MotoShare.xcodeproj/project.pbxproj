@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -108,6 +108,9 @@
 		D727118D23838B0700051A1B /* BalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D727118C23838B0700051A1B /* BalanceView.swift */; };
 		D727118F2383A19700051A1B /* GetMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D727118E2383A19700051A1B /* GetMoneyViewController.swift */; };
 		D72A45352395FB6700C294F9 /* CertBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A45342395FB6700C294F9 /* CertBaseViewController.swift */; };
+		D72A453C239790EB00C294F9 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A453B239790EB00C294F9 /* OrderViewController.swift */; };
+		D72A453E2398BAE800C294F9 /* OrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A453D2398BAE800C294F9 /* OrderListViewController.swift */; };
+		D72A45412398DBA700C294F9 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A45402398DBA700C294F9 /* OrderTableViewCell.swift */; };
 		D733A80A238CE163006B11A1 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D733A809238CE163006B11A1 /* UserInfoViewController.swift */; };
 		D733A80C238D321A006B11A1 /* UserInfoIconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D733A80B238D321A006B11A1 /* UserInfoIconTableViewCell.swift */; };
 		D74D659A238BB678003AA497 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D6599238BB678003AA497 /* LoginModel.swift */; };
@@ -296,6 +299,9 @@
 		D727118E2383A19700051A1B /* GetMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoneyViewController.swift; sourceTree = "<group>"; };
 		D72A45342395FB6700C294F9 /* CertBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertBaseViewController.swift; sourceTree = "<group>"; };
 		D72A45362396507F00C294F9 /* CDAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CDAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D72A453B239790EB00C294F9 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		D72A453D2398BAE800C294F9 /* OrderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewController.swift; sourceTree = "<group>"; };
+		D72A45402398DBA700C294F9 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		D733A809238CE163006B11A1 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		D733A80B238D321A006B11A1 /* UserInfoIconTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoIconTableViewCell.swift; sourceTree = "<group>"; };
 		D74D6599238BB678003AA497 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -820,6 +826,24 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		D72A453A2397909E00C294F9 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				D72A453B239790EB00C294F9 /* OrderViewController.swift */,
+				D72A453D2398BAE800C294F9 /* OrderListViewController.swift */,
+				D72A453F2398DB3900C294F9 /* View */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		D72A453F2398DB3900C294F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D72A45402398DBA700C294F9 /* OrderTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D74D6598238BB4FB003AA497 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -973,6 +997,7 @@
 		D7AF4D0A2367D96B009957D4 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				D72A453A2397909E00C294F9 /* Order */,
 				D7DFEEB62390BC62004B4F28 /* Certification */,
 				D7DFEEB32390B63D004B4F28 /* Public */,
 				D7A034F0238B7DF900AF26A4 /* Login */,
@@ -1343,9 +1368,11 @@
 				D7AF4D68236BD857009957D4 /* UIViewExtension.swift in Sources */,
 				D733A80A238CE163006B11A1 /* UserInfoViewController.swift in Sources */,
 				D74D65A4238BEE34003AA497 /* UserModel.swift in Sources */,
+				D72A453E2398BAE800C294F9 /* OrderListViewController.swift in Sources */,
 				049034D9237D315D00D1DF65 /* MSPublishTravelBaseCell.swift in Sources */,
 				D7DFEEB52390B67C004B4F28 /* PublicViewController.swift in Sources */,
 				041C3953237BAB53007FA74A /* HBSMethodHeader.swift in Sources */,
+				D72A453C239790EB00C294F9 /* OrderViewController.swift in Sources */,
 				D7DFEEAC238F9CBA004B4F28 /* WaterflowLayout.swift in Sources */,
 				D72711872382AA0600051A1B /* ManagerNunberTableViewCell.swift in Sources */,
 				D74D659A238BB678003AA497 /* LoginModel.swift in Sources */,
@@ -1457,6 +1484,7 @@
 				04B85C9923824E66008E8BF9 /* ShareViewController.swift in Sources */,
 				D7B43B6E237BA2810035755F /* UIViewController+FWSideMenuExtension.swift in Sources */,
 				041C398E237BF27A007FA74A /* MSDemandListTableView.swift in Sources */,
+				D72A45412398DBA700C294F9 /* OrderTableViewCell.swift in Sources */,
 				D7B43B71237CECEA0035755F /* MeMainListView.swift in Sources */,
 				D7DFEEAA238F74F5004B4F28 /* PhotoAlbumViewController.swift in Sources */,
 				D7AF4D392367D9D7009957D4 /* UIViewHUDExtension.swift in Sources */,

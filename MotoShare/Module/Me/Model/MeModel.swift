@@ -33,7 +33,6 @@ struct MeModel {
         
         let info1 = [
                     SetBaseModel(title: "实名认证", type: SettingRowType.realName),
-//                    SetBaseModel(title: "修改密码", type: SettingRowType.passWord),
                     SetBaseModel(title: "紧急联系人", type: SettingRowType.contact)
                     ]
         let info2 = [

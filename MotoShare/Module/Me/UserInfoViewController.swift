@@ -21,11 +21,6 @@ class UserInfoViewController: BaseUserInfoViewController {
         listView.bounces = false
         return listView
     }()
-
-//    lazy var dataArr: [[UserInfoBaseModel]] = {
-//        let dataArr = MeModel.getUserInfoListData()
-//        return dataArr
-//    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +40,7 @@ class UserInfoViewController: BaseUserInfoViewController {
             make.left.top.right.bottom.equalToSuperview()
         }
     }
+
     
     private func selectHeadImage(){
         
