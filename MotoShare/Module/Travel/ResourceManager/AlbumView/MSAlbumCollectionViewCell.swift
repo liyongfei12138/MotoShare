@@ -213,18 +213,21 @@ extension MSAlbumCollectionViewCell {
             if self.msAsset.asset.mediaType == .image {
              
                 MSAlbumDataManager.getImageInfo(msAsset: self.msAsset, isOriginalImage: true) { (image) in
-                                     
-                    let dataSource = JXLocalDataSource(numberOfItems: { () -> Int in
+                    
+                    let browser = JXPhotoBrowser()
+                    
+                    browser.numberOfItems = {
                         
                         return 1
-                        
-                    }) { (index) -> UIImage? in
-                        
-                        return image
                     }
                     
-                    JXPhotoBrowser(dataSource: dataSource).show(pageIndex: 0)
+                    browser.reloadCellAtIndex = { context in
 
+                        let browserCell = context.cell as? JXPhotoBrowserImageCell
+                        browserCell?.imageView.image = image
+                    }
+                    browser.show()
+                    
                 }
             
             }else if self.msAsset.asset.mediaType == .video {

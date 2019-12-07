@@ -101,6 +101,7 @@
 		CBA42E33238A803E001C8FD7 /* MSRentDetailDescribeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA42E32238A803E001C8FD7 /* MSRentDetailDescribeCell.swift */; };
 		CBA42E35238A804E001C8FD7 /* MSRentDetailAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA42E34238A804E001C8FD7 /* MSRentDetailAddressCell.swift */; };
 		CBA42E37238A80B7001C8FD7 /* MSRentDetailBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA42E36238A80B7001C8FD7 /* MSRentDetailBannerView.swift */; };
+		CBD702A6239B92C400CCCAC3 /* MSVideoBottomToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD702A5239B92C400CCCAC3 /* MSVideoBottomToolBarView.swift */; };
 		D72711862382AA0600051A1B /* ManagerPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72711842382AA0500051A1B /* ManagerPhone.swift */; };
 		D72711872382AA0600051A1B /* ManagerNunberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72711852382AA0600051A1B /* ManagerNunberTableViewCell.swift */; };
 		D72711892382AB8400051A1B /* MoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72711882382AB8400051A1B /* MoneyViewController.swift */; };
@@ -291,6 +292,7 @@
 		CBA42E32238A803E001C8FD7 /* MSRentDetailDescribeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSRentDetailDescribeCell.swift; sourceTree = "<group>"; };
 		CBA42E34238A804E001C8FD7 /* MSRentDetailAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSRentDetailAddressCell.swift; sourceTree = "<group>"; };
 		CBA42E36238A80B7001C8FD7 /* MSRentDetailBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSRentDetailBannerView.swift; sourceTree = "<group>"; };
+		CBD702A5239B92C400CCCAC3 /* MSVideoBottomToolBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSVideoBottomToolBarView.swift; sourceTree = "<group>"; };
 		D72711842382AA0500051A1B /* ManagerPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerPhone.swift; sourceTree = "<group>"; };
 		D72711852382AA0600051A1B /* ManagerNunberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerNunberTableViewCell.swift; sourceTree = "<group>"; };
 		D72711882382AB8400051A1B /* MoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewController.swift; sourceTree = "<group>"; };
@@ -810,6 +812,7 @@
 		CB361A1523925F75005607FA /* VideoView */ = {
 			isa = PBXGroup;
 			children = (
+				CBD702A5239B92C400CCCAC3 /* MSVideoBottomToolBarView.swift */,
 			);
 			path = VideoView;
 			sourceTree = "<group>";
@@ -1506,6 +1509,7 @@
 				041C3952237BAB53007FA74A /* HBSDevice.swift in Sources */,
 				D7AF4D302367D9D7009957D4 /* BaseView.swift in Sources */,
 				041C396F237BAB53007FA74A /* HBSBaseTableViewCell.swift in Sources */,
+				CBD702A6239B92C400CCCAC3 /* MSVideoBottomToolBarView.swift in Sources */,
 				D7C31902237E55C50029BCB8 /* MeSettingTableView.swift in Sources */,
 				D7AF4D4823683641009957D4 /* TableViewCellReusable.swift in Sources */,
 				049034FF237E49C300D1DF65 /* MSAlbumDataManager.swift in Sources */,

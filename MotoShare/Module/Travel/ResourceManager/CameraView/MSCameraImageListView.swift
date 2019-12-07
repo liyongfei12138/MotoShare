@@ -60,16 +60,18 @@ class MSCameraImageListView: HBSBaseCollectionView {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let dataSource = JXLocalDataSource(numberOfItems: { () -> Int in
+        let browser = JXPhotoBrowser()
+        
+        browser.numberOfItems = {
             
             return self.images.count
-            
-        }) { (index) -> UIImage? in
-            
-            return self.images[index]
         }
         
-        JXPhotoBrowser(dataSource: dataSource).show(pageIndex: indexPath.item)
+        browser.reloadCellAtIndex = { context in
 
+            let browserCell = context.cell as? JXPhotoBrowserImageCell
+            browserCell?.imageView.image = self.images[context.index]
+        }
+        browser.show()
     }
 }

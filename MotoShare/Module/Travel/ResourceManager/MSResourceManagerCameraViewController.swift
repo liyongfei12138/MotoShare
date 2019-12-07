@@ -110,8 +110,8 @@ class MSResourceManagerCameraViewController: BaseViewController,AVCaptureVideoDa
     
     deinit {
         
+        print("124")
         self.captureSession.stopRunning()
-
     }
     
     override func viewDidLoad() {
@@ -168,7 +168,13 @@ class MSResourceManagerCameraViewController: BaseViewController,AVCaptureVideoDa
             
             caputureConnection?.videoOrientation = self.getCaptureVideoOrientation()
         }
+    }
+    
+    func addInput() {
         
+//        self.captureSession.beginConfiguration()
+        self.captureSession.startRunning()
+
     }
     
     func hbs_viewEvent(_ view: UIView, hbs_eventObject: HBSViewEventObject) {

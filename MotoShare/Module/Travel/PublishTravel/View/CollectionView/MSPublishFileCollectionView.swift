@@ -106,16 +106,19 @@ class MSPublishFileCollectionView: HBSBaseCollectionView {
                 
             }else if msAsset.mediaType == .image {
                 
-                let dataSource = JXLocalDataSource(numberOfItems: { () -> Int in
+                let browser = JXPhotoBrowser()
+                
+                browser.numberOfItems = {
                     
                     return self.msAssets.count
-                    
-                }) { (index) -> UIImage? in
-                    
-                    return self.getAllImage()[index]
                 }
                 
-                JXPhotoBrowser(dataSource: dataSource).show(pageIndex: indexPath.item)
+                browser.reloadCellAtIndex = { context in
+
+                    let browserCell = context.cell as? JXPhotoBrowserImageCell
+                    browserCell?.imageView.image = self.getAllImage()[context.index]
+                }
+                browser.show()
 
             }
         }

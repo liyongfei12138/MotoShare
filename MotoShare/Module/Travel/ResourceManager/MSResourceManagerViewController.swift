@@ -69,6 +69,7 @@ class MSResourceManagerViewController: BaseViewController,HLPageViewDelegate,HLP
     lazy var videoVC: MSResourceManagerVideoViewController = {
         
         let vc = MSResourceManagerVideoViewController.init()
+        vc.delegate = self.delegate
         self.addChild(vc)
         
         return vc
@@ -105,6 +106,14 @@ class MSResourceManagerViewController: BaseViewController,HLPageViewDelegate,HLP
     func pageView(_ pageView: HLPageView, didSelectIndexAt index: Int) {
         
         self.pageResultView.setCurrentPage(index, animated: true)
+        if index == 1 {
+            
+            self.cameraVC.addInput()
+        
+        }else {
+            
+            self.videoVC.addInput()
+        }
     }
     
 // MARK:- HLPageResultViewDelegate
