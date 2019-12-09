@@ -112,6 +112,7 @@
 		D72A453C239790EB00C294F9 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A453B239790EB00C294F9 /* OrderViewController.swift */; };
 		D72A453E2398BAE800C294F9 /* OrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A453D2398BAE800C294F9 /* OrderListViewController.swift */; };
 		D72A45412398DBA700C294F9 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A45402398DBA700C294F9 /* OrderTableViewCell.swift */; };
+		D72A4545239E3F3900C294F9 /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A4544239E3F3900C294F9 /* OrderDetailViewController.swift */; };
 		D733A80A238CE163006B11A1 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D733A809238CE163006B11A1 /* UserInfoViewController.swift */; };
 		D733A80C238D321A006B11A1 /* UserInfoIconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D733A80B238D321A006B11A1 /* UserInfoIconTableViewCell.swift */; };
 		D74D659A238BB678003AA497 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D6599238BB678003AA497 /* LoginModel.swift */; };
@@ -304,6 +305,7 @@
 		D72A453B239790EB00C294F9 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		D72A453D2398BAE800C294F9 /* OrderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewController.swift; sourceTree = "<group>"; };
 		D72A45402398DBA700C294F9 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
+		D72A4544239E3F3900C294F9 /* OrderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
 		D733A809238CE163006B11A1 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		D733A80B238D321A006B11A1 /* UserInfoIconTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoIconTableViewCell.swift; sourceTree = "<group>"; };
 		D74D6599238BB678003AA497 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -834,6 +836,7 @@
 			children = (
 				D72A453B239790EB00C294F9 /* OrderViewController.swift */,
 				D72A453D2398BAE800C294F9 /* OrderListViewController.swift */,
+				D72A4544239E3F3900C294F9 /* OrderDetailViewController.swift */,
 				D72A453F2398DB3900C294F9 /* View */,
 			);
 			path = Order;
@@ -1479,6 +1482,7 @@
 				D7B43B6D237BA2810035755F /* FWSideMenuShadow.swift in Sources */,
 				049034CB237D2E5D00D1DF65 /* MSPublishTravelBaseModel.swift in Sources */,
 				D7AF4D012367D91B009957D4 /* HomeViewController.swift in Sources */,
+				D72A4545239E3F3900C294F9 /* OrderDetailViewController.swift in Sources */,
 				049034FA237E474A00D1DF65 /* MSAlbumCollectionView.swift in Sources */,
 				D7AF4D2E2367D9D7009957D4 /* BaseTableView.swift in Sources */,
 				049034E1237D4DC300D1DF65 /* UITextFieldExtension.swift in Sources */,

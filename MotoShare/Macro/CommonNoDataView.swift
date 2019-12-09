@@ -6,7 +6,7 @@
 //  Copyright © 2019 Bingo. All rights reserved.
 //
 
-import UIKit
+import UIKit 
 
 typealias RetryBlock = ()->()
 

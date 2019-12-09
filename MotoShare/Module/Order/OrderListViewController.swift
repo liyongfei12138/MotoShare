@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OrderListViewController: UIViewController {
+class OrderListViewController: BaseViewController {
 
     lazy var listView: UITableView = {
         let listView = UITableView (frame: .zero, style: .grouped)
@@ -18,6 +18,8 @@ class OrderListViewController: UIViewController {
         listView.showsVerticalScrollIndicator = false
         listView.backgroundColor = ColorWhite
         listView.separatorStyle = .none
+        listView.estimatedRowHeight = 44
+        listView.rowHeight = UITableView.automaticDimension
         return listView
     }()
     
@@ -55,17 +57,16 @@ extension OrderListViewController:UITableViewDelegate,UITableViewDataSource{
         
 
         let cell:OrderTableViewCell = OrderTableViewCell.reusableCell(tableView: tableView) as! OrderTableViewCell
-        
+        cell.configData()
 //        cell.backgroundColor = .random
         return cell
 
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-    }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let vc = OrderDetailViewController()
+        self.navigationController?.pushViewController(vc)
         
-        return 200
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

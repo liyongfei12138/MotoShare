@@ -29,6 +29,6 @@ target 'MotoShare' do
   pod 'AMap3DMap-NO-IDFA' # 高德地图
   pod 'JXPhotoBrowser' # 图片预览
   pod 'UPYUN'   #又拍云
-  pod 'CDAlertView' 
-  
+  pod 'CDAlertView'
+  pod 'FWPopupView' 
 end

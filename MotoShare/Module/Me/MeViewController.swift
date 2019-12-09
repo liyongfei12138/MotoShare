@@ -236,9 +236,4 @@ extension MeViewController:MeViewDelegate{
     
     
 }
-//extension MeViewController:UserInfoChangeDelegate{
-//    func userDidInfoChange() {
-//        self.configUi()
-//    }
-//
-//}
+
