@@ -184,8 +184,6 @@ struct PhotosBaseModel: HandyJSON {
     case accountType
     case depositCapital
     case availableCapital
-    case other
-
 }
 
 struct DepositListModel {
@@ -193,19 +191,44 @@ struct DepositListModel {
     var title: String = ""
     var placeHolder: String = ""
     var detailText: String = ""
-    var rowType: DepositRowType = .other
+    var rowType: DepositRowType?
+    var cellHeight: CGFloat = 70
     
-    init(title: String, placeHolder: String? = "", detailText: String? = "", rowType: DepositRowType) {
+    init(title: String, placeHolder: String? = "", detailText: String? = "", rowType: DepositRowType, cellHeight: CGFloat = 70) {
         self.title = title
         self.placeHolder = placeHolder ?? ""
         self.detailText = detailText ?? ""
         self.rowType = rowType
+        self.cellHeight = cellHeight
     }
     
-    static func getDepositListModels() -> [DepositListModel] {
+    static func getDepositListModels() -> [[DepositListModel]] {
         
-        let listModels = [[DepositListModel.init(title: "", rowType: .accountType)],[DepositListModel.init(title: "提现金额", rowType: .depositCapital), DepositListModel.init(title: "可用余额", rowType: .availableCapital)]]
+        let listModels = [[DepositListModel.init(title: "", rowType: .accountType, cellHeight: 70)],[DepositListModel.init(title: "提现金额", rowType: .depositCapital, cellHeight: 100), DepositListModel.init(title: "可用余额", rowType: .availableCapital, cellHeight: 30)]]
         return listModels
     }
+ }
 
+
+struct InputSettingModel {
+    
+      var title: String = ""
+      var placeHolder: String = ""
+      var detailTitle: String = ""
+      var cellHeight: CGFloat = 70
+      
+      init(title: String, placeHolder: String? = "", detailTitle: String? = "", cellHeight: CGFloat = 70) {
+          self.title = title
+          self.placeHolder = placeHolder ?? ""
+          self.detailTitle = detailTitle ?? ""
+          self.cellHeight = cellHeight
+      }
+      
+      static func getAddAccountListModels() -> [InputSettingModel] {
+          
+        let listModels = [InputSettingModel.init(title: "账号", placeHolder: "支付宝账号" , cellHeight: 70),InputSettingModel.init(title: "姓名", placeHolder: "请输入姓名", cellHeight: 70), InputSettingModel.init(title: "验证码", placeHolder: "请输入短信验证码", detailTitle: "发送验证码", cellHeight: 70)]
+          return listModels
+      }
 }
+
+
