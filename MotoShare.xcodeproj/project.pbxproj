@@ -113,6 +113,12 @@
 		D72A453E2398BAE800C294F9 /* OrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A453D2398BAE800C294F9 /* OrderListViewController.swift */; };
 		D72A45412398DBA700C294F9 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A45402398DBA700C294F9 /* OrderTableViewCell.swift */; };
 		D72A4545239E3F3900C294F9 /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A4544239E3F3900C294F9 /* OrderDetailViewController.swift */; };
+		D72A4547239F510100C294F9 /* OrderDetailOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A4546239F510100C294F9 /* OrderDetailOrderTableViewCell.swift */; };
+		D72A454A239F53A800C294F9 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A4549239F53A800C294F9 /* OrderModel.swift */; };
+		D72A454C239F56B100C294F9 /* OrderDetailInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A454B239F56B100C294F9 /* OrderDetailInfoTableViewCell.swift */; };
+		D72A454E239F780100C294F9 /* OrderTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A454D239F780100C294F9 /* OrderTimeTableViewCell.swift */; };
+		D72A4550239F83FC00C294F9 /* OrderPlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A454F239F83FC00C294F9 /* OrderPlaceTableViewCell.swift */; };
+		D72A4552239FA63600C294F9 /* OrderPriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A4551239FA63600C294F9 /* OrderPriceTableViewCell.swift */; };
 		D733A80A238CE163006B11A1 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D733A809238CE163006B11A1 /* UserInfoViewController.swift */; };
 		D733A80C238D321A006B11A1 /* UserInfoIconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D733A80B238D321A006B11A1 /* UserInfoIconTableViewCell.swift */; };
 		D74D659A238BB678003AA497 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D6599238BB678003AA497 /* LoginModel.swift */; };
@@ -306,6 +312,12 @@
 		D72A453D2398BAE800C294F9 /* OrderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewController.swift; sourceTree = "<group>"; };
 		D72A45402398DBA700C294F9 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		D72A4544239E3F3900C294F9 /* OrderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
+		D72A4546239F510100C294F9 /* OrderDetailOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailOrderTableViewCell.swift; sourceTree = "<group>"; };
+		D72A4549239F53A800C294F9 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
+		D72A454B239F56B100C294F9 /* OrderDetailInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailInfoTableViewCell.swift; sourceTree = "<group>"; };
+		D72A454D239F780100C294F9 /* OrderTimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTimeTableViewCell.swift; sourceTree = "<group>"; };
+		D72A454F239F83FC00C294F9 /* OrderPlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPlaceTableViewCell.swift; sourceTree = "<group>"; };
+		D72A4551239FA63600C294F9 /* OrderPriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPriceTableViewCell.swift; sourceTree = "<group>"; };
 		D733A809238CE163006B11A1 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		D733A80B238D321A006B11A1 /* UserInfoIconTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoIconTableViewCell.swift; sourceTree = "<group>"; };
 		D74D6599238BB678003AA497 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -837,6 +849,7 @@
 				D72A453B239790EB00C294F9 /* OrderViewController.swift */,
 				D72A453D2398BAE800C294F9 /* OrderListViewController.swift */,
 				D72A4544239E3F3900C294F9 /* OrderDetailViewController.swift */,
+				D72A4548239F539000C294F9 /* Model */,
 				D72A453F2398DB3900C294F9 /* View */,
 			);
 			path = Order;
@@ -846,8 +859,21 @@
 			isa = PBXGroup;
 			children = (
 				D72A45402398DBA700C294F9 /* OrderTableViewCell.swift */,
+				D72A4546239F510100C294F9 /* OrderDetailOrderTableViewCell.swift */,
+				D72A454B239F56B100C294F9 /* OrderDetailInfoTableViewCell.swift */,
+				D72A454D239F780100C294F9 /* OrderTimeTableViewCell.swift */,
+				D72A454F239F83FC00C294F9 /* OrderPlaceTableViewCell.swift */,
+				D72A4551239FA63600C294F9 /* OrderPriceTableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D72A4548239F539000C294F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D72A4549239F53A800C294F9 /* OrderModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D74D6598238BB4FB003AA497 /* Model */ = {
@@ -1355,6 +1381,7 @@
 				D7AF4D332367D9D7009957D4 /* UIColorDarkMode.swift in Sources */,
 				041C3970237BAB53007FA74A /* HBSBaseViewExtension.swift in Sources */,
 				041C3994237BF2F6007FA74A /* MSDemandListOptionView.swift in Sources */,
+				D72A4547239F510100C294F9 /* OrderDetailOrderTableViewCell.swift in Sources */,
 				04642C7B2383FC81005131D7 /* MSPublishFileCollectionViewCell.swift in Sources */,
 				049034BE237CEF9400D1DF65 /* MSTravelListTableView.swift in Sources */,
 				049034C4237CEFCB00D1DF65 /* MSTravelListModel.swift in Sources */,
@@ -1374,6 +1401,7 @@
 				D7AF4D68236BD857009957D4 /* UIViewExtension.swift in Sources */,
 				D733A80A238CE163006B11A1 /* UserInfoViewController.swift in Sources */,
 				D74D65A4238BEE34003AA497 /* UserModel.swift in Sources */,
+				D72A4550239F83FC00C294F9 /* OrderPlaceTableViewCell.swift in Sources */,
 				D72A453E2398BAE800C294F9 /* OrderListViewController.swift in Sources */,
 				049034D9237D315D00D1DF65 /* MSPublishTravelBaseCell.swift in Sources */,
 				D7DFEEB52390B67C004B4F28 /* PublicViewController.swift in Sources */,
@@ -1397,12 +1425,14 @@
 				CB361A1F2393960A005607FA /* MSCameraImageListViewCell.swift in Sources */,
 				D7AF4D352367D9D7009957D4 /* UIViewControllerExtension.swift in Sources */,
 				041C3954237BAB53007FA74A /* HBSHeadFileHeader.swift in Sources */,
+				D72A4552239FA63600C294F9 /* OrderPriceTableViewCell.swift in Sources */,
 				041C397B237BACC9007FA74A /* MSRentListCell.swift in Sources */,
 				D7DFEE93238E5DB7004B4F28 /* StringMd5.swift in Sources */,
 				04903502237E89F900D1DF65 /* MSPHAsset.swift in Sources */,
 				041C395E237BAB53007FA74A /* HBSNetworkManager.swift in Sources */,
 				041C397F237BD8A7007FA74A /* MSRentListOptionView.swift in Sources */,
 				CB361A212393AC53005607FA /* MSUIImageExtension.swift in Sources */,
+				D72A454C239F56B100C294F9 /* OrderDetailInfoTableViewCell.swift in Sources */,
 				041C3967237BAB53007FA74A /* HBSBaseCollectionView.swift in Sources */,
 				CB361A0F23925834005607FA /* MSResourceManagerCameraViewController.swift in Sources */,
 				049034CD237D2EA700D1DF65 /* MSPublishTravelClickModel.swift in Sources */,
@@ -1427,6 +1457,7 @@
 				049034DD237D318100D1DF65 /* MSPublishTravelTextFieldCell.swift in Sources */,
 				04B85C9B23824E87008E8BF9 /* MSMapView.swift in Sources */,
 				D7AE37882394FC520082C4AE /* CertModel.swift in Sources */,
+				D72A454E239F780100C294F9 /* OrderTimeTableViewCell.swift in Sources */,
 				D7DFEEAE238F9D62004B4F28 /* PhotosCollectionViewCell.swift in Sources */,
 				D7DFEEBB2390C4F5004B4F28 /* IDCardViewController.swift in Sources */,
 				041C396E237BAB53007FA74A /* HBSBaseTableView.swift in Sources */,
@@ -1470,6 +1501,7 @@
 				041C3992237BF2CF007FA74A /* MSDemandViewController.swift in Sources */,
 				CB2C72BD237B111B00FEC788 /* MSQueryViewController.swift in Sources */,
 				049034FC237E475500D1DF65 /* MSAlbumCollectionViewCell.swift in Sources */,
+				D72A454A239F53A800C294F9 /* OrderModel.swift in Sources */,
 				D72A45352395FB6700C294F9 /* CertBaseViewController.swift in Sources */,
 				041C3961237BAB53007FA74A /* HBSArchiveManager.swift in Sources */,
 				041C395D237BAB53007FA74A /* HBSNetworkError.swift in Sources */,

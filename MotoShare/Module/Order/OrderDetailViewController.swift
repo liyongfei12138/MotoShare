@@ -17,7 +17,7 @@ class OrderDetailViewController: BaseViewController {
         return moreBtn
     }()
 //    
-    lazy var moreView: FWMenuView = {
+    private lazy var moreView: FWMenuView = {
         
         let moreView = FWMenuViewProperty()
         moreView.popupCustomAlignment = .topRight
@@ -37,27 +37,29 @@ class OrderDetailViewController: BaseViewController {
         moreView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
         
         let menuView = FWMenuView.menu(itemTitles: ["删除订单","订单疑问"], itemImageNames: [UIImage(named: "order_delete"),UIImage(named: "order_doubt")] as? [UIImage], itemBlock: { (popupView, index, title) in
-            print("Menu：点击了第\(index)个按钮")
+            print("\(index)个按钮")
         }, property: moreView)
-        //                menuView.attachedView = self.view
         
         return menuView
     }()
 
-    lazy var listView: UITableView = {
+    private lazy var listView: UITableView = {
         let listView = UITableView (frame: .zero, style: .grouped)
         listView.delegate = self
         listView.dataSource = self
         listView.showsHorizontalScrollIndicator = false
         listView.showsVerticalScrollIndicator = false
-        listView.backgroundColor = ColorWhite
+        listView.backgroundColor = ColorTableViewBG
         listView.separatorStyle = .none
         listView.estimatedRowHeight = 44
         listView.rowHeight = UITableView.automaticDimension
         return listView
     }()
     
-    
+    private lazy var dataArr: [[OrderBaseModel]] = {
+        let dataArr = OrderModel.getOrderListData()
+        return dataArr
+    }()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -91,42 +93,68 @@ extension OrderDetailViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
       
-        return 3
+        return self.dataArr[section].count
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return self.dataArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-
-        let cell:UITableViewCell = UITableViewCell.reusableCell(tableView: tableView) as! UITableViewCell
-
-        return cell
+        
+        let model = self.dataArr[indexPath.section][indexPath.row]
+        
+        if model.type == .order {
+            let cell:OrderDetailOrderTableViewCell = OrderDetailOrderTableViewCell.reusableCell(tableView: tableView) as! OrderDetailOrderTableViewCell
+            cell.configData()
+            return cell
+        }
+        else if model.type == .info {
+            let cell:OrderDetailInfoTableViewCell = OrderDetailInfoTableViewCell.reusableCell(tableView: tableView) as! OrderDetailInfoTableViewCell
+            cell.configData()
+            return cell
+        }
+        else if model.type == .time {
+            let cell:OrderTimeTableViewCell = OrderTimeTableViewCell.reusableCell(tableView: tableView) as! OrderTimeTableViewCell
+            cell.configData()
+            return cell
+        }
+        else if model.type == .place {
+            let cell:OrderPlaceTableViewCell = OrderPlaceTableViewCell.reusableCell(tableView: tableView) as! OrderPlaceTableViewCell
+            cell.configData()
+            return cell
+        }
+        else if model.type == .price {
+            let cell:OrderPriceTableViewCell = OrderPriceTableViewCell.reusableCell(tableView: tableView) as! OrderPriceTableViewCell
+            cell.configData()
+            return cell
+        }
+        else{
+            let cell = UITableViewCell.reusableCell(tableView: tableView)
+            return cell
+        }
+        
 
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection  section: Int) -> UIView? {
         
-        let vc = OrderDetailViewController()
-        self.navigationController?.pushViewController(vc)
-        
+        let headerView = UIView()
+        headerView.backgroundColor = ColorTableViewBG
+        return headerView
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         
-        let footerView = UIView()
-        footerView.backgroundColor = ColorLineBG
-        return footerView
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
         return  UIView()
     }
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView,  heightForHeaderInSection section: Int) -> CGFloat {
         return 16
     }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return CGFloat.leastNormalMagnitude
     }
 }
