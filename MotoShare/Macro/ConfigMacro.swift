@@ -25,6 +25,17 @@ struct LocalStore {
         
     }
 }
+// 请求URL
+struct Server {
+    static let URL = "https://47.105.155.9/api.php/api/"
+    
+    static func RequestURL(path:String) -> String{
+        return Server.URL + path
+    }
+    
+}
+
+
 
 // 三方apiKey
 struct ThirdyApiKey {

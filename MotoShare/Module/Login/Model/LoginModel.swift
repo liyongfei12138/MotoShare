@@ -23,8 +23,6 @@ struct LoginModel {
         else if phone.count == 0 {
             HUDBase.showTitle(title:"请输入手机号")
             failedBlock!()
-            
-      
         }
         else if code.count == 0 && phone.count != 0{
             HUDBase.showTitle(title:"请输入验证码")
@@ -41,6 +39,26 @@ struct LoginModel {
                 
              
             }
+        }
+    }
+    
+    static func loginSendCode(phone:String,_ block: DataBlock!, _ error:ErrorBlock!) {
+        
+        if phone.count != 11 {
+            HUDBase.showTitle(title:"请输入手机号")
+            return;
+        }
+        
+        let url = Server.RequestURL(path: "send_code")
+        
+        
+        HBSNetworkManager.hbs_request(url, success: { (data) in
+            
+            print(data)
+            
+        }) { (errorData) in
+           
+           HUDBase.showTitle(title:"请检查网络")
         }
     }
     

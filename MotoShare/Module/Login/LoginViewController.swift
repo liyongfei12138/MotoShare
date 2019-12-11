@@ -193,6 +193,9 @@ class LoginViewController: BaseViewController {
   
 extension LoginViewController:FR_ClickDelegate{
     func fr_clickViewDelegte() {
+        
+        
+        
         self.codeView.beginTiming()
     }
 }
