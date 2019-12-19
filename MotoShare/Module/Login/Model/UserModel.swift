@@ -11,35 +11,23 @@ import UIKit
 
 class User: Codable {
 
-    var uid: String = "0"
-    var nickname: String = "共享摩滴"
-    var idCardCert: String = "0"
-    var driverCert: String = "0"
+    var ID: String = "0"
+    var name: String = "共享摩滴"
+    var authentication_ID_card: Int = 0
+    var authentication_driving_license: Int = 0
     var balance: String  = "0.0"
-    var icon:String = "me_bg"
-    var position:String = ""
+    var headimg:String = "me_bg"
+    var address:String = ""
     var introduce:String = ""
-    var sex:String = ""
+    var sex:String = "男"
     var picture:[String] = []
-    
-    var userSex : String {
-        get {
-            if self.sex == "1"{
-                return "男"
-            }else if self.sex == "2"{
-                return "女"
-            }
-            else{
-                return ""
-            }
-        }
-    }
+    var token: String = "modi "
     
     var idCardIsBind : Bool {
         get {
-            if self.idCardCert == "0"{
+            if self.authentication_ID_card == 0{
                 return false
-            }else if self.idCardCert == "1"{
+            }else if self.authentication_ID_card == 1{
                 return true
             }
             else{
@@ -49,9 +37,9 @@ class User: Codable {
     }
     var driverIsBind : Bool {
         get {
-            if self.driverCert == "0"{
+            if self.authentication_driving_license == 0{
                 return false
-            }else if self.idCardCert == "1"{
+            }else if self.authentication_driving_license == 1{
                 return true
             }
             else{
@@ -73,9 +61,9 @@ class User: Codable {
     
     var idCardString : String {
         get {
-            if self.idCardCert == "0"{
+            if self.authentication_ID_card == 0{
                 return "未认证"
-            }else if self.idCardCert == "1"{
+            }else if self.authentication_ID_card == 1{
                 return "已认证"
             }
             else{
@@ -85,9 +73,9 @@ class User: Codable {
     }
     var driverivString : String {
         get {
-            if self.driverCert == "0"{
+            if self.authentication_driving_license == 0{
                 return "未认证"
-            }else if self.idCardCert == "1"{
+            }else if self.authentication_driving_license == 1{
                 return "已认证"
             }
             else{
@@ -144,35 +132,38 @@ class UserManager {
         for string in keyArr {
             
             switch string {
-            case "uid":
-                User.stand.uid = info[string] as! String
+            case "ID":
+                User.stand.ID = info[string] as? String ?? ""
             break
-            case "nickname":
-                User.stand.nickname = info[string] as! String
+            case "name":
+                User.stand.name = info[string] as? String ?? ""
             break
-            case "idCardCert":
-                User.stand.idCardCert = info[string] as! String
+            case "authentication_ID_card":
+                User.stand.authentication_ID_card = info[string] as? Int ?? 0
             break
-            case "driverCert":
-                User.stand.driverCert = info[string] as! String
+            case "authentication_driving_license":
+                User.stand.authentication_driving_license = info[string] as? Int ?? 0
             break
             case"balance":
-                User.stand.balance = info[string] as! String
+                User.stand.balance = info[string] as? String ?? ""
             break
-            case"icon":
-                User.stand.icon = info[string] as! String
+            case"headimg":
+                User.stand.headimg = info[string] as? String ?? ""
             break
-            case"position":
-                User.stand.position = info[string] as! String
+            case"address":
+                User.stand.address = info[string] as? String ?? ""
             break
             case"introduce":
-                User.stand.introduce = info[string] as! String
+                User.stand.introduce = info[string] as? String ?? ""
             break
             case"sex":
-                User.stand.sex = info[string] as! String
+                User.stand.sex = info[string] as? String ?? ""
             break
             case"picture":
-                User.stand.picture = info[string] as! Array<String>
+                User.stand.picture = info[string] as? Array<String> ?? [""]
+            break
+            case"token":
+                User.stand.token = info[string] as? String ?? ""
             break
             default:
               break
@@ -202,7 +193,7 @@ class UserManager {
     }
     
     static func isLogin() -> Bool{
-        if User.stand.uid == "0" {
+        if User.stand.ID == "0" {
             return false
         }else{
             return true
@@ -214,15 +205,17 @@ class UserManager {
 
         
         let info = [
-                    "uid":"0",
-                    "nickname":"共享摩滴",
+                    "ID":"0",
+                    "name":"共享摩滴",
                     "idCardCert":"0",
                     "driverCert":"0",
                     "balance":"0.0",
                     "position":"",
-                    "sex":"1", "introduce":"",
+                    "sex":"男",
+                    "introduce":"",
                     "picture":Array<String>(),
-                    "icon":"me_bg"
+                    "headimg":"me_bg",
+                    "token":"modi "
             ] as [String : Any]
         
         

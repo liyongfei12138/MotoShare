@@ -30,8 +30,6 @@ class CertificationViewController: BaseViewController {
     
     lazy var dataArr: [Dictionary<String,Any>] = {
     
-    
-        
         let dataArr = [
                         ["title":"身份证认证","detail":User.stand.idCardString],
                         ["title":"驾驶证认证","detail":User.stand.driverivString]
@@ -39,8 +37,8 @@ class CertificationViewController: BaseViewController {
         return dataArr
     }()
     
-    lazy var dataInfo: [String] = {
-        let dataArr = [User.stand.idCardCert,"驾驶证认证"]
+    lazy var dataInfo: [Any] = {
+        let dataArr = [User.stand.authentication_ID_card,"驾驶证认证"] as [Any]
         return dataArr
     }()
     

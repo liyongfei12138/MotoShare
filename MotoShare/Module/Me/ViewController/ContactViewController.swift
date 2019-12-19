@@ -7,9 +7,11 @@
 //
 
 import UIKit
-
 class ContactViewController: BaseViewController {
 
+    var isShowNoData :Bool = false
+    var dataArr :[Dictionary<String, Any>]?
+    
     lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
@@ -17,6 +19,7 @@ class ContactViewController: BaseViewController {
         titleLabel.text = "添加紧急联系人"
         return titleLabel
     }()
+    
     lazy var contentLabel: UILabel = {
         let contentLabel = UILabel()
         contentLabel.font = UIFont.systemFont(ofSize: 12)
@@ -40,10 +43,14 @@ class ContactViewController: BaseViewController {
         listView.backgroundColor = ColorWhite
         listView.separatorStyle = .none
         listView.bounces = false
+  
         return listView
     }()
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configData()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,6 +60,15 @@ class ContactViewController: BaseViewController {
         self.view.addSubview(self.contentLabel)
         self.view.addSubview(self.listView)
         configLayout()
+        
+    }
+    func configData()  {
+        MeRequestModel.getConactList({ (data) in
+            let detailData = data["data"]
+            self.dataArr = detailData as? [Dictionary<String, Any>]
+
+            self.listView.reloadData()
+        })
     }
     func configLayout()  {
         self.titleLabel.snp.makeConstraints { (make) in
@@ -77,24 +93,31 @@ class ContactViewController: BaseViewController {
 extension ContactViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-      
-        return 4
+        let count = (self.dataArr?.count ?? 0) + 1
+        
+        return  count
     }
   
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-
-        if indexPath.row == 3 {
+        let count = (self.dataArr?.count ?? 0)
+        
+        if indexPath.row == count {
             let cell:ContactAddTableViewCell = ContactAddTableViewCell.reusableCell(tableView: tableView) as! ContactAddTableViewCell
             return cell
         }else{
             let cell:ContactTableViewCell = ContactTableViewCell.reusableCell(tableView: tableView) as! ContactTableViewCell
-            cell.configData(title:"15776627777",name: "爸比")
-            cell.clickEditBlock = { (info) in
-                let editVC = ContactManageViewController.init(type:.edit,info:info)
-                self.navigationController?.pushViewController(editVC)
+            
+            let name = self.dataArr?[indexPath.row]["name"]
+            let phone = self.dataArr?[indexPath.row]["phone"]
+            let uid:Int = self.dataArr?[indexPath.row]["ec_id"] as! Int
+        
+            cell.configData(title:phone as! String,name: name as! String,uid:String(uid))
+            cell.clickEditBlock = { name,phone,uid in
                 
+                let editVC = ContactManageViewController.init(type:.edit, uid:uid, name: name, phone: phone)
+                self.navigationController?.pushViewController(editVC)
             }
             return cell
         }
@@ -103,10 +126,13 @@ extension ContactViewController:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let count = (self.dataArr?.count ?? 0)
         
-        if indexPath.row == 3 {
+        if indexPath.row == count {
+          
            let editVC = ContactManageViewController.init(type:.add)
-            self.navigationController?.pushViewController(editVC)
+            
+           self.navigationController?.pushViewController(editVC)
         }else{
             
         }
@@ -117,3 +143,21 @@ extension ContactViewController:UITableViewDelegate,UITableViewDataSource{
     }
 
 }
+
+//extension ContactViewController: EmptyDataSetSource, EmptyDataSetDelegate{
+//    func customView(forEmptyDataSet scrollView: UIScrollView) -> UIView? {
+//
+//
+//        let view = CommonNoDataView()
+//        view.retryBlock = {
+//            self.configData()
+//
+//        }
+//
+//        return view
+//    }
+//
+//    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView) -> Bool {
+//        return self.isShowNoData
+//    }
+//}

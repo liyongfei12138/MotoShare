@@ -82,23 +82,26 @@ class ChangeOtherViewController: BaseChangeViewController {
             
         self.view.hbs_showIndicator(type: .ballRotateChase, color: ColorTheme, padding: 50)
             
-        TestRequest.getTestData(key: TestRequest.key.Login, { (info) in
-                
-            if self.type == .introduce {
-                User.stand.introduce = self.putInTextView.text ?? ""
-            }else{
-                User.stand.position = self.putInTextView.text ?? ""
-            }
-                
-
-            UserManager.saveUserInfo()
-            UserManager.changeInfo()
+        var type = MeChangeInfoType.other
+        let text = self.putInTextView.text ?? ""
+        
+        if self.type == .introduce {
+//            User.stand.introduce = self.putInTextView.text ?? ""
+            type = .introduce
+        }else{
+//            User.stand.address = self.putInTextView.text ?? ""
+            type = .address
+        }
+        
+        MeRequestModel.changeWithInfo(info: text, type: type, { (data) in
+        
             self.view.hbs_hideIndicator()
             self.dismiss(animated: true, completion: nil)
         }) {
             self.view.hbs_hideIndicator()
             HUDBase.showTitle(title: "修改失败")
         }
+        
             
     }
 
@@ -149,7 +152,7 @@ extension ChangeOtherViewController {
             self.contentString = User.stand.introduce
         }else{
             self.title = "常住地"
-            self.contentString = User.stand.position
+            self.contentString = User.stand.address
         }
          
     }

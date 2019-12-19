@@ -31,18 +31,15 @@ struct LoginModel {
         }
         else{
             
-            TestRequest.getTestData(key:TestRequest.key.Login, { (data) in
-                block!(data)
+            self.loginWithInfo(phone: phone, code: code, { (data) in
+                self.loginWithGetUserInfo(block, failedBlock)
             }) {
                 failedBlock!()
-                HUDBase.showTitle(title:"请检查网络")
-                
-             
             }
         }
     }
     
-    static func loginSendCode(phone:String,_ block: DataBlock!, _ error:ErrorBlock!) {
+    static func loginSendCode(phone:String,_ block: DataBlock! = nil, _ error:ErrorBlock! = nil) {
         
         if phone.count != 11 {
             HUDBase.showTitle(title:"请输入手机号")
@@ -51,16 +48,84 @@ struct LoginModel {
         
         let url = Server.RequestURL(path: "send_code")
         
+        let param = ["phone":phone]
         
-        HBSNetworkManager.hbs_request(url, success: { (data) in
+        
+        HBSNetworkManager.hbs_request(url, parameters:param, success: { (data) in
             
-            print(data)
+            let dataInfo = data as! Dictionary<String,Any>
+            let code: Int = dataInfo["code"] as! Int
+            let msg: String = dataInfo["msg"] as! String
+            if code == 0 {
+                HUDBase.showTitle(title:"发送成功")
+                block!(dataInfo)
+            }else{
+                HUDBase.showTitle(title:msg)
+            }
             
         }) { (errorData) in
            
-           HUDBase.showTitle(title:"请检查网络")
         }
     }
     
-    
+    static func loginWithInfo(phone:String, code:String, _ block: DataBlock! = nil, _ error:ErrorBlock! = nil){
+        
+        let url = Server.RequestURL(path: "login")
+        let param = ["phone":phone,"code":code]
+        
+        
+        HBSNetworkManager.hbs_request(url, parameters:param, success: { (data) in
+            
+            let dataInfo = data as! Dictionary<String,Any>
+            let code: Int = dataInfo["code"] as! Int
+            let msg: String = dataInfo["msg"] as! String
+            
+            if code == 0 {
+                let detailData = dataInfo["data"] as! Dictionary<String,Any>
+                
+                let token: String = detailData["token"] as! String
+                User.stand.token = "modi " + token
+                UserManager.saveUserInfo()
+                
+                block!(dataInfo)
+            }else{
+                HUDBase.showTitle(title:msg)
+                error!()
+            }
+            
+        }) { (errorData) in
+           error!()
+        }
+    }
+    static func loginWithGetUserInfo(_ block: DataBlock! = nil, _ error:ErrorBlock! = nil) {
+        let url = Server.RequestURL(path: "center")
+        
+        
+        HBSNetworkManager.hbs_request(url, success: { (data) in
+            
+            let dataInfo = data as! Dictionary<String,Any>
+            let code: Int = dataInfo["code"] as! Int
+            let msg: String = dataInfo["msg"] as! String
+            
+            
+             
+            
+            if code == 0 {
+                let detailData = dataInfo["data"] as! Dictionary<String,Any>
+                
+//                print(detailData)
+                UserManager.saveAllInfo(info: detailData)
+                
+                UserManager.changeInfo()
+                
+                block!(detailData)
+            }else{
+                HUDBase.showTitle(title:msg)
+                error!()
+            }
+            
+        }) { (errorData) in
+           error!()
+        }
+    }
 }

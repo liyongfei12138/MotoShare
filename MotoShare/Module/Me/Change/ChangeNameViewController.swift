@@ -28,8 +28,8 @@ class ChangeNameViewController: BaseChangeViewController {
     
     lazy var putInField: UITextField = {
         let putInField = UITextField()
-        putInField.placeholder = User.stand.nickname
-        putInField.text = User.stand.nickname
+        putInField.placeholder = User.stand.name
+        putInField.text = User.stand.name
         putInField.font = UIFont.systemFont(ofSize: 14)
         putInField.clearButtonMode = .always
         putInField.delegate = self
@@ -64,16 +64,23 @@ class ChangeNameViewController: BaseChangeViewController {
         
         self.view.hbs_showIndicator(type: .ballRotateChase, color: ColorTheme, padding: 50)
         
-        TestRequest.getTestData(key: TestRequest.key.Login, { (info) in
-            User.stand.nickname = self.putInField.text ?? "共享摩滴"
-            UserManager.saveUserInfo()
-            UserManager.changeInfo()
+        MeRequestModel.changeWithInfo(info: self.putInField.text ?? "共享摩滴", type: .name,{ (data) in
             self.view.hbs_hideIndicator()
             self.dismiss(animated: true, completion: nil)
         }) {
             self.view.hbs_hideIndicator()
             HUDBase.showTitle(title: "修改失败")
         }
+        
+//        TestRequest.getTestData(key: TestRequest.key.Login, { (info) in
+//            User.stand.name = self.putInField.text ?? "共享摩滴"
+//            UserManager.saveUserInfo()
+//            UserManager.changeInfo()
+//
+//        }) {
+//            self.view.hbs_hideIndicator()
+//            HUDBase.showTitle(title: "修改失败")
+//        }
         
     }
 
@@ -89,7 +96,7 @@ extension ChangeNameViewController:UITextFieldDelegate{
         }
     }
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        if textField.text != User.stand.nickname {
+        if textField.text != User.stand.name {
            self.doneBtnIsShow(isShow:true)
         }else{
             self.doneBtnIsShow(isShow:false)

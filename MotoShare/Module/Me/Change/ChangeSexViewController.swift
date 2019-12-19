@@ -10,7 +10,7 @@ import UIKit
 
 class ChangeSexViewController: BaseChangeViewController {
 
-    var selectRow : Int = 0
+    var selectRow : String? = User.stand.sex
     
     lazy var dataArr: [String] = {
         let dataArr = ["男","女"]
@@ -35,11 +35,7 @@ class ChangeSexViewController: BaseChangeViewController {
         
         self.title = "性别"
         self.view.addSubview(self.listView)
-        if User.stand.sex == "1"{
-            self.selectRow = 0
-        }else{
-            self.selectRow = 1
-        }
+
         configLayout()
 
     }
@@ -50,20 +46,17 @@ class ChangeSexViewController: BaseChangeViewController {
     }
     override func done() {
         self.view.hbs_showIndicator(type: .ballRotateChase, color: ColorTheme, padding: 50)
-                   
-        TestRequest.getTestData(key: TestRequest.key.Login, { (info) in
-                
-            User.stand.sex = (self.selectRow + 1).string
-                
-
-            UserManager.saveUserInfo()
-            UserManager.changeInfo()
+             
+        
+        MeRequestModel.changeWithInfo(info: self.selectRow ?? User.stand.sex, type: .sex, { (data) in
+        
             self.view.hbs_hideIndicator()
             self.dismiss(animated: true, completion: nil)
         }) {
             self.view.hbs_hideIndicator()
             HUDBase.showTitle(title: "修改失败")
         }
+
     }
 
 }
@@ -78,8 +71,12 @@ extension ChangeSexViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var select = false
-        if indexPath.row == self.selectRow {
+        
+//        self.selectRow =
+        
+        var select:Bool = false
+        
+        if self.dataArr[indexPath.row] == self.selectRow {
             select = true
         }else{
             select = false
@@ -90,7 +87,8 @@ extension ChangeSexViewController:UITableViewDelegate,UITableViewDataSource{
 
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectRow = indexPath.row
+//        self.selectRow = indexPath.row
+        self.selectRow = self.dataArr[indexPath.row]
         self.listView.reloadData()
         
     }

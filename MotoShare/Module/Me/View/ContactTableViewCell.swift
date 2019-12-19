@@ -8,10 +8,13 @@
 
 import UIKit
 
-typealias  EditBlock = (Dictionary<String, Any>) -> ()
+typealias  EditBlock = (_ name:String, _ phone:String, _ uid:String) -> ()
 
 class ContactTableViewCell: UITableViewCell {
     
+    var name : String = ""
+    var phone : String = ""
+    var uid : String = "0"
     
     var clickEditBlock : EditBlock?
     
@@ -71,9 +74,14 @@ class ContactTableViewCell: UITableViewCell {
            
            configLayout()
        }
-    func configData(title:String, name:String)  {
-           self.titleLabel.text = title
+    func configData(title:String, name:String,uid:String)  {
+        self.titleLabel.text = title
         self.nameLabel.text = name
+        
+        
+        self.name = name
+        self.phone = title
+        self.uid = uid
        }
        private func configLayout()  {
 
@@ -104,10 +112,7 @@ class ContactTableViewCell: UITableViewCell {
     }
     
    @objc  private func clickEdit()  {
-        
-        let info = ["2":"2"]
-        
-        
-        self.clickEditBlock!(info)
+      
+    self.clickEditBlock!(self.name,self.phone,self.uid)
     }
 }

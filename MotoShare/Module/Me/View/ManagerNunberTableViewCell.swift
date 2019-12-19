@@ -14,22 +14,29 @@ public  enum ManagerCellRowType: Int  {
     case other
     
 }
+
+protocol PutInSourceDelegate {
+    func putInTextWith(text:String, type:ManagerCellRowType)
+}
+
 typealias  AddressBlock = () -> ()
 
-class ManagerNunberTableViewCell: UITableViewCell {
+class ManagerNumberTableViewCell: UITableViewCell {
     
     var clickAddressBlock : AddressBlock?
+    var  sourceDelegate : PutInSourceDelegate?
+    var type : ManagerCellRowType = .other
     
 
     
-      private lazy var titleField: ManagerPhone = {
-         let titleField = ManagerPhone()
-         titleField.font = UIFont.systemFont(ofSize: 12)
-         titleField.textColor = UIColor.gl_hex(hex: 0x2E2E2E)
-//         titleField.placeholder = "请输入紧急联系人电话"
-         titleField.text = ""
-         titleField.keyboardType = .numberPad
-         return titleField
+    private lazy var titleField: ManagerPhone = {
+        let titleField = ManagerPhone()
+        titleField.font = UIFont.systemFont(ofSize: 12)
+        titleField.textColor = UIColor.gl_hex(hex: 0x2E2E2E)
+        titleField.delegate = self
+        titleField.text = ""
+        titleField.keyboardType = .numberPad
+        return titleField
     }()
      
      
@@ -75,18 +82,20 @@ class ManagerNunberTableViewCell: UITableViewCell {
             configLayout()
         }
     func configData(title:String,type:ManagerCellRowType)  {
+        
+        
         if type == .phone {
             self.addressBtn.isHidden = false
             self.phoneImgView.image = UIImage(named: "contact_number")
-            self.titleField.placeholder = "请输入紧急联系人电话"
+            self.titleField.placeholder = "请输入紧急联系人电话(必填)"
         }else{
             self.addressBtn.isHidden = true
             self.phoneImgView.image = UIImage(named: "contact_phone")
-            self.titleField.placeholder = "请输入紧急联系人名字(选填)"
+            self.titleField.placeholder = "请输入紧急联系人名字(必填)"
         }
         
-        
-            self.titleField.text = title
+        self.type = type
+        self.titleField.text = title
         }
         private func configLayout()  {
 
@@ -119,5 +128,15 @@ class ManagerNunberTableViewCell: UITableViewCell {
 
         self.clickAddressBlock!()
      }
+    
+    
 
+}
+
+extension ManagerNumberTableViewCell:UITextFieldDelegate{
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        self.sourceDelegate?.putInTextWith(text: textField.text ?? "", type: self.type)
+    }
 }

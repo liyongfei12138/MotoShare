@@ -37,6 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = rootVC
         self.window?.makeKeyAndVisible()
 
+        
+        HTTPSManager().setAlamofireHttps()
+        
         return true
     }
 

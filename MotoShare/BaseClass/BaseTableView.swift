@@ -159,13 +159,13 @@ open class EmptyConfig {
     
     /// 详情信息
     var detailString: NSAttributedString? {
-        var text: String! = "请检查网络并重试"
+        var text: String! = ERROR_TITLE
         var font: UIFont! = UIFont.systemFont(ofSize: 12)
         var textColor: UIColor! = UIColor.lightGray
         
         switch self.configType! {
         case .defalut:
-            text = "请检查网络并重试"
+            text = ERROR_TITLE
         case .marketList:
             text = "暂无产品"
         case .favList:

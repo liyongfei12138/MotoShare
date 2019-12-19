@@ -77,3 +77,5 @@ public func SCALEWIDTH(width: CGFloat) -> CGFloat {
     return SCREEN_WIDTH / 375.0 * width 
 }
 
+
+public let ERROR_TITLE = "请检查网络并重试"

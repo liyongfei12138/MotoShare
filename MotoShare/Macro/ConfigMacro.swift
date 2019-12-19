@@ -10,14 +10,14 @@
 
 import Foundation
 import PKHUD
-
+import Alamofire
 /// 本地化存储的key定义
 struct LocalStore {
     
     struct key {
         static let DeviceToken = ""
         static let UserId = ""
-        static let Token = ""
+//        static let Token = User.stand.token
         static let UserData = "save_user_info_key"
     }
     
@@ -27,7 +27,10 @@ struct LocalStore {
 }
 // 请求URL
 struct Server {
-    static let URL = "https://47.105.155.9/api.php/api/"
+    static let URL = "https://modi.duocaishenghuo.cn/api.php/api/"
+    let Header: HTTPHeaders = [
+                                "token": User.stand.token
+                              ]
     
     static func RequestURL(path:String) -> String{
         return Server.URL + path

@@ -173,18 +173,14 @@ class LoginViewController: BaseViewController {
     }
     
     @objc private func clickLoginBtn(){
-        
+        self.view?.endEditing(true)
         self.loginButton.beginLogin()
         LoginModel.LoginWithInfo(phone: self.phoneString, code: self.codeString, isRead: self.agreedBtn.isSelected, block: { (data) in
             
-            UserManager.saveAllInfo(info: data)
-        
-            UserManager.changeInfo()
-           
             self.back()
-              self.loginButton.endLogin()
+            self.loginButton.endLogin()
         }) {
-             self.loginButton.endLogin()
+            self.loginButton.endLogin()
         }
         
     }
@@ -194,9 +190,13 @@ class LoginViewController: BaseViewController {
 extension LoginViewController:FR_ClickDelegate{
     func fr_clickViewDelegte() {
         
+        self.view?.endEditing(true)
+
+        LoginModel.loginSendCode(phone: self.phoneString, { (data) in
+            self.codeView.beginTiming()
+        }) 
         
         
-        self.codeView.beginTiming()
     }
 }
 extension LoginViewController:PhoneDelegate{

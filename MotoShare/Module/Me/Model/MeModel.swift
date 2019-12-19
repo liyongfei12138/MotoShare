@@ -93,10 +93,10 @@ struct MeModel {
     static func getUserInfoListData()->[[UserInfoBaseModel]]{
     
         let info = [
-                    UserInfoBaseModel(title: "头像", type: UserInfoRowType.icon, detail: User.stand.icon),
-                    UserInfoBaseModel(title: "昵称", type: UserInfoRowType.name, detail: User.stand.nickname),
-                    UserInfoBaseModel(title: "用户ID", type: UserInfoRowType.uid, detail: User.stand.uid),
-                    UserInfoBaseModel(title: "性别", type: UserInfoRowType.sex, detail: User.stand.userSex)
+                    UserInfoBaseModel(title: "头像", type: UserInfoRowType.icon, detail: User.stand.headimg),
+                    UserInfoBaseModel(title: "昵称", type: UserInfoRowType.name, detail: User.stand.name),
+                    UserInfoBaseModel(title: "用户ID", type: UserInfoRowType.uid, detail: User.stand.ID),
+                    UserInfoBaseModel(title: "性别", type: UserInfoRowType.sex, detail: User.stand.sex)
                     
                     ]
         

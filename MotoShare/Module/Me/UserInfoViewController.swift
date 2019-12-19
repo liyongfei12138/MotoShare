@@ -160,33 +160,17 @@ extension UserInfoViewController: MSResourceManagerViewControllerDelegate{
         
         UpLoadImage.upLoadImage(img: image, fileName: Date().milliStamp.md5, success: { (respond, info) in
             
-            let imageUrl:String =  info?["url"] as! String
+            let image:String =  info?["url"] as! String
+            let imageUrl = "http://imageym.yunmolife.cn/" + image
             
             
-            DispatchQueue.main.async {
-                User.stand.icon = "http://imageym.yunmolife.cn/" + imageUrl
-                UserManager.saveUserInfo()
-                HUDBase.showTitle(title: "上传图片成功")
-                UserManager.changeInfo()
+            MeRequestModel.changeWithInfo(info: imageUrl,type:.headimg, { (data) in
                 self.listView.reloadData()
-            }
-            
-            
+            })
             
         }) {
-            DispatchQueue.main.async {
-                HUDBase.showTitle(title: "上传图片失败")
-            }
-            
-           
+            HUDBase.showTitle(title: "上传图片失败")
         }
     }
 }
 
-//extension UserInfoViewController:UserInfoChangeDelegate{
-//    func userDidInfoChange() {
-//        self.listView.reloadData()
-//
-//    }
-//
-//}

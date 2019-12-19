@@ -13,7 +13,7 @@ struct CertModel{
     static func getIDCardCertListData()->[CertBaseModel]{
 
         let info = [
-            CertBaseModel(image: UIImage.init(named: "idcard_positive")!, type: .positive, detail: "请拍摄身份证正面照"),
+                    CertBaseModel(image: UIImage.init(named: "idcard_positive")!, type: .positive, detail: "请拍摄身份证正面照"),
                     CertBaseModel(image: UIImage.init(named: "idcard_ reverse")!, type: .reverse, detail: "请拍摄身份证反面照"),
                     CertBaseModel(image: UIImage.init(named: "idcard_ handheld")!, type: .handheld, detail: "请拍摄免冠手持身份证照")
                     ]

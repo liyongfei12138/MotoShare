@@ -87,15 +87,15 @@ class MeViewController: BaseUserInfoViewController {
         navigationController(pushToVC: cert)
     }
     func configUi() {
-        self.nameLabel.text = User.stand.nickname
+        self.nameLabel.text = User.stand.name
         
-        if User.stand.idCardCert == "0" || User.stand.driverCert == "0"{
+        if User.stand.authentication_ID_card == 0 || User.stand.authentication_driving_license == 0{
             self.certButton.setTitle("前往认证", for: .normal)
         }else{
             self.certButton.setTitle("已认证", for: .normal)
         }
         
-        let imgUrl = URL.init(string: User.stand.icon)
+        let imgUrl = URL.init(string: User.stand.headimg)
         self.headImgView.kf.setImage(with: imgUrl, placeholder: UIImage(named: "me_bg"))
   
     }

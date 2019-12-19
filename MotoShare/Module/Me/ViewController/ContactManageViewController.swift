@@ -13,15 +13,19 @@ import ContactsUI
  enum ContactManageType: Int  {
     case edit = 20000
     case add = 200001
-    case other = 200002
+    case delect = 200002
+    case other = 200003
 }
 
 class ContactManageViewController: BaseViewController {
 
     var type:ContactManageType = .other
     
-    var rowPhone :String = ""
-    var rowName :String = ""
+    
+    private var rowPhone :String = ""
+    private var rowName :String = ""
+    private var contactID :String = "0"
+    
     lazy var listView: UITableView = {
         let listView = UITableView (frame: .zero, style: .grouped)
         listView.delegate = self
@@ -34,6 +38,21 @@ class ContactManageViewController: BaseViewController {
         return listView
     }()
     
+    lazy var saveBtn: UIButton = {
+        let saveBtn = UIButton.init(type: .custom)
+        saveBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        saveBtn.setTitle("保存", for: .normal)
+        saveBtn.setTitleColor(ColorTheme, for: .normal)
+        saveBtn.addTarget(self, action: #selector(clickSaveBtn), for: .touchUpInside)
+        return saveBtn
+    }()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+
+        self.navigationItem.rightBarButtonItem  = UIBarButtonItem.init(customView: self.saveBtn)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +70,7 @@ class ContactManageViewController: BaseViewController {
         configLayout()
     }
     
+    
     func configLayout()  {
         
         self.listView.snp.makeConstraints { (make) in
@@ -64,14 +84,22 @@ class ContactManageViewController: BaseViewController {
         self.present(picker, animated: true, completion: nil)
         
     }
+    @objc func clickSaveBtn() {
+        self.view?.endEditing(true)
+        MeRequestModel.editConactInfoWith(type: self.type, conactID: self.contactID, name: self.rowName, phone: self.rowPhone, { (data) in
+            self.navigationController?.popViewController(animated: true)
+        })
+    }
     
 }
 
 extension ContactManageViewController{
-    convenience init(type:ContactManageType,info:Dictionary<String, Any>? = nil) {
+    convenience init(type:ContactManageType,uid:String = "0", name:String = "", phone:String = "") {
         self.init()
         self.type = type
-        
+        self.rowPhone = phone
+        self.rowName = name
+        self.contactID = uid
     }
 }
 
@@ -85,7 +113,8 @@ extension ContactManageViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
 
-       let cell:ManagerNunberTableViewCell = ManagerNunberTableViewCell.reusableCell(tableView: tableView) as! ManagerNunberTableViewCell
+       let cell:ManagerNumberTableViewCell = ManagerNumberTableViewCell.reusableCell(tableView: tableView) as! ManagerNumberTableViewCell
+        cell.sourceDelegate = self
         cell.clickAddressBlock = {
             self.clickAddressBook()
         }
@@ -167,4 +196,15 @@ func contactPicker(_ picker: CNContactPickerViewController,
     self.listView.reloadData()
     
     }
+}
+extension ContactManageViewController:PutInSourceDelegate{
+    func putInTextWith(text: String, type: ManagerCellRowType) {
+        if type == .name {
+            self.rowName = text
+        }else{
+            self.rowPhone = text
+        }
+    }
+    
+    
 }
