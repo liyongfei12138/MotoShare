@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -50,6 +50,7 @@
 		041C3990237BF28A007FA74A /* MSDemandListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C398F237BF28A007FA74A /* MSDemandListCell.swift */; };
 		041C3992237BF2CF007FA74A /* MSDemandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C3991237BF2CF007FA74A /* MSDemandViewController.swift */; };
 		041C3994237BF2F6007FA74A /* MSDemandListOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C3993237BF2F6007FA74A /* MSDemandListOptionView.swift */; };
+		0428B195239619CA00FCE89B /* MSDepositAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428B194239619CA00FCE89B /* MSDepositAccountCell.swift */; };
 		04642C792383FC6C005131D7 /* MSPublishFileCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04642C782383FC6C005131D7 /* MSPublishFileCollectionView.swift */; };
 		04642C7B2383FC81005131D7 /* MSPublishFileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04642C7A2383FC80005131D7 /* MSPublishFileCollectionViewCell.swift */; };
 		04642C7D2383FC94005131D7 /* MSPublishAddFileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04642C7C2383FC94005131D7 /* MSPublishAddFileCollectionViewCell.swift */; };
@@ -82,8 +83,13 @@
 		049034FF237E49C300D1DF65 /* MSAlbumDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049034FE237E49C300D1DF65 /* MSAlbumDataManager.swift */; };
 		04903502237E89F900D1DF65 /* MSPHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04903501237E89F800D1DF65 /* MSPHAsset.swift */; };
 		04903504237EB10400D1DF65 /* MSAlbumFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04903503237EB10400D1DF65 /* MSAlbumFolderView.swift */; };
+		049FC5BF2399177F00C3CA1C /* MSAddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FC5BE2399177F00C3CA1C /* MSAddAccountViewController.swift */; };
+		049FC5C123991B1C00C3CA1C /* MSInputSettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FC5C023991B1C00C3CA1C /* MSInputSettingViewCell.swift */; };
 		04B85C9923824E66008E8BF9 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B85C9823824E66008E8BF9 /* ShareViewController.swift */; };
 		04B85C9B23824E87008E8BF9 /* MSMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B85C9A23824E87008E8BF9 /* MSMapView.swift */; };
+		04BB28142398B777004D9C06 /* MSAmountViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB28132398B777004D9C06 /* MSAmountViewCell.swift */; };
+		04BB28162398DA71004D9C06 /* MSAvailableCapitalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB28152398DA71004D9C06 /* MSAvailableCapitalCell.swift */; };
+		04F00C512394AB1C0041640A /* MSDepositViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F00C502394AB1C0041640A /* MSDepositViewController.swift */; };
 		947506F1842C6E97CF08E5F3 /* Pods_MotoShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A3051476B1329CCA0ED583C /* Pods_MotoShare.framework */; };
 		B05CB9F523A1D8EF005DE866 /* HTTPSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05CB9F423A1D8EF005DE866 /* HTTPSManager.swift */; };
 		B05D8FE423A2726100994151 /* MeRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D8FE323A2726100994151 /* MeRequestModel.swift */; };
@@ -245,6 +251,7 @@
 		041C398F237BF28A007FA74A /* MSDemandListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSDemandListCell.swift; sourceTree = "<group>"; };
 		041C3991237BF2CF007FA74A /* MSDemandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSDemandViewController.swift; sourceTree = "<group>"; };
 		041C3993237BF2F6007FA74A /* MSDemandListOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSDemandListOptionView.swift; sourceTree = "<group>"; };
+		0428B194239619CA00FCE89B /* MSDepositAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSDepositAccountCell.swift; sourceTree = "<group>"; };
 		04642C782383FC6C005131D7 /* MSPublishFileCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSPublishFileCollectionView.swift; sourceTree = "<group>"; };
 		04642C7A2383FC80005131D7 /* MSPublishFileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSPublishFileCollectionViewCell.swift; sourceTree = "<group>"; };
 		04642C7C2383FC94005131D7 /* MSPublishAddFileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSPublishAddFileCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -277,9 +284,14 @@
 		049034FE237E49C300D1DF65 /* MSAlbumDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSAlbumDataManager.swift; sourceTree = "<group>"; };
 		04903501237E89F800D1DF65 /* MSPHAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSPHAsset.swift; sourceTree = "<group>"; };
 		04903503237EB10400D1DF65 /* MSAlbumFolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSAlbumFolderView.swift; sourceTree = "<group>"; };
+		049FC5BE2399177F00C3CA1C /* MSAddAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSAddAccountViewController.swift; sourceTree = "<group>"; };
+		049FC5C023991B1C00C3CA1C /* MSInputSettingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSInputSettingViewCell.swift; sourceTree = "<group>"; };
 		04B85C9223824649008E8BF9 /* MotoShare-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MotoShare-Bridging-Header.h"; sourceTree = "<group>"; };
 		04B85C9823824E66008E8BF9 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		04B85C9A23824E87008E8BF9 /* MSMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSMapView.swift; sourceTree = "<group>"; };
+		04BB28132398B777004D9C06 /* MSAmountViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSAmountViewCell.swift; sourceTree = "<group>"; };
+		04BB28152398DA71004D9C06 /* MSAvailableCapitalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSAvailableCapitalCell.swift; sourceTree = "<group>"; };
+		04F00C502394AB1C0041640A /* MSDepositViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSDepositViewController.swift; sourceTree = "<group>"; };
 		1A3051476B1329CCA0ED583C /* Pods_MotoShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MotoShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		215459550287FA041196F067 /* Pods-MotoShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotoShare.release.xcconfig"; path = "Target Support Files/Pods-MotoShare/Pods-MotoShare.release.xcconfig"; sourceTree = "<group>"; };
 		4BCAA0436859B5372895A100 /* Pods-FoodRecipe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodRecipe.debug.xcconfig"; path = "Target Support Files/Pods-FoodRecipe/Pods-FoodRecipe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1167,6 +1179,10 @@
 				D727118C23838B0700051A1B /* BalanceView.swift */,
 				D733A80B238D321A006B11A1 /* UserInfoIconTableViewCell.swift */,
 				D7DFEE9F238E7FF8004B4F28 /* UserUidTableViewCell.swift */,
+				0428B194239619CA00FCE89B /* MSDepositAccountCell.swift */,
+				04BB28132398B777004D9C06 /* MSAmountViewCell.swift */,
+				04BB28152398DA71004D9C06 /* MSAvailableCapitalCell.swift */,
+				049FC5C023991B1C00C3CA1C /* MSInputSettingViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1189,6 +1205,8 @@
 				D7C31911237EABDF0029BCB8 /* ContactManageViewController.swift */,
 				D72711882382AB8400051A1B /* MoneyViewController.swift */,
 				D727118E2383A19700051A1B /* GetMoneyViewController.swift */,
+				04F00C502394AB1C0041640A /* MSDepositViewController.swift */,
+				049FC5BE2399177F00C3CA1C /* MSAddAccountViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1448,6 +1466,7 @@
 				D72A454C239F56B100C294F9 /* OrderDetailInfoTableViewCell.swift in Sources */,
 				041C3967237BAB53007FA74A /* HBSBaseCollectionView.swift in Sources */,
 				CB361A0F23925834005607FA /* MSResourceManagerCameraViewController.swift in Sources */,
+				04BB28142398B777004D9C06 /* MSAmountViewCell.swift in Sources */,
 				049034CD237D2EA700D1DF65 /* MSPublishTravelClickModel.swift in Sources */,
 				041C3983237BE64C007FA74A /* MSRentDetailViewController.swift in Sources */,
 				D7B43B59237AB4120035755F /* HomeBannerView.swift in Sources */,
@@ -1464,6 +1483,8 @@
 				D7DFEE95238E5E95004B4F28 /* DateExtension.swift in Sources */,
 				041C3972237BAB53007FA74A /* HBSBaseView.swift in Sources */,
 				041C3959237BAB53007FA74A /* HBSTableViewExtension.swift in Sources */,
+				0428B195239619CA00FCE89B /* MSDepositAccountCell.swift in Sources */,
+				049FC5BF2399177F00C3CA1C /* MSAddAccountViewController.swift in Sources */,
 				D727118D23838B0700051A1B /* BalanceView.swift in Sources */,
 				D7C3190E237E9C020029BCB8 /* ContactTableViewCell.swift in Sources */,
 				D7DFEEB0238FBA47004B4F28 /* BaseUserInfoViewController.swift in Sources */,
@@ -1489,8 +1510,10 @@
 				041C3955237BAB53007FA74A /* HBSProgressHUD.swift in Sources */,
 				D7DFEEB2238FD089004B4F28 /* CommonNoDataView.swift in Sources */,
 				D7B43B5D237AB7B80035755F /* BannerCollectionViewCell.swift in Sources */,
+				049FC5C123991B1C00C3CA1C /* MSInputSettingViewCell.swift in Sources */,
 				D7AF4D3A2367D9D7009957D4 /* Constants.swift in Sources */,
 				D7C3190A237E7C5F0029BCB8 /* AboutViewController.swift in Sources */,
+				04BB28162398DA71004D9C06 /* MSAvailableCapitalCell.swift in Sources */,
 				D7B43B77237CFA4F0035755F /* MeListTableViewCell.swift in Sources */,
 				D727118B2382B0E300051A1B /* MoneyMainTableViewCell.swift in Sources */,
 				041C3962237BAB53007FA74A /* HBSViewEventObject.swift in Sources */,
@@ -1563,6 +1586,7 @@
 				041C396F237BAB53007FA74A /* HBSBaseTableViewCell.swift in Sources */,
 				CBD702A6239B92C400CCCAC3 /* MSVideoBottomToolBarView.swift in Sources */,
 				D7C31902237E55C50029BCB8 /* MeSettingTableView.swift in Sources */,
+				04F00C512394AB1C0041640A /* MSDepositViewController.swift in Sources */,
 				D7AF4D4823683641009957D4 /* TableViewCellReusable.swift in Sources */,
 				049034FF237E49C300D1DF65 /* MSAlbumDataManager.swift in Sources */,
 				D7AF4D5F23699B39009957D4 /* UiButtonExtension.swift in Sources */,
@@ -1696,10 +1720,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VC2APXSZ8B;
+				DEVELOPMENT_TEAM = 8N5XFXG32V;
 				INFOPLIST_FILE = "$(SRCROOT)/MotoShare/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1707,9 +1731,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1;
-				PRODUCT_BUNDLE_IDENTIFIER = net.xuntong.xtt11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jianying.www;
 				PRODUCT_NAME = "摩滴共享";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "MotoShare/Main/MotoShare-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1723,10 +1747,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VC2APXSZ8B;
+				DEVELOPMENT_TEAM = 8N5XFXG32V;
 				INFOPLIST_FILE = "$(SRCROOT)/MotoShare/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1734,9 +1758,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1;
-				PRODUCT_BUNDLE_IDENTIFIER = net.xuntong.xtt11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jianying.www;
 				PRODUCT_NAME = "摩滴共享";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "MotoShare/Main/MotoShare-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
