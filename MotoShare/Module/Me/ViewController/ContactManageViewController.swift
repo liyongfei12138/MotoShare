@@ -91,6 +91,27 @@ class ContactManageViewController: BaseViewController {
         })
     }
     
+    @objc func clickDeleBtn(){
+        
+        
+        let alert = UIAlertController.init(title: "确认删除紧急联系人?", message: "点击【确定】进行删除", preferredStyle: UIAlertController.Style.alert)
+        
+        let action = UIAlertAction.init(title: "确定", style: UIAlertAction.Style.default) { (action) in
+            self.view?.endEditing(true)
+            MeRequestModel.editConactInfoWith(type: .delect, conactID: self.contactID, name: self.rowName, phone: self.rowPhone, { (data) in
+                self.navigationController?.popViewController(animated: true)
+            })
+        }
+        let action2 = UIAlertAction.init(title: "取消", style: UIAlertAction.Style.default) { (action) in
+            
+        }
+        alert.addAction(action)
+        alert.addAction(action2)
+        self.present(alert, animated: true, completion: nil)
+        
+        
+        
+    }
 }
 
 extension ContactManageViewController{
@@ -144,7 +165,9 @@ extension ContactManageViewController:UITableViewDelegate,UITableViewDataSource{
         deleteBtn.setTitle("删除紧急联系人", for: .normal)
         deleteBtn.backgroundColor = ColorWhite
         deleteBtn.setTitleColor(UIColor.gl_hex(hex: 0xEE301E), for: .normal)
+        deleteBtn.addTarget(self, action: #selector(clickDeleBtn), for: .touchUpInside)
         footView.addSubview(deleteBtn)
+        
         
         let titleLabel = UILabel(frame: CGRect(x: 0, y: deleteBtn.frame.maxY + 5, width: SCREEN_WIDTH, height: 20))
         titleLabel.textAlignment = .center
