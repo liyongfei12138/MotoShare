@@ -16,13 +16,13 @@ extension UIView {
     /// 展示加载指示器
     ///
     /// - Parameter offset: 偏移量
-    func gl_startCenterIndicatorView(offset: CGPoint = CGPoint.zero) {
+    func gl_startCenterIndicatorView(size: CGSize = CGSize.init(width: 60, height: 60), offset: CGPoint = CGPoint.zero,type: NVActivityIndicatorType = .lineScale, color: UIColor = ColorTheme) {
         
-        let indicatorViewSize = CGSize.init(width: 60, height: 60)
+        let indicatorViewSize = size
         
         let rect: CGRect = CGRect.init(x: ((self.frame.size.width - indicatorViewSize.width) / 2.0) + offset.x, y: ((self.frame.size.height - indicatorViewSize.height) / 2.0) + offset.y, width: min(self.frame.size.width, indicatorViewSize.width) , height: min(self.frame.size.height, indicatorViewSize.height))
         
-        gl_startIndicatorView(frame: rect)
+        gl_startIndicatorView(frame: rect, type: type, color: color)
     }
     
     
@@ -34,7 +34,7 @@ extension UIView {
     ///   - color: 主题色
     func gl_startIndicatorView(frame: CGRect, type: NVActivityIndicatorType = .lineScale, color: UIColor = ColorTheme){
         
-        let indicatorView: NVActivityIndicatorView = NVActivityIndicatorView.init(frame: frame, type: .lineScale, color: color, padding: 0)
+        let indicatorView: NVActivityIndicatorView = NVActivityIndicatorView.init(frame: frame, type: type, color: color, padding: 0)
         self.addSubview(indicatorView)
         indicatorView.startAnimating()
     }

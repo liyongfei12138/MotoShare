@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -90,6 +90,7 @@
 		04BB28142398B777004D9C06 /* MSAmountViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB28132398B777004D9C06 /* MSAmountViewCell.swift */; };
 		04BB28162398DA71004D9C06 /* MSAvailableCapitalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB28152398DA71004D9C06 /* MSAvailableCapitalCell.swift */; };
 		04F00C512394AB1C0041640A /* MSDepositViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F00C502394AB1C0041640A /* MSDepositViewController.swift */; };
+		5DABF48223B22A4F0085CEC4 /* CountDownManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DABF48123B22A4F0085CEC4 /* CountDownManager.swift */; };
 		947506F1842C6E97CF08E5F3 /* Pods_MotoShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A3051476B1329CCA0ED583C /* Pods_MotoShare.framework */; };
 		B05CB9F523A1D8EF005DE866 /* HTTPSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05CB9F423A1D8EF005DE866 /* HTTPSManager.swift */; };
 		B05D8FE423A2726100994151 /* MeRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D8FE323A2726100994151 /* MeRequestModel.swift */; };
@@ -296,6 +297,7 @@
 		215459550287FA041196F067 /* Pods-MotoShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotoShare.release.xcconfig"; path = "Target Support Files/Pods-MotoShare/Pods-MotoShare.release.xcconfig"; sourceTree = "<group>"; };
 		4BCAA0436859B5372895A100 /* Pods-FoodRecipe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodRecipe.debug.xcconfig"; path = "Target Support Files/Pods-FoodRecipe/Pods-FoodRecipe.debug.xcconfig"; sourceTree = "<group>"; };
 		58E610E719334776F82825DC /* Pods-MotoShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotoShare.debug.xcconfig"; path = "Target Support Files/Pods-MotoShare/Pods-MotoShare.debug.xcconfig"; sourceTree = "<group>"; };
+		5DABF48123B22A4F0085CEC4 /* CountDownManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownManager.swift; sourceTree = "<group>"; };
 		84D0AFB163E213BB2C654492 /* Pods-FoodRecipe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodRecipe.release.xcconfig"; path = "Target Support Files/Pods-FoodRecipe/Pods-FoodRecipe.release.xcconfig"; sourceTree = "<group>"; };
 		B05CB9F423A1D8EF005DE866 /* HTTPSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPSManager.swift; sourceTree = "<group>"; };
 		B05D8FE323A2726100994151 /* MeRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeRequestModel.swift; sourceTree = "<group>"; };
@@ -820,6 +822,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5DABF48023B22A430085CEC4 /* CountDownManager */ = {
+			isa = PBXGroup;
+			children = (
+				5DABF48123B22A4F0085CEC4 /* CountDownManager.swift */,
+			);
+			path = CountDownManager;
+			sourceTree = "<group>";
+		};
 		B05D8FE223A2722D00994151 /* MeRequesr */ = {
 			isa = PBXGroup;
 			children = (
@@ -1146,6 +1156,7 @@
 		D7B43B67237BA2660035755F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				5DABF48023B22A430085CEC4 /* CountDownManager */,
 				D7B43B68237BA26E0035755F /* FWSide */,
 			);
 			path = Tools;
@@ -1576,6 +1587,7 @@
 				D7A034F9238B7DFA00AF26A4 /* LoginViewController.swift in Sources */,
 				D7DFEEBD2390FAA2004B4F28 /* DriverViewController.swift in Sources */,
 				CBA42E2D238A426A001C8FD7 /* MSRentDetailTableView.swift in Sources */,
+				5DABF48223B22A4F0085CEC4 /* CountDownManager.swift in Sources */,
 				D7B43B5B237AB4380035755F /* HomeMainView.swift in Sources */,
 				049034DF237D319000D1DF65 /* MSPublishTravelFilesCell.swift in Sources */,
 				049034C0237CEFA300D1DF65 /* MSTravelListCell.swift in Sources */,

@@ -8,155 +8,196 @@
 
 import UIKit
 
-class MSAddAccountViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
-
-
-        // MARK: - define ---
-        let depositSettingInputCell_id_1 = "depositSettingInputCell_id_1"
-        
-        // MARK: - life cycle --
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            
-            p_initialize()
-            
-            p_setUpUI()
-
-        }
+class MSAddAccountViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, MSInputCellDelegate {
     
-        override func viewDidAppear(_ animated: Bool) {
-            super.viewDidAppear(animated)
-            
-            
-            p_showKeyBoard()
-        }
+    
+    // MARK: - define ---
+    let depositSettingInputCell_id_1 = "depositSettingInputCell_id_1"
+    
+    // MARK: - life cycle --
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        p_initialize()
+        
+        p_setUpUI()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        
+        p_showKeyBoard()
+    }
     
     // MARK: - pivite method --
-        func p_initialize() {
-            
-        }
+    func p_initialize() {
         
-        func p_setUpUI() {
-            
-            self.view.addSubview(self.listView)
-            
-            p_layout()
-        }
+    }
+    
+    func p_setUpUI() {
         
-        func p_layout(){
-            
-            self.listView.snp.makeConstraints { (make) in
-                make.left.right.top.bottom.equalToSuperview()
+        self.view.addSubview(self.listView)
+        
+        p_layout()
+    }
+    
+    func p_layout(){
+        
+        self.listView.snp.makeConstraints { (make) in
+            make.left.right.top.bottom.equalToSuperview()
+        }
+    }
+    
+    func p_showKeyBoard() {
+        
+        let cell: MSInputSettingViewCell? = self.listView.visibleCells.single { (cell) -> Bool in
+            return cell is MSInputSettingViewCell
+            } as? MSInputSettingViewCell
+        
+        cell?.inputField.becomeFirstResponder()
+    }
+    
+    @objc func p_confirmBtnAction() {
+        
+        self.confirmBtn.gl_startCenterIndicatorView(size:CGSize.init(width: 20, height: 20), type: .lineSpinFadeLoader, color: UIColor.white)
+        self.confirmBtn.setTitle("", for: UIControl.State.normal)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+            self.confirmBtn.gl_stopIndicatorView(inView: nil)
+            self.confirmBtn.setTitle("绑定支付宝", for: UIControl.State.normal)
+        }
+        print("绑定支付宝")
+        
+    }
+    
+    // MARK - UITableview delegate method ---
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return self.dataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let model = self.dataSource[indexPath.row]
+        
+        let cell: MSInputSettingViewCell = tableView.dequeueReusableCell(withIdentifier: depositSettingInputCell_id_1, for: indexPath) as! MSInputSettingViewCell
+        
+        cell.updateCell(identifier:model.key, model: model)
+        cell.cellDelegate = self
+        
+        if !String.gl_empty(string: model.detailBtnTitle) {
+            DispatchQueue.main.async {
+                self.p_refreshPhoneCodeSendBtnState(cell: cell)
             }
         }
         
-        func p_showKeyBoard() {
-            
-            let cell: MSInputSettingViewCell? = self.listView.visibleCells.single { (cell) -> Bool in
-                return cell is MSInputSettingViewCell
-                } as? MSInputSettingViewCell
-            
-            cell?.inputField.becomeFirstResponder()
-        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let model = self.dataSource[indexPath.row]
         
-        @objc func p_confirmBtnAction() {
-            
-            self.confirmBtn.gl_startCenterIndicatorView()
-            self.confirmBtn.setTitle("", for: UIControl.State.normal)
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-                self.confirmBtn.gl_stopIndicatorView(inView: nil)
-                self.confirmBtn.setTitle("", for: UIControl.State.normal)
-            }
-            print("绑定支付宝")
-            
-        }
+        return model.cellHeight;
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        // MARK - UITableview delegate method ---
+        let sectionView = UIView.init()
+        sectionView.backgroundColor = UIColor.clear
+        return sectionView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView.init()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.zero
+    }
+    
+    // MARK - lazy load --
+    
+    lazy var listView: UITableView = {
+        let listView = UITableView.init(frame: .zero, style: UITableView.Style.grouped)
+        listView.backgroundColor = ColorTableViewBG
+        listView.delegate = self
+        listView.dataSource = self
+        listView.separatorStyle = .none
+        listView.estimatedRowHeight = 0
+        listView.showsVerticalScrollIndicator = false
+        listView.showsHorizontalScrollIndicator = false
         
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-                        
-            return self.dataSource.count
+        if #available(iOS 11.0, *) {
+            listView.contentInsetAdjustmentBehavior = .never
         }
-        
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let model = self.dataSource[indexPath.row]
-                       
-            let cell: MSInputSettingViewCell = tableView.dequeueReusableCell(withIdentifier: depositSettingInputCell_id_1, for: indexPath) as! MSInputSettingViewCell
-           
-            cell.updateCell(model: model)
-            
-            return cell
+        listView.register(MSInputSettingViewCell.self, forCellReuseIdentifier: depositSettingInputCell_id_1)
+        listView.tableFooterView = self.footerView
+        return listView
+    }()
+    
+    lazy var dataSource: [InputSettingModel] = {
+        let dataSource = InputSettingModel.getAddAccountListModels()
+        return dataSource
+    }()
+    
+    lazy var confirmBtn: UIButton = {
+        let confirmBtn = UIButton.init(frame: .zero)
+        confirmBtn.setTitle("绑定支付宝", for: .normal)
+        confirmBtn.backgroundColor = ColorTheme
+        confirmBtn.cornerRadius = 10
+        confirmBtn.addTarget(self, action: #selector(p_confirmBtnAction), for: UIControl.Event.touchUpInside)
+        return confirmBtn
+    }()
+    
+    lazy var footerView: UIView = {
+        let footerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: 100))
+        footerView.addSubview(self.confirmBtn)
+        self.confirmBtn.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.size.equalTo(CGSize.init(width: SCREEN_WIDTH - 40, height: 48))
         }
-        
-        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            let model = self.dataSource[indexPath.row]
-                    
-            return model.cellHeight;
-        }
-        
-        func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-            
-            let sectionView = UIView.init()
-            sectionView.backgroundColor = UIColor.clear
-            return sectionView
-        }
-        
-        func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-            return 20
-        }
-        
-        func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-            return UIView.init()
-        }
+        return footerView
+    }()
+}
 
-        func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-            return CGFloat.zero
-        }
-        
-        // MARK - lazy load --
-        
-        lazy var listView: UITableView = {
-            let listView = UITableView.init(frame: .zero, style: UITableView.Style.grouped)
-            listView.backgroundColor = ColorTableViewBG
-            listView.delegate = self
-            listView.dataSource = self
-            listView.separatorStyle = .none
-            listView.estimatedRowHeight = 0
-            listView.showsVerticalScrollIndicator = false
-            listView.showsHorizontalScrollIndicator = false
-            
-            if #available(iOS 11.0, *) {
-                listView.contentInsetAdjustmentBehavior = .never
-            }
-            listView.register(MSDepositAccountCell.self, forCellReuseIdentifier: depositSettingInputCell_id_1)
-            listView.tableFooterView = self.footerView
-            return listView
-        }()
-        
-        lazy var dataSource: [InputSettingModel] = {
-            let dataSource = InputSettingModel.getAddAccountListModels()
-            return dataSource
-        }()
-        
-        lazy var confirmBtn: UIButton = {
-            let confirmBtn = UIButton.init(frame: .zero)
-            confirmBtn.setTitle("绑定支付宝", for: .normal)
-            confirmBtn.backgroundColor = ColorTheme
-            confirmBtn.cornerRadius = 10
-            confirmBtn.addTarget(self, action: #selector(p_confirmBtnAction), for: UIControl.Event.touchUpInside)
-            return confirmBtn
-        }()
-        
-        lazy var footerView: UIView = {
-            let footerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: 100))
-            footerView.addSubview(self.confirmBtn)
-            self.confirmBtn.snp.makeConstraints { (make) in
-                make.centerY.equalToSuperview()
-                make.centerX.equalToSuperview()
-                make.size.equalTo(CGSize.init(width: SCREEN_WIDTH - 40, height: 48))
-            }
-            return footerView
-        }()
-        
 
+extension MSAddAccountViewController {
+
+    func cellDidSelectedDetailBtn(detailBtn: UIButton) {
+
+        p_countDown(countDownBtn: detailBtn)
+    }
+
+    
+    func updateInputFiled(identifier: String, inputText: String?) {
+        print("key:\(identifier), inputText:\(inputText)")
+    }
+
+    func p_countDown(countDownBtn: UIButton) {
+
+        CountDownManager.stand.beginCountDown(identifier: "addAccountCellSendCode", interval: 60, progress: { (identifier, remainderInterval, endDate) in
+            countDownBtn.isEnabled = false
+            countDownBtn.setTitle("  \(Int(remainderInterval).string)s  ", for: .normal)
+
+        }) { (identifier) in
+            countDownBtn.isEnabled = true
+            countDownBtn.setTitle("发送验证码", for: .normal)
+        }
+    }
+
+    func p_refreshPhoneCodeSendBtnState(cell: MSInputSettingViewCell){
+
+        let interval = CountDownManager.stand.countDownUntilInterval(identifier: "addAccountCellSendCode")
+
+        if interval != 0 {
+            p_countDown(countDownBtn: cell.detailBtn)
+        }
+    }
+    
 }

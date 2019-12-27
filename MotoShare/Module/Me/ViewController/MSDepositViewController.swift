@@ -92,14 +92,12 @@ class MSDepositViewController: BaseViewController, UITableViewDelegate, UITableV
         
         switch model.rowType! {
         case .accountType:
-            let cell = tableView.dequeueReusableCell(withIdentifier: depositAccountCell_id_1, for: indexPath)
-            
-            
+            let cell: MSDepositAccountCell = tableView.dequeueReusableCell(withIdentifier: depositAccountCell_id_1, for: indexPath) as! MSDepositAccountCell
+
             return cell
         case .depositCapital:
             let cell:MSAmountViewCell = tableView.dequeueReusableCell(withIdentifier: depositAmountCell_id_1, for: indexPath) as! MSAmountViewCell
-            
-
+    
             return cell
         case .availableCapital:
             let cell = tableView.dequeueReusableCell(withIdentifier: singleTextCell_id_1, for: indexPath)
@@ -118,8 +116,12 @@ class MSDepositViewController: BaseViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        let cell = tableView.cellForRow(at: indexPath)
         
-        
+        if cell is MSDepositAccountCell {
+            let addAccountVC = MSAddAccountViewController.init()
+            self.navigationController?.pushViewController(addAccountVC, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

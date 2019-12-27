@@ -32,9 +32,9 @@ struct MeModel {
         
         
         let info1 = [
-                    SetBaseModel(title: "实名认证", type: SettingRowType.realName),
-                    SetBaseModel(title: "紧急联系人", type: SettingRowType.contact)
-                    ]
+            SetBaseModel(title: "实名认证", type: SettingRowType.realName),
+            SetBaseModel(title: "紧急联系人", type: SettingRowType.contact)
+        ]
         let info2 = [
             SetBaseModel(title: "清除缓存", type: SettingRowType.cache),
             SetBaseModel(title: "给个好评", type: SettingRowType.praise)
@@ -93,12 +93,12 @@ struct MeModel {
     static func getUserInfoListData()->[[UserInfoBaseModel]]{
         
         let info = [
-                    UserInfoBaseModel(title: "头像", type: UserInfoRowType.icon, detail: User.stand.headimg),
-                    UserInfoBaseModel(title: "昵称", type: UserInfoRowType.name, detail: User.stand.name),
-                    UserInfoBaseModel(title: "用户ID", type: UserInfoRowType.uid, detail: User.stand.ID),
-                    UserInfoBaseModel(title: "性别", type: UserInfoRowType.sex, detail: User.stand.sex)
-                    
-                    ]
+            UserInfoBaseModel(title: "头像", type: UserInfoRowType.icon, detail: User.stand.headimg),
+            UserInfoBaseModel(title: "昵称", type: UserInfoRowType.name, detail: User.stand.name),
+            UserInfoBaseModel(title: "用户ID", type: UserInfoRowType.uid, detail: User.stand.ID),
+            UserInfoBaseModel(title: "性别", type: UserInfoRowType.sex, detail: User.stand.sex)
+            
+        ]
         
         let info2 = [
             UserInfoBaseModel(title: "相册", type: UserInfoRowType.picture)
@@ -184,7 +184,7 @@ struct PhotosBaseModel: HandyJSON {
 
 
 /// 提现界面类型
- public enum DepositRowType {
+public enum DepositRowType {
     case accountType
     case depositCapital
     case availableCapital
@@ -211,28 +211,30 @@ struct DepositListModel {
         let listModels = [[DepositListModel.init(title: "", rowType: .accountType, cellHeight: 70)],[DepositListModel.init(title: "提现金额", rowType: .depositCapital, cellHeight: 100), DepositListModel.init(title: "可用余额", rowType: .availableCapital, cellHeight: 30)]]
         return listModels
     }
- }
+}
 
 
 struct InputSettingModel {
     
-      var title: String = ""
-      var placeHolder: String = ""
-      var detailTitle: String = ""
-      var cellHeight: CGFloat = 70
-      
-      init(title: String, placeHolder: String? = "", detailTitle: String? = "", cellHeight: CGFloat = 70) {
-          self.title = title
-          self.placeHolder = placeHolder ?? ""
-          self.detailTitle = detailTitle ?? ""
-          self.cellHeight = cellHeight
-      }
-      
-      static func getAddAccountListModels() -> [InputSettingModel] {
-          
-        let listModels = [InputSettingModel.init(title: "账号", placeHolder: "支付宝账号" , cellHeight: 70),InputSettingModel.init(title: "姓名", placeHolder: "请输入姓名", cellHeight: 70), InputSettingModel.init(title: "验证码", placeHolder: "请输入短信验证码", detailTitle: "发送验证码", cellHeight: 70)]
-          return listModels
-      }
+    var key: String = ""
+    var title: String = ""
+    var placeHolder: String = ""
+    var detailBtnTitle: String = ""
+    var cellHeight: CGFloat = 70
+    
+    init(key: String = "", title: String, placeHolder: String? = "", detailBtnTitle: String? = "", cellHeight: CGFloat = 70) {
+        self.key = key
+        self.title = title
+        self.placeHolder = placeHolder ?? ""
+        self.detailBtnTitle = detailBtnTitle ?? ""
+        self.cellHeight = cellHeight
+    }
+    
+    static func getAddAccountListModels() -> [InputSettingModel] {
+        
+        let listModels = [InputSettingModel.init(title: "账号", placeHolder: "支付宝账号" , cellHeight: 70),InputSettingModel.init(title: "姓名", placeHolder: "请输入姓名", cellHeight: 70), InputSettingModel.init(title: "验证码", placeHolder: "请输入短信验证码", detailBtnTitle: "发送验证码", cellHeight: 70)]
+        return listModels
+    }
 }
 
 

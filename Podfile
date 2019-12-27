@@ -30,5 +30,6 @@ target 'MotoShare' do
   pod 'JXPhotoBrowser' # 图片预览
   pod 'UPYUN'   #又拍云
   pod 'CDAlertView'
-  pod 'FWPopupView' 
+  pod 'FWPopupView'
+  pod 'Schedule'
 end
